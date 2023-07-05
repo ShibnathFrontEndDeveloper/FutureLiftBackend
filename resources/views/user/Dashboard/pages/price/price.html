@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Futurelift User Dashboard</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <a class="sidebar-brand brand-logo" href="/index.html"><img src="../../assets/images/logo_blak.png" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="/index.html" style="color:#6a1ddf; font-weight: 800;">F</a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item profile">
+            <div class="profile-desc">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img class="img-xs rounded-circle " src="../../assets/images/faces/face15.jpg" alt="">
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">User Name</h5>
+                  <span>Kind of Member</span>
+                </div>
+              </div>
+              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+              <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-onepassword  text-info"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-calendar-today text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Navigation</span>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../../dash.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../my-profile/profile.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">My Profile</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="pages/forms/basic_elements.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">My Assessment</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">My Resources</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="../../../blog.html">Blog Career</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">My Session</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="../my-session/sessions.html"> Sessions</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../refar-and-earn/refar-earn.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-contacts"></i>
+              </span>
+              <span class="menu-title">Refer Friend</span>
+            </a>
+          </li>
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../help/help.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Help</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_navbar.html -->
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo-mini" href="../index.html"style="color:#6a1ddf; font-weight: 800;">F</a>
+          </div>
+          <div class="navbar-menu-wrapper d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="mdi mdi-menu"></span>
+            </button>
+            
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown border-left">
+                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                  <i class="mdi mdi-bell"></i>
+                  <span class="count bg-danger"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                  <h6 class="p-3 mb-0">Notifications</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-calendar text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Event today</p>
+                      <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Settings</p>
+                      <p class="text-muted ellipsis mb-0"> Update dashboard </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-link-variant text-warning"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Launch Admin</p>
+                      <p class="text-muted ellipsis mb-0"> New admin wow! </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">See all notifications</p>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                  <div class="navbar-profile">
+                    <img class="img-xs rounded-circle" src="../../assets/images/faces/face15.jpg" alt="">
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">User Name</p>
+                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                  </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                  <h6 class="p-3 mb-0">Profile</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Settings</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Log out</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">Advanced settings</p>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-format-line-spacing"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <!-- <div class="row mb-4">
+              <div class="col-12 grid-margin ">
+                <div class="card corona-gradient-card">
+                  <div class="card-body py-0 px-0 px-sm-3">
+                    <div class="row align-items-center">
+                      <div class="col-4 col-sm-3 col-xl-2">
+                        <img src="../../assets/images/dashboard/Group126@2x.png" class="gradient-corona-img img-fluid" alt="">
+                      </div>
+                      <div class="col-5 col-sm-7 col-xl-8 p-0">
+                        <h4 class="mb-1 mb-sm-0">Want even more features?</h4>
+                        <p class="mb-0 font-weight-normal d-none d-sm-block">Check out our Pro version with 5 unique layouts!</p>
+                      </div>
+                      <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
+                        <span>
+                          <a href="../index.html" target="_blank" class="btn btn-outline-light btn-rounded get-started-btn">Upgrade to PRO</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <div class="page-header">
+              <h3 class="page-title"> Price</h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/Dashboard/dash.html">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Price</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-md-12 mx-0 upgrt_price_box">
+                <div class="card">
+                  <div class="card-body price_body">
+                    <div class="row">
+                      <div class="col-lg-4 col-md-6 price_box mb-5">
+                        <div class="cord_pice">
+                          <div class="card-body">
+                            <h1 class="price_heading">Future Lift Advance</h1>
+                            <div class="rate_box">
+                              <h3><i class="bi bi-currency-rupee"></i>13,449</h3>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><i class="bi bi-clipboard2-check-fill"></i>Career Assessment</h3>
+                              <p>4 dimensional career assessment covering 18 factors in
+                                Interest, Personality, IQ and Aptitude
+                              </p>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><i class="bi bi-search"></i></i>25+ page Detailed Career Analysis:</h3>
+                              <p>18+ full detail report with top 10 career recommendation</p>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><i class="bi bi-browser-safari"></i></i>Career Exploration:</h3>
+                              <p>Access well researched content on 500+ career</p>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><i class="bi bi-book-fill"></i>Career Counseling: <span class="badge rounded-pill bg-primary">3 Sessions</span></h3>
+                              <p>Counseling session to help in understanding yourself and
+                                finalising the course for undergradation</p>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><span class="mdi mdi-brain"></span> Personalized Brainstorming Session:</h3>
+                              <p>Brainstorming encourages you to think creatively (out of
+                                the box), encouraging all students to share their ideas
+                              </p>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><span class="mdi mdi-clipboard-edit"></span> Admission Application: <span class="badge rounded-pill bg-primary">3-4 Sessions</span></h3>
+                              <p>End-to-end admission guidance to help you apply and
+                                guarantee admission in Indiana University and Colleges
+                              </p>
+                            </div>
+                            <div class=" pirce_btn_box text-center mt-4">
+                              <button class="btn">Buy Now</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="col-lg-4 col-md-6 price_box mb-5">
+                        <div class="cord_pice">
+                          <div class="card-body">
+                            <h1 class="price_heading">Future Lift Pro</h1>
+                            <div class="rate_box">
+                              <h3><i class="bi bi-currency-rupee"></i>6,449</h3>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><i class="bi bi-clipboard2-check-fill"></i>Career Assessment</h3>
+                              <p>4 dimensional career assessment covering 18 factors in
+                                Interest, Personality, IQ and Aptitude
+                              </p>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><i class="bi bi-search"></i></i>25+ page Detailed Career Analysis:</h3>
+                              <p>18+ full detail report with top 10 career recommendation</p>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><i class="bi bi-browser-safari"></i>Career Exploration:</h3>
+                              <p>Access well researched content on 500+ career</p>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><i class="bi bi-book-fill"></i>Career Counseling: <span class="badge rounded-pill bg-primary">3 Sessions</span></h3>
+                              <p>Counseling session to help in understanding yourself and
+                                finalising the course for undergradation</p>
+                            </div>
+                            <div class="feature_dtls_box mb-3 disabled">
+                              <h3><i class="bi bi-lock-fill"></i>Personalized Brainstorming Session:</h3>
+                              <p>Brainstorming encourages you to think creatively (out of
+                                the box), encouraging all students to share their ideas
+                              </p>
+                            </div>
+                            <div class="feature_dtls_box mb-3 disabled">
+                              <h3><i class="bi bi-lock-fill"></i>Admission Application: <span class="badge rounded-pill bg-secondary">3-4 Sessions</span></h3>
+                              <p>End-to-end admission guidance to help you apply and
+                                guarantee admission in Indiana University and Colleges
+                              </p>
+                            </div>
+                            <div class=" pirce_btn_box text-center mt-4">
+                              <button class="btn">Buy Now</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 price_box mb-5">
+                        <div class="cord_pice">
+                          <div class="card-body">
+                            <h1 class="price_heading">Future Lift Career Test</h1>
+                            <div class="rate_box">
+                              <h3><i class="bi bi-currency-rupee"></i>449</h3>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><i class="bi bi-clipboard2-check-fill"></i>Career Assessment</h3>
+                              <p>4 dimensional career assessment covering 18 factors in
+                                Interest, Personality, IQ and Aptitude
+                              </p>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><i class="bi bi-search"></i>25+ page Detailed Career Analysis:</h3>
+                              <p>18+ full detail report with top 10 career recommendation</p>
+                            </div>
+                            <div class="feature_dtls_box mb-3">
+                              <h3><i class="bi bi-browser-safari"></i></i>Career Exploration:</h3>
+                              <p>Access well researched content on 500+ career</p>
+                            </div>
+                            <div class="feature_dtls_box mb-3 disabled">
+                              <h3><i class="bi bi-lock-fill"></i>Career Counseling: <span class="badge rounded-pill bg-secondary">3 Sessions</span></h3>
+                              <p>Counseling session to help in understanding yourself and
+                                finalising the course for undergradation</p>
+                            </div>
+                            <div class="feature_dtls_box mb-3 disabled">
+                              <h3><i class="bi bi-lock-fill"></i>Personalized Brainstorming Session:</h3>
+                              <p>Brainstorming encourages you to think creatively (out of
+                                the box), encouraging all students to share their ideas
+                              </p>
+                            </div>
+                            <div class="feature_dtls_box mb-3 disabled">
+                              <h3><i class="bi bi-lock-fill"></i>Admission Application: <span class="badge rounded-pill bg-secondary">3-4 Sessions</span></h3>
+                              <p>End-to-end admission guidance to help you apply and
+                                guarantee admission in Indiana University and Colleges
+                              </p>
+                            </div>
+                            <div class=" pirce_btn_box text-center mt-4">
+                              <button class="btn">Buy Now</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Future Lift</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><a href="https://www.websolveinfo.com/" target="_blank"></a></span>
+            </div>
+          </footer>
+      <!-- partial -->
+    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="../../assets/vendors/chart.js/Chart.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <script src="../../assets/js/settings.js"></script>
+    <script src="../../assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="../../assets/js/chart.js"></script>
+    <!-- End custom js for this page -->
+
+
+<!-- Profile Image Upload Js -->
+    <script>
+      let uploadbtn = document.getElementById('upload_inout');
+      let uploadImage = document.getElementById('upload_image');
+
+      uploadbtn.onchange = () =>{
+        let reader = new FileReader();
+        reader.readAsDataURL(uploadbtn.files[0]);
+        console.log(uploadbtn.files[0]);
+        reader.onload = () =>{
+          uploadImage.setAttribute("src",reader.result);
+        }
+      };
+    </script>
+    <script>
+      $(document).ready(function(){
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var opacity;
+        
+        $(".next").click(function(){
+            
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+            
+            //Add Class Active
+            $("#progressbar li").eq($("fieldset").index(next_fs)).toggleClass("active");
+            
+            //show the next fieldset
+            next_fs.show(); 
+            //hide the current fieldset with style
+            current_fs.animate({opacity: 0}, {
+                step: function(now) {
+                    // for making fielset appear animation
+                    opacity = 1 - now;
+        
+                    current_fs.css({
+                        'display': 'none',
+                        'position': 'relative'
+                    });
+                    next_fs.css({'opacity': opacity});
+                }, 
+                duration: 600
+            });
+        });
+        
+        $(".prev").click(function(){
+            
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+            
+            //Remove class active
+            $("#progressbar li").eq($("fieldset").index(current_fs)).toggleClass("active");
+            
+            //show the previous fieldset
+            previous_fs.show();
+        
+            //hide the current fieldset with style
+            current_fs.animate({opacity: 0}, {
+                step: function(now) {
+                    // for making fielset appear animation
+                    opacity = 1 - now;
+        
+                    current_fs.css({
+                        'display': 'none',
+                        'position': 'relative'
+                    });
+                    previous_fs.css({'opacity': opacity});
+                }, 
+                duration: 600
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

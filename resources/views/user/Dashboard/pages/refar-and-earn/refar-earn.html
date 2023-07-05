@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Futurelift User Dashboard</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" />
+  </head>
+  <body>
+    <div class=" container-scroller">
+      <!-- partial:../../partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <a class="sidebar-brand brand-logo" href="../index.html"><img src="../../assets/images/logo_blak.png" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="../index.html" style="color:#6a1ddf; font-weight: 800;">F</a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item profile">
+            <div class="profile-desc">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img class="img-xs rounded-circle " src="../../assets/images/faces/face15.jpg" alt="">
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">User Name</h5>
+                  <span>Kind of Member</span>
+                </div>
+              </div>
+              <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+              <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-settings text-primary"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-onepassword  text-info"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
+                  </div>
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-calendar-today text-success"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Navigation</span>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../../dash.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../my-profile/profile.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">My Profile</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="pages/forms/basic_elements.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">My Assessment</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-icon">
+                <i class="mdi mdi-laptop"></i>
+              </span>
+              <span class="menu-title">My Resources</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="../../../blog.html">Blog Career</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">My Session</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="../my-session/sessions.html"> Sessions</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="./refar-earn.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-contacts"></i>
+              </span>
+              <span class="menu-title">Refer Friend</span>
+            </a>
+          </li>
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../help/help.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Help</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_navbar.html -->
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo-mini" href="../index.html"style="color:#6a1ddf; font-weight: 800;">F</a>
+          </div>
+          <div class="navbar-menu-wrapper d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="mdi mdi-menu"></span>
+            </button>
+            
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown border-left">
+                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                  <i class="mdi mdi-bell"></i>
+                  <span class="count bg-danger"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                  <h6 class="p-3 mb-0">Notifications</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-calendar text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Event today</p>
+                      <p class="text-muted ellipsis mb-0"> Just a reminder that you have an event today </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Settings</p>
+                      <p class="text-muted ellipsis mb-0"> Update dashboard </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-link-variant text-warning"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Launch Admin</p>
+                      <p class="text-muted ellipsis mb-0"> New admin wow! </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">See all notifications</p>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                  <div class="navbar-profile">
+                    <img class="img-xs rounded-circle" src="../../assets/images/faces/face15.jpg" alt="">
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name">User Name</p>
+                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                  </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                  <h6 class="p-3 mb-0">Profile</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-settings text-success"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Settings</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-logout text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1">Log out</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <p class="p-3 mb-0 text-center">Advanced settings</p>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="mdi mdi-format-line-spacing"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row mb-4">
+              <div class="col-12 grid-margin ">
+                <div class="card corona-gradient-card">
+                  <div class="card-body py-0 px-0 px-sm-3">
+                    <div class="row align-items-center">
+                      <div class="col-4 col-sm-3 col-xl-2">
+                        <img src="../../assets/images/dashboard/Group126@2x.png" class="gradient-corona-img img-fluid" alt="">
+                      </div>
+                      <div class="col-5 col-sm-7 col-xl-8 p-0 upgrd_heading">
+                        <h4 class="mb-1 mb-sm-0">Want even more features?</h4>
+                      </div>
+                      <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
+                        <span>
+                          <a href="../price/price.html" target="_blank" class="btn btn-outline-light btn-rounded get-started-btn">Upgrade to PRO</a>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="page-header">
+              <h3 class="page-title"> Refar and Earn</h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/Dashboard/dash.html">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Refar and earn</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 grid-margin">
+                <div class="card dash_card">
+                  <div class="card-body refer_card">
+                    <div class="row">
+                      <div class="col-12 referEarn_heading_box bg_primary">
+                        <div class="row align-items-center">
+                          <div class="col-lg-8 col-md-6 text-center">
+                            <h1 class="refr_heading">Enjoy the convenience</h1>
+                            <p>Refer your friends and earn unlimited Amaz on gift vouchers.</p>
+                            <div class="refer_btn">
+                              <a href="#refPop" data-bs-toggle="modal" data-bs-target="#refPop" class="refer_btn_link">refer now</a>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-md-6">
+                            <img src="../../../assets/images/rear-earn.png" alt="" class="img-fluid">
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Refar popup -->
+                      
+                      
+                      <div class="col-sm-6 col-md-4 col-lg-4 refer_point_store_box">
+                        <div class="row">
+                          <div class="col-lg-12"></div>
+                        </div>
+                        <div class="refer_view_btn text-right">
+                          <a href="" class="refer_view_btn_link">view all</a>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                          <i class="bi bi-envelope-heart"></i>
+                          
+                        <span>1</span>
+                        <span>INVITED</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-4 refer_point_store_box">
+                        <div class="refer_view_btn text-right">
+                          <a href=""class="refer_view_btn_link">view all</a>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                          <i class="bi bi-card-checklist"></i>
+                          <i class="bi bi-pen-fill pen"></i>
+                          <span>1</span>
+                        <span>REGISTERED</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-md-4 col-lg-4 refer_point_store_box">
+                        <div class="refer_view_btn text-right">
+                          <a href="" class="refer_view_btn_link">view all</a>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                          <i class="bi bi-award-fill"></i>
+                          <span>1</span>
+                        <span>ENROLLED</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 how_work">
+                        <div class="text-center">
+                          <h1>How it works</h1>
+                          <p>Refer a friend and you both get INR 500</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-4 col-md-4 work_details_box">
+                        <img src="../../../assets/images/announce.png" alt="" class="img-fluid">
+                        <h3>Refer a Friend</h3>
+                        <p>Chat, tweet, email, or share. Pick your channel and share your referral code</p>
+                      </div>
+                      <div class="col-lg-4 col-md-4 work_details_box">
+                        <img src="../../../assets/images/announce.png" alt="" class="img-fluid">
+                        <h3>Your Friend Enrols</h3>
+                        <p>Your friend enrols in any Mindler career guidance program using your referral code</p>
+                      </div>
+                      <div class="col-lg-4 col-md-4 work_details_box">
+                        <img src="../../../assets/images/announce.png" alt="" class="img-fluid">
+                        <h3>You Both Earn Rewards</h3>
+                        <p>Your friend gets INR 500 off on their fee, and you get an INR 500 Amazon voucher</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12 terms_box text-left">
+                        <h3>Terms & Conditions:</h3>
+                        <ul class="terms_list">
+                          <li>You cannot refer yourself</li>
+                          <li>Offer valid on authentic and paid signups only</li>
+                          <li>The offer is valid only for new and non-enrolled users</li>
+                          <li>The voucher is tendered when your referral has signed up for a paid career planning service</li>
+                          <li>Offer may vary at the discretion of the company</li>
+                          <li>All other website terms appl</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Refar Modal -->
+          
+          <div class="modal fade refmodref" id="refPop" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content ref_mdal_box">
+                <div class="modal-header">
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body ref_mdal_box">
+                  <div class="caption_top">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <img src="../../../assets/images/refar_.png" alt="" class="img-fluid">
+                        <h5>Refer your friends and get INR 500 Amazon gift voucher!</h5>
+                        <p>When your friends buy using your referral code they get INR 500 off and you get an INR 500 Amazon voucher</p>
+                      </div>
+                    </div>
+                    <div class="row align-items-center">
+                      <div class="col-md-8 all_refar_link_box">
+                        <div class="row">
+                          <div class="col-md-8 refar_link_box">
+                            <div class="link_ref_box">
+                              <span>Copy Link</span>
+                              <input type="text" value="Dashboard/pages/refar-and-earn/refar-earn.html" id="refLinkInput" class="form-control" >
+                            </div>
+                            <button onclick="copyCode()"class="btn btn-primary">Copy text</button>
+                          </div>
+                          <div class="col-md-4 refar_link_box">
+                            <div class="link_ref_box">
+                              <span>Copy Code</span>
+                              <input type="text" value="1253" id="refInput" class="form-control" >
+                            </div>
+                            <button onclick="myFunction()"class="btn btn-primary">Copy text</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="link_ref_box ref_social_box">
+                          <p class="social_para">Share on Social Media:</p>
+                          <a href=""><img src="../../../assets/images/tweeter.png" alt="" class="img-fluid" width="20"/>
+                          <a href=""><img src="../../../assets/images/facebook.png" alt="" class="img-fluid" width="20"/>
+                          <a href=""><img src="../../../assets/images/whatsApp.png" alt="" class="img-fluid" width="20"/>
+                          <a href=""><img src="../../../assets/images/linkedin.png" alt="" class="img-fluid" width="20"/>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" data-bs-target="#refPopref" data-bs-toggle="modal">Send via mail</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade refmodref" id="refPopref" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content ref_mdal_box">
+                <div class="modal-header">
+                  <button class="btn btn-primary" data-bs-target="#refPop" data-bs-toggle="modal">Back</button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="">
+                    <div class="form-group">
+                      <input type="text" placeholder="Name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                      <input type="email" placeholder="Mail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                      <input type="tel" placeholder="Mobile" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="subject" class="form-control" placeholder="Subject: Find career clarity like I did!" readonly="" disabled>
+                    </div>
+                    <div class="msg_refer_box">
+                      <p>I discovered my perfect career with Mindler. You can, too!</p>
+                      <p>Mindler helps you make sense of the thousands of career options out there to select the perfect one. I think you should give it a go.</p>
+                      <p>Use my referral link below to get Rs. 500 off when you enroll into any Mindler career guidance program or simply use this code: basl6A in the cart page.</p>
+                      <p>You can also try out a free assessment and get a 15-min counselling call before you enroll.</p>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          
+          <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Future Lift</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><a href="https://www.websolveinfo.com/" target="_blank"></a></span>
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- plugins:js -->
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <script src="../../assets/js/settings.js"></script>
+    <script src="../../assets/js/todolist.js"></script>
+    <script src="/js/script.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+  </body>
+</html>

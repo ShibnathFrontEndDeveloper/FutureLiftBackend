@@ -1,0 +1,3516 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+.main-container {
+  overflow-x: hidden;
+}
+* {
+  font-family: sans-serif;
+}
+.pageHeading {
+  padding: 20px 0;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+.img-fluid{
+  width: 100%;
+}
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.btns {
+  max-width: 15rem;
+  font-size: 1.1rem;
+  border: 0;
+  color: white;
+  font-weight: bold;
+  background: crimson;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+.btns:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px grey;
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+/* Header styling start */
+.navbar {
+  height: 80px;
+  background: white;
+}
+.fa-bars {
+  color: black;
+  font-size: 2.5rem;
+}
+.rotateIcon {
+  color: black !important;
+}
+.openDrop {
+  transform: rotate(90deg) !important;
+  transition: all 0.25s ease-in-out;
+  color: rgb(252, 89, 116) !important;
+}
+.headings-color {
+  color: rgb(252, 89, 116) !important;
+}
+.fa-angle-right {
+  font-size: 2rem;
+}
+.subheading-border {
+  margin: 0;
+  padding: 0;
+  height: 3px;
+  background-color: #555;
+  border: 0;
+}
+.btn-close:focus,
+.btn-close:active {
+  outline: none !important;
+  box-shadow: none;
+}
+.offcanvas-header {
+  background: white;
+  width: 100%;
+  padding: 0.7rem 0.2rem;
+}
+.offcanvas {
+  padding: 0;
+  max-width: 75%;
+}
+.offcanvas-body {
+  padding: 0;
+}
+.nav-item {
+  border-bottom: 2px solid rgb(252, 89, 116);
+}
+.dropdown-menu {
+  border: 0;
+}
+.nav-link,
+.nav-link:hover {
+  color: black;
+}
+.nav-link p {
+  font-weight: 600;
+  font-size: 1.2rem;
+  width: 90%;
+  white-space: break-spaces;
+  margin-bottom: 0;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.sidemenu-social {
+  background-color: #1e2c3d;
+}
+.sidemenu-social-icon a .fab {
+  font-size: 2.8rem;
+}
+.login_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    
+}
+.login_box .logLink{
+    color:#000;
+    font-size:18px;
+}
+.sidemenu-social-icon a .fa-facebook-square {
+  color: #4267b2;
+}
+.sidemenu-social-icon a .fa-instagram-square {
+  color: #e95950;
+}
+.sidemenu-social-icon a .fa-twitter-square {
+  color: #1da1f2;
+}
+.sidemenu-social-icon a .fa-youtube-square {
+  color: #ff0000;
+}
+.sidemenu-social-icon a .fa-linkedin {
+  color: #2867b2;
+}
+.offcanvas-header .btn-close {
+  background: none;
+  width: 2rem;
+  height: 2rem;
+  opacity: 1;
+  margin-right: 0.2rem;
+  margin-bottom: 0;
+  border: 0;
+}
+.fa-angle-right {
+  color: gray;
+}
+.dropdown-menu {
+  background-color: rgb(235, 241, 249);
+  border-radius: 0;
+}
+.dropdown-item {
+  max-width: 90%;
+  white-space: break-spaces;
+}
+.dropdown-menu li :hover {
+  background-color: transparent;
+}
+.dropdown-menu li {
+  margin-left: 1rem;
+}
+.dropdown-menu li a {
+  font-size: 1.2rem;
+  padding: 1rem 0;
+}
+.header-signup {
+  border: 3px solid crimson;
+  border-radius: 10px;
+  background-color: transparent;
+}
+.fa-xmark {
+  color: rgb(252, 89, 116);
+  font-size: 2.5rem;
+}
+.header-signup p {
+  color: crimson;
+}
+.header-signup:hover,
+.header-signup:hover .signup-1,
+.header-signup:hover .signup-2,
+.header-signup:hover .bookSession {
+  background-color: crimson;
+  color: white;
+}
+.signup-1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.bookSession {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.signup-2 {
+  font-weight: 400;
+  margin-left: 0.2rem;
+  margin-bottom: 0;
+}
+.freeTag {
+  font-weight: 500;
+  position: absolute;
+  right: 1.2rem;
+  top: 0.5rem;
+  background-color: green;
+  color: white !important;
+  padding: 0.8px;
+}
+/*.careerPadding {*/
+/*  padding-right: 2.5rem;*/
+/*}*/
+.logo img {
+  width: 10rem;
+  padding-left: 1rem;
+}
+
+.navbar-toggler-xl,
+.navbar-toggler-xl:active,
+.navbar-toggler-xl:focus {
+  outline: 0;
+  box-shadow: none;
+  border: 0;
+  background-color: transparent;
+}
+/* Header styling End */
+
+/* Book Session form Styling */
+.modal-content {
+  padding: 1rem;
+}
+.btn-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.modal-body {
+  width: 100%;
+  display: flex;
+}
+.sessionModalContent {
+  width: 50%;
+}
+.modalContentImg {
+  width: 100%;
+  text-align: center;
+}
+.modalContentImg img {
+  width: 35%;
+}
+.featureslides {
+  padding-top: 2rem;
+}
+.featureslide {
+  text-align: center;
+  padding: 0 2rem;
+}
+.featureHeading p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(41, 41, 219);
+}
+.featureContent p {
+  font-size: 1.2rem;
+}
+.modalContentImg p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2rem 0 0 0;
+}
+.sessionModalForm {
+  width: 50%;
+}
+.modalFormHeading {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.modalFormTerms {
+  text-align: left;
+  color: gray;
+}
+.Modalbtn {
+  padding: 0.2rem 1rem;
+  color: white;
+  background-color: crimson;
+  border: 0;
+  margin-bottom: 1rem;
+}
+.alreadyMember {
+  font-weight: 600;
+}
+.modalfeatureCardSwiper {
+  margin-top: 2rem;
+}
+
+.featureCardslide {
+  background-color: white;
+  padding: 1rem 4.5rem;
+  align-items: center;
+  display: flex;
+  align-items: center;
+}
+.featureCardslideBox {
+  display: flex;
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0px 0px 5px grey;
+}
+.featureCardImg {
+  width: 20%;
+}
+.featureCardImg img {
+  width: 75%;
+}
+.featureCardContent {
+  width: 80%;
+}
+.featureCardContent p {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.sessionModalForm {
+  text-align: center;
+  padding: 0 4rem;
+}
+.radioBox {
+  padding: 0.5rem 1rem;
+  background-color: rgb(230, 229, 229);
+}
+input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+}
+.radioBox :nth-child(1) {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: crimson;
+  margin-bottom: 0;
+}
+.radioBox :nth-child(2) {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.btn-check:checked + .radioBox,
+.radioBox.active,
+.radioBox.show,
+.radioBox:first-child:active,
+:not(.btn-check) + .radioBox:active {
+  background-color: rgb(255, 222, 89);
+}
+.modal-Input {
+  display: flex;
+  align-items: center;
+}
+.modal-Input i {
+  position: absolute;
+  padding-left: 0.5rem;
+}
+.modal-Input .form-control {
+  padding-left: 2rem;
+}
+.swiper-pagination-bullet-active {
+  background-color: #555 !important;
+}
+
+/* Footer styling start */
+
+.footer-area {
+  background: #1e2c3d;
+  
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  padding: 150px 0;
+  position: relative;
+ 
+}
+.footer-area .overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(1, 1, 2, 0.8);
+  width: 100%;
+  height: 100%;
+}
+.footer-area .footer-title {
+  color: #fff;
+}
+.footer-area .footer-logo {
+  width: 220px;
+  
+}
+.footer_div{
+  text-align:left;
+  z-index: 1;
+}
+.footer-area .footer_div ul{
+  padding-left: 2px;
+}
+.footer-area .footer_div ul li{
+  list-style: none;
+  line-height: 2;
+}
+.footer-area .footer_div ul li a {
+  font-size: 18px;
+  color: #fff;
+  opacity: 50%;
+  text-decoration: none;
+}
+.footer-area .footer_div ul li a:hover {
+  opacity: 90%;
+  border-bottom: 0.1rem solid #fff;
+}
+.footer-area .footer_div .social-icon a .fab {
+  font-size: 25px;
+  color: #dcdcdc;
+  padding-left: 0.5rem;
+}
+.footer-area .footer_div .social-icon a .fa-facebook-square:hover {
+  color: #4267b2;
+}
+.footer-area .footer_div .social-icon a .fa-instagram-square:hover {
+  color: #e95950;
+}
+.footer-area .footer_div .social-icon a .fa-twitter-square:hover {
+  color: #1da1f2;
+}
+.footer-area .footer_div .social-icon a .fa-youtube-square:hover {
+  color: #ff0000;
+}
+.footer-area .footer_div .social-icon a .fa-linkedin:hover {
+  color: #2867b2;
+}
+#copyright {
+  background: #1e2c3d;
+  border-top: 0.1rem dotted rgb(180, 180, 180, 50%);
+  padding: 10px;
+}
+
+#copyright p {
+  line-height: 42px;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 100;
+  font-family: 'Poppins'sans-serif !important;
+}
+.cpyrgt_fisrt{
+    display:flex;
+    justify-content:flex-start;
+}
+.cpyrgt_second{
+    display:flex;
+    justify-content:flex-end;
+}
+#copyright p a {
+  color: #ffc107;
+  font-weight:500;
+}
+
+#copyright p a:hover {
+  color: #ffc107;
+}
+/* Footer styling End */
+
+/* Home Banner image */
+/* .banner img {
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+} */
+
+.toToBottom_btn_box{
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    transition:.5s all ease-in-out;
+}
+
+.home_part{
+  background: linear-gradient(#9540ad,#192e95);
+  padding: 80px 0;
+
+}
+@media screen and (max-width:560px) {
+  .home_part_heading{
+    margin-bottom: 30px;
+  }
+  .home_part_heading .hone_heading{
+   text-align: center;
+  }
+}
+.home_swiper{
+  width: 100%;
+  overflow: hidden;
+  padding: 15px;
+}
+.hone_heading{
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+}
+.home_swiper .swiper-slide{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.home_swiper .swiper-slide img{
+  width: 180px;
+  border-radius: 8px;
+}
+.bannerBtn {
+  background-color: crimson;
+  border-radius: 10px;
+  color: white;
+  border: 0;
+  font-weight: 500;
+  padding: 0 1rem;
+  font-size: 2rem;
+}
+.Counselling-bannerBtn {
+  background-color: rgb(17, 187, 128);
+  border-radius: 10px;
+  color: white;
+  border: 0;
+  font-weight: 500;
+  padding: 0 1rem;
+  font-size: 2rem;
+}
+.Counselling-bannerBtn:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px grey;
+}
+.bannerBtn:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px grey;
+}
+.bannerContent {
+  padding: 2rem;
+  position: absolute;
+  top: 12rem;
+  left: 3rem;
+}
+.Counselling-bannerContent {
+  padding: 3rem;
+  position: absolute;
+  top: 15rem;
+  left: 3rem;
+}
+.bannerContent p {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+.Counselling-bannerContent p {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.Counselling8th-bannerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+  position: absolute;
+  top: 9rem;
+  left: 3rem;
+}
+.Counselling8th-bannerContent :nth-child(1) {
+  color: red;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.Counselling8th-bannerContent :nth-child(2) {
+  color: White;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.Counselling8th-bannerContent :nth-child(3) {
+  color: White;
+  font-size: 1.5rem;
+  margin-bottom: 5rem;
+}
+.Counselling8th-bannerBtn {
+  background-color: white;
+  border-radius: 10px;
+  color: red;
+  border: 0;
+  font-weight: 600;
+  padding: 0 1rem;
+  font-size: 2rem;
+}
+.Counselling8th-bannerBtn:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+/* Service section */
+.cardImg {
+  width: 10rem;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 2rem;
+}
+.counsellingCard {
+  padding: 0 1.5rem;
+}
+.counsellingCardBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(45deg, #0dcaf0, #ffdd7d);
+  border-radius: 12px;
+  height: 100%;
+  padding: 0 0.5rem;
+  border: 1px solid rgba(0,0,0,0.5);
+  box-shadow: 2px 5px 10px rgba(108, 117, 238, 0.5);
+}
+.counsellingCardBox img {
+  padding: 0.2rem;
+  height: 10rem;
+}
+.counsellingCard-content {
+  padding: 0.2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.counsellingCard-content p:first-of-type {
+  color:#fff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.counsellingCard-content p:last-of-type {
+  color: #084298;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.service {
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+.cardImgBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+.cardImgBox p {
+  margin: 0;
+  padding-top: 1;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+}
+.box-container {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 1px #555;
+}
+.box-container a {
+  text-decoration: none;
+}
+#cardImg1 {
+  background-color: rgba(238, 177, 108, 0.3);
+}
+#cardImg2 {
+  background-color: rgba(163, 193, 249, 0.3);
+}
+#cardImg3 {
+  background-color: rgba(62, 208, 210, 0.3);
+}
+#cardImg4 {
+  background-color: rgba(255, 189, 134);
+}
+#cardImg5 {
+  background-color: rgba(54, 175, 173, 0.3);
+}
+
+.serviceSection8th {
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  height: 15rem;
+}
+.serviceVideoContent {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.serviceVideoContent :nth-child(1) {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.serviceVideoContent :nth-child(2) {
+  font-size: 1.5rem;
+}
+.serviceVideo {
+  width: 50%;
+  height: 15rem;
+  padding: 0 10rem;
+}
+/* Homepage display cards styling */
+.cardbtn {
+  background-color: transparent;
+  border: 2px solid crimson;
+  border-radius: 10px;
+  color: crimson;
+  font-weight: 500;
+  padding:8px 15px;
+  font-size: 15px;
+}
+.cardbtn:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+  background-color: crimson;
+  color: white;
+}
+.homepage-card {
+  padding: 1rem;
+  align-items: center;
+}
+/* lottie-player{
+  width: 450px;
+} */
+.book_btn{
+  background: #dc3545;
+  border: none;
+  padding:5px;
+}
+.book_btn :hover{
+    background: #dc3545 ;
+}
+.book_btn .badge{
+  background: #fff;
+  color:#adb5bd;
+  box-shadow:1px 3px 6px rgba(0,0,0,0.5);
+}
+.btn:first-child:hover{
+    background:#e1626e;
+}
+.homepage-card .content {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.homepageCard-text1 {
+  font-weight: 600;
+  font-size: 2.5rem;
+  padding: 0;
+  margin-bottom: 0;
+}
+.homepageCard-text2 {
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin-bottom: 3rem;
+}
+
+/* Why section Styling */
+.whyCard {
+  padding: 0.5rem 1.5rem;
+}
+.whyCard:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+.whyCard-content {
+  padding: 2rem 1rem 0.2rem 1rem;
+  border-radius: 15px;
+  height: 90%;
+}
+#whyContent1 {
+  box-shadow: -10px 0px 0px -2px blue, 0px 8px 8px grey;
+}
+.fa-people-roof {
+  color: blue;
+}
+#whyContent2 {
+  box-shadow: -10px 0px 0px -2px green, 0px 8px 8px grey;
+}
+.fa-handshake {
+  color: green;
+}
+#whyContent3 {
+  box-shadow: -10px 0px 0px -2px rgb(0, 132, 255), 0px 8px 8px grey;
+}
+.fa-thumbs-up {
+  color: rgb(0, 132, 255);
+}
+#whyContent4 {
+  box-shadow: -10px 0px 0px -2px orange, 0px 8px 8px grey;
+}
+.fa-graduation-cap {
+  color: orange;
+}
+.whyCard-img {
+  position: relative;
+  top: 2.5rem;
+  left: 1rem;
+  font-size: 3.5rem;
+}
+.whyCard-text1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+/* Career Counselling Why section-1 */
+.whyCard-career-1 {
+  padding: 0.5rem .8rem;
+}
+.whyCard-career-1:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+.whyCard-career-1-content {
+  padding: 2rem 1rem 0.2rem 1rem;
+  border-radius: 15px;
+margin-top: -30px;
+background: rgba(255, 255, 255, 0.671);
+backdrop-filter: blur(6px);
+}
+#whyContent1-career-1 {
+  box-shadow: -10px 0px 0px -2px rgb(0, 119, 188), 0px 8px 8px grey;
+}
+.fa-people-group {
+  color: rgb(0, 119, 188);
+}
+#whyContent2-career-1 {
+  box-shadow: -10px 0px 0px -2px orange, 0px 8px 8px grey;
+}
+.fa-handshake-angle {
+  color: orange;
+}
+#whyContent3-career-1 {
+  box-shadow: -10px 0px 0px -2px rgb(0, 132, 255), 0px 8px 8px grey;
+}
+.fa-user-graduate {
+  color: rgb(0, 132, 255);
+}
+.whyCard-career-1-img {
+ 
+  font-size: 3.5rem;
+}
+.whyCard-career-1-text1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.careerWhyCardImg img {
+  width: 3rem;
+}
+
+.different_section{
+  background-position: center center !important;
+  /* background-size: cover !important; */
+  background-repeat: no-repeat !important;
+}
+
+/* Top collection Styling*/
+.topCollection-card {
+  padding: 1rem;
+  height: auto !important;
+}
+.topCard {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  box-shadow: 0px 5px 15px -12px rgb(184, 2, 184);
+  padding: 0.5rem;
+}
+.topCard:hover {
+  transform: scale(1.04);
+  transition: 0.3s ease-in-out;
+}
+.topCard-img {
+  display: flex;
+  justify-content: center;
+}
+.topContent a {
+  color: rgb(184, 2, 184);
+  font-weight: 600;
+}
+.topText1 {
+  font-weight: 600;
+  color: rgb(184, 2, 184);
+  margin-bottom: 0.3rem;
+}
+.topText2 {
+  margin-bottom: 0.2rem;
+}
+.exploreAllbtn {
+  border: 0;
+  font-size: 18px;
+  padding: 8px 15px;
+  background: #dc3545;
+  border-radius: 5px;
+ 
+}
+.exploreAllbtn a{
+  color: #fff;
+}
+/* Education News section styling */
+.newsCard {
+  padding: 1rem 3rem;
+  margin-right: 0 !important;
+}
+.newsImg img {
+  width: 100%;
+}
+.newsContent {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.newsContent h3 {
+  align-self: flex-start;
+}
+.newsbtn {
+  padding: 0.5rem;
+  border-radius: 20px;
+  background-color: transparent;
+  font-weight: bold;
+}
+.swiper-button-next::after {
+  font-size: 2rem !important;
+}
+.swiper-button-prev::after {
+  font-size: 2rem !important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  outline: none;
+  height: 3rem !important;
+  width: 3rem !important;
+  top: 65% !important;
+  border-radius: 50%;
+  padding: 1rem !important;
+  background: white;
+  box-shadow: 0px 0px 10px gray;
+  color: black !important;
+}
+
+/* Subscribe section styling */
+.form-control {
+  font-size: 1.5rem;
+}
+.subscribe-email {
+  padding: 0 2rem;
+}
+.subscribe-email-content {
+  height: 100%;
+}
+.mailImg {
+  height: 20rem;
+}
+#Subscribe_mail_box{
+  border: 1px solid #0a58ca;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+#Subscribe_mail_box .form-control{
+  border: none;
+}
+#Subscribe_mail_box .form-control:focus{
+  box-shadow: none;
+}
+
+/* Tabs Section styling */
+
+.tab-Section {
+  padding: 0 3rem;
+}
+.nav-pills .nav-link {
+  border-radius: 0;
+  background-color: lightgray;
+  margin: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.divider {
+  height: 2.3rem;
+  width: 0.2rem;
+  background-color: black;
+  margin: 0 2rem;
+}
+.nav-pills .nav-link.active {
+  background-color: crimson !important;
+  color: white !important;
+}
+.tabCard {
+  padding-top: .8rem;
+}
+/* .tabCards {
+  width: 100% !important;
+} */
+/* .tab-content{
+  padding: 15px !important;
+} */
+.tabCardContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+  position: relative;
+  border-radius: 15px;
+  border: 1px solid #7e7e7e32;
+}
+.tabCardContentText {
+  width: 290px;
+  height: 180px;
+  overflow: auto;
+  margin-left: 10px;
+  
+}
+.tabCardContent img {
+  width: 183px;
+}
+.tabCardContent p {
+  position: relative;
+}
+.tabCardContent .tabCrad_img{
+  position: relative;
+}
+.tabCardContent .tabCrad_img .overlay_box{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(to top, rgb(47, 137, 220),rgb(17, 5, 186));
+}
+.rating_star{
+  padding-left: 5px;
+}
+.rating_star .bi{
+  color: #f9ea1c;
+}
+
+.tabCardContentText p{
+  font-size: 11px;
+}
+.tabCardContentText .parentName{
+  font-size: 18px;
+}
+.fa-caret-left,
+.fa-caret-right {
+  font-size: 3rem;
+}
+.tabSwiper .swiper-button-next::after,
+.tabSwiper .swiper-button-next::before,
+.tabSwiper .swiper-button-prev::after,
+.tabSwiper .swiper-button-prev::before {
+  content: "";
+}
+
+/* Career Session styling */
+.sessionContent p:first-of-type {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: white;
+}
+.sessionContent p:last-of-type {
+  font-size: 1.2rem;
+  color: white;
+}
+.sessionContent ul li {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+.sessionBtn {
+  border: 0;
+  background-color: #0d6efd;
+  color: white;
+  border-radius: 5px;
+  padding: 8px 15px;
+}
+.sessionBtn:hover {
+  transform: scale(1.1);
+  transition: 0.5s ease-in-out;
+  box-shadow: 0px 0px 5px gray;
+}
+.session {
+  background-color: rgb(184, 20, 184);
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+}
+.sessionContent {
+  width: 50%;
+  padding: 2rem 0;
+}
+.sessionImg {
+  width: 50%;
+}
+.sessionImg img {
+  padding: 0.2rem;
+  width: 100%;
+}
+/* Career Subscribe Section */
+.careerSubscribeSection {
+  display: flex;
+  border: double green;
+  width: 100%;
+  padding: 2rem;
+}
+.careerSubscribeContent {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 3rem;
+}
+.careerSubscribeContent p {
+  font-size: 2rem;
+}
+
+
+.careerSubscribebtn {
+  border: 0;
+  font-size: 18px;
+  color: white;
+  background-color: rgb(23, 128, 23);
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.careerSubscribeImg {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+.careerSubscribeImg img {
+  width: 75%;
+}
+
+/* Career faq section */
+.faqSection {
+  padding: 1.5rem 5rem;
+}
+.faq {
+  display: flex;
+  flex-direction: column;
+  background-color: lightgrey;
+  margin: 1rem 0;
+  padding: 0.2rem 1rem;
+}
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.faqAnswer {
+  display: none;
+}
+.faqQuestion p {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.fa-caret-down {
+  font-size: 3rem;
+  color: rgb(224, 72, 103);
+}
+.faqSection .accordion-button:focus{
+  box-shadow: none;
+  background:#dc3545 !important;
+  color: #fff !important;
+}
+.faqSection .accordion-button:not(.collapsed){
+  /* background: lightgray; */
+  color: #000;
+}
+.faqSection .accordion-button{
+  font-weight: 800;
+  background: transparent;
+}
+.faqSection .accordion-header{
+  font-weight: 700;
+}
+
+/* Counselling Success Styling */
+.successSection8th-cards {
+  background-image: url("../assets/images/order_bg.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+.successSection8th-heading {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.successSection8th-card {
+  padding: 0.5rem;
+}
+.successSection8th-cardContent {
+  background-color: white;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.successSection8th-cardbtn {
+  border: 0;
+  color: white;
+  background-color: crimson;
+  position: relative;
+  bottom: 0;
+}
+.successSection8th-cardbtn:hover{
+    color:#fff;
+    text-decoration:none;
+}
+.successCard-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+/* Pick Package Styling */
+.pickSectionSwiper {
+  padding: 0 2rem;
+}
+.pickSectionCards {
+  margin-bottom: 1rem;
+}
+.pickSectionCard {
+  border: 1px solid gray;
+  padding: 1rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: fit-content !important;
+  position: relative;
+  top: -3rem;
+}
+.pickSectionCardContent p {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.pickSectionCardContent hr {
+  margin: 0.5rem 0;
+}
+.pickSectionCardHeader {
+  text-align: center;
+}
+.pickSectionCardHeader p:first-of-type {
+  color: #192e95;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+.rupees {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.rupees .number {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-left: 4px;
+}
+.pickSectionCardbtn {
+  border: 0;
+  color: white;
+  background-color: rgb(40, 205, 40);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+.pickSectionCardbtn:hover{
+    color:#fff;
+}
+.call_box_expert{
+    position:fixed;
+    top:477px;
+    left:30px;
+    width:60px;
+    height:60px;
+    background:#12df22;
+    border-radius:50%;
+    z-index:7;
+}
+.call_box_expert .expert_call_btn{
+    display:block;
+    width:100%;
+    height:100%;
+    color:#fff;
+    text-align:center;
+    line-height:1.8;
+     animation:salsa .5s linear;
+}
+.call_box_expert .expert_call_btn .bi{
+    font-size:35px;
+    color:##063f6b;
+   
+}
+
+@keyframes salsa{
+    0%{
+        transform:translateX(1px);
+    }
+    50%{
+        transform-origin: 0 0;
+transform: translate(-5px, 5px) rotate(-45deg) 
+
+    }
+    100%{
+        transform:translateX(-2px);
+    }
+}
+.pickSectionHeading {
+  background-color: crimson;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+.pickSectionHeading :nth-child(1) {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0;
+}
+.pickSectionHeading :nth-child(2) {
+  color: white;
+  font-size: 1.5rem;
+}
+.pickSectionIconSection {
+  display: flex;
+}
+.pickSectionIconSection i {
+  margin: 0.5rem;
+}
+.pickSectionIconSection .fa-graduation-cap,
+.fa-compass {
+  color: crimson;
+}
+.pickSectionIconSection .fa-magnifying-glass {
+  color: gray;
+}
+.pickSectionIconSection .fa-book {
+  color: rgb(60, 60, 193);
+}
+.pickSectionIconSection .fa-users-rays {
+  color: rgb(255, 132, 0);
+}
+.pickSectionIconContent :nth-child(1) {
+  color: crimson;
+}
+.pickSectionIconContent :nth-child(2) {
+  font-weight: normal;
+}
+.pickSectionIconContentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pickSession {
+  background-color: rgb(194, 5, 194);
+  color: white;
+  font-weight: 600 !important;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  font-size: 0.8rem !important;
+  text-align: center;
+}
+
+/* Call Expert Styling */
+.callExpertSection8th {
+  display: flex;
+  padding: 1rem 8rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(212, 242, 252);
+}
+.callExpertContent8th :nth-child(1) {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.callExpertContent8th :nth-child(2) {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.callExpert8thbtn {
+  color: white;
+  font-weight: 600;
+  border: 0;
+  border-radius: 8px;
+  background-color: green;
+  padding: 0.5rem;
+}
+/*.callExpertSection {*/
+/*  background: url("../assets/images/callusBackground.png");*/
+/*  background-repeat: no-repeat;*/
+/*  background-size: 100% 100%;*/
+/*  padding: 1rem 4rem;*/
+/*  margin-bottom: 5rem;*/
+/*}*/
+.callExpertTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.callExpertTopContent :nth-child(1) {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+.callExpertTopContent :nth-child(2) {
+  font-weight: 600;
+  color: white;
+  font-size: 1.4rem;
+}
+.callExpertTopbtn {
+  border: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: white;
+  border-radius: 5px;
+  margin-left: 0.5rem;
+}
+.callExpertBottom {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-block:35px;
+}
+.callExpertBottomContent {
+  text-align: center;
+  width: 50%;
+}
+.callExpertBottomContent :nth-child(1),
+.callExpertBottomContent :nth-child(2) {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.callExpertBottomContent :nth-child(3) {
+  margin-top: 3rem;
+  font-weight: 600;
+}
+.callExpertBottombtn {
+  color: white;
+  border: 0;
+  background-color: crimson;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+.callExpertBottomImg {
+  width: 50%;
+}
+.callExpertBottomImg img {
+  width: 100%;
+}
+.why-career-section-1{
+   background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  padding: 110px 0;
+}
+
+/* Why section Counselling Styling */
+.careerWhyCards{
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.whyDetail_box{
+  background: #f8f9fa9c;
+  backdrop-filter: blur(10px);
+  margin-left: -70px;
+  border-radius: 15px;
+}
+.whyDetail_box .section_heading{
+  font-size: 22px;padding-top: 15px;
+}
+
+.whyDetail_box .careerWhyCard p{
+  font-size: 13px;
+  margin-bottom: 0;
+}
+.whyDetail_box .careerWhyCard .last_para{
+  font-weight: 300 !important;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+}
+.careerWhyCardImg_box{
+  padding-left: 30px;
+  padding-bottom: 15px;
+  padding-right: 30px;
+}
+.careerWhyCardContent .imgfuid{
+  width: 64px;
+}
+.whySectionCounselling {
+  margin: 4rem 0;
+}
+.whySectionCounselling-header {
+  text-align: center;
+}
+.whySectionCounselling-header :nth-child(1) {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.whyCounsellingSwiper {
+  background-color: rgb(212, 242, 252);
+  padding: 0 3rem;
+}
+.whyCounsellingCard {
+  padding: 2rem;
+  height: auto !important;
+}
+.whyCounsellingCardContent {
+  height: 100%;
+  padding: 0 1rem 1rem 1rem;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+}
+.fa-quote-left {
+  font-size: 3rem;
+  color: crimson;
+}
+.whyCounsellingCardContentText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.whyCounsellingCardContentText1 hr {
+  background-color: crimson;
+  color: transparent;
+  height: 3px;
+  opacity: 1;
+  width: 30%;
+  margin-bottom: 0.35rem;
+}
+.whyCounsellingCardContentText1 p {
+  padding: 0 0 0.5rem 0.5rem;
+}
+.parentName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.why_box img{
+  border-radius: 10px;
+}
+/* Call Us Section Styling */
+.callUs-section {
+  background: linear-gradient(rgb(237, 237, 237) 70%, rgb(127, 216, 127) 30%);
+  height: 100%;
+  padding-bottom: 3rem;
+}
+.callUsCard-section {
+  padding: 2rem;
+}
+.callUsCard-content :nth-child(1) {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.form-control {
+  font-size: 1rem !important;
+  margin: 0.5rem 0;
+}
+.callUsForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.callUsbtn {
+  margin: 1rem 0;
+  border: 0;
+  background-color: crimson;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+}
+.form-group {
+  min-width: 100%;
+}
+.callUsCard {
+  padding: 1rem;
+  display: flex;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 0px 8px gray;
+}
+.callUsCard-content {
+  width: 50%;
+}
+.callUsCard-img {
+  width: 50%;
+  padding: 2rem;
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.callUsCard-img img {
+  width: 65%;
+}
+
+/* Counselling Journey Styling */
+.counsellingJourneySection {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  padding: 1rem 5rem;
+}
+.counsellingJourneyContent {
+  width: 50%;
+  text-align: center;
+}
+.counsellingJourneyContent :nth-child(1) {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.counsellingJourneyContent :nth-child(2) {
+  font-size: 1.2rem;
+}
+
+.counsellingJourneyImg {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.counsellingJourneyImg img {
+  width: 60%;
+}
+.bg_img{
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  padding: 60px 0;
+}
+/* Career Test Pages Styling */
+.personalityBanner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: lightcyan;
+}
+.personalityBannerImg {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+.personalityBannerImg img {
+  width: 100%;
+  animation: jumping 5s linear infinite;
+}
+
+@keyframes jumping {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(30px);
+  }
+
+  100%{
+    transform: translateY(0px);
+  }
+  
+}
+
+.personalityBannerContent p:first-of-type {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.personalityBannerContent p:last-of-type {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+}
+.personalityBannerContent .testForm {
+  display: flex;
+  width: 100%;
+}
+.testInput {
+  font-weight: normal;
+  border-radius: 0;
+  padding: 0.5rem;
+  border: 2px solid crimson;
+  width: 60%;
+}
+.testInput:focus{
+  box-shadow: none;
+  outline: none;
+}
+.testbtn {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 2px solid crimson;
+  background-color: crimson;
+  color: white;
+}
+
+/* Test service Styling */
+
+.testServiceSection {
+  padding: 3rem 4rem;
+}
+.testServiceCard {
+  padding: 2rem;
+}
+.testServiceCardContent {
+  padding: 1rem;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px gray;
+  height: 100%;
+}
+
+.testServiceCardText :nth-child(1) {
+  font-size: 1.2rem;
+  font-weight: 600;
+  justify-self: flex-end;
+}
+.testServiceCardText :nth-child(2) {
+  margin-bottom: 0;
+}
+.testServiceCardImg {
+  width: 100%;
+}
+.testServiceCardImg img {
+  width: 40%;
+}
+
+/* Benefits Section Styling */
+.BenefitsSection {
+  padding: 0 2rem !important;
+}
+.BenefitsCards {
+  padding: 5rem 0;
+}
+.BenefitsCard {
+  height: auto !important;
+}
+.BenefitsCardContent {
+  padding: 2rem;
+  border-radius: 10px;
+  height: 100%;
+}
+.BenefitsCardContent :nth-child(1) {
+  font-size: 1.2rem;
+  font-weight: 600;
+  position: relative;
+  top: -0.5rem;
+}
+.BenefitsCardContent :nth-child(2) {
+  margin-bottom: 0;
+}
+#BenefitsCardContent-1 {
+  box-shadow: -10px 0px 0px -2px rgb(0, 119, 188), 0px 8px 8px grey;
+}
+#BenefitsCardContent-2 {
+  box-shadow: -10px 0px 0px -2px orange, 0px 8px 8px grey;
+}
+#BenefitsCardContent-3 {
+  box-shadow: -10px 0px 0px -2px rgb(0, 119, 188), 0px 8px 8px grey;
+}
+#BenefitsCardContent-4 {
+  box-shadow: -10px 0px 0px -2px orange, 0px 8px 8px grey;
+}
+#BenefitsCardContent-5 {
+  box-shadow: -10px 0px 0px -2px rgb(0, 119, 188), 0px 8px 8px grey;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 1100px) {
+  .featureHeading p {
+    font-size: 1rem;
+  }
+  .featureContent p {
+    font-size: 0.8rem;
+  }
+  .modalContentImg p {
+    font-size: 1.2rem;
+    margin: 1rem 0 0 0;
+  }
+  .modalFormHeading {
+    font-size: 1rem;
+  }
+  .featureCardContent p {
+    font-weight: 600;
+    font-size: 0.7rem;
+  }
+  .featureCardslideBox {
+    padding: 0.5rem;
+  }
+  .sessionModalForm {
+    text-align: center;
+    padding: 0 4rem;
+  }
+  .radioBox {
+    padding: 0.2rem;
+    background-color: rgb(230, 229, 229);
+  }
+  .radioBox :nth-child(1) {
+    font-size: 0.8rem;
+  }
+  .radioBox :nth-child(2) {
+    font-size: 0.6rem;
+  }
+  .modal-Input i {
+    font-size: 0.8rem;
+  }
+  .modal-Input .form-control {
+    font-size: 0.8rem !important;
+  }
+  .modalFormTerms {
+    font-size: 0.8rem;
+  }
+  .Modalbtn {
+    font-size: 0.8rem;
+  }
+  .alreadyMember {
+    font-size: 0.8rem;
+  }
+  .whyCard-text1 {
+    font-size: 1.2rem;
+  }
+  .whyCard-text2 {
+    font-size: 1rem;
+  }
+  .whyCard-img {
+    font-size: 2.2rem;
+    top: 1.8rem;
+  }
+  .counsellingCard {
+    padding: 0 1rem;
+  }
+  .counsellingCardBox {
+    padding: 0 0.5rem;
+  }
+  .counsellingCardBox img {
+    padding: 0.2rem;
+    height: 8rem;
+  }
+  .counsellingCard-content {
+    padding: 0.2rem 0;
+  }
+  .counsellingCard-content p:first-of-type {
+    font-size: 1rem;
+  }
+  .counsellingCard-content p:last-of-type {
+    font-size: 1rem;
+  }
+  
+  .sessionContent p:first-of-type {
+    font-size: 2rem;
+  }
+  .sessionContent p:last-of-type {
+    font-size: 1rem;
+  }
+  .sessionContent ul li {
+    font-size: 1rem;
+  }
+  .sessionBtn {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+  }
+  .session {
+    padding: 1rem 1.5rem;
+  }
+  .sessionContent {
+    padding: 2rem 0;
+  }
+  .Counselling8th-bannerContent :nth-child(1) {
+    font-size: 1.5rem;
+  }
+  .Counselling8th-bannerContent :nth-child(2) {
+    font-size: 1.8rem;
+  }
+  .Counselling8th-bannerContent :nth-child(3) {
+    font-size: 1.2rem;
+  }
+  .Counselling8th-bannerBtn {
+    padding: 0 1rem;
+    font-size: 1.8rem;
+  }
+  .serviceVideo {
+    padding: 0 3rem;
+  }
+  .successCard-heading {
+    font-size: 1.2rem;
+  }
+  .successCardText {
+    font-size: 0.9rem;
+  }
+  .callExpertSection8th {
+    padding: 1rem 3rem;
+  }
+  .callExpertContent8th :nth-child(1) {
+    font-size: 0.9rem;
+  }
+  .pickSession {
+    font-size: 0.7rem !important;
+  }
+  .callExpertTopContent :nth-child(1) {
+    font-size: 0.7rem;
+  }
+  .callExpertTopContent :nth-child(2) {
+    font-size: 1rem;
+  }
+  .callExpertTopbtn {
+    font-size: 0.8rem;
+  }
+  .callExpertBottomContent :nth-child(1),
+  .callExpertBottomContent :nth-child(2) {
+    font-size: 1.5rem;
+  }
+  .callExpertBottomContent :nth-child(3) {
+    margin-top: 2.5rem;
+    font-size: 0.8rem;
+  }
+  .callExpertBottombtn {
+    font-size: 0.9rem;
+  }
+  .BenefitsCardContent :nth-child(1) {
+    font-size: 1rem;
+    top: -0.7rem;
+  }
+  .why-career-section-1{
+    padding: 48px 0;
+  }
+}
+@media screen and (max-width: 993px) {
+  .modal-body {
+    flex-direction: column;
+  }
+  .sessionModalContent {
+    width: 100%;
+  }
+  .sessionModalForm {
+    width: 100%;
+  }
+  .fa-bars {
+    font-size: 2rem;
+  }
+  .fa-xmark {
+    font-size: 2rem;
+  }
+  .fa-angle-right {
+    font-size: 1.5rem;
+  }
+  .nav-link p {
+    font-size: 1rem;
+  }
+  .dropdown-menu li a {
+    font-size: 1rem;
+  }
+  .cardImg {
+    width: 7rem;
+    padding: 1rem;
+  }
+  .cardImgBox p {
+    font-size: 1rem;
+  }
+  .counsellingCard {
+    padding: 0 1rem;
+  }
+  .counsellingCardBox {
+    padding: 0 0.5rem;
+  }
+  .counsellingCardBox img {
+    padding: 0.2rem;
+    height: 7rem;
+  }
+  .counsellingCard-content {
+    padding: 0.2rem 0;
+  }
+  .counsellingCard-content p:first-of-type {
+    font-size: 0.7rem;
+  }
+  .counsellingCard-content p:last-of-type {
+    font-size: 0.7rem;
+  }
+  
+  .whyCard-career-1-img {
+    top: 2rem;
+    font-size: 2.5rem;
+  }
+  .whyCard-career-1-text1 {
+    font-size: 1.1rem;
+  }
+  .whyCard-career-1-text2 {
+    font-size: 0.9rem;
+  }
+  .homepageCard-text1 {
+    padding: 0;
+    font-weight: 600;
+    font-size: 2rem;
+  }
+  .homepageCard-text2 {
+    padding: 0;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+  .cardbtn {
+    font-size: 2rem;
+  }
+  .topCollection-card {
+    padding: 1rem 1.5rem;
+  }
+  .swiper-button-next::after {
+    font-size: 1rem !important;
+  }
+  .swiper-button-prev::after {
+    font-size: 1rem !important;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    height: 2.2rem !important;
+    width: 2.2rem !important;
+  }
+  .bannerBtn {
+    font-size: 1.5rem;
+  }
+  .bannerContent {
+    padding: 0.8rem;
+    top: 10rem;
+    left: 2.5rem;
+  }
+  .bannerContent p {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  .Counselling-bannerBtn {
+    font-size: 1.5rem;
+  }
+  .Counselling-bannerContent {
+    padding: 0.8rem;
+    top: 11rem;
+    left: 2.5rem;
+  }
+  .Counselling-bannerContent p {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+  .tabCard {
+    padding: 3rem;
+  }
+  .sessionContent p:first-of-type {
+    font-size: 1.7rem;
+  }
+  .sessionContent p:last-of-type {
+    font-size: 1rem;
+  }
+  .sessionContent ul li {
+    font-size: 1rem;
+  }
+  .sessionBtn {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
+  .session {
+    padding: 0 1.5rem;
+  }
+  .sessionContent {
+    padding: 2rem 0;
+  }
+  .careerSubscribeSection {
+    display: flex;
+    border: double green;
+    width: 100%;
+    padding: 2rem;
+  }
+  .careerSubscribeContent p {
+    font-size: 1.5rem;
+  }
+  .careerSubscribebtn {
+    font-size: 1.3rem;
+  }
+  .faqSection {
+    padding: 1rem 4rem;
+  }
+  .Counselling8th-bannerContent {
+    padding: 3rem;
+    position: absolute;
+    top: 7rem;
+    left: 3rem;
+  }
+  .Counselling8th-bannerContent :nth-child(1) {
+    font-size: 1rem;
+  }
+  .Counselling8th-bannerContent :nth-child(2) {
+    font-size: 1.2rem;
+  }
+  .Counselling8th-bannerContent :nth-child(3) {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+  .Counselling8th-bannerBtn {
+    padding: 0 1rem;
+    font-size: 1.5rem;
+  }
+  .serviceVideoContent :nth-child(1) {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .serviceVideoContent :nth-child(2) {
+    font-size: 1.2rem;
+  }
+  .serviceVideo {
+    padding: 2rem;
+  }
+  .serviceSection8th {
+    height: 10rem;
+  }
+  .successCard-heading {
+    font-size: 1rem;
+  }
+  .successCardText {
+    font-size: 0.8rem;
+  }
+  .pickSectionHeading :nth-child(1) {
+    font-size: 1.5rem;
+  }
+  .pickSectionHeading :nth-child(2) {
+    font-size: 1rem;
+  }
+  .pickSectionCardHeader p:first-of-type {
+    font-size: 1.2rem;
+  }
+  .rupees .number {
+    font-size: 1.5rem;
+  }
+  .pickSectionCardContent p {
+    font-size: 0.9rem;
+  }
+  .callExpertContent8th :nth-child(1) {
+    font-size: 0.8rem;
+  }
+  .callExpertContent8th :nth-child(2) {
+    font-size: 1rem;
+  }
+  .callExpert8thbtn {
+    font-size: 0.8rem;
+  }
+  .whySectionCounselling-header :nth-child(1) {
+    font-size: 1.2rem;
+  }
+  .whyCounsellingSwiper {
+    padding: 0 2rem;
+  }
+  .whyCounsellingCard {
+    padding: 1rem;
+    height: auto !important;
+  }
+  .whyCounsellingCardContent {
+    padding: 0 1rem 1rem 1rem;
+  }
+  .fa-quote-left {
+    font-size: 3rem;
+  }
+  .whyCounsellingCardContentText1 p {
+    padding: 0 0 0.5rem 0.5rem;
+  }
+  .parentName {
+    font-size: 1.2rem;
+  }
+  .callUsCard-content :nth-child(1) {
+    font-size: 1.2rem;
+  }
+  .form-control {
+    font-size: 0.9rem !important;
+  }
+  .callUsbtn {
+    font-size: 1rem;
+  }
+  .counsellingJourneyContent :nth-child(1) {
+    font-size: 1rem;
+  }
+  .counsellingJourneyContent :nth-child(2) {
+    font-size: 0.8rem;
+  }
+  .counsellingJourneyImg {
+    width: 80%;
+  }
+  .counsellingJourneySection {
+    padding: 1rem 3rem;
+  }
+  .callExpertSection {
+    padding: 0.5rem 2rem;
+  }
+  .callExpertTopContent :nth-child(1) {
+    font-size: 0.55rem;
+  }
+  .callExpertTopContent :nth-child(2) {
+    font-size: 0.7rem;
+  }
+  .callExpertTopbtn {
+    font-size: 0.6rem;
+  }
+  .callExpertBottomContent :nth-child(1),
+  .callExpertBottomContent :nth-child(2) {
+    font-size: 0.9rem;
+  }
+  .callExpertBottomContent :nth-child(3) {
+    margin-top: 1.5rem;
+    font-size: 0.5rem;
+  }
+  .callExpertBottombtn {
+    font-size: 0.6rem;
+  }
+  .personalityBannerContent {
+    padding: 2rem 0rem;
+  }
+  
+  
+  .testServiceSection {
+    padding: 2rem 3rem;
+  }
+ 
+  .testServiceCardText :nth-child(1) {
+    font-size: 1rem;
+  }
+  .testServiceCardText :nth-child(2) {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 770px) {
+  .bannerContent {
+    padding: 0.7rem;
+    top: 7.5rem;
+    left: 2.4rem;
+  }
+  .bannerContent p {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .Counselling-bannerContent {
+    padding: 0.9rem;
+    top: 10rem;
+    left: 0.9rem;
+  }
+  .Counselling-bannerContent p {
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .counsellingCard {
+    padding: 0 1rem;
+  }
+  .counsellingCardBox {
+    padding: 0 0.4rem;
+  }
+  .counsellingCardBox img {
+    padding: 0.2rem;
+    height: 6rem;
+  }
+  .counsellingCard-content {
+    padding: 0.2rem 0;
+  }
+  .counsellingCard-content p:first-of-type {
+    font-size: 0.6rem;
+  }
+  .counsellingCard-content p:last-of-type {
+    font-size: 0.6rem;
+  }
+ 
+  .whyCard-career-1-img {
+    top: 2rem;
+    font-size: 2rem;
+  }
+  .whyCard-career-1-text1 {
+    font-size: 0.95rem;
+  }
+  .whyCard-career-1-content{
+      margin-top:-15px;
+  }
+  .whyCard-career-1-text2 {
+    font-size: 0.75rem;
+  }
+  .fa-caret-left,
+  .fa-caret-right {
+    font-size: 2rem;
+  }
+  .sessionContent p:first-of-type {
+    font-size: 1.3rem;
+  }
+  .sessionContent p:last-of-type {
+    font-size: 1rem;
+  }
+  .sessionContent ul li {
+    font-size: 0.8rem;
+  }
+  .sessionBtn {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+  }
+  .session {
+    padding: 0 1rem;
+  }
+  .sessionContent {
+    padding: 2rem 0;
+  }
+  .careerSubscribeContent {
+    padding-left: 2rem;
+  }
+  .careerSubscribeContent p {
+    font-size: 1.2rem;
+  }
+  .careerSubscribebtn {
+    font-size: 1rem;
+  }
+  .btns {
+    font-size: 0.8rem;
+  }
+  .faqSection {
+    padding: 0.9rem 3.5rem;
+  }
+  .faqQuestion p {
+    font-size: 1rem;
+  }
+  .faqAnswer p {
+    font-size: 0.9rem;
+  }
+  .fa-caret-down {
+    font-size: 2.5rem;
+  }
+  .Counselling8th-bannerContent {
+    padding: 2rem;
+    top: 6rem;
+    left: 3rem;
+  }
+  .Counselling8th-bannerContent :nth-child(1) {
+    font-size: 0.9rem;
+  }
+  .Counselling8th-bannerContent :nth-child(2) {
+    font-size: 1rem;
+  }
+  .Counselling8th-bannerContent :nth-child(3) {
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  .Counselling8th-bannerBtn {
+    padding: 0 1rem;
+    font-size: 1rem;
+  }
+  .serviceVideoContent :nth-child(1) {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .serviceVideoContent :nth-child(2) {
+    font-size: 1rem;
+  }
+  .serviceVideo {
+    padding: 3rem 1rem;
+  }
+  .successCard-heading {
+    font-size: 0.9rem;
+  }
+  .successCardText {
+    font-size: 0.7rem;
+  }
+  .successSection8th-cardbtn {
+    font-size: 0.8rem;
+  }
+  .callExpertContent8th :nth-child(1) {
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+  .callExpertContent8th :nth-child(2) {
+    font-size: 0.8rem;
+  }
+  .callExpert8thbtn {
+    font-size: 0.6rem;
+  }
+  .personalityBannerContent {
+    padding: 2rem 0rem;
+  }
+ 
+  .testInput {
+    font-size: 0.8rem;
+  }
+  .testbtn {
+    font-size: 0.8rem;
+  }
+  .newsContent h3 {
+    font-size: 1.2rem;
+  }
+  .newsContent p {
+    font-size: 0.8rem;
+  }
+  .newsbtn {
+    font-size: 0.6rem;
+  }
+  .testServiceSection {
+    padding: 1.5rem 2.25rem;
+  }
+  
+  .testServiceCardText :nth-child(1) {
+    font-size: 0.8rem;
+  }
+  .testServiceCardText :nth-child(2) {
+    font-size: 0.7rem;
+  }
+  .successSection8th-heading{
+    margin-top: 120px;
+  }
+  .footer-area .footer-logo{
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  
+  .fa-bars {
+    font-size: 1.5rem;
+  }
+  .nav-link p {
+    font-size: 0.9rem;
+  }
+  .dropdown-menu li a {
+    font-size: 0.8rem;
+  }
+  .bookSession {
+    font-size: 1rem;
+  }
+  .freeTag {
+    font-size: 0.8rem;
+    top: 0.8rem;
+  }
+  .bannerContent {
+    padding: 0.5rem;
+    top: 7rem;
+    left: 2.2rem;
+  }
+  .bannerContent p {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  .bannerBtn {
+    font-size: 1rem;
+  }
+  .Counselling-bannerBtn {
+    font-size: 1rem;
+  }
+  .Counselling-bannerContent {
+    padding: 1rem;
+    top: 8rem;
+    left: 0.7rem;
+  }
+  .Counselling-bannerContent p {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  .counsellingCard {
+    padding: 0 0.5rem;
+  }
+  .counsellingCardBox {
+    padding: 0 0.4rem;
+  }
+  .counsellingCardBox img {
+    padding: 0.2rem;
+    height: 5rem;
+  }
+  .counsellingCard-content {
+    padding: 0.2rem 0;
+  }
+  .counsellingCard-content p:first-of-type {
+    font-size: 0.5rem;
+  }
+  .counsellingCard-content p:last-of-type {
+    font-size: 0.5rem;
+  }
+  .cardImg {
+    width: 4rem;
+    padding: 1rem;
+  }
+  .cardImgBox p {
+    font-size: 0.7rem;
+  }
+  .homepageCard-text1 {
+    padding: 0;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .homepageCard-text2 {
+    padding: 0;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .cardbtn {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .homepageCard-text2{
+    margin-bottom: 10px;
+  }
+  .bg_img{
+    padding: 0 0;
+  }
+  .whyCard-text1 {
+    font-size: 1rem;
+  }
+  .whyCard-text2 {
+    font-size: 0.9rem;
+  }
+  .why-section h1 {
+    font-size: 1.5rem;
+  }
+  .whyCard-img {
+    font-size: 2rem;
+    top: 1.8rem;
+  }
+  
+  .whyCard-career-1-img {
+    top: 1.3rem;
+    font-size: 1.5rem;
+  }
+  .whyCard-career-1-text1 {
+    font-size: 10px;
+    padding:5px;
+  }
+  .whyCard-career-1-text2 {
+    font-size: 0.65rem;
+  }
+  .nav-pills .nav-link {
+    font-size: 1rem;
+  }
+  .divider {
+    margin: 0 1rem;
+  }
+  .tabCard {
+    padding: 1rem 2.5rem;
+  }
+  .tabCardContent p {
+    font-size: 0.6rem;
+  }
+  .successSection8th-heading {
+    font-size: 1.5rem;
+  }
+  .faqQuestion p {
+    font-size: 0.6rem;
+  }
+  .faqAnswer p {
+    font-size: 0.5rem;
+  }
+  .fa-caret-down {
+    font-size: 2rem;
+  }
+  .faqSection {
+    padding: 0.8rem 2.5rem;
+  }
+  
+  .serviceVideoContent :nth-child(2) {
+    font-size: 0.8rem;
+    margin-top: -18px;
+  }
+  .serviceVideo {
+    padding: 1rem 1rem;
+  }
+  .callExpertSection8th {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .callUsCard {
+    flex-direction: column;
+  }
+  .callUsCard-content {
+    width: 100%;
+  }
+  .callUsCard-img {
+    width: 100%;
+  }
+  .callUsCard-content :nth-child(1) {
+    font-size: 0.9rem;
+  }
+  .callUsCard-content :nth-child(2) {
+    font-size: 0.7rem;
+  }
+  .form-control {
+    font-size: 0.7rem !important;
+  }
+  .counsellingJourneySection {
+    flex-direction: column-reverse;
+  }
+  .counsellingJourneyContent {
+    width: 100%;
+  }
+  .counsellingJourneyImg {
+    width: 90%;
+    justify-content: center;
+  }
+  .counsellingJourneyImg img {
+    width: 100%;
+  }
+  .pickSession {
+    font-size: 0.6rem !important;
+  }
+  .callExpertSection {
+    padding: 0.5rem 1rem;
+  }
+  .callExpertTop {
+    flex-direction: column;
+  }
+  .callExpertBottom {
+    flex-direction: column-reverse;
+  }
+  .callExpertBottomImg {
+    width: 100%;
+  }
+  .callExpertBottomContent {
+    width: 100%;
+  }
+  .personalityBannerContent {
+    padding: 2rem 0rem;
+  }
+  
+  
+  
+  .BenefitsSection {
+    padding-top: 2rem !important;
+  }
+  .BenefitsCards {
+    padding: 3rem 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .modal-content {
+    padding: 0.5rem;
+  }
+  .modal-body {
+    padding: 0.5rem;
+  }
+  .featureCardslide {
+    padding: 0.2rem 2.9rem;
+  }
+  .sessionModalForm {
+    padding: 0 1.5rem;
+  }
+  .modalContentImg p {
+    font-size: 1.2rem;
+    margin: 1rem 0 0 0;
+  }
+  .featureCardslideBox {
+    padding: 0.5rem;
+  }
+  .whyCard-text1 {
+    font-size: 0.85rem;
+  }
+  .whyCard-text2 {
+    font-size: 0.7rem;
+  }
+  .counsellingCard {
+    padding: 1rem;
+  }
+  .counsellingCardBox {
+    padding: 0 0.4rem;
+  }
+  .counsellingCard-content {
+    padding: 0.2rem 0;
+  }
+  .counsellingCard-content p:first-of-type {
+    font-size: 0.7rem;
+  }
+  .counsellingCard-content p:last-of-type {
+    font-size: 0.7rem;
+  }
+  .exploreAllbtn {
+    font-size: 0.8rem;
+  }
+  /*.tabCardContent img {*/
+  /*  width: 80px;*/
+  /*}*/
+  /*.tabCardContent{*/
+  /*  flex-direction: column;*/
+  /*}*/
+  .sessionContent p:first-of-type {
+    font-size: 1rem;
+  }
+  .sessionContent p:last-of-type {
+    font-size: 0.8rem;
+  }
+  .sessionContent ul li {
+    font-size: 0.7rem;
+    list-style:none;
+  }
+  .sessionBtn {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  .session {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  .sessionContent {
+    width: 100%;
+    text-align:center;
+  }
+  .sessionImg {
+    width: 100%;
+  }
+  .careerSubscribeSection {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .careerSubscribeContent {
+    width: 100%;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+  }
+  .careerSubscribeImg {
+    width: 100%;
+  }
+  .Counselling8th-bannerContent {
+    padding: .5rem;
+    top: 6rem;
+    left: 2rem;
+  }
+  .Counselling8th-bannerContent :nth-child(1) {
+    font-size: 0.8rem;
+    margin-bottom:5px;
+  }
+  .Counselling8th-bannerContent :nth-child(2) {
+    font-size: 0.6rem;
+  }
+  .Counselling8th-bannerContent :nth-child(3) {
+    font-size: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .Counselling8th-bannerBtn {
+    font-size: 0.5rem;
+  }
+  .serviceSection8th {
+    padding: 1rem;
+  }
+  
+  .serviceSection8th {
+    height: 10rem;
+  }
+  .serviceVideo {
+    width: 100%;
+  }
+  .serviceVideoContent{
+    width: 100%;
+  }
+  .pickSectionHeading :nth-child(1) {
+    font-size: 1.2rem;
+  }
+  .pickSectionHeading :nth-child(2) {
+    font-size: 0.9rem;
+  }
+  .pickSectionCardHeader p:first-of-type {
+    font-size: 1rem;
+  }
+  .rupees .number {
+    font-size: 1.2rem;
+  }
+  .pickSectionCardContent p {
+    font-size: 0.7rem;
+  }
+  .whySectionCounselling-header :nth-child(1) {
+    font-size: 1rem;
+  }
+  .whySectionCounselling-header :nth-child(2) {
+    font-size: 0.8rem;
+  }
+  .whyCounsellingCard {
+    padding: 1rem;
+  }
+  .whyCounsellingCardContentText1 p {
+    font-size: 0.8rem;
+  }
+  .parentName {
+    font-size: 1rem;
+  }
+  
+  .testServiceSection {
+    padding: 1rem 2rem;
+  }
+  .testServiceCard {
+    padding: 1rem;
+  }
+ 
+  .personalityBannerContent p:last-of-type {
+    font-size: 18px;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.personalityBannerContent p:first-of-type{
+  text-align: center;
+  font-size: 27px;
+}
+.testServiceCardImg img{
+  width: 20%;
+}
+  .testServiceCardText :nth-child(1) {
+    font-size: 1.5rem;
+  }
+  .testServiceCardText :nth-child(2) {
+    font-size: 1.3rem;
+  }
+  .BenefitsCardContent :nth-child(1) {
+  
+    top: -0.5rem;
+  }
+  
+  .careerWhyCardContent{
+    width: 100%;
+    text-align:center;
+  }
+  .whyDetail_box{
+    margin-left: 0;
+    margin-top: -70px;
+  }
+  .why-career-section-1{
+    margin-bottom: 0 !important;
+    padding:10px 0;
+  }
+  .tabCard{
+    padding: 0;
+  }
+  .testForm{
+    display: flex;
+    justify-content: center;
+  }
+  .faqSection .accordion-button{
+    font-size: 13px;
+  }
+  .personalityBanner_box_row{
+    flex-direction: column-reverse;
+  }
+  .footer-area .footer-logo{
+    width: 135px;
+  }
+  .footer-area{
+    padding: 30px 0;
+  }
+  .footer-area .footer-title {
+    font-weight: 600;
+    color: #fff;
+    font-size: 15px;
+}
+.footer-area .footer_div ul li a{
+    font-size:14px;
+}
+  .topCard-img img{
+    width: 100%;
+  }
+  .whyCard-career-1-content{
+      padding:.5rem 0rem 0rem .5rem;
+      margin-top:-11px;
+  }
+  .reverse_card{
+      flex-direction:column-reverse;
+  }
+  .careerWhyCardContent .imgfuid{
+  width: 80px;
+}
+.book_btn{
+    font-size:10px;
+}
+
+.login_box .logLink {
+    font-size: 16px;
+}
+#copyright p{
+    line-height:2;
+    font-size:11px;
+}
+.login_box{
+    margin-left: 15px;
+}
+.sd_text{
+    text-align:center;
+    font-size:23px;
+    font-weight:600;
+}
+.sd_txt_para{
+    text-align:center;
+    font-size:13px;
+}
+.call_box_expert{
+    top: 230px;
+    left:0;
+}
+}
+@media screen and (max-width: 376px) {
+  .modal-content {
+    padding: 0.2rem;
+  }
+  .modal-body {
+    padding: 0.2rem;
+  }
+  .featureHeading p {
+    font-size: 0.8rem;
+  }
+  .featureCardslide {
+    padding: 0.1rem 2.9rem;
+  }
+  .sessionModalForm {
+    padding: 0 1rem;
+  }
+  .featureContent p {
+    font-size: 0.7rem;
+  }
+  .modalContentImg p {
+    font-size: 1rem;
+    margin: 0.5rem 0 0 0;
+  }
+  .modalFormHeading {
+    font-size: 0.8rem;
+  }
+  .featureCardContent p {
+    font-size: 0.5rem;
+  }
+  .featureCardslideBox {
+    padding: 0.3rem;
+  }
+  .radioBox {
+    padding: 0.2rem;
+  }
+  .radioBox :nth-child(1) {
+    font-size: 0.7rem;
+  }
+  .radioBox :nth-child(2) {
+    font-size: 0.5rem;
+  }
+  .modal-Input i {
+    font-size: 0.6rem;
+  }
+  .modal-Input .form-control {
+    font-size: 0.6rem !important;
+  }
+  .modalFormTerms {
+    font-size: 0.5rem;
+  }
+  .Modalbtn {
+    font-size: 0.6rem;
+  }
+  .alreadyMember {
+    font-size: 0.6rem;
+  }
+  .fa-bars {
+    font-size: 1.3rem;
+  }
+  .fa-angle-right {
+    font-size: 1rem;
+  }
+  .signup-1 {
+    font-size: 1rem;
+  }
+  .bookSession {
+    font-size: 0.6rem;
+  }
+  .freeTag {
+    font-size: 0.5rem;
+    right: 0.6rem;
+    top: 1.3rem;
+  }
+  .careerPadding {
+    padding-right: 1rem;
+  }
+  .signup-2 {
+    font-size: 0.6rem;
+  }
+  .logo {
+    width: 7rem;
+  }
+  .bannerContent {
+    padding: 0.2rem;
+    top: 6rem;
+    left: 1.5rem;
+  }
+  .bannerContent p {
+    font-size: 0.6rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+ 
+  .bannerBtn {
+    font-size: 0.8rem;
+  }
+  .Counselling-bannerBtn {
+    font-size: 0.8rem;
+  }
+  .Counselling-bannerContent {
+    padding: 0.5rem;
+    top: 7rem;
+    left: 0.5rem;
+  }
+  .Counselling-bannerContent p {
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  .counsellingCard {
+    padding: 0.5rem;
+  }
+  .counsellingCardBox {
+    padding: 0 0.4rem;
+  }
+  .counsellingCard-content {
+    padding: 0.2rem 0;
+  }
+  .counsellingCard-content p:first-of-type {
+    font-size: 0.5rem;
+  }
+  .counsellingCard-content p:last-of-type {
+    font-size: 0.5rem;
+  }
+  .cardImg {
+    width: 2.8rem;
+    padding: 0.5rem;
+  }
+  .cardImgBox p {
+    font-size: 0.51rem;
+  }
+  .homepageCard-text1 {
+    padding: 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .homepageCard-text2 {
+    padding: 0;
+    font-weight: 400;
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  .cardbtn {
+    font-size: 0.8rem;
+  }
+  .whyCard {
+    padding: 0.1rem 0.8rem;
+  }
+  .whyCard-text1 {
+    font-size: 0.7rem;
+  }
+  .whyCard-text2 {
+    font-size: 0.5rem;
+  }
+  .whyCard-img {
+    font-size: 1.5rem;
+    top: 1.3rem;
+  }
+ 
+  /*.whyCard-career-1-content {*/
+  /*  height: 75%;*/
+  /*}*/
+  .whyCard-career-1 {
+    padding: 0.3rem 0.7rem;
+  }
+  .whyCard-career-1-img {
+    font-size: 2rem;
+    top: 1.8rem;
+  }
+  .whyCard-career-1-text1 {
+    font-size: 0.8rem;
+  }
+  .whyCard-career-1-text2 {
+    font-size: 0.5rem;
+  }
+  /* .careerWhyCardContent p:first-of-type {
+    font-size: 0.9rem;
+    font-weight: 600;
+  } */
+  .careerWhyCardContent p:last-of-type {
+    font-size: 0.8rem;
+  }
+  .topText1 {
+    font-size: 0.8rem;
+  }
+  .topText2 {
+    font-size: 0.8rem;
+  }
+  .topContent a {
+    font-size: 0.8rem;
+  }
+  .topCollection-card {
+    padding: 3rem;
+  }
+  .swiper-button-next::after {
+    font-size: 1rem !important;
+  }
+  .swiper-button-prev::after {
+    font-size: 1rem !important;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    height: 2rem !important;
+    width: 2rem !important;
+  }
+  .exploreAllbtn {
+    display: none;
+  }
+  .nav-pills .nav-link {
+    font-size: 0.8rem;
+  }
+  .divider {
+    margin: 0 0.2rem;
+  }
+  .careerSubscribeContent p,
+  .careerSubscribebtn {
+    font-size: 0.8rem;
+  }
+  .newsContent h3 {
+    font-size: 1rem;
+  }
+  .newsContent p {
+    font-size: 0.7rem;
+  }
+  .newsbtn {
+    font-size: 0.7rem;
+  }
+  .faqSection {
+    padding: 0.7rem 2rem;
+  }
+  .Counselling8th-bannerContent {
+    padding: .3rem;
+    top: 6rem;
+    left: 1rem;
+  }
+  .Counselling8th-bannerContent :nth-child(1) {
+    font-size: 0.6rem;
+  }
+  .Counselling8th-bannerContent :nth-child(2) {
+    font-size: 0.45rem;
+  }
+  .Counselling8th-bannerContent :nth-child(3) {
+    font-size: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+  .Counselling8th-bannerBtn {
+    font-size: 0.5rem;
+  }
+  
+ 
+  .serviceVideo {
+    height: 14rem;
+    padding: 1rem;
+  }
+  .successSection8th-heading {
+    font-size: 1rem;
+  }
+  .successCard-heading {
+    font-size: 0.8rem;
+  }
+  .successCardText {
+    font-size: 0.5rem;
+  }
+  .successSection8th-cardbtn {
+    font-size: 0.5rem;
+  }
+  .pickSectionHeading :nth-child(1) {
+    font-size: 1rem;
+  }
+  .pickSectionHeading :nth-child(2) {
+    font-size: 0.7rem;
+  }
+  .counsellingJourneyContent :nth-child(1) {
+    font-size: 0.9rem;
+  }
+  .counsellingJourneyContent :nth-child(2) {
+    font-size: 0.7rem;
+  }
+  .counsellingJourneySection {
+    padding: 1rem 2rem;
+  }
+  
+  
+  .testServiceSection {
+    padding: 0.5rem 1rem;
+  }
+ 
+  .testServiceCardContent {
+    padding: 0.2rem;
+  }
+  
+  .tabCardContentText{
+    padding: 5px;
+  }
+.tabCardContent{
+    padding:.5rem;
+}
+.login_box .logLink {
+    font-size: 9px;
+}
+.sd_text {
+    font-size:20px;
+}
+}
+
+
+@media screen and (max-width: 330px) {
+    .tabCardContent img {
+    width: 127px;
+}
+.tabCardContentText{
+    height: 144px;
+}
+.sd_text {
+    font-size:18px;
+}
+}
+
+
+/* blog */
+
+.swiper_box{
+  width: 50%;
+  height: 50%;
+  background: rgba(235, 241, 249,50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s all ease-in-out;
+  -webkit-animation: trnasForm .5s linear;
+          animation:trnasForm .5s linear ;
+          animation-delay: 2s;
+}
+@keyframes trnasForm {
+  0%{
+    top: -100%;
+  }
+  100%{
+    top: 50%;
+    transform: rotateX(-360deg);
+  }
+  
+}
+
+.blogHeading{
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 35px;
+  color: #192e95;
+}
+.blog_box{
+ 
+  background: url(../assets/images/blog_content_bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 15px;
+}
+.blog_image_content{
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  padding: 15px;
+  display: grid;
+  justify-content: center;
+  border-radius: 15px;
+  box-shadow: 2px 5px 8px rgba(30, 38, 54, 0.3);
+  -webkit-box-shadow:2px 5px 8px rgba(30, 38, 54, 0.3);
+}
+.blog_image_content img{
+  width: 200px;
+}
+.blog_image_content h4{
+  text-transform: capitalize;
+  font-size: 20px;
+}
+.blog_image_content a{
+  color: #fff;
+}
+.blog_image_content p{
+  font-size: 12px;
+  font-weight: 300;
+  font-family: 'Poppins', sans-serif;
+}
+.blog_text_box .blog_para_box p{
+  font-size: 12px;
+  font-weight: 200;
+  font-family: 'Poppins', sans-serif;
+  color: #ffff;
+  letter-spacing: .5px;
+}
+.blog_text_box .blog_para_box{
+  height: 120px;
+  overflow: hidden;
+  margin-block: 15px;
+}
+.blog_btn{
+  border: 1px solid #fff;
+  background: #fff;
+  color: #192e95;
+}
+.blog_swiper .swiper-pagination .swiper-pagination-bullet-active{
+  background: #fff !important;
+}
+.blog_swiper .swiper-pagination .swiper-pagination-bullet{
+  background: #fff;
+}
+.article_header a{
+  color: rgba(107, 107, 107, 0.862);
+  font-size: 12px;
+}
+.artical_caption a{
+  color:#555;
+}
+.blog_swiper .swiper-slide img{
+  width: 100%;
+}
+.artical_caption h1{
+  font-size: 22px;
+  padding-top: 10px;
+  font-weight: 700;
+}
+.article_release p{
+  font-size: 11px;
+}
+.article_release p span{
+  font-weight: 800;
+}
+.article_para p{
+  font-size: 15px;
+}
+.blog_search fieldset{
+  position: relative;
+}
+.blog_search .btn{
+  background: url(../assets/images/search-icon.png);
+  background-position: center;
+  background-size: cover;
+  text-indent: -9999px;
+  width: 25px;
+  height: 25px;
+  outline: none;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 25%;
+  right: 0;
+  padding: 0 ;
+  margin-right: 10px;
+
+}
+
+.blog_heading{
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+  position: relative;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  position: relative;
+}
+.blog_heading::after{
+  position: absolute;
+  top: 50%;
+  content: '';
+  width: 80%;
+  height: 2px;
+  background: #ff0044;
+ margin-left: 20px;
+}
+.blog_subHeading::after{
+  top: 100%;
+  left: 0;
+  margin-left: 0;
+  width: 80%;
+  margin-top: 8px;
+}
+.main_blog .blog_article_box {
+
+  overflow: hidden;
+  transition: .3s all ease-in-out;
+  display: none;
+  border-bottom: 1px solid rgba(30, 38, 54, 0.3);
+}
+
+.latestPost_box{
+  border: 1px solid rgba(0, 0, 0, 0.314);
+  overflow: hidden;
+  height: 100%;
+}
+.latestPost_box .lts_post_hding {
+  padding: 0 8px;
+}
+.latestPost_box .lts_post_hding h4{
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+.lts_post_img{
+  height: 150px;overflow: hidden;
+}
+.lts_post_release{
+  padding: 0 8px;
+}
+.lts_post_release p{
+  font-size: 12px;
+  font-weight: 100;
+}
+.lts_post_release p span{
+  font-weight: 600;
+}
+.get_form{
+  padding: 20px;
+  background: linear-gradient(45deg, #6d7fff, #9540ad);
+}
+.blog_btn_send{
+  background: linear-gradient(to left,#007bff ,#3fff00 );
+  color: #000;
+  border: none;
+}
+.stick_box{
+  position: sticky;
+  top: 20%;
+}
+.blog_link{
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(30, 38, 54, 0.8);
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.title_blog{
+  font-size: 12px;
+  margin-top: 15px;
+  color: rgba(0,0,0,0.7);
+}
+.para_blog{
+  font-size: 14px;
+  font-family:'Times New Roman', Times, serif !important;
+}
