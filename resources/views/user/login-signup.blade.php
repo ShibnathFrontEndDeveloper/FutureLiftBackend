@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('toaster/toastr.min.css')}}">
   </head>
   <body>
-    <div class="container">
+    <div class="container {{(Session::has('refer_session_code'))?'sign-up-mode':''}}">
       <div class="forms-container">
         <div class="signin-signup">
           <form action="{{url('/user/login')}}" class="sign-in-form" method="post">
@@ -134,6 +134,24 @@
                 <option value="Uttarakhand">Uttarakhand</option>
                 <option value="West Bengal">West Bengal</option>
               </select>
+            </div>
+            <div class="input-field">
+            <i class="fas fa-sitemap"></i>
+            @if(Session::has('refer_session_code'))
+              <input
+                type="text"
+                placeholder="Enter Refer Code"
+                name="refer_code"
+                value="{{Session::get('refer_session_code')}}"
+              />
+            @else
+            <input
+                type="text"
+                placeholder="Enter Refer Code"
+                name="refer_code"
+                value="{{old('refer_code')}}"
+              />
+            @endif
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>

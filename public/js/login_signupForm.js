@@ -9,6 +9,7 @@ if (display === "signUp") {
 }
 
 sign_up_btn.addEventListener("click", () => {
+    localStorage.setItem("display", "signUp");
   container.classList.add("sign-up-mode");
 });
 sign_in_btn.addEventListener("click", () => {

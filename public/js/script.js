@@ -55,7 +55,7 @@ var swiper = new Swiper(".BenefitsSection", {
     prevEl: ".swiper-button-prev",
   },
   breakpoints: {
-   
+
     0: {
       slidesPerView: 1,
     },
@@ -277,70 +277,70 @@ $(document).ready(function(){
       $("#loadMore").text("No Content").addClass("noContent");
     }
   });
-  
+
 });
 
 // Profile multy steps form
 
 $(document).ready(function(){
-    
+
   var current_fs, next_fs, previous_fs; //fieldsets
   var opacity;
-  
+
   $(".next").click(function(){
-      
+
       current_fs = $(this).parent();
       next_fs = $(this).parent().next();
-      
+
       //Add Class Active
       $("#progressbar li").eq($("fieldset").index(next_fs)).toggleClass("active");
-      
+
       //show the next fieldset
-      next_fs.show(); 
+      next_fs.show();
       //hide the current fieldset with style
       current_fs.animate({opacity: 0}, {
           step: function(now) {
               // for making fielset appear animation
               opacity = 1 - now;
-  
+
               current_fs.css({
                   'display': 'none',
                   'position': 'relative'
               });
               next_fs.css({'opacity': opacity});
-          }, 
+          },
           duration: 600
       });
   });
-  
+
   $(".prev").click(function(){
-      
+
       current_fs = $(this).parent();
       previous_fs = $(this).parent().prev();
-      
+
       //Remove class active
       $("#progressbar li").eq($("fieldset").index(current_fs)).toggleClass("active");
-      
+
       //show the previous fieldset
       previous_fs.show();
-  
+
       //hide the current fieldset with style
       current_fs.animate({opacity: 0}, {
           step: function(now) {
               // for making fielset appear animation
               opacity = 1 - now;
-  
+
               current_fs.css({
                   'display': 'none',
                   'position': 'relative'
               });
               previous_fs.css({'opacity': opacity});
-          }, 
+          },
           duration: 600
       });
   });
-  
-      
+
+
   });
 
 
@@ -349,15 +349,16 @@ $(document).ready(function(){
   function myFunction() {
     // Get the text field
     let copyText = document.getElementById("refInput");
-    
-  
+
+
     // Select the text field
     copyText.select();
     copyText.setSelectionRange(0, 99999);
     // For mobile devices
-  
+
     // Copy the text inside the text field
-    navigator.clipboard.writeText(copyText.value); 
+    navigator.clipboard.writeText(copyText.value);
+    toastr.success('Copied!', 'Success');
   }
 
   function copyCode(){
@@ -367,9 +368,10 @@ $(document).ready(function(){
 
     // Select the text field
     copyText1.select();
-    copyText1.setSelectionRange(0, 99999); 
+    copyText1.setSelectionRange(0, 99999);
     // For mobile devices
 
     // Copy the text inside the text field
     navigator.clipboard.writeText(copyText1.value);
+    toastr.success('Copied!', 'Success');
   }

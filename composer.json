@@ -16,6 +16,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
+        "phpmailer/phpmailer": "^6.8",
         "realrashid/sweet-alert": "^7.0"
     },
     "require-dev": {

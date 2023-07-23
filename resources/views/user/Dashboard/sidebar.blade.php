@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{asset('Dashboard/assets/css/style.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('Dashboard/assets/images/favicon.png')}}" />
+    @yield('csss')
   </head>
   <body>
     <div class="container-scroller">
@@ -134,13 +135,13 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="./pages/my-session/sessions.html"> Sessions</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/session')}}"> Sessions</a></li>
               </ul>
             </div>
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="./pages/refar-and-earn/refar-earn.html">
+            <a class="nav-link" href="{{url('/refer-and-earn')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-contacts"></i>
               </span>
@@ -169,7 +170,18 @@
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
               <span class="mdi mdi-menu"></span>
             </button>
-
+            @php
+                $currenSession = App\Helpers::getCurrentPackage();
+            @endphp
+            @if ($currenSession != '')
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="package-li">
+                    <div class="package-header">
+                        <span>Current Package : {{$currenSession}}</span>
+                    </div>
+                </li>
+            </ul>
+            @endif
             <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown border-left">
                 <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
@@ -262,7 +274,11 @@
         </nav>
 
         @yield('content')
-
+        <div id="ftco-loader" class="show fullscreen pre-loader" style="display: none;">
+				<div class="loader-position">
+					<img src="{{asset('assets/images/loader.gif')}}" alt="Preloader">
+				</div>
+			</div>
         <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
@@ -301,10 +317,12 @@
     <!-- End custom js for this page -->
     <script src="{{asset('toaster/toastr.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     {!! Toastr::message() !!}
 
 
     <script>
+        var BASE_URL = "{{url('/')}}";
         function logoutUser(){
             const url = "<?=url('user/logout')?>";
             swal({
@@ -318,6 +336,13 @@
                 }
             });
         }
+    //     $('button[type="submit"]').click(function() {
+    //         $('.modal').modal('hide');
+    //         $("#ftco-loader").show();
+    //   });
+
+
+
 
 
 

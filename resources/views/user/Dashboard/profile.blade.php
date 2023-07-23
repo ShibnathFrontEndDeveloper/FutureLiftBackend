@@ -30,7 +30,7 @@
                       <!-- fieldsets -->
                       <fieldset>
                         @if ($dataCount > 0)
-                            <input type="hidden" name="infoId" value="{{$data->id}}">
+                            <input type="hidden" name="infoId" id="infoId" value="{{$data->id}}">
                         @endif
                         <div class="row">
                           <div class="col-lg-3">
@@ -46,25 +46,25 @@
                             <div class="row p-3">
                               <div class="col-lg-4 mb-3">
                                 <label class="form-label" for="">Student Name</label>
-                                <input type="text" class="form-control " id="" name="name" value="{{Auth::guard('user')->user()->name}}" placeholder="Jane Doe">
+                                <input type="text" class="form-control " id="name" name="name" value="{{Auth::guard('user')->user()->name}}" placeholder="Jane Doe">
                               </div>
                               <div class="col-lg-4 mb-3">
                                 <label class="form-label" for="">Father Name</label>
-                                <input type="text" class="form-control" id="inlineFormInputName2" name="father_name" value="{{($dataCount > 0)?($data->father_name)?$data->father_name:'':''}}" placeholder="Jane Doe" >
+                                <input type="text" class="form-control" id="father_name" name="father_name" value="{{($dataCount > 0)?($data->father_name)?$data->father_name:'':''}}" placeholder="Jane Doe" >
                               </div>
                               <div class="col-lg-4 mb-3">
                                 <label class="form-label" for="">Mother Name</label>
-                                <input type="text" class="form-control" id="inlineFormInputName2" name="mother_name" value="{{($dataCount > 0)?($data->mother_name)?$data->mother_name:'':''}}" placeholder="Jane Doe">
+                                <input type="text" class="form-control" id="mother_name" name="mother_name" value="{{($dataCount > 0)?($data->mother_name)?$data->mother_name:'':''}}" placeholder="Jane Doe">
                               </div>
                             </div>
                             <div class="row align-items-center p-3">
                               <div class="col-lg-4 mb-3">
                                 <label class="form-label" for="">DOB</label>
-                                <input type="date" class="form-control" id="inlineFormInputName2" value="{{($dataCount > 0)?($data->dob)?$data->dob:'':''}}" name="dob">
+                                <input type="date" class="form-control" id="dob" value="{{($dataCount > 0)?($data->dob)?$data->dob:'':''}}" name="dob">
                               </div>
                               <div class="col-lg-4 mb-3">
                                 <label class="form-label" for="">City</label>
-                                <select class="form-select" name="city">
+                                <select class="form-select" name="city" id="city">
                                     <option <?=($dataCount > 0)?($data->city)?($data->city=='kolkata')?'selected':'':'':''?> value="kolkata" >Kolkata</option>
                                     <option <?=($dataCount > 0)?($data->city)?($data->city=='indore')?'selected':'':'':''?> value="indore">Indore</option>
                                     <option <?=($dataCount > 0)?($data->city)?($data->city=='bangalore')?'selected':'':'':''?> value="bangalore">Bangalore</option>
@@ -89,67 +89,67 @@
                             </div>
                           </div>
                         </div>
-                        <input type="button" name="next" class="btn btn-primary next" value="Next"/>
+                        <input type="button" name="next" class="btn btn-primary next" onclick="step_one()" value="Next"/>
                       </fieldset>
                       <fieldset>
                         <div class="row p-3">
                           <div class="col-lg-6">
                             <div class="form-group">
                               <label for="" class="form-label">College</label>
-                              <input type="text" name="college" value="{{($dataCount > 0)?($data->college)?$data->college:'':''}}" class="form-control" >
+                              <input type="text" name="college" id="college" value="{{($dataCount > 0)?($data->college)?$data->college:'':''}}" class="form-control" >
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
                               <label for="" class="form-label">University</label>
-                              <input type="text" name="university" value="{{($dataCount > 0)?($data->university)?$data->university:'':''}}" class="form-control" >
+                              <input type="text" name="university" id="university" value="{{($dataCount > 0)?($data->university)?$data->university:'':''}}" class="form-control" >
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
                               <label for="" class="form-label">Course</label>
-                              <input type="text" name="course" value="{{($dataCount > 0)?($data->course)?$data->course:'':''}}" class="form-control" >
+                              <input type="text" name="course" id="course" value="{{($dataCount > 0)?($data->course)?$data->course:'':''}}" class="form-control" >
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
                               <label for="" class="form-label">Year of Passing</label>
-                              <input type="text" class="form-control" value="{{($dataCount > 0)?($data->year_of_passing)?$data->year_of_passing:'':''}}" name="year_of_passing">
+                              <input type="text" class="form-control" id="year_of_passing" value="{{($dataCount > 0)?($data->year_of_passing)?$data->year_of_passing:'':''}}" name="year_of_passing">
                             </div>
                           </div>
                         </div>
                         <input type="button" name="previous" class=" btn btn-outline-primary prev" value="Back"/>
-                        <input type="button" name="next" class="btn btn-primary next" value="Next"/>
+                        <input type="button" name="next" class="btn btn-primary next" onclick="step_two()" value="Next"/>
                       </fieldset>
                       <fieldset>
                         <div class="row p-3">
                           <div class="col-lg-6">
                             <div class="form-group">
                               <label for="" class="form-label">Father's (or Guardian's) Name</label>
-                              <input type="text" name="father_guardian_name" value="{{($dataCount > 0)?($data->father_guardian_name)?$data->father_guardian_name:'':''}}" class="form-control" >
+                              <input type="text" name="father_guardian_name" id="father_guardian_name" value="{{($dataCount > 0)?($data->father_guardian_name)?$data->father_guardian_name:'':''}}" class="form-control" >
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
                               <label for="" class="form-label">Mother's (or Guardian's) Name</label>
-                              <input type="text" name="mother_guardian_name" value="{{($dataCount > 0)?($data->mother_guardian_name)?$data->mother_guardian_name:'':''}}" class="form-control" >
+                              <input type="text" name="mother_guardian_name" id="mother_guardian_name" value="{{($dataCount > 0)?($data->mother_guardian_name)?$data->mother_guardian_name:'':''}}" class="form-control" >
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
                               <label for="" class="form-label">Father's (or Guardian's) Profession</label>
-                              <input type="text" name="father_profession" value="{{($dataCount > 0)?($data->father_profession)?$data->father_profession:'':''}}" class="form-control" >
+                              <input type="text" name="father_profession" id="father_profession" value="{{($dataCount > 0)?($data->father_profession)?$data->father_profession:'':''}}" class="form-control" >
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
                               <label for="" class="form-label">Mother's (or Guardian's) Profession</label>
-                              <input type="text" class="form-control" value="{{($dataCount > 0)?($data->mother_profession)?$data->mother_profession:'':''}}" name="mother_profession">
+                              <input type="text" class="form-control" id="mother_profession" value="{{($dataCount > 0)?($data->mother_profession)?$data->mother_profession:'':''}}" name="mother_profession">
                             </div>
                           </div>
                         </div>
                         <input type="button" name="previous" class=" btn btn-outline-primary prev" value="Back"/>
-                        <input type="button" name="next" class="btn btn-primary next" value="Next"/>
+                        <input type="button" name="next" class="btn btn-primary next" onclick="step_three()" value="Next"/>
                       </fieldset>
                       <fieldset>
                         <div class="container"></div>

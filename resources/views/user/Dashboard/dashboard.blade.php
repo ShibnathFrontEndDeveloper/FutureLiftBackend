@@ -41,14 +41,15 @@
                   <div class="card-body p-3">
                     <p class="card_para">Current: Orientation Style</p>
                     <div class="card_progress_bar">
-                      <span>{{$profileComplete}}/{{$profileField}} Remaining</span>
+                      <!-- <span>{{$profileComplete}}/{{$profileField}} Remaining</span> -->
+                      <span>{{$profilePercentage}} % Completed</span>
                       <div class="progress mb-3">
                         <div class="progress-bar" role="progressbar" style="width: {{$profilePercentage}}%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                     </div>
 
                     <div class="card_btn text-center">
-                      <a href="{{url('/user-profile')}}" class="test_btn">start test</a>
+                      <a href="{{url('/user-profile')}}" class="test_btn">Click Here</a>
                     </div>
                   </div>
                 </div>
@@ -65,7 +66,7 @@
                   <div class="card-body p-3">
                     <p class="card_para">Current: Orientation Style</p>
                     <div class="card_btn text-center">
-                      <a href="" class="test_btn" data-toggle="modal" data-target="#upgrade_box">view all</a>
+                      <a href="{{url('/refer-and-earn')}}" class="test_btn">view all</a>
                   </div>
                 </div>
               </div>

@@ -161,7 +161,7 @@ a {
     justify-content: center;
     align-items: center;
     margin-left: 30px;
-    
+
 }
 .login_box .logLink{
     color:#000;
@@ -418,13 +418,13 @@ input::-webkit-calendar-picker-indicator {
 
 .footer-area {
   background: #1e2c3d;
-  
+
   background-position: center center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   padding: 150px 0;
   position: relative;
- 
+
 }
 .footer-area .overlay{
   position: absolute;
@@ -439,7 +439,7 @@ input::-webkit-calendar-picker-indicator {
 }
 .footer-area .footer-logo {
   width: 220px;
-  
+
 }
 .footer_div{
   text-align:left;
@@ -909,7 +909,7 @@ backdrop-filter: blur(6px);
   color: rgb(0, 132, 255);
 }
 .whyCard-career-1-img {
- 
+
   font-size: 3.5rem;
 }
 .whyCard-career-1-text1 {
@@ -964,7 +964,7 @@ backdrop-filter: blur(6px);
   padding: 8px 15px;
   background: #dc3545;
   border-radius: 5px;
- 
+
 }
 .exploreAllbtn a{
   color: #fff;
@@ -1082,7 +1082,7 @@ backdrop-filter: blur(6px);
   height: 180px;
   overflow: auto;
   margin-left: 10px;
-  
+
 }
 .tabCardContent img {
   width: 183px;
@@ -1368,8 +1368,8 @@ backdrop-filter: blur(6px);
 }
 .call_box_expert .expert_call_btn .bi{
     font-size:35px;
-    color:##063f6b;
-   
+    color:#063f6b;
+
 }
 
 @keyframes salsa{
@@ -1378,7 +1378,7 @@ backdrop-filter: blur(6px);
     }
     50%{
         transform-origin: 0 0;
-transform: translate(-5px, 5px) rotate(-45deg) 
+transform: translate(-5px, 5px) rotate(-45deg)
 
     }
     100%{
@@ -1748,7 +1748,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   100%{
     transform: translateY(0px);
   }
-  
+
 }
 
 .personalityBannerContent p:first-of-type {
@@ -1935,7 +1935,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .counsellingCard-content p:last-of-type {
     font-size: 1rem;
   }
-  
+
   .sessionContent p:first-of-type {
     font-size: 2rem;
   }
@@ -2065,7 +2065,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .counsellingCard-content p:last-of-type {
     font-size: 0.7rem;
   }
-  
+
   .whyCard-career-1-img {
     top: 2rem;
     font-size: 2.5rem;
@@ -2296,12 +2296,12 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .personalityBannerContent {
     padding: 2rem 0rem;
   }
-  
-  
+
+
   .testServiceSection {
     padding: 2rem 3rem;
   }
- 
+
   .testServiceCardText :nth-child(1) {
     font-size: 1rem;
   }
@@ -2348,7 +2348,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .counsellingCard-content p:last-of-type {
     font-size: 0.6rem;
   }
- 
+
   .whyCard-career-1-img {
     top: 2rem;
     font-size: 2rem;
@@ -2460,7 +2460,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .personalityBannerContent {
     padding: 2rem 0rem;
   }
- 
+
   .testInput {
     font-size: 0.8rem;
   }
@@ -2479,7 +2479,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .testServiceSection {
     padding: 1.5rem 2.25rem;
   }
-  
+
   .testServiceCardText :nth-child(1) {
     font-size: 0.8rem;
   }
@@ -2495,7 +2495,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
 }
 
 @media screen and (max-width: 600px) {
-  
+
   .fa-bars {
     font-size: 1.5rem;
   }
@@ -2596,7 +2596,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
     font-size: 2rem;
     top: 1.8rem;
   }
-  
+
   .whyCard-career-1-img {
     top: 1.3rem;
     font-size: 1.5rem;
@@ -2635,7 +2635,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .faqSection {
     padding: 0.8rem 2.5rem;
   }
-  
+
   .serviceVideoContent :nth-child(2) {
     font-size: 0.8rem;
     margin-top: -18px;
@@ -2699,9 +2699,9 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .personalityBannerContent {
     padding: 2rem 0rem;
   }
-  
-  
-  
+
+
+
   .BenefitsSection {
     padding-top: 2rem !important;
   }
@@ -2818,7 +2818,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .serviceSection8th {
     padding: 1rem;
   }
-  
+
   .serviceSection8th {
     height: 10rem;
   }
@@ -2858,14 +2858,14 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .parentName {
     font-size: 1rem;
   }
-  
+
   .testServiceSection {
     padding: 1rem 2rem;
   }
   .testServiceCard {
     padding: 1rem;
   }
- 
+
   .personalityBannerContent p:last-of-type {
     font-size: 18px;
     margin-bottom: 3rem;
@@ -2885,10 +2885,10 @@ transform: translate(-5px, 5px) rotate(-45deg)
     font-size: 1.3rem;
   }
   .BenefitsCardContent :nth-child(1) {
-  
+
     top: -0.5rem;
   }
-  
+
   .careerWhyCardContent{
     width: 100%;
     text-align:center;
@@ -3061,7 +3061,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
     font-weight: 600;
     margin-bottom: 1.2rem;
   }
- 
+
   .bannerBtn {
     font-size: 0.8rem;
   }
@@ -3126,7 +3126,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
     font-size: 1.5rem;
     top: 1.3rem;
   }
- 
+
   /*.whyCard-career-1-content {*/
   /*  height: 75%;*/
   /*}*/
@@ -3216,8 +3216,8 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .Counselling8th-bannerBtn {
     font-size: 0.5rem;
   }
-  
- 
+
+
   .serviceVideo {
     height: 14rem;
     padding: 1rem;
@@ -3249,16 +3249,16 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .counsellingJourneySection {
     padding: 1rem 2rem;
   }
-  
-  
+
+
   .testServiceSection {
     padding: 0.5rem 1rem;
   }
- 
+
   .testServiceCardContent {
     padding: 0.2rem;
   }
-  
+
   .tabCardContentText{
     padding: 5px;
   }
@@ -3314,7 +3314,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
     top: 50%;
     transform: rotateX(-360deg);
   }
-  
+
 }
 
 .blogHeading{
@@ -3326,7 +3326,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   color: #192e95;
 }
 .blog_box{
- 
+
   background: url(../assets/images/blog_content_bg.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -3514,3 +3514,50 @@ transform: translate(-5px, 5px) rotate(-45deg)
   font-size: 14px;
   font-family:'Times New Roman', Times, serif !important;
 }
+
+
+
+/*----- | Preloader |-----*/
+.pre-loader {
+    background-color: #2c3e50;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
+    -o-transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
+    transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+    z-index: 1000;
+}
+.pre-loader .loader-position {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+.pre-loader .loader-position img {
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
+#ftco-loader.show {
+    -webkit-transition: opacity 0.4s ease-out, visibility 0s linear 0s;
+    -o-transition: opacity 0.4s ease-out, visibility 0s linear 0s;
+    transition: opacity 0.4s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+

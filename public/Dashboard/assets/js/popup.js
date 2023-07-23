@@ -11,11 +11,10 @@
 // });
 
 
-setTimeout(() => {
-    document.getElementById('sesionPopUp').style.display="block"
-  }, 1000);
+// setTimeout(() => {
+//     document.getElementById('sesionPopUp').style.display="block"
+//   }, 1000);
 
-  let close = document.getElementById('close').addEventListener('click',function(){
-    document.getElementById('sesionPopUp').style.display="none"
-  });
-  
+//   let close = document.getElementById('close').addEventListener('click',function(){
+//     document.getElementById('sesionPopUp').style.display="none"
+//   });

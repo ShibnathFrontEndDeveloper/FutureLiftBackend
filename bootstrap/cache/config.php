@@ -6,7 +6,7 @@
     'debug' => true,
     'url' => 'http://localhost',
     'asset_url' => NULL,
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Kolkata',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
@@ -194,7 +194,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\xampp\\htdocs\\futurelit\\storage\\framework/cache/data',
+        'path' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -360,12 +360,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\xampp\\htdocs\\futurelit\\storage\\app',
+        'root' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\xampp\\htdocs\\futurelit\\storage\\app/public',
+        'root' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -382,7 +382,7 @@
     ),
     'links' => 
     array (
-      'D:\\xampp\\htdocs\\futurelit\\public\\storage' => 'D:\\xampp\\htdocs\\futurelit\\storage\\app/public',
+      'D:\\xampp\\htdocs\\FutureLiftBackend\\public\\storage' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -416,13 +416,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\xampp\\htdocs\\futurelit\\storage\\logs/laravel.log',
+        'path' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\xampp\\htdocs\\futurelit\\storage\\logs/laravel.log',
+        'path' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -472,7 +472,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\xampp\\htdocs\\futurelit\\storage\\logs/laravel.log',
+        'path' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -484,11 +484,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.mailtrap.io',
-        'port' => '2525',
-        'encryption' => NULL,
-        'username' => NULL,
-        'password' => NULL,
+        'host' => 'smtp.gmail.com',
+        'port' => '25',
+        'encryption' => 'TLS',
+        'username' => 'rajdeeproychowdhuryb@gmail.com',
+        'password' => 'uxrijlygawdnwecr',
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -521,7 +521,7 @@
     ),
     'from' => 
     array (
-      'address' => NULL,
+      'address' => 'rajdeeproychowdhuryb@gmail.com',
       'name' => 'Laravel',
     ),
     'markdown' => 
@@ -529,7 +529,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\xampp\\htdocs\\futurelit\\resources\\views/vendor/mail',
+        0 => 'D:\\xampp\\htdocs\\FutureLiftBackend\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -617,7 +617,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\xampp\\htdocs\\futurelit\\storage\\framework/sessions',
+    'files' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -690,9 +690,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\xampp\\htdocs\\futurelit\\resources\\views',
+      0 => 'D:\\xampp\\htdocs\\FutureLiftBackend\\resources\\views',
     ),
-    'compiled' => 'D:\\xampp\\htdocs\\futurelit\\storage\\framework\\views',
+    'compiled' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\framework\\views',
   ),
   'flare' => 
   array (

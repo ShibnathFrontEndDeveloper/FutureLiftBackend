@@ -241,7 +241,7 @@
                   </div>
                   <div class="form-group modal-Input">
                     <i class="fa-regular fa-calendar-days"></i>
-                    <input
+                    <!-- <input
                       type="text"
                       id="myLocalDate"
                       class="form-control"
@@ -250,8 +250,29 @@
                       onblur="if(this.value==''){this.type='text'}"
                       required
                       name="schedule_date_time"
+                    /> -->
+
+                    <input
+                      type="text"
+                      id="picker"
+                      class="form-control"
+                      placeholder="Schedule Session Date"
+                      required
+                      name="schedule_date"
                     />
+
                   </div>
+                  <div class="form-group modal-Input">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <input
+                      type="text"
+                      id="timepicker"
+                      class="form-control"
+                      placeholder="Session Time"
+                      required
+                      name="schedule_time"
+                    />
+                    </div>
                   <p class="modalFormTerms">
                     By Submitting this form you accept and agree to our
                     <a href="">Terms of Use.</a>
@@ -1530,6 +1551,23 @@
     @include('user.includes.js-link')
     <script>
       $(document).ready(function () {
+        $('#picker').datepicker({
+            minDate: 1,
+            dateFormat: 'dd/mm/yy'
+        });
+
+        $('#timepicker').timepicker({
+        minTime: '10:00am',
+        maxTime: '06:00pm',
+        step: 15, // 15 minutes
+        disableTimeRanges: [
+            ['12:00am', '09:15am'],
+            ['06:15pm', '11:45pm']
+        ],
+        // showDuration: true
+        });
+
+
         AOS.init({
           offset: 150,
           duration: 600,
@@ -1578,6 +1616,14 @@
           e.preventDefault();
           e.stopPropagation();
         });
+
+    //     $('button[type="submit"]').click(function(event) {
+    //         event.preventDefault();
+    //         $('.modal').modal('hide');
+    //         $("#ftco-loader").show();
+    //   });
+
+
       });
     </script>
 

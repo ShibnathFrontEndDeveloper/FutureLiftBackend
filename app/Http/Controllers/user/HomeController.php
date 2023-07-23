@@ -47,6 +47,7 @@ class HomeController extends Controller
     }
     public function booksessionFunction(Request $request){
         // print_r($request->all());
+        // echo date('H:i:s',strtotime($request->schedule_time));
         // die();
         $validator = Validator::make($request->all(), [
             'candidate_name' => 'required',
@@ -54,7 +55,8 @@ class HomeController extends Controller
             'candidate_phone' => 'required',
             'candidate_city' => 'required',
             'options' => 'required',
-            'schedule_date_time' => 'required'
+            'schedule_date' => 'required',
+            'schedule_time' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -67,13 +69,16 @@ class HomeController extends Controller
             Session::put('session_book_data',$request->all());
             if($sessionPrice == 0){
 
+                $timeFormat = date('H:i:s',strtotime($request->schedule_time));
+                $dateFormat = date('Y-m-d',strtotime($request->schedule_date));
+
                 $book = new Book_sessions();
                 $book->candidate_name = $request->candidate_name;
                 $book->candidate_email = $request->candidate_email;
                 $book->candidate_phone = $request->candidate_phone;
                 $book->candidate_city = $request->candidate_city;
                 $book->options = $request->options;
-                $book->schedule_date_time = date('Y-m-d H:i:s',strtotime($request->schedule_date_time));
+                $book->schedule_date_time = $dateFormat.' '.$timeFormat;
                 $book->save();
 
                 Toastr::success('Book session Successfully','success');
