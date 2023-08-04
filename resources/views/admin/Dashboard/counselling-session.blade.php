@@ -84,7 +84,9 @@
 @endsection
 @section('scripts')
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        order: [[6, 'desc']]
+    });
     function markDone(id,userId,package_id){
         if(confirm("Do you want to mark done this session?")){
             window.location.href = "{{url('admin/mark-done/')}}/"+id+"/"+userId+"/"+package_id;

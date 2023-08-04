@@ -67,7 +67,7 @@
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
                           <i class="bi bi-award-fill"></i>
-                          <span>{{$referReg}}</span>
+                          <span>{{count($Edata)}}</span>
                         <span>ENROLLED</span>
                         </div>
                       </div>
@@ -227,8 +227,8 @@
                             </tr>
                           </thead>
                           <tbody>
-                          @if($referReg > 0)
-                            @foreach ($data['referList'] as $referRegUser)
+                          @if(count($Edata) > 0)
+                            @foreach ($Edata['enroleList'] as $referRegUser)
                             <tr>
                               <td>{{$referRegUser['name']}}</td>
                               <td>{{$referRegUser['email']}}</td>

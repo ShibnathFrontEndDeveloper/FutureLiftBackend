@@ -32,15 +32,15 @@
               ></i>
             </div>
             <div class="container2">
-              <a href="#" class="p2">Forgot Password?</a>
+              <a href="{{url('/forget-password')}}" class="p2">Forgot Password?</a>
             </div>
             <input type="submit" value="Login" class="btn solid" />
             <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fas fa-envelope"></i>
-              </a>
-              <a href="#" class="social-icon">
+              <!-- <a href="{{url('login/facebook')}}" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a> -->
+              <a href="{{url('login/google')}}" class="social-icon">
                 <i class="fab fa-google"></i>
               </a>
             </div>
@@ -170,10 +170,10 @@
             <input type="submit" class="btn" value="Sign up" />
             <p class="social-text">Or Sign up with social platforms</p>
             <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fas fa-envelope"></i>
-              </a>
-              <a href="#" class="social-icon">
+              <!-- <a href="{{url('login/facebook')}}" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a> -->
+              <a href="{{url('login/google')}}" class="social-icon">
                 <i class="fab fa-google"></i>
               </a>
             </div>
@@ -203,6 +203,13 @@
         </div>
       </div>
     </div>
+
+
+
+
+
+
+
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="

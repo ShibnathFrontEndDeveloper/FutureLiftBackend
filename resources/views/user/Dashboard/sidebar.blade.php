@@ -49,7 +49,7 @@
               </div>
               <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
               <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
-                <a href="#" class="dropdown-item preview-item">
+                <a href="{{url('/user-profile')}}" class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
                     <div class="preview-icon bg-dark rounded-circle">
                       <i class="mdi mdi-settings text-primary"></i>
@@ -150,7 +150,7 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="./pages/help/help.html">
+            <a class="nav-link" href="{{url('/help')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
@@ -241,7 +241,7 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                   <h6 class="p-3 mb-0">Profile</h6>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
+                  <a class="dropdown-item preview-item" href="{{url('/user-profile')}}">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-settings text-success"></i>
@@ -274,6 +274,89 @@
         </nav>
 
         @yield('content')
+
+
+        <div class="modal popup_box" id="missingPhonePopup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content ref_mdal_box">
+                    <div class="modal-header">
+                        <h1 class="modal-title season_header" id="exampleModalLabel">HI {{strtoupper(Auth::guard('user')->user()->name)}}! </br>Just one last step.</h1>
+                    </div>
+                    <form action="{{url('/updatePhoneNumber')}}" method="post">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="row g-5">
+                                <div class="col-lg-12 ">
+                                    <label for="">Enter Your Phone Number</label>
+                                    <input type="number" required name="phoneNumber" pattern="^[6789]\d{9,9}$" id="" class="form-control">
+                                </div>
+                                <div class="col-lg-12 ">
+                                    <label for="">Enter Your State</label>
+                                    <select id="Select State" class="form-control" name="state" required>
+                                        <option value="">Select State</option>
+                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                        <option value="Andaman and Nicobar Islands">
+                                        Andaman and Nicobar Islands
+                                        </option>
+                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Chandigarh">Chandigarh</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Dadar and Nagar Haveli">
+                                        Dadar and Nagar Haveli
+                                        </option>
+                                        <option value="Daman and Diu">Daman and Diu</option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Lakshadweep">Lakshadweep</option>
+                                        <option value="Puducherry">Puducherry</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Haryana">Haryana</option>
+                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                        <option value="Jharkhand">Jharkhand</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Kerala">Kerala</option>
+                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Manipur">Manipur</option>
+                                        <option value="Meghalaya">Meghalaya</option>
+                                        <option value="Mizoram">Mizoram</option>
+                                        <option value="Nagaland">Nagaland</option>
+                                        <option value="Odisha">Odisha</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Sikkim">Sikkim</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Telangana">Telangana</option>
+                                        <option value="Tripura">Tripura</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="Uttarakhand">Uttarakhand</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-12 ">
+                                    <label for="">Enter Your Password</label>
+                                    <input type="password" required name="password" id="" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary upgrade_btn">Go to My Dashboard</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
         <div id="ftco-loader" class="show fullscreen pre-loader" style="display: none;">
 				<div class="loader-position">
 					<img src="{{asset('assets/images/loader.gif')}}" alt="Preloader">
@@ -336,6 +419,8 @@
                 }
             });
         }
+
+
     //     $('button[type="submit"]').click(function() {
     //         $('.modal').modal('hide');
     //         $("#ftco-loader").show();
@@ -348,6 +433,11 @@
 
 
     </script>
+    @if (!Auth::guard('user')->user()->phone)
+        <script>
+            $("#missingPhonePopup").modal({backdrop: 'static', keyboard: false});
+        </script>
+    @endif
     @yield('scripts')
   </body>
 </html>

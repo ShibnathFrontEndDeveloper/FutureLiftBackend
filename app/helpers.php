@@ -12,6 +12,10 @@ use App\Models\MailLogs;
 use App\Models\CounsellingPrice;
 use App\Models\UserSubscriptionModel;
 use App\Models\SessionHistory;
+use App\Models\UserRole;
+use App\Models\Role;
+use App\Models\MenuAccess;
+use App\Models\Menu;
 
 class Helpers
 {
@@ -156,6 +160,298 @@ class Helpers
         }
 
         return $packageName;
+    }
+    public static function userIdWiseMenu($id){
+        $userRole = UserRole::where('userId',$id);
+        $menus = [];
+        if($userRole->get()->count() > 0){
+            $userRole = $userRole->first();
+            $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+            if($menuAccess->get()->count() > 0){
+                $menuAccess = $menuAccess->first();
+                $explodeIds = explode(',',$menuAccess->menuId);
+                if(count($explodeIds) > 0){
+                    $menus = Menu::whereIn('id',$explodeIds)->orderBy('position','ASC')->get();
+                }
+            }
+        }
+
+        return $menus;
+    }
+    public static function userIdWiseRoleName($id){
+        $userRole = UserRole::where('userId',$id);
+        $name = "";
+        if($userRole->get()->count() > 0){
+            $userRole = $userRole->first();
+            $role = Role::find($userRole->roleId);
+            $name = $role->name;
+        }
+
+        return $name;
+    }
+    public static function roleWiseRouteChecking($routeName){
+        switch ($routeName) {
+            case 'userlistedit':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(2,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'booksessionAddEdit':
+                    $flag = false;
+                    $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                    if($userRole->get()->count() > 0){
+                        $userRole = $userRole->first();
+                        $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                        if($menuAccess->get()->count() > 0){
+                            $menuAccess = $menuAccess->first();
+                            $explodeIds = explode(',',$menuAccess->menuId);
+                            if(in_array(3,$explodeIds)){
+                                $flag = true;
+                            }
+                        }
+                    }
+                    return $flag;
+                    break;
+            case 'counsellingSession':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(4,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'userDetails':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(2,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'faqAddList':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(5,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'faqEdit':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(5,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'faqDelete':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(5,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'testimonialAddList':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(6,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'testimonialEdit':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(6,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'testimonialDelete':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(6,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'subscriptionPackageAddList':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(7,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'subscriptionPackageEdit':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(7,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'roleAddList':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(8,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'roleEdit':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(8,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'roleMenuAccess':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(8,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+            case 'userEdit':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(2,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
+
+            default:
+                # code...
+                break;
+        }
     }
 
 }

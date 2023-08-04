@@ -16,12 +16,17 @@ use App\Models\Book_sessions;
 use PaytmWallet;
 use Session;
 use App\Models\User_information;
+use App\Models\Faq;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
     public function indexHome(){
         $allSession = Futurelit_session::get();
-        return view('user.home',compact(['allSession']));
+        $faq = Faq::where('type','home')->get();
+        $studentTestimonial = Testimonial::where('type','student')->where('category','home')->get();
+        $parentTestimonial = Testimonial::where('type','parent')->where('category','home')->get();
+        return view('user.home',compact(['allSession','faq','studentTestimonial','parentTestimonial']));
     }
     public function demoRegistration(Request $request){
         $validator = Validator::make($request->all(), [
@@ -82,7 +87,7 @@ class HomeController extends Controller
                 $book->save();
 
                 Toastr::success('Book session Successfully','success');
-                return Redirect('/');
+                return back();
             }else{
 
                 $payment = PaytmWallet::with('receive');
@@ -110,5 +115,91 @@ class HomeController extends Controller
         echo "<pre>";
         print_r($transaction);
         print_r($response);
+    }
+    public function indexHelp(){
+        $faq = Faq::where('type','help')->get();
+        return view('user.Dashboard.help',compact(['faq']));
+    }
+    public function indexEightTenCoun(){
+        $faq = Faq::get();
+        $parentTestimonial = Testimonial::where('type','parent')->where('category','eight_ten')->get();
+        return view('user.eight-ten-counselling',compact(['faq','parentTestimonial']));
+    }
+    public function indexTenTwelveCoun(){
+        $faq = Faq::get();
+        $studentTestimonial = Testimonial::where('type','student')->where('category','eleven_twelve')->get();
+        $parentTestimonial = Testimonial::where('type','parent')->where('category','eleven_twelve')->get();
+        return view('user.ten-twelve-counselling',compact(['faq','studentTestimonial','parentTestimonial']));
+    }
+    public function indexCollegeGraduateCoun(){
+        $faq = Faq::get();
+        $parentTestimonial = Testimonial::where('type','parent')->where('category','graduation')->get();
+        return view('user.college-graduate-counselling',compact(['faq','parentTestimonial']));
+    }
+    public function indexPersonalityTestCoun(){
+        $faq = Faq::where('type','personality')->get();
+        return view('user.personality-test',compact(['faq']));
+    }
+    public function indexInterestTestCoun(){
+        $faq = Faq::where('type','interest')->get();
+        return view('user.interest-test',compact(['faq']));
+    }
+    public function indexIqTestCoun(){
+        $faq = Faq::where('type','iq')->get();
+        return view('user.iqtest',compact(['faq']));
+    }
+    public function indexAptitudeTestCoun(){
+        $faq = Faq::where('type','aptitude')->get();
+        return view('user.aptitude-test',compact(['faq']));
+    }
+    public function indexForgetPassword(){
+        return view('user.forget-password');
+    }
+    public function forgetPasswordSubmitFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	Toastr::error('Email field are mandatory','error');
+        	return back()->withInput();
+        }
+
+        $exits = User::where('email',$request->email)->where('role','user');
+        if($exits->get()->count() == 0){
+            Toastr::error('Email id does not exist','error');
+        	return back()->withInput();
+        }
+
+        $exits = $exits->first();
+
+        $uniqueCode = Helpers::uniqueCode(80);
+        $uniqueCode2 = Helpers::uniqueCode(90);
+        $Iddecode = base64_encode(base64_encode($exits->id));
+        $linkGenerate = base64_encode($uniqueCode);
+        $url = url('/password-set/'.$Iddecode.'/'.$linkGenerate.'/'.$uniqueCode2);
+
+        $subject = "Forget Your Password";
+
+        $html = "";
+        $html .= '<p>Hello '.$exits->name.'</p>';
+        $html .= '<p>Your password reset link : <a href="'.$url.'">'.$url.'</a></p>';
+
+        $mailSend = Helpers::phpMailerMailSend($request->email,$exits->name,$subject,$html);
+
+        Toastr::success('We have e-mailed your password reset link','success');
+        return back();
+    }
+    public function passwordSetFun($id,$link,$linkT){
+       $idDecode = base64_decode(base64_decode($id));
+       return view('user.password-set',compact(['idDecode']));
+    }
+    public function setResetPasswordFun(Request $request){
+        $update = User::find($request->id);
+        $update->password = Hash::make($request->password);
+        $update->save();
+
+        Toastr::success('Password reset successfully','success');
+        return Redirect('/login-signup');
     }
 }

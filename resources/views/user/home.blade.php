@@ -3,11 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="shortcut icon"
-      href="assets/images/favicon.png"
-      type="image/x-icon"
-    />
+    @include('user.includes.favicon')
 
     <title>Future Lift</title>
     @include('user.includes.css-link')
@@ -21,279 +17,7 @@
       </div>
       <!-- Header End -->
 
-<!-- Modal start -->
-      <div
-        class="modal fade"
-        id="staticBackdrop"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content">
-            <div class="modal-body">
-              <div class="sessionModalContent">
-                <div class="modalContentImg">
-                  <img
-                    src="{{asset('assets/images/new new new  black -1-01 (1).png')}}"
-                    alt=""
-                  />
-                  <p>Book Your Personalized Career Session</p>
-                </div>
-                <div class="modalfeatureSwiper swiper">
-                  <div class="featureslides swiper-wrapper">
-                    <div class="featureslide swiper-slide">
-                      <div class="featureHeading">
-                        <p>Detailed Knowledge</p>
-                      </div>
-                      <div class="featureContent">
-                        <p>
-                          Gain the complete information and guidance about your
-                          career, strong decision making best studies carriers
-                          and many others carrier development facts to get the
-                          favorable outcomes.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="featureslide swiper-slide">
-                      <div class="featureHeading">
-                        <p>Setting Career Pathway</p>
-                      </div>
-                      <div class="featureContent">
-                        <p>
-                          Identify and create your particular and unique
-                          document program with updated skill sets you need for
-                          formation.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="featureslide swiper-slide">
-                      <div class="featureHeading">
-                        <p>Insight to Problem</p>
-                      </div>
-                      <div class="featureContent">
-                        <p>
-                          Get a sudden solution in a linear way to face and
-                          complete guidance to solve any issues and evaluate
-                          further in your motion.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="featureslide swiper-slide">
-                      <div class="featureHeading">
-                        <p>Increase Confidence</p>
-                      </div>
-                      <div class="featureContent">
-                        <p>
-                          Game complete support in your field or area of
-                          operation, so that you can clear out your doubts and
-                          expressed in a confidential way in your performance as
-                          well as in your impression.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="featureslide swiper-slide">
-                      <div class="featureHeading">
-                        <p>Suit Your Needs</p>
-                      </div>
-                      <div class="featureContent">
-                        <p>
-                          Match and find out your unique needs to build a better
-                          pillar of success which suits you the most.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-pagination"></div>
-                </div>
-                <div class="modalfeatureCardSwiper swiper">
-                  <div class="featureCardslides swiper-wrapper">
-                    <div class="featureCardslide swiper-slide">
-                      <div class="featureCardslideBox">
-                        <div class="featureCardImg">
-                          <img src="{{asset('assets/images/hostel.png')}}" alt="" />
-                        </div>
-                        <div class="featureCardContent">
-                          <p>
-                            Future Lift ia a one stop solution to all your
-                            career related queries.
-                          </p>
-                          <p>Rohit Sharma</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="featureCardslide swiper-slide">
-                      <div class="featureCardslideBox">
-                        <div class="featureCardImg">
-                          <img src="{{asset('assets/images/hostel.png')}}" alt="" />
-                        </div>
-                        <div class="featureCardContent">
-                          <p>
-                            Personalized Session gives me accurate & Detailed
-                            knowledge about my career...
-                          </p>
-                          <p>Lavanya Pandey</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="featureCardslide swiper-slide">
-                      <div class="featureCardslideBox">
-                        <div class="featureCardImg">
-                          <img src="{{asset('assets/images/hostel.png')}}" alt="" />
-                        </div>
-                        <div class="featureCardContent">
-                          <p>
-                            This session helped me to learn about Career
-                            Threats.
-                          </p>
-                          <p>Subhra Mohanta</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="featureCardslide swiper-slide">
-                      <div class="featureCardslideBox">
-                        <div class="featureCardImg">
-                          <img src="{{asset('assets/images/hostel.png')}}" alt="" />
-                        </div>
-                        <div class="featureCardContent">
-                          <p>
-                            According to myself, everyone needs to take this
-                            session before taking admission in college.
-                          </p>
-                          <p>Subham Sing</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-button-next"></div>
-                </div>
-              </div>
-              <div class="sessionModalForm">
-                <p class="modalFormHeading">Register Now to Book session</p>
-                <form action="{{url('/user/booksession')}}" class="callUsForm" method="post">
-                    @csrf
-                  <div class="form-group modal-Input">
-                    <i class="fa-solid fa-user"></i>
-                    <input
-                      type="text"
-                      name="candidate_name"
-                      class="form-control"
-                      placeholder="Full name"
-                      required
-                      value="{{old('candidate_name')}}"
-                    />
-                  </div>
-                  <div class="form-group modal-Input">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input
-                      type="email"
-                      name="candidate_email"
-                      class="form-control"
-                      placeholder="Email"
-                      required
-                      value="{{old('candidate_email')}}"
-                    />
-                  </div>
-                  <div class="form-group modal-Input">
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                    <input
-                      type="tel"
-                      name="candidate_phone"
-                      pattern="^[6789]\d{9,9}$"
-                      class="form-control"
-                      placeholder="Mobile Number"
-                      required
-                      value="{{old('candidate_phone')}}"
-                    />
-                  </div>
-                  <div class="form-group modal-Input">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <input
-                      type="text"
-                      name="candidate_city"
-                      class="form-control"
-                      placeholder="City you Live in"
-                      required
-                      value="{{old('candidate_city')}}"
-                    />
-                  </div>
-                  <div class="form-group modal-Input justify-content-between">
-                    @foreach ($allSession as $sessionKey => $sessions)
-                    <input
-                      type="radio"
-                      class="btn-check"
-                      name="options"
-                      id="option{{$sessionKey+1}}"
-                      autocomplete="off"
-                      value="{{$sessions->id}}"
-                    />
-                    <label class="radioBox" for="option{{$sessionKey+1}}">
-                        @if ($sessions->price > 0)
-                            <p>₹ {{$sessions->price}} /-</p>
-                        @else
-                        <p>Free</p>
-                        @endif
-                      <p>{{$sessions->content}}</p></label
-                    >
-                    @endforeach
-                  </div>
-                  <div class="form-group modal-Input">
-                    <i class="fa-regular fa-calendar-days"></i>
-                    <!-- <input
-                      type="text"
-                      id="myLocalDate"
-                      class="form-control"
-                      placeholder="Schedule Your Session"
-                      onfocus="(this.type='datetime-local')"
-                      onblur="if(this.value==''){this.type='text'}"
-                      required
-                      name="schedule_date_time"
-                    /> -->
 
-                    <input
-                      type="text"
-                      id="picker"
-                      class="form-control"
-                      placeholder="Schedule Session Date"
-                      required
-                      name="schedule_date"
-                    />
-
-                  </div>
-                  <div class="form-group modal-Input">
-                    <i class="fa-regular fa-calendar-days"></i>
-                    <input
-                      type="text"
-                      id="timepicker"
-                      class="form-control"
-                      placeholder="Session Time"
-                      required
-                      name="schedule_time"
-                    />
-                    </div>
-                  <p class="modalFormTerms">
-                    By Submitting this form you accept and agree to our
-                    <a href="">Terms of Use.</a>
-                  </p>
-                  <button type="Submit" class="Modalbtn">Book Session</button>
-                </form>
-                <p class="alreadyMember">
-                  Already a member? <a href="{{url('/user/login')}}">Click Here</a>it's easy!
-                </p>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Modal End -->
 
       <div class="container-fluid">
         <div class="home_part">
@@ -324,18 +48,18 @@
                   <div class="swiper-wrapper">
                     <!-- Slides -->
                     <div class="swiper-slide">
-                      <a href="8th-10thCounselling.html">
-                        <img src="./assets/images/card-1.webp" alt="" class="img-fluid">
+                      <a href="{{url('/eight-ten-counselling')}}">
+                        <img src="{{asset('assets/images/card-1.webp')}}" alt="" class="img-fluid">
                       </a>
                     </div>
                     <div class="swiper-slide">
-                      <a href="10th-12thCounselling.html">
-                        <img src="./assets/images/card-2.webp" alt="" class="img-fluid">
+                      <a href="{{url('/ten-twelve-counselling')}}">
+                        <img src="{{asset('assets/images/card-2.webp')}}" alt="" class="img-fluid">
                       </a>
                     </div>
                     <div class="swiper-slide">
-                      <a href="collegeGraduateCounselling.html">
-                        <img src="./assets/images/card-3.webp" alt="" class="img-fluid">
+                      <a href="{{url('/college-graduate-counselling')}}">
+                        <img src="{{asset('assets/images/card-3.webp')}}" alt="" class="img-fluid">
                       </a>
                     </div>
                     <!-- <div class="swiper-slide">
@@ -632,7 +356,7 @@
                     can.
                   </p>
                 </div>
-                <a href="personalityTest.html"
+                <a href="{{url('/personality-test')}}"
                   ><button class="cardbtn">Know More</button></a
                 >
               </div>
@@ -649,7 +373,7 @@
                   </p>
                   <p class="homepageCard-text2"> Measure your interest lets you accurately match your preference.</p>
                 </div>
-                <a href="interestTest.html"
+                <a href="{{url('/interest-test')}}"
                   ><button class="cardbtn">Know More</button></a
                 >
               </div>
@@ -675,7 +399,7 @@
                     </li>
                   </ul>
                 </div>
-                <a href="aptitudetest.html">
+                <a href="{{url('/aptitude-test')}}">
                   <button class="cardbtn">Know More</button></a
                 >
               </div>
@@ -706,7 +430,7 @@
                     </li>
                   </ul>
                 </div>
-                <a href="iqtest.html">
+                <a href="{{url('/iq-test')}}">
                   <button class="cardbtn">Know More</button></a
                 >
               </div>
@@ -920,119 +644,27 @@
                 >
                   <div class="tabSwiper container-fluid">
                     <div class="tabCards swiper-wrapper">
-                      <div class="tabCard swiper-slide">
-                        <div class="tabCardContent">
-                          <div class="tabCrad_img">
-                            <img src="{{asset('assets/images/team-1.webp')}}" alt="" />
-                            <div class="overlay_box"></div>
-                          </div>
-                          <div class="tabCardContentText">
-                            <p class="parentName">- Rahul Roy</p>
-                            <div class="rating_star">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-half"></i>
+                        @foreach ($parentTestimonial as $parentTestimonialKey => $parentTestimonialValue)
+                        <div class="tabCard swiper-slide">
+                            <div class="tabCardContent">
+                                <div class="tabCrad_img">
+                                    <img src="{{asset('assets/testimonial_images/'.$parentTestimonialValue->image)}}" alt="" />
+                                    <div class="overlay_box"></div>
+                                </div>
+                                <div class="tabCardContentText">
+                                    <p class="parentName">- {{$parentTestimonialValue->name}}</p>
+                                    <div class="rating_star">
+                                        @for ($rating = 0; $rating < $parentTestimonialValue->rating; $rating++)
+                                            <i class="bi bi-star-fill"></i>
+                                        @endfor
+                                    </div>
+                                    <p>
+                                    {{$parentTestimonialValue->content}}
+                                    </p>
+                                </div>
                             </div>
-                            <p>
-                              My child was in hesitation and puzzle to peruse her
-                              career. Being a parent also I can't helpher as lack
-                              of knowledge, hereafter Future Lift enlightened my
-                              daughter's career path also fades all uncertainty,
-                              she is happy now, I'm very glad to share this.
-                            </p>
-
-                          </div>
                         </div>
-                      </div>
-                      <div class="tabCard swiper-slide">
-                        <div class="tabCardContent">
-                          <div class="tabCrad_img">
-                            <img src="{{asset('assets/images/team-3.webp')}}" alt="" />
-                            <div class="overlay_box"></div>
-                          </div>
-                          <div class="tabCardContentText">
-                            <p class="parentName">- Sanjeev Banerjee</p>
-                            <div class="rating_star">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-half"></i>
-                            </div>
-                            <p>
-                              Hi, I would like to say a big thank you to Future
-                              Lift for ensuring that our children’s studies have
-                              not been impacted. It was overwhelming to see how
-                              quickly and efficiently the new way of guiding was
-                              adopted by the Future Lift and not only this, but
-                              the entire parent community was also made
-                              comfortable. During the online sessions each and
-                              every student was given a chance to speak and
-                              express.
-                            </p>
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tabCard swiper-slide">
-                        <div class="tabCardContent">
-                          <div class="tabCrad_img">
-                            <img src="{{asset('assets/images/team-2.webp')}}" alt="" />
-                            <div class="overlay_box"></div>
-                          </div>
-                          <div class="tabCardContentText">
-                            <p class="parentName">- Parents of Suhana</p>
-                            <div class="rating_star">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-half"></i>
-                            </div>
-                            <p>
-                              I really appreciate your efforts to make my ward
-                              study even in this kind of situation we are facing
-                              right now, and she also study very judiciously. We
-                              are happy that children taking this class is
-                              seriously and I hope these classes will help
-                              students to get better result in even these kind of
-                              situation. Thank you so much Future Lift.
-                            </p>
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tabCard swiper-slide">
-                        <div class="tabCardContent">
-                          <div class="tabCrad_img">
-                            <img src="{{asset('assets/images/team-4.webp')}}" alt="" />
-                            <div class="overlay_box"></div>
-                          </div>
-                          <div class="tabCardContentText">
-                            <p class="parentName">- Mina Jain</p>
-                            <div class="rating_star">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-half"></i>
-                            </div>
-                            <p>
-                              We, the parents of Ruhi Jain and Sourav Jain are
-                              proud to be a part of this counseling session.
-                              Future Lift learning system has made a great and a
-                              positive impact on both our children. Future Lift
-                              has nurtured the potential and talent of our
-                              children’s. We are extremely happy with their
-                              performance. Future Lift has excellent staff and
-                              technical environment.
-                            </p>
-
-                          </div>
-                        </div>
-                      </div>
+                        @endforeach
                     </div>
                     <div class="swiper-button-next">
                       <i class="fa fa-solid fa-caret-right"></i>
@@ -1045,121 +677,28 @@
                 <div class="tab-pane fade container-fluid" id="students">
                   <div class="tabSwiper">
                     <div class="tabCards swiper-wrapper">
-                      <div class="tabCard swiper-slide">
-                        <div class="tabCardContent">
-                          <div class="tabCrad_img">
-                            <img src="{{asset('assets/images/team-2.webp')}}" alt="" />
-                            <div class="overlay_box"></div>
-                          </div>
-                          <div class="tabCardContentText">
-                            <p class="parentName">- Sayani Ghosh</p>
-                            <div class="rating_star">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-half"></i>
-                            </div>
-                            <p>
-                              The career counselling season from Future Lift open
-                              a lot of options for me and help me to pick the best
-                              one. Surely would recommend it to the others. The
-                              Aptitude tests were very helpful. I really felt
-                              confident and relaxed after I found out that my
-                              career exactly matched with their recommendation,
-                              and it was a good counselling for me. Got a lot of
-                              clarity of courses. It made choosing my PG course
-                              easy. A lot of thanks to Future Lift.
-                            </p>
 
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tabCard swiper-slide">
-                        <div class="tabCardContent">
-                          <div class="tabCrad_img">
-                            <img src="{{asset('assets/images/team-3.webp')}}" alt="" />
-                            <div class="overlay_box"></div>
-                          </div>
-                          <div class="tabCardContentText">
-                            <p class="parentName">- Bishal Roy</p>
-                            <div class="rating_star">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-half"></i>
+                    @foreach ($studentTestimonial as $studentTestimonialKey => $studentTestimonialValue)
+                        <div class="tabCard swiper-slide">
+                            <div class="tabCardContent">
+                                <div class="tabCrad_img">
+                                    <img src="{{asset('assets/testimonial_images/'.$studentTestimonialValue->image)}}" alt="" />
+                                    <div class="overlay_box"></div>
+                                </div>
+                                <div class="tabCardContentText">
+                                    <p class="parentName">- {{$studentTestimonialValue->name}}</p>
+                                    <div class="rating_star">
+                                        @for ($rating = 0; $rating < $studentTestimonialValue->rating; $rating++)
+                                            <i class="bi bi-star-fill"></i>
+                                        @endfor
+                                    </div>
+                                    <p>
+                                    {{$studentTestimonialValue->content}}
+                                    </p>
+                                </div>
                             </div>
-                            <p>
-                              After graduation, being in confusion of choosing a
-                              career Future Lift helps me a lot to get information
-                              about all the possible career options that i can go
-                              through. Not only it helped me get my confidential
-                              solution but also guided me a lot throughout my I'm
-                              thankful that I got such a type of platform who
-                              helps like a personal mentor and always raises its
-                              helping hand towards me.
-                            </p>
-
-                          </div>
                         </div>
-                      </div>
-                      <div class="tabCard swiper-slide">
-                        <div class="tabCardContent">
-                          <div class="tabCrad_img">
-                            <img src="{{asset('assets/images/team-1.webp')}}" alt="" />
-                            <div class="overlay_box"></div>
-                          </div>
-                          <div class="tabCardContentText">
-                            <p class="parentName">- Krishna Kinkar Ghosh</p>
-                            <div class="rating_star">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-half"></i>
-                            </div>
-                            <p>
-                              Previously we all heard that Career counseling means
-                              just finding the best career option but now the
-                              scenario is changed by Future Lift. Besides doing
-                              career counseling it also helps the student to build
-                              a bright future and be a good human being and feel
-                              proud of his/her parents.
-                            </p>
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tabCard swiper-slide">
-                        <div class="tabCardContent">
-                          <div class="tabCrad_img">
-                            <img src="{{asset('assets/images/team-4.webp')}}" alt="" />
-                            <div class="overlay_box"></div>
-                          </div>
-                          <div class="tabCardContentText">
-                            <p class="parentName">- Srija Banerjee</p>
-                            <div class="rating_star">
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-half"></i>
-                            </div>
-                            <p>
-                              The career counselling season from Future Lift open
-                              a lot of options for me and help me to pick the best
-                              one. Surely would recommend it to the others. The
-                              Aptitude tests were very helpful. I really felt
-                              confident and relaxed after I found out that my
-                              career exactly matched with their recommendation.
-                              Got a lot of clarity of career & course. It made
-                              choosing my PG course easy.
-                            </p>
-
-                          </div>
-                        </div>
-                      </div>
+                    @endforeach
                     </div>
                     <div class="swiper-button-next">
                       <i class="fa fa-solid fa-caret-right"></i>
@@ -1210,173 +749,20 @@
         <div class="container-fluid faqSection">
           <h1 style="font-weight: bold">FAQ</h1>
           <div class="accordion" id="accordionExample">
+            @foreach ($faq as $faqKey => $faqValue)
             <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  What is Futurelift online career counselling?
+              <h2 class="accordion-header" id="heading{{$faqKey}}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$faqKey}}" aria-expanded="true" aria-controls="collapse{{$faqKey}}">
+                  {{$faqValue->question}}
                 </button>
               </h2>
-              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div id="collapse{{$faqKey}}" class="accordion-collapse collapse" aria-labelledby="heading{{$faqKey}}" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <p>A good career is a building pillar of the rest of your happy
-                    living. And it is the most hard and powerful decision one should
-                    take in their life. As everyone start their education and also
-                    explore some hobbies in their early stage but choosing something
-                    we would enjoy doing for the rest of our lives is hard. However,
-                    this is easier said than done, given that there are more than
-                    500+ career options available today. How do we choose the right
-                    career path? Which of our interests would be best suited as a
-                    profession? How do we decide? And this is where career
-                    counselling lead into picture. As we need the best decision for
-                    our career. A Future career counsellor solve all your career
-                    related issues, it might be confidence, poor time management,
-                    lack of concentration, career road map through virtual session.
-                    Provide solution in every bit of the career channel. This
-                    programme is accessible in any point of time of the booking
-                    schedule according to you, where you will gone through
-                    psychometric test, online live session with personalised
-                    guidance by and other extensive support throughout your journey
-                    with us.</p>
+                  <p>{{$faqValue->answer}}</p>
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  How do it better from other platforms?
-                </button>
-              </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>It comprises or provence by my success stories starting from our
-                    platform, Here student find their one stop solution of career
-                    counselling. The process involves psychometric test,
-                    personalized career counselling and. The quality of the tests is
-                    the key factor apart from scientific discussion in our process.
-                    Our results have been fairly appreciated by our clients over the
-                    years. The student as well as parents appreciate our career
-                    counselling overwhelmed with the process as it, leaves no stone
-                    unturned in understanding the right career path. Over the whole
-                    process the child and parent feel connected with us which makes
-                    us different from others and They are enjoying their career and
-                    have referred many of their friends to us.</p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  What is Personality Test?
-                </button>
-              </h2>
-              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>
-                    Personality is the most clear psychometric test that expression
-                    when interact with other people. It is the characteristics way
-                    of thinking , feeling and behaving with others. This test
-                    includes the scientific tools , process to identify the traits
-                    of individual human having in them like openness, agreeableness.
-                    It uses some famous and useful AI based technique and theories
-                    to identify these traits correctly.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  Do the interest test is more beneficial than IQ test?
-                </button>
-              </h2>
-              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>
-                    Both test have their self value centric, Interest identify your
-                    area of potential so that you can put your efforts on correct
-                    field and the IQ test comprises the short way technique to
-                    identify the capacity and speed of your brain to capture your
-                    work.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingFive">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                  What is interest Test?
-                </button>
-              </h2>
-              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>
-                    Interest test is essential psychometric measurement test gives clearly about the interest area that lead to right career decisions.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingSix">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                  My child is studying in 9th standard do I need to access him/her in career assessment test?
-                </button>
-              </h2>
-              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>
-                    Early stage career decision is the most important thing in a student educational life and career to persue. At the stage of 9 th standard Student got their actual time for career choice as after class 10 th student get busy in exam and after that they have to choose their stream on a quick note, so he/ she basically conscious about the right direction their must peace of mind and clear attention to their present work.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingSeven">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                  What are the steps for personalized Guidance?
-                </button>
-              </h2>
-              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>
-                    Click here and directly get the personalized Guidance page and Press the Book Now After that fill up the form details then schedule for the session . Our team will get connect you within 24 hours.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingEight">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                  Can I get the preference to choose my regional language?
-                </button>
-              </h2>
-              <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>
-                    Of course, you got the option to talk and clear out the matter in the discussion in your regional language. Our team and counsellor will help out in your regional language only.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingNine">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                  What are the steps include in all the programme?
-                </button>
-              </h2>
-              <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <p>
-                    The steps included in through out the programme are online test
-                psychometric test to understand and access with the scientific
-                assessment, next get consulted in Live counselling session by
-                the expert counsellor , and last but not the least get a
-                valuable Brainstorming session to be explored more in your
-                career.
-                  </p>
-                </div>
-              </div>
-            </div>
-
+            @endforeach
           </div>
           <!-- <div class="faq">
             <div class="faqQuestion">
@@ -1551,21 +937,7 @@
     @include('user.includes.js-link')
     <script>
       $(document).ready(function () {
-        $('#picker').datepicker({
-            minDate: 1,
-            dateFormat: 'dd/mm/yy'
-        });
 
-        $('#timepicker').timepicker({
-        minTime: '10:00am',
-        maxTime: '06:00pm',
-        step: 15, // 15 minutes
-        disableTimeRanges: [
-            ['12:00am', '09:15am'],
-            ['06:15pm', '11:45pm']
-        ],
-        // showDuration: true
-        });
 
 
         AOS.init({

@@ -27,7 +27,7 @@ class MainController extends Controller
     }
     public function indexCounsellingSession($show){
         if($show == "list"){
-            $sessionList = SessionHistory::where('package_status','active')->get();
+            $sessionList = SessionHistory::where('package_status','active')->orderByRaw("FIELD(status , 'Pending','Active','Completed','Processing') DESC")->get();
             return view('admin.Dashboard.counselling-session',compact(['sessionList']));
         }else{
             return view('admin.Dashboard.404');

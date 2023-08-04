@@ -5,7 +5,7 @@
         <button class="navbar-toggler-xl" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <i class="fa-solid fa-bars"></i>
         </button>
-        <a href="index.html" class="logo"><img src="{{asset('assets/images/new_blak_logo.webp')}}" alt="" class="img-fluid"></a>
+        <a href="{{url('/')}}" class="logo"><img src="{{asset('assets/images/new_blak_logo.webp')}}" alt="" class="img-fluid"></a>
       </div>
       <div class="header-right-content col-6 d-flex justify-content-end careerPadding">
       <button type="button" class="btn btn-primary position-relative book_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -27,7 +27,7 @@
     </div>
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
-          <a href="index.html" class="logo"><img src="{{asset('assets/images/new_blak_logo.webp')}}" alt="" class="img-fluid"></a>
+          <a href="{{url('/')}}" class="logo"><img src="{{asset('assets/images/new_blak_logo.webp')}}" alt="" class="img-fluid"></a>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
             <i class="fa-solid fa-xmark"></i>
           </button>
@@ -35,7 +35,7 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1">
             <li class="nav-item">
-              <a class="nav-link active px-2" aria-current="page" href="index.html"><p>HOME</p></a>
+              <a class="nav-link active px-2" aria-current="page" href="{{url('/')}}"><p>HOME</p></a>
             </li>
             <li class="nav-item dropdown sidemenu-a">
               <a class="nav-link dropdown-toggle d-flex align-items-center px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,22 +44,22 @@
               </a>
               <ul class="dropdown-menu">
                 <li class="px-0 d-flex align-items-center px-1">
-                  <a class="dropdown-item px-0" href="personalityTest.html">PERSONALITY TEST</a>
+                  <a class="dropdown-item px-0" href="{{url('/personality-test')}}">PERSONALITY TEST</a>
                   <i class="fa fa-angle-right mx-1 mt-1"></i>
                 </li>
                 <hr class="subheading-border">
                 <li class="px-0 d-flex align-items-center px-1">
-                  <a class="dropdown-item px-0" href="interestTest.html">INTEREST TEST</a>
+                  <a class="dropdown-item px-0" href="{{url('/interest-test')}}">INTEREST TEST</a>
                   <i class="fa fa-angle-right mx-1 mt-1"></i>
                 </li>
                 <hr class="subheading-border">
                 <li class="px-0 d-flex align-items-center px-1">
-                  <a class="dropdown-item px-0" href="iqtest.html">IQ TEST</a>
+                  <a class="dropdown-item px-0" href="{{url('/iq-test')}}">IQ TEST</a>
                   <i class="fa fa-angle-right mx-1 mt-1"></i>
                 </li>
                 <hr class="subheading-border">
                 <li class="px-0 d-flex align-items-center px-1">
-                  <a class="dropdown-item px-0" href="aptitudetest.html">APTITUDE TEST</a>
+                  <a class="dropdown-item px-0" href="{{url('/aptitude-test')}}">APTITUDE TEST</a>
                   <i class="fa fa-angle-right mx-1 mt-1"></i>
                 </li>
               </ul>
@@ -71,17 +71,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li class="px-0 d-flex align-items-center px-1">
-                  <a class="dropdown-item px-0" href="8th-10thCounselling.html">For 8th or 10th Class</a>
+                  <a class="dropdown-item px-0" href="{{url('/eight-ten-counselling')}}">For 8th or 10th Class</a>
                   <i class="fa fa-angle-right mx-1 mt-1"></i>
                 </li>
                 <hr class="subheading-border">
                 <li class="px-0 d-flex align-items-center px-1">
-                  <a class="dropdown-item px-0" href="10th-12thCounselling.html">For 11th or 12th Class</a>
+                  <a class="dropdown-item px-0" href="{{url('/ten-twelve-counselling')}}">For 11th or 12th Class</a>
                   <i class="fa fa-angle-right mx-1 mt-1"></i>
                 </li>
                 <hr class="subheading-border">
                 <li class="px-0 d-flex align-items-center px-1">
-                  <a class="dropdown-item px-0" href="collegeGraduateCounselling.html">For Graduate</a>
+                  <a class="dropdown-item px-0" href="{{url('/college-graduate-counselling')}}">For Graduate</a>
                   <i class="fa fa-angle-right mx-1 mt-1"></i>
                 </li>
                 <hr class="subheading-border">

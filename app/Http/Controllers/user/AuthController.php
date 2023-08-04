@@ -14,6 +14,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\ReferHistory;
 use Session;
 use App\Models\User_information;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -127,5 +128,97 @@ class AuthController extends Controller
             Toastr::success('Login Successfully','success');
             return Redirect('/user-dashboard');
     	}
+    }
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+    public function handleFacebookCallback()
+    {
+        $userData = Socialite::driver('facebook')->user();
+        $exits = User::where('email',$userData->email)->where('role','user');
+        if($exits->get()->count() > 0){
+            $exitData = $exits->first();
+            $remember = true;
+            $pass = "bkqmk2u50psss";
+            if(Auth::guard('user')->attempt(['email' => $exitData->email, 'password' => $pass , 'role' => 'user'],$remember)){
+                Toastr::success('Login Successfully','success');
+                return Redirect('/user-dashboard');
+            }else{
+                Toastr::error('User already exists with this email id','success');
+                return Redirect('/login-signup');
+            }
+        }else{
+            $first_name = Helpers::split_name($userData->name);
+            $my_referral_code = strtolower(str_replace(' ','',$first_name[0])).Helpers::uniqueCode(5);
+
+            $pass = "bkqmk2u50psss";
+
+            $user = new User();
+            $user->name = $userData->name;
+            $user->email = $userData->email;
+            $user->password = Hash::make($pass);
+            $user->code = $my_referral_code;
+            $user->register_on = 'facebook';
+            $user->save();
+
+
+            $user_information = new User_information();
+            $user_information->userId = $user->id;
+            $user_information->save();
+
+            $remember = true;
+            if(Auth::guard('user')->attempt(['email' => $user->email, 'password' => $pass , 'role' => 'user'],$remember)){
+                Toastr::success('Login Successfully','success');
+                return Redirect('/user-dashboard');
+            }
+
+        }
+    }
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+    public function handleGoogleCallback()
+    {
+        $userData = Socialite::driver('google')->user();
+        $exits = User::where('email',$userData->email)->where('role','user');
+        if($exits->get()->count() > 0){
+            $exitData = $exits->first();
+            $remember = true;
+            $pass = "bkqmk2u50psss";
+            if(Auth::guard('user')->attempt(['email' => $exitData->email, 'password' => $pass , 'role' => 'user'],$remember)){
+                Toastr::success('Login Successfully','success');
+                return Redirect('/user-dashboard');
+            }else{
+                Toastr::error('User already exists with this email id','success');
+                return Redirect('/login-signup');
+            }
+        }else{
+            $first_name = Helpers::split_name($userData->name);
+            $my_referral_code = strtolower(str_replace(' ','',$first_name[0])).Helpers::uniqueCode(5);
+
+            $pass = "bkqmk2u50psss";
+
+            $user = new User();
+            $user->name = $userData->name;
+            $user->email = $userData->email;
+            $user->password = Hash::make($pass);
+            $user->code = $my_referral_code;
+            $user->register_on = 'google';
+            $user->save();
+
+
+            $user_information = new User_information();
+            $user_information->userId = $user->id;
+            $user_information->save();
+
+            $remember = true;
+            if(Auth::guard('user')->attempt(['email' => $user->email, 'password' => $pass , 'role' => 'user'],$remember)){
+                Toastr::success('Login Successfully','success');
+                return Redirect('/user-dashboard');
+            }
+        }
+
     }
 }

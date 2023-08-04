@@ -8,7 +8,7 @@
               <h3 class="page-title"> Price</h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="/Dashboard/dash.html">Dashboard</a></li>
+                  <li class="breadcrumb-item"><a href="{{url('/user-dashboard')}}">Dashboard</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Price</li>
                 </ol>
               </nav>

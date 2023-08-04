@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\ReferHistory;
 use App\Models\ReferMailHistory;
+use App\Models\UserSubscriptionModel;
 
 class ReferController extends Controller
 {
@@ -21,17 +22,29 @@ class ReferController extends Controller
         $getData = ReferHistory::where('referId',Auth::guard('user')->user()->id)->orderBy('id','DESC')->get();
         $getDataMailRefer = ReferMailHistory::where('userId',Auth::guard('user')->user()->id)->orderBy('id','DESC')->get();
         $data = [];
+        $Edata = [];
+        $referId = [];
         $referReg = $getData->count();
         $getDataMailReferCount = $getDataMailRefer->count();
         if($referReg > 0){
             foreach ($getData as $key => $value) {
+                $referId[] = $value->userId;
                 $userDetails = Helpers::getUserDetails($value->userId);
                 $data['referList'][$key]['name'] = $userDetails->name;
                 $data['referList'][$key]['email'] = $userDetails->email;
                 $data['referList'][$key]['dateTime'] = date('l jS F Y h:i A',strtotime($value->created_at));
+
+                $getSubData = UserSubscriptionModel::where('userId',$value->userId)->where('status','active');
+                if($getSubData->get()->count() > 0){
+                    $userDetails = Helpers::getUserDetails($value->userId);
+                    $Edata['enroleList'][$key]['name'] = $userDetails->name;
+                    $Edata['enroleList'][$key]['email'] = $userDetails->email;
+                    $Edata['enroleList'][$key]['dateTime'] = date('l jS F Y h:i A',strtotime($value->created_at));
+                }
             }
+
         }
-        return view('user.Dashboard.refer',compact(['referReg','data','getDataMailReferCount','getDataMailRefer']));
+        return view('user.Dashboard.refer',compact(['referReg','data','getDataMailReferCount','getDataMailRefer','Edata']));
     }
     public function referCodeFunction($code){
         Session::put('refer_session_code',$code);

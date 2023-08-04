@@ -27,4 +27,21 @@
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js" integrity="sha512-2xXe2z/uA+2SyT/sTSt9Uq4jDKsT0lV4evd3eoE/oxKih8DSAsOF6LUb+ncafMJPAimWAXdu9W+yMXGrCVOzQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
   <script src="{{asset('toaster/toastr.min.js')}}"></script>
+  <script>
+    $('#picker').datepicker({
+            minDate: 1,
+            dateFormat: 'dd/mm/yy'
+        });
+
+        $('#timepicker').timepicker({
+        minTime: '10:00am',
+        maxTime: '06:00pm',
+        step: 15, // 15 minutes
+        disableTimeRanges: [
+            ['12:00am', '09:15am'],
+            ['06:15pm', '11:45pm']
+        ],
+        // showDuration: true
+        });
+  </script>
     {!! Toastr::message() !!}

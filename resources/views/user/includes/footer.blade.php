@@ -1,3 +1,282 @@
+<!-- Modal start -->
+<div
+        class="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="sessionModalContent">
+                <div class="modalContentImg">
+                  <img
+                    src="{{asset('assets/images/new new new  black -1-01 (1).png')}}"
+                    alt=""
+                  />
+                  <p>Book Your Personalized Career Session</p>
+                </div>
+                <div class="modalfeatureSwiper swiper">
+                  <div class="featureslides swiper-wrapper">
+                    <div class="featureslide swiper-slide">
+                      <div class="featureHeading">
+                        <p>Detailed Knowledge</p>
+                      </div>
+                      <div class="featureContent">
+                        <p>
+                          Gain the complete information and guidance about your
+                          career, strong decision making best studies carriers
+                          and many others carrier development facts to get the
+                          favorable outcomes.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="featureslide swiper-slide">
+                      <div class="featureHeading">
+                        <p>Setting Career Pathway</p>
+                      </div>
+                      <div class="featureContent">
+                        <p>
+                          Identify and create your particular and unique
+                          document program with updated skill sets you need for
+                          formation.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="featureslide swiper-slide">
+                      <div class="featureHeading">
+                        <p>Insight to Problem</p>
+                      </div>
+                      <div class="featureContent">
+                        <p>
+                          Get a sudden solution in a linear way to face and
+                          complete guidance to solve any issues and evaluate
+                          further in your motion.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="featureslide swiper-slide">
+                      <div class="featureHeading">
+                        <p>Increase Confidence</p>
+                      </div>
+                      <div class="featureContent">
+                        <p>
+                          Game complete support in your field or area of
+                          operation, so that you can clear out your doubts and
+                          expressed in a confidential way in your performance as
+                          well as in your impression.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="featureslide swiper-slide">
+                      <div class="featureHeading">
+                        <p>Suit Your Needs</p>
+                      </div>
+                      <div class="featureContent">
+                        <p>
+                          Match and find out your unique needs to build a better
+                          pillar of success which suits you the most.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+                <div class="modalfeatureCardSwiper swiper">
+                  <div class="featureCardslides swiper-wrapper">
+                    <div class="featureCardslide swiper-slide">
+                      <div class="featureCardslideBox">
+                        <div class="featureCardImg">
+                          <img src="{{asset('assets/images/hostel.png')}}" alt="" />
+                        </div>
+                        <div class="featureCardContent">
+                          <p>
+                            Future Lift ia a one stop solution to all your
+                            career related queries.
+                          </p>
+                          <p>Rohit Sharma</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="featureCardslide swiper-slide">
+                      <div class="featureCardslideBox">
+                        <div class="featureCardImg">
+                          <img src="{{asset('assets/images/hostel.png')}}" alt="" />
+                        </div>
+                        <div class="featureCardContent">
+                          <p>
+                            Personalized Session gives me accurate & Detailed
+                            knowledge about my career...
+                          </p>
+                          <p>Lavanya Pandey</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="featureCardslide swiper-slide">
+                      <div class="featureCardslideBox">
+                        <div class="featureCardImg">
+                          <img src="{{asset('assets/images/hostel.png')}}" alt="" />
+                        </div>
+                        <div class="featureCardContent">
+                          <p>
+                            This session helped me to learn about Career
+                            Threats.
+                          </p>
+                          <p>Subhra Mohanta</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="featureCardslide swiper-slide">
+                      <div class="featureCardslideBox">
+                        <div class="featureCardImg">
+                          <img src="{{asset('assets/images/hostel.png')}}" alt="" />
+                        </div>
+                        <div class="featureCardContent">
+                          <p>
+                            According to myself, everyone needs to take this
+                            session before taking admission in college.
+                          </p>
+                          <p>Subham Sing</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-button-next"></div>
+                </div>
+              </div>
+              <div class="sessionModalForm">
+                <p class="modalFormHeading">Register Now to Book session</p>
+                <form action="{{url('/user/booksession')}}" class="callUsForm" method="post">
+                    @csrf
+                  <div class="form-group modal-Input">
+                    <i class="fa-solid fa-user"></i>
+                    <input
+                      type="text"
+                      name="candidate_name"
+                      class="form-control"
+                      placeholder="Full name"
+                      required
+                      value="{{old('candidate_name')}}"
+                    />
+                  </div>
+                  <div class="form-group modal-Input">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input
+                      type="email"
+                      name="candidate_email"
+                      class="form-control"
+                      placeholder="Email"
+                      required
+                      value="{{old('candidate_email')}}"
+                    />
+                  </div>
+                  <div class="form-group modal-Input">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <input
+                      type="tel"
+                      name="candidate_phone"
+                      pattern="^[6789]\d{9,9}$"
+                      class="form-control"
+                      placeholder="Mobile Number"
+                      required
+                      value="{{old('candidate_phone')}}"
+                    />
+                  </div>
+                  <div class="form-group modal-Input">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input
+                      type="text"
+                      name="candidate_city"
+                      class="form-control"
+                      placeholder="City you Live in"
+                      required
+                      value="{{old('candidate_city')}}"
+                    />
+                  </div>
+                  <div class="form-group modal-Input justify-content-between">
+                    @php
+                        $allSession = App\Models\Futurelit_session::get();
+                    @endphp
+                    @foreach ($allSession as $sessionKey => $sessions)
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="options"
+                      id="option{{$sessionKey+1}}"
+                      autocomplete="off"
+                      value="{{$sessions->id}}"
+                    />
+                    <label class="radioBox" for="option{{$sessionKey+1}}">
+                        @if ($sessions->price > 0)
+                            <p>₹ {{$sessions->price}} /-</p>
+                        @else
+                        <p>Free</p>
+                        @endif
+                      <p>{{$sessions->content}}</p></label
+                    >
+                    @endforeach
+                  </div>
+                  <div class="form-group modal-Input">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <!-- <input
+                      type="text"
+                      id="myLocalDate"
+                      class="form-control"
+                      placeholder="Schedule Your Session"
+                      onfocus="(this.type='datetime-local')"
+                      onblur="if(this.value==''){this.type='text'}"
+                      required
+                      name="schedule_date_time"
+                    /> -->
+
+                    <input
+                      type="text"
+                      id="picker"
+                      class="form-control"
+                      placeholder="Schedule Session Date"
+                      required
+                      name="schedule_date"
+                    />
+
+                  </div>
+                  <div class="form-group modal-Input">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <input
+                      type="text"
+                      id="timepicker"
+                      class="form-control"
+                      placeholder="Session Time"
+                      required
+                      name="schedule_time"
+                    />
+                    </div>
+                  <p class="modalFormTerms">
+                    By Submitting this form you accept and agree to our
+                    <a href="">Terms of Use.</a>
+                  </p>
+                  <button type="Submit" class="Modalbtn">Book Session</button>
+                </form>
+                @if(!Auth::guard('user')->check())
+                <p class="alreadyMember">
+                  Already a member? <a href="{{url('/login-signup')}}">Click Here</a>it's easy!
+                </p>
+                @endif
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal End -->
+
 <div id="ftco-loader" class="show fullscreen pre-loader" style="display: none;">
     <div class="loader-position">
         <img src="{{asset('assets/images/loader.gif')}}" alt="Preloader">

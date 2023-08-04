@@ -100,7 +100,7 @@
 
 				<div class="mt-4 forgot">
 					<div class=" justify-content-center links text-center">
-						<a href="#" onclick="openEmailCheck()">Forgot your password?</a>
+						<a href="{{url('/admin/forget-password')}}">Forgot your password?</a>
 					</div>
 				</div>
 				<div class="mt-4 login-in" style="display: none;">

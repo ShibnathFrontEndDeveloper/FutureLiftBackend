@@ -118,7 +118,9 @@
 @endsection
 @section('scripts')
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        order: [[9, 'desc']]
+    });
     function markDone(id){
         if(confirm("Do you want to mark done this session?")){
             window.location.href = "{{url('admin/session-complete/')}}/"+id;

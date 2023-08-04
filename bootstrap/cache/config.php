@@ -610,6 +610,18 @@
       'channel' => 'WEB',
       'industry_type' => 'Retail',
     ),
+    'facebook' => 
+    array (
+      'client_id' => '819938716371993',
+      'client_secret' => 'b5d13a1191026c8ac41bcd713f808ab9',
+      'redirect' => 'http://localhost:8000/login/facebook/callback',
+    ),
+    'google' => 
+    array (
+      'client_id' => '436270168257-n9a6ir283s545ccb6807tj4ucroo5g71.apps.googleusercontent.com',
+      'client_secret' => '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',
+      'redirect' => 'http://localhost:8000/login/google/callback',
+    ),
   ),
   'session' => 
   array (

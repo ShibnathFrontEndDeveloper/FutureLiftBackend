@@ -14,7 +14,7 @@
               <h3 class="page-title"> My Sessions</h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="../../dash.html">Dashboard</a></li>
+                  <li class="breadcrumb-item"><a href="{{url('/user-dashboard')}}">Dashboard</a></li>
                   <li class="breadcrumb-item active" aria-current="page">My Sessions{{$sessionHas}}</li>
                 </ol>
               </nav>

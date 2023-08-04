@@ -268,4 +268,27 @@ class ProfileController extends Controller
 
         return response(json_encode($result),200);
     }
+    public function updatePhoneNumberFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'phoneNumber' => 'required',
+            'password' => 'required',
+            'state' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error($value[0],'error');
+        	}
+        	return back()->withInput();
+        }
+
+        $user = User::find(Auth::guard('user')->user()->id);
+        $user->phone = $request->phoneNumber;
+        $user->state = $request->state;
+        $user->password = Hash::make($request->password);;
+        $user->save();
+
+        return Redirect('/user-dashboard');
+    }
 }
