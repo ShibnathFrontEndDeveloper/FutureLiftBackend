@@ -221,4 +221,34 @@ class AuthController extends Controller
         }
 
     }
+    public function indexChangePassword(){
+        return view('user.Dashboard.change-password');
+    }
+    public function updatePasswordFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'old_password' => 'required',
+            'password' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error($value[0],'error');
+        	}
+        	return back()->withInput();
+        }
+
+        if (!(Hash::check($request->old_password, Auth::guard('user')->user()->password))) {
+            Toastr::error('Old password is not correct','error');
+            return back()->withInput();
+        }
+
+        $user = User::find(Auth::guard('user')->user()->id);
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        Toastr::success('Password Updated Successfully','success');
+        return Redirect('/user-dashboard');
+
+    }
 }

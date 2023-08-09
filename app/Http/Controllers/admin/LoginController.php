@@ -101,4 +101,38 @@ class LoginController extends Controller
         Toastr::success('Password reset successfully','success');
         return Redirect('/admin/login');
     }
+    public function adminChangePasswordIndex($show){
+        if($show == "add"){
+            return view('admin.Dashboard.change-password');
+        }
+        else{
+            return view('admin.Dashboard.404');
+        }
+    }
+    public function adminChangePasswordFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'old_password' => 'required',
+            'password' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error($value[0],'error');
+        	}
+        	return back()->withInput();
+        }
+
+        if (!(Hash::check($request->old_password, Auth::guard('admin')->user()->password))) {
+            Toastr::error('Old password is not correct','error');
+            return back()->withInput();
+        }
+
+        $user = User::find(Auth::guard('admin')->user()->id);
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        Toastr::success('Password Updated Successfully','success');
+        return Redirect('/admin/admin-dashboard');
+    }
 }

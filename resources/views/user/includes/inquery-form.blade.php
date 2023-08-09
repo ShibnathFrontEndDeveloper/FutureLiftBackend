@@ -6,7 +6,8 @@
                 <p>
                   Feel free to write to us. We usually respond within 24 hours!
                 </p>
-                <form action="" class="callUsForm">
+                <form action="{{url('/submitHelpForm')}}" method="post" class="callUsForm">
+                    @csrf
                   <div class="form-group">
                     <input
                       type="text"
@@ -14,6 +15,7 @@
                       class="form-control"
                       placeholder="Full name"
                       required
+                      value="{{old('name')}}"
                     />
                   </div>
                   <div class="form-group">
@@ -23,33 +25,35 @@
                       class="form-control"
                       placeholder="Email"
                       required
+                      value="{{old('email')}}"
                     />
                   </div>
                   <div class="form-group">
                     <input
                       type="tel"
-                      name="mobile"
+                      name="phone_number"
                       pattern="^[6789]\d{9,9}$"
                       class="form-control"
                       placeholder="Mobile Number"
                       required
+                      value="{{old('phone_number')}}"
                     />
                   </div>
                   <div class="form-group">
-                    <select class="form-control" required>
+                    <select class="form-control" name="course_type" required>
                       <option value="">Select One</option>
-                      <option value="">8th to 10th Class</option>
-                      <option value="">11th to 12th Class</option>
-                      <option value="">College Graduate</option>
-                      <option value="">Working Professional</option>
+                      <option value="8th to 10th Class">8th to 10th Class</option>
+                      <option value="11th to 12th Class">11th to 12th Class</option>
+                      <option value="College Graduate">College Graduate</option>
+                      <option value="Working Professional">Working Professional</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <textarea
-                      name="query"
+                      name="comment"
                       placeholder="Query/Comment"
                       class="form-control"
-                    ></textarea>
+                    >{{old('comment')}}</textarea>
                   </div>
                   <button
                     type="submit"

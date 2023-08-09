@@ -57,6 +57,8 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::post('/user/bookCareerSession',[SessionController::class , 'bookCareerSessionFun']);
     Route::get('/help',[HomeController::class , 'indexHelp']);
     Route::post('/updatePhoneNumber',[ProfileController::class , 'updatePhoneNumberFun']);
+    Route::get('/change-password',[AuthController::class , 'indexChangePassword']);
+    Route::post('/user/updatePassword',[AuthController::class , 'updatePasswordFun']);
 });
 
 Route::get('/eight-ten-counselling',[HomeController::class , 'indexEightTenCoun']);
@@ -66,6 +68,11 @@ Route::get('/personality-test',[HomeController::class , 'indexPersonalityTestCou
 Route::get('/interest-test',[HomeController::class , 'indexInterestTestCoun']);
 Route::get('/iq-test',[HomeController::class , 'indexIqTestCoun']);
 Route::get('/aptitude-test',[HomeController::class , 'indexAptitudeTestCoun']);
+Route::get('/terms-condition',[HomeController::class , 'indexTermsCondition']);
+Route::get('/policy',[HomeController::class , 'indexPolicy']);
+Route::get('/about',[HomeController::class , 'indexAbout']);
+Route::post('/submitHelpForm',[HomeController::class , 'submitHelpFormFun']);
+Route::post('/submitQueryForm',[HomeController::class , 'submitQueryFormFun']);
 
 
 
@@ -112,6 +119,11 @@ Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::post('/roleEdit',[RoleController::class , 'roleEditFun']);
     Route::get('/menu-access/{show}/{id}',[RoleController::class , 'indexMenuAccess'])->name('roleMenuAccess')->middleware('adminUrlCheck');
     Route::post('/role-wise-menu-access',[RoleController::class , 'roleWiseMenuAccess']);
+    Route::get('/change-password/{show}',[LoginController::class , 'adminChangePasswordIndex'])->name('changePassword')->middleware('adminUrlCheck');
+    Route::post('/adminChangePassword',[LoginController::class , 'adminChangePasswordFun']);
+    Route::get('/form/{show}',[MainController::class , 'formIndex'])->name('siteForms')->middleware('adminUrlCheck');
+    Route::get('/deleteQueryForm/{id}',[MainController::class , 'deleteQueryFormFun']);
+    Route::get('/deleteHelpForm/{id}',[MainController::class , 'deleteHelpFormFun']);
 });
 
 

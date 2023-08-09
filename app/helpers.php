@@ -447,6 +447,25 @@ class Helpers
                 }
                 return $flag;
                 break;
+            case 'siteForms':
+                $flag = false;
+                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+                if($userRole->get()->count() > 0){
+                    $userRole = $userRole->first();
+                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+                    if($menuAccess->get()->count() > 0){
+                        $menuAccess = $menuAccess->first();
+                        $explodeIds = explode(',',$menuAccess->menuId);
+                        if(in_array(9,$explodeIds)){
+                            $flag = true;
+                        }
+                        if(in_array(10,$explodeIds)){
+                            $flag = true;
+                        }
+                    }
+                }
+                return $flag;
+                break;
 
             default:
                 # code...

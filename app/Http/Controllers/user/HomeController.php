@@ -18,6 +18,8 @@ use Session;
 use App\Models\User_information;
 use App\Models\Faq;
 use App\Models\Testimonial;
+use App\Models\HelpForm;
+use App\Models\QueryForm;
 
 class HomeController extends Controller
 {
@@ -201,5 +203,64 @@ class HomeController extends Controller
 
         Toastr::success('Password reset successfully','success');
         return Redirect('/login-signup');
+    }
+    public function indexTermsCondition(){
+        return view('user.terms-condition');
+    }
+    public function indexPolicy(){
+        return view('user.policy');
+    }
+    public function indexAbout(){
+        return view('user.about');
+    }
+    public function submitHelpFormFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required',
+            'course_type' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error($value[0],'error');
+        	}
+        	return back()->withInput();
+        }
+
+        $helpForm = new HelpForm();
+        $helpForm->name = $request->name;
+        $helpForm->email = $request->email;
+        $helpForm->phone_number = $request->phone_number;
+        $helpForm->course_type = $request->course_type;
+        $helpForm->comment = $request->comment;
+        $helpForm->save();
+
+        Toastr::success('Form submited successfully','success');
+        return back();
+    }
+    public function submitQueryFormFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error($value[0],'error');
+        	}
+        	return back()->withInput();
+        }
+
+        $queryForm = new QueryForm();
+        $queryForm->name = $request->name;
+        $queryForm->email = $request->email;
+        $queryForm->message = $request->message;
+        $queryForm->save();
+
+        Toastr::success('Form submited successfully','success');
+        return back();
     }
 }

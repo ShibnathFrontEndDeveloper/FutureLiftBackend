@@ -3561,3 +3561,295 @@ transform: translate(-5px, 5px) rotate(-45deg)
 
 
 
+
+
+
+
+/*/////////////////////////////////////
+policy  /////////////////////////////////////
+*/
+
+.animi_policy{
+    height: 406px;
+  }
+  .policy_part{
+    background: linear-gradient(45deg, #9C27B0,#3F51B5);
+  }
+  .policy_heading{
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    font-size: 25px;
+    font-weight: 600;
+  }
+  .top_head_box h1{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .nav_box {
+    text-align: center;
+    background: rgb(210, 66, 246);
+    margin-top: -20px;
+  }
+  .navLink_tab{
+    font-size: 13px;
+    padding: 5px;
+    color: #ffffff;
+    border-right: rgba(0,0,0,.2) 1px solid;
+    text-transform: capitalize;
+  }
+  .navLink_tab:hover{
+    color: #fff;
+  }
+
+
+  @media screen and (max-width:576px) {
+    .whoWeAre_box_text p{
+      padding: 22px;
+      font-size: 13px;
+    }
+    .navLink_tab{
+      font-size: 10px;
+
+    }
+    .about_future_lift{
+      background: url(../assets/images/frrr_sd.png);
+    }
+    .about_text_blow{
+      padding: 10px 6px;
+      border-radius: 5px;
+      height: 50px;
+      overflow: auto;
+    }
+    .about_text_blow p{
+      font-size: 11px;
+    }
+    .round_text_box img{
+      width: 90px;
+    }
+    .round_text_box .text{
+      top: 62%;
+      transform: translate(-50%,-62%);
+    }
+    .round_text_box .text p{
+      font-size: 12px;
+    }
+    .whoWeAre_box_text,.contact_section,.specification_futureLift{
+      padding: 20px 0;
+    }
+    .mission_main_box{
+      padding: 0;
+    }
+
+  }
+
+
+
+  /*////////////////////////////////////////
+About Futurelift ////////////////////////////////////////
+*/
+
+.about_future_lift{
+    padding: 70px 0;
+    background: url(../assets/images/frrrr_1.webp);
+    background-size: cover !important;
+    background-position: center center !important;
+  }
+  .about_heading{
+    padding: 0px 35px;
+    font-size: 35px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  .heading_box{
+    background: transparent;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+  }
+
+
+  .mission_info_box{
+      height: 270px;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid rgba(0,0,0,0.2);
+      border-radius: 15px;
+      margin-top: 50px;
+      background: rgba(255, 255, 255, 0.478);
+      backdrop-filter: blur(5px);
+  }
+  .mission_info_box h1{
+    font-size: 25px;
+    font-weight: 600;
+    background: #fff;
+    width: 50%;
+    margin-top: -36px;
+    padding: 6px;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.5);
+    border-radius: 15px;
+
+  }
+  .mission_info_box p{
+    height: 173px;
+    overflow: auto;
+    margin-top: 20px;
+  }
+  .mission_futureLift_row{
+    padding-bottom: 50px;
+  }
+  .whoWeAre_box_text{
+    padding: 80px 0;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+  .whoWeAre_box_text p{
+    font-size: 16px;
+    background: linear-gradient(45deg, #fefefe79, #b0bbfc53);
+    padding: 50px;
+    backdrop-filter: blur(6px);
+    border-radius: 10px;
+    box-shadow: 1px 3px 8px rgba(0,0,0,.2);
+  }
+  .about_other_text{
+    text-align: center;
+    padding: 15px;
+    background: #ffffffb5;
+    border: 1px solid rgba(0,0,0,0.2);
+    backdrop-filter: blur(6px);
+    box-shadow: 1px 5px 10px rgba(100, 107, 250, 0.314);
+    border-radius: 10px;
+  }
+  .about_other_text h1{
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+  }
+  .about_other_text h1::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 70%;
+    height: 2px;
+    background: rgb(31, 151, 182);
+  }
+  .about_other_text p{
+    font-size: 13px;
+    margin-top: 40px;
+    color: rgba(0,0,0,0.6);
+  }
+
+  .quary_box .flQuery_box{
+    background: linear-gradient(45deg, #ffffff6e, #ffffff4d);
+    padding: 25px;
+    backdrop-filter: blur(6px);
+    border-radius: 15px;
+    border: 1px solid rgba(0,0,0,0.2);
+  }
+  .quary_box h1{
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    color: #3f4142;
+    position: relative;
+  }
+  .quary_box h1::after{
+    content: '';
+    position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 50%;
+     height: 2px;
+     background: linear-gradient(red,blue);
+  }
+  .img_other_box{
+    display: flex;
+    justify-content: center;
+    margin-block:15px ;
+  }
+  .other_img_box{
+    width: 50px;
+    height: 50px;
+  }
+  .query_flForm_box{
+    padding-top: 20px;
+  }
+  .contact_section{
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    padding: 80px 0;
+  }
+  .specification_futureLift{
+    padding: 80px 0;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+  }
+  .mission_main_box{
+    padding: 80px 0;
+  }
+  .msg_btn{
+    background: #007bff;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+  }
+  .msg_btn:hover{
+    background: #084298 !important;
+    color: #fff;
+    box-shadow: 1px 2px 5px rgba(100, 107, 250, 0.569);
+    border: none;
+    outline: none;
+  }
+  .round_text_box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .round_text_box img{
+    animation: moving 5s linear infinite;
+  }
+  @keyframes moving {
+    0%{
+      transform: rotate(0deg);
+    }
+
+    100%{
+      transform: rotate(-360deg);
+    }
+
+  }
+  .round_text_box .text{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+  }
+  .round_text_box .text p{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .about_text_blow{
+    text-align: center;
+    padding: 20px;
+    border-radius: 80px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(6px);
+  }
+  .about_text_blow p{
+    font-size: 14px;
+  }
+
+  .frrr{
+    margin-top: 50px;
+  }

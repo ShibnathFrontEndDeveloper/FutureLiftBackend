@@ -299,11 +299,11 @@
       >
         <h3 class="footer-title">Quick Links</h3>
         <ul>
-          <li><a href="about.php">About Us</a></li>
+          <li><a href="{{url('/about')}}">About Us</a></li>
           <!-- <li><a href="">FAQs</a></li> -->
-          <li><a href="policy.php">Privacy Policy</a></li>
+          <li><a href="{{url('/policy')}}">Privacy Policy</a></li>
           <li>
-            <a href="refund_cancelletion.php">Terms & Conditions</a>
+            <a href="{{url('/terms-condition')}}">Terms & Conditions</a>
           </li>
         </ul>
       </div>

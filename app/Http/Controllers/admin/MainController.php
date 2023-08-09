@@ -14,6 +14,8 @@ use App\Helpers;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User_information;
+use App\Models\HelpForm;
+use App\Models\QueryForm;
 
 class MainController extends Controller
 {
@@ -82,5 +84,26 @@ class MainController extends Controller
         }else{
             return view('admin.Dashboard.404');
         }
+    }
+    public function formIndex($show){
+        if($show == "queryForm"){
+            $query = QueryForm::orderBy('id','DESC')->get();
+            return view('admin.Dashboard.site-form',compact(['query']));
+        }else if($show == "helpForm"){
+            $help = HelpForm::orderBy('id','DESC')->get();
+            return view('admin.Dashboard.site-form',compact(['help']));
+        }else{
+            return view('admin.Dashboard.404');
+        }
+    }
+    public function deleteQueryFormFun($id){
+        $query = QueryForm::where('id',$id)->delete();
+        Toastr::success('Data deleted successfully','success');
+        return back();
+    }
+    public function deleteHelpFormFun($id){
+        $help = HelpForm::where('id',$id)->delete();
+        Toastr::success('Data deleted successfully','success');
+        return back();
     }
 }

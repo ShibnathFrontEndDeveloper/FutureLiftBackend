@@ -150,6 +150,17 @@
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item" href="{{url('/admin/change-password/add')}}">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-dark rounded-circle">
+                        <i class="mdi mdi-onepassword  text-info"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <p class="preview-subject mb-1" >Change Password</p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item" onclick="logoutUser();">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
@@ -160,6 +171,7 @@
                       <p class="preview-subject mb-1" >Log out</p>
                     </div>
                   </a>
+
                   <div class="dropdown-divider"></div>
                   <p class="p-3 mb-0 text-center">Advanced settings</p>
                 </div>
