@@ -87,9 +87,17 @@ class MainController extends Controller
     }
     public function formIndex($show){
         if($show == "queryForm"){
+            $check = Helpers::accessHasCheck([10]);
+            if($check == false){
+                return view('admin.Dashboard.404');
+            }
             $query = QueryForm::orderBy('id','DESC')->get();
             return view('admin.Dashboard.site-form',compact(['query']));
         }else if($show == "helpForm"){
+            $check = Helpers::accessHasCheck([9]);
+            if($check == false){
+                return view('admin.Dashboard.404');
+            }
             $help = HelpForm::orderBy('id','DESC')->get();
             return view('admin.Dashboard.site-form',compact(['help']));
         }else{

@@ -193,276 +193,137 @@ class Helpers
         switch ($routeName) {
             case 'userlistedit':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(2,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([2]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'booksessionAddEdit':
-                    $flag = false;
-                    $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                    if($userRole->get()->count() > 0){
-                        $userRole = $userRole->first();
-                        $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                        if($menuAccess->get()->count() > 0){
-                            $menuAccess = $menuAccess->first();
-                            $explodeIds = explode(',',$menuAccess->menuId);
-                            if(in_array(3,$explodeIds)){
-                                $flag = true;
-                            }
-                        }
-                    }
-                    return $flag;
-                    break;
+                $flag = false;
+                $check = Helpers::accessHasCheck([3]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
             case 'counsellingSession':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(4,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([4]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'userDetails':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(2,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([2]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'faqAddList':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(5,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([5]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'faqEdit':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(5,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([5]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'faqDelete':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(5,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([5]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'testimonialAddList':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(6,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([6]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'testimonialEdit':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(6,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([6]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'testimonialDelete':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(6,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([6]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'subscriptionPackageAddList':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(7,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([7]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'subscriptionPackageEdit':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(7,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([7]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'roleAddList':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(8,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([8]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'roleEdit':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(8,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([8]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'roleMenuAccess':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(8,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([8]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'userEdit':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(2,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([2]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
             case 'siteForms':
                 $flag = false;
-                $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
-                if($userRole->get()->count() > 0){
-                    $userRole = $userRole->first();
-                    $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
-                    if($menuAccess->get()->count() > 0){
-                        $menuAccess = $menuAccess->first();
-                        $explodeIds = explode(',',$menuAccess->menuId);
-                        if(in_array(9,$explodeIds)){
-                            $flag = true;
-                        }
-                        if(in_array(10,$explodeIds)){
-                            $flag = true;
-                        }
-                    }
+                $check = Helpers::accessHasCheck([9,10]);
+                if($check){
+                    $flag = true;
                 }
                 return $flag;
                 break;
@@ -471,6 +332,27 @@ class Helpers
                 # code...
                 break;
         }
+    }
+
+    public static function accessHasCheck($menuIds){
+
+        $flag = false;
+        $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
+        if($userRole->get()->count() > 0){
+            $userRole = $userRole->first();
+            $menuAccess = MenuAccess::where('roleId',$userRole->roleId);
+            if($menuAccess->get()->count() > 0){
+                $menuAccess = $menuAccess->first();
+                $explodeIds = explode(',',$menuAccess->menuId);
+                foreach ($menuIds as $key => $value) {
+                    if(in_array($value,$explodeIds)){
+                        $flag = true;
+                    }
+                }
+            }
+        }
+
+        return $flag;
     }
 
 }
