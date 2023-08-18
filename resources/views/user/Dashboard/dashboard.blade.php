@@ -76,102 +76,56 @@
                 <h5>Blog Feed</h5>
                 <p>Well-researched articles written by our experts</p>
               </div>
+              @foreach ($latestBlog as $latestBlogKey => $latestBlogValue)
               <div class="col-md-6 col-xl-4 grid-margin stretch-card ">
                 <div class="card dash_card">
                   <div class="card-header d-flex justify-content-center align-items-center pro_card_header">
                    <div class="blog_face_box w-100 d-flex justify-content-start align-items-center">
                       <div class="blog_face_img ">
-                        <a href=""><img src="{{asset('Dashboard/assets/images/faces/face1.jpg')}}" alt="" class="blog_face"></a>
+                        <a href=""><img src="{{asset('assets/images/no-user.png')}}" alt="" class="blog_face"></a>
                       </div>
+                      @php
+                        $userDetailsAllBlog = App\Helpers::getUserDetails($latestBlogValue->userId);
+                    @endphp
                       <div class="blog_face_img ms-2 ">
-                        <p>Bloger Name</p>
-                        <span>wed. Jun 10, 2023 5:15pm</span>
+                        <p>{{$userDetailsAllBlog->name}}</p>
+                        <span>{{date('jS F Y',strtotime($latestBlogValue->created_at))}}</span>
                       </div>
                     </div>
                   </div>
                   <div class="card-body p-3">
-                    <a href="" class="card_para ">Blog title</a >
+                    <a href="{{url('/blog-details/'.$latestBlogValue->slug)}}" class="card_para ">{{$latestBlogValue->title}}</a >
                       <div class="blog_img_box mt-3">
-                        <a href=""><img src="{{asset('Dashboard/assets/images/dashboard/img_2.jpg')}}" alt="" class="img-fluid"></a>
-                        <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero vitae aliquid neque eos porro? Provident quia ducimus consequuntur illo tempora ipsa eaque, libero dolorem, voluptatibus animi, dolorum tempore facere earum.</p>
+                        <a href="{{url('/blog-details/'.$latestBlogValue->slug)}}"><img src="{{asset('assets/blog_images/'.$latestBlogValue->image)}}" alt="" class="img-fluid"></a>
+                        <p class="mt-3">{{Str::words(strip_tags($latestBlogValue->content), 30, ' ...')}}</p>
                       </div>
 
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="card_btn text-center">
-                          <a href="" class="test_btn" >read more</a>
+                          <a href="{{url('/blog-details/'.$latestBlogValue->slug)}}" class="test_btn" >read more</a>
                         </div>
                         <div class="text-center blog_share">
-                          <a href="" class="test_btn" ><i class="bi bi-facebook"></i>Share</a>
+                          <p  class="test_btn" id="share_link_btn{{$latestBlogKey + 1}}" ><i class="bi bi-share-fill"></i>Share</p>
+                        </div>
+                      </div>
+                      <div class="share_icon_box">
+                        <div class="share_box_dtls" id="shareDisplayBox{{$latestBlogKey + 1}}">
+                          <!-- <a href="https://www.instagram.com/?url={{url('/blog-details/'.$latestBlogValue->slug)}}"><i class="bi bi-instagram"></i></a> -->
+                          <a target="_blank" href="https://api.whatsapp.com/send?text={{url('/blog-details/'.$latestBlogValue->slug)}}"><i class="bi bi-whatsapp"></i></a>
+                          <a target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url={{url('/blog-details/'.$latestBlogValue->slug)}}"><i class="bi bi-linkedin"></i></a>
+                          <!-- <a href="fb-messenger://share/?link={{url('/blog-details/'.$latestBlogValue->slug)}}"><i class="bi bi-messenger"></i></a> -->
+                          <a target="_blank" href="https://pinterest.com/pin/create/button/?url={{url('/blog-details/'.$latestBlogValue->slug)}}&media={{asset('assets/blog_images/'.$latestBlogValue->image)}}&description={{ $latestBlogValue->title }}"><i class="bi bi-pinterest"></i></a>
+                          <a target="_blank" href="https://twitter.com/share?url={{url('/blog-details/'.$latestBlogValue->slug)}}&text={{ $latestBlogValue->title }}"><i class="bi bi-twitter"></i></a>
+                          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{url('/blog-details/'.$latestBlogValue->slug)}}"><i class="bi bi-facebook"></i></a>
                         </div>
                       </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 col-xl-4 grid-margin stretch-card ">
-                <div class="card dash_card">
-                  <div class="card-header d-flex justify-content-center align-items-center pro_card_header">
-                   <div class="blog_face_box w-100 d-flex justify-content-start align-items-center">
-                      <div class="blog_face_img ">
-                        <a href=""><img src="{{asset('Dashboard/assets/images/faces/face1.jpg')}}" alt="" class="blog_face"></a>
-                      </div>
-                      <div class="blog_face_img ms-2 ">
-                        <p>Bloger Name</p>
-                        <span>wed. Jun 10, 2023 5:15pm</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body p-3">
-                    <a href="" class="card_para ">Blog title</a >
-                      <div class="blog_img_box mt-3">
-                        <a href=""><img src="{{asset('Dashboard/assets/images/dashboard/img_2.jpg')}}" alt="" class="img-fluid"></a>
-                        <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero vitae aliquid neque eos porro? Provident quia ducimus consequuntur illo tempora ipsa eaque, libero dolorem, voluptatibus animi, dolorum tempore facere earum.</p>
-                      </div>
-
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="card_btn text-center">
-                          <a href="" class="test_btn" >read more</a>
-                        </div>
-                        <div class="text-center blog_share">
-                          <a href="" class="test_btn" ><i class="bi bi-facebook"></i>Share</a>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-xl-4 grid-margin stretch-card ">
-                <div class="card dash_card">
-                  <div class="card-header d-flex justify-content-center align-items-center pro_card_header">
-                   <div class="blog_face_box w-100 d-flex justify-content-start align-items-center">
-                      <div class="blog_face_img ">
-                        <a href=""><img src="{{asset('Dashboard/assets/images/faces/face1.jpg')}}" alt="" class="blog_face"></a>
-                      </div>
-                      <div class="blog_face_img ms-2 ">
-                        <p>Bloger Name</p>
-                        <span>wed. Jun 10, 2023 5:15pm</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body p-3">
-                    <a href="" class="card_para ">Blog title</a >
-                      <div class="blog_img_box mt-3">
-                        <a href=""><img src="{{asset('Dashboard/assets/images/dashboard/img_2.jpg')}}" alt="" class="img-fluid"></a>
-                        <p class="mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero vitae aliquid neque eos porro? Provident quia ducimus consequuntur illo tempora ipsa eaque, libero dolorem, voluptatibus animi, dolorum tempore facere earum.</p>
-                      </div>
-
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="card_btn text-center">
-                          <a href="" class="test_btn" >read more</a>
-                        </div>
-                        <div class="text-center blog_share">
-                          <a href="" class="test_btn" ><i class="bi bi-facebook"></i>Share</a>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-              </div>
+              @endforeach
               <div class="col-lg-12 mt-5">
                 <div class="card_btn text-center">
-                  <a href="../blog.html" class="test_btn" >view all</a>
+                  <a href="{{url('/blog')}}" class="test_btn" >view all</a>
                 </div>
               </div>
             </div>

@@ -3316,7 +3316,47 @@ transform: translate(-5px, 5px) rotate(-45deg)
   }
 
 }
-
+.blog_page_heading{
+    font-size: 25px;
+    font-weight: 600;
+  }
+  .first_blog_para p{
+    font-size: 16px;
+  }
+  .comment_sec h5{
+    font-size: 25px;
+    color: #979797;
+  }
+  .blog_container{
+   background:#b08eff ;
+  }
+  .blog_single_text{
+    margin-left: 40px;
+  }
+  .blog_single_text h1{
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-bottom: 0;
+  }
+  .blog_single_text h1 .page_name{
+    color: #dc3545;
+  }
+  .blog_single_text p{
+    font-size: 25px;
+    margin-bottom: 0;
+  }
+  .blog_single_text .text-left{
+    margin-top: 20px;
+  }
+  .blog_single_text .text-left a{
+    background: #084298;
+    font-size: 22px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: capitalize;
+  }
 .blogHeading{
   text-align: center;
   margin-bottom: 30px;
@@ -3325,6 +3365,58 @@ transform: translate(-5px, 5px) rotate(-45deg)
   font-size: 35px;
   color: #192e95;
 }
+.share_part{
+    position: fixed;
+    left: 30px;
+    top: 100px;
+    z-index: 100;
+  }
+  .share_part .social_icon_links{
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+  }
+  .share_part .social_icon_links:hover{
+    background: #007bff;
+  }
+  .share_part .social_icon_links i{
+    font-size: 25px;
+  }
+  .share_part .social_icon_links:hover i{
+    color: #fff;
+  }
+  .collapse_box{
+    text-align: right;
+    padding: 10px;
+  }
+  textarea#comment_text:focus{
+    border: 1px solid red;
+  }
+  .collapse_box .comment_btn{
+    background: #007bff !important;
+    color: #fff;
+  }
+  .collapse_box .comment_btn:hover{
+    color: #fff;
+  }
+  .like_box_wrap{
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    background: #f8f8f8;
+    padding: 8px;
+  }
+  .like_box_wrap .like_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .like_box_wrap .like_box .bi{
+    color: #fa970c;
+  }
 .blog_box{
 
   background: url(../assets/images/blog_content_bg.png);
@@ -3453,7 +3545,6 @@ transform: translate(-5px, 5px) rotate(-45deg)
 
   overflow: hidden;
   transition: .3s all ease-in-out;
-  display: none;
   border-bottom: 1px solid rgba(30, 38, 54, 0.3);
 }
 
@@ -3853,3 +3944,37 @@ About Futurelift ////////////////////////////////////////
   .frrr{
     margin-top: 50px;
   }
+
+
+  .blog-tag {
+    margin: 0 2px;
+    padding: 4px 10px;
+    color: #fff;
+    background: #999;
+    font-size: 80%;
+    font-family: sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+     background-color: royalblue;
+     border-radius: 4px;
+    }
+
+    a.blog-tag:hover {
+        text-decoration: underline;
+        color: #fff;
+    }
+    .tag-blog-section{
+        padding: 24px;
+    }
+
+    .hidden.sm\:flex-1.sm\:flex.sm\:items-center.sm\:justify-between {
+        display: none;
+    }
+
+    .d-flex.justify-content-center.blog-search-pagination {
+        height: 40px;
+        float: left;
+    }
+    .search-data-text{
+        color:#0d6efd;
+    }

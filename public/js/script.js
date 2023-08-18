@@ -269,7 +269,8 @@ var swiper = new Swiper('.blog_swiper', {
 
 
 $(document).ready(function(){
-  $(".blog_article_box").slice(0, 5).show();
+//   $(".blog_article_box").slice(0, 5).show();
+$(".blog_article_box").show();
   $("#loadMore").on("click", function(e){
     e.preventDefault();
     $(".blog_article_box:hidden").slice(0, 5).slideDown();

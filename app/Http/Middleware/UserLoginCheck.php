@@ -20,7 +20,7 @@ class UserLoginCheck
         if(!Auth::guard('user')->check()){
             return $next($request);
         }else{
-            return redirect()->back();
+            return Redirect('/user-dashboard');
         }
     }
 }

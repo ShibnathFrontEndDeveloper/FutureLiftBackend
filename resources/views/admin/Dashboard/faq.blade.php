@@ -82,6 +82,9 @@
                                 <option value="iq">IQ</option>
                                 <option value="aptitude">Aptitude</option>
                                 <option value="interest">Interest</option>
+                                <option value="eight_ten">8-10th class</option>
+                                <option value="eleven_twelve">11-12th class</option>
+                                <option value="graduation">Graduation</option>
                             </select>
                         </div>
                         <div class="col-md-12 form-group">
@@ -128,6 +131,9 @@
                                 <option value="iq" {{($faq->type == 'iq')?'selected':''}}>IQ</option>
                                 <option value="aptitude" {{($faq->type == 'aptitude')?'selected':''}}>Aptitude</option>
                                 <option value="interest" {{($faq->type == 'interest')?'selected':''}}>Interest</option>
+                                <option value="eight_ten" {{($faq->type == 'eight_ten')?'selected':''}}>8-10th class</option>
+                                <option value="eleven_twelve" {{($faq->type == 'eleven_twelve')?'selected':''}}>11-12th class</option>
+                                <option value="graduation" {{($faq->type == 'graduation')?'selected':''}}>Graduation</option>
                             </select>
                         </div>
                         <div class="col-md-12 form-group">

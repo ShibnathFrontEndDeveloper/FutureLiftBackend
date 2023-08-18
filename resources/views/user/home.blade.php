@@ -485,120 +485,32 @@
             class="d-flex align-items-center justify-content-between pageHeading w-100"
           >
             <h1 class="sd_text">Top Collection</h1>
-            <button class="exploreAllbtn "><a href="./blog.html">Explore All</a></button>
+            <button class="exploreAllbtn "><a href="{{url('/blog')}}">Explore All</a></button>
           </div>
         </div>
 
 
           <div class="topCollection-cards swiper-wrapper">
+          @foreach ($latestBlog as $latestBlogKey => $latestBlogValue)
             <div class="topCollection-card swiper-slide">
               <div class="topCard">
                 <div class="topCard-img">
                   <img
-                    src="{{asset('assets/images/blog-67-370x260.webp')}}"
+                    src="{{asset('assets/blog_images/'.$latestBlogValue->image)}}"
                     alt=""
                     class="img-fluid"
                   />
                 </div>
                 <div class="topContent">
-                  <p class="topText1">Sunday Challenge</p>
+                  <p class="topText1">{{App\Helpers::getBlogCategoryIdByName($latestBlogValue->categoryId)}}</p>
                   <p class="topText2">
-                    Try the Weekly Quiz and Win Exciting Prizes!
+                  {{$latestBlogValue->title}}
                   </p>
-                  <a href="blog.html">Read more</a>
+                  <a href="{{url('/blog-details/'.$latestBlogValue->slug)}}">Read more</a>
                 </div>
               </div>
             </div>
-            <div class="topCollection-card swiper-slide">
-              <div class="topCard">
-                <div class="topCard-img">
-                  <img
-                    src="{{asset('assets/images/blog-64-370x260.webp')}}"
-                    alt=""
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="topContent">
-                  <p class="topText1">Exam Tips</p>
-                  <p class="topText2">
-                    Tips to Become an Effective Reader in Global Race
-                  </p>
-                  <a href="blog.html">Read more</a>
-                </div>
-              </div>
-            </div>
-            <div class="topCollection-card swiper-slide">
-              <div class="topCard">
-                <div class="topCard-img">
-                  <img
-                    src="{{asset('assets/images/blog-68-370x260.webp')}}"
-                    alt=""
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="topContent">
-                  <p class="topText1">Visual Stories</p>
-                  <p class="topText2">
-                    ISRO Missions that put India in Global Space
-                  </p>
-                  <a href="blog.html">Read more</a>
-                </div>
-              </div>
-            </div>
-            <div class="topCollection-card swiper-slide">
-              <div class="topCard">
-                <div class="topCard-img">
-                  <img
-                    src="{{asset('assets/images/blog-69-370x260.webp')}}"
-                    alt=""
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="topContent">
-                  <p class="topText1">Sunday Challenge</p>
-                  <p class="topText2">
-                    Try the Weekly Quiz and Win Exciting Prizes!
-                  </p>
-                  <a href="blog.html">Read more</a>
-                </div>
-              </div>
-            </div>
-            <div class="topCollection-card swiper-slide">
-              <div class="topCard">
-                <div class="topCard-img">
-                  <img
-                    src="{{asset('assets/images/blog-64-370x260.webp')}}"
-                    alt=""
-                    class="img-fluid"
-                  />
-                </div>
-                <div class="topContent">
-                  <p class="topText1">Sunday Challenge</p>
-                  <p class="topText2">
-                    Try the Weekly Quiz and Win Exciting Prizes!
-                  </p>
-                  <a href="blog.html">Read more</a>
-                </div>
-              </div>
-            </div>
-            <!--<div class="topCollection-card swiper-slide">-->
-            <!--  <div class="topCard">-->
-            <!--    <div class="topCard-img">-->
-            <!--      <img-->
-            <!--        src="assets/images/Exam prepration.png"-->
-            <!--        alt=""-->
-            <!--        class="img-fluid"-->
-            <!--      />-->
-            <!--    </div>-->
-            <!--    <div class="topContent">-->
-            <!--      <p class="topText1">Sunday Challenge</p>-->
-            <!--      <p class="topText2">-->
-            <!--        Try the Weekly Quiz and Win Exciting Prizes!-->
-            <!--      </p>-->
-            <!--      <a href="">Read more</a>-->
-            <!--    </div>-->
-            <!--  </div>-->
-            <!--</div>-->
+            @endforeach
           </div>
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
@@ -722,9 +634,10 @@
                 Subscribe to get access of our Education Library and News...
               </p>
               <div class="collapse" id="Subscribe_mail_box">
-                <form action="">
+                <form action="{{url('/subscribeSubmit')}}" method="post">
+                    @csrf
                   <div class="form-group d-flex">
-                    <input type="text" class="form-control" placeholder="Email" required>
+                    <input type="text" name="subscribe_email" class="form-control" placeholder="Email" required>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </form>

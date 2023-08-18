@@ -20,6 +20,16 @@ use App\Models\Faq;
 use App\Models\Testimonial;
 use App\Models\HelpForm;
 use App\Models\QueryForm;
+use App\Models\SubscribeEmail;
+use App\Models\Tag;
+use App\Models\Blog;
+use App\Models\BlogCategory;
+use App\Models\BlogTag;
+use App\Models\BlogLikeDislike;
+use App\Models\BlogView;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Str;
+
 
 class HomeController extends Controller
 {
@@ -28,7 +38,8 @@ class HomeController extends Controller
         $faq = Faq::where('type','home')->get();
         $studentTestimonial = Testimonial::where('type','student')->where('category','home')->get();
         $parentTestimonial = Testimonial::where('type','parent')->where('category','home')->get();
-        return view('user.home',compact(['allSession','faq','studentTestimonial','parentTestimonial']));
+        $latestBlog = Blog::orderBy('id', 'DESC')->get();
+        return view('user.home',compact(['allSession','faq','studentTestimonial','parentTestimonial','latestBlog']));
     }
     public function demoRegistration(Request $request){
         $validator = Validator::make($request->all(), [
@@ -123,18 +134,18 @@ class HomeController extends Controller
         return view('user.Dashboard.help',compact(['faq']));
     }
     public function indexEightTenCoun(){
-        $faq = Faq::get();
+        $faq = Faq::where('type','eight_ten')->get();
         $parentTestimonial = Testimonial::where('type','parent')->where('category','eight_ten')->get();
         return view('user.eight-ten-counselling',compact(['faq','parentTestimonial']));
     }
     public function indexTenTwelveCoun(){
-        $faq = Faq::get();
+        $faq = Faq::where('type','eleven_twelve')->get();
         $studentTestimonial = Testimonial::where('type','student')->where('category','eleven_twelve')->get();
         $parentTestimonial = Testimonial::where('type','parent')->where('category','eleven_twelve')->get();
         return view('user.ten-twelve-counselling',compact(['faq','studentTestimonial','parentTestimonial']));
     }
     public function indexCollegeGraduateCoun(){
-        $faq = Faq::get();
+        $faq = Faq::where('type','graduation')->get();
         $parentTestimonial = Testimonial::where('type','parent')->where('category','graduation')->get();
         return view('user.college-graduate-counselling',compact(['faq','parentTestimonial']));
     }
@@ -262,5 +273,147 @@ class HomeController extends Controller
 
         Toastr::success('Form submited successfully','success');
         return back();
+    }
+    public function subscribeSubmitFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'subscribe_email' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error($value[0],'error');
+        	}
+        	return back()->withInput();
+        }
+
+        $subsEmail = new SubscribeEmail();
+        $subsEmail->email = $request->subscribe_email;
+        $subsEmail->save();
+
+        Toastr::success('Subscribe Email submited successfully','success');
+        return back();
+    }
+    public function indexBlog(Request $request){
+        $allBlog = Blog::orderBy('id', 'DESC')->paginate(8);
+        $latestBlog = Blog::orderBy('id', 'DESC')->limit(3)->get();
+        if ($request->ajax()) {
+            $view = view('user.blog-load', compact('allBlog'))->render();
+            return response()->json(['html'=>$view]);
+        }
+
+        $viewBlog = BlogView::select('blogId');
+        if($viewBlog->get()->count() > 0){
+            $populerBlog = Blog::orderBy('views', 'DESC')->limit(3)->get();
+        }else{
+            $populerBlog = [];
+        }
+
+        return view('user.blog',compact(['allBlog','latestBlog','populerBlog']));
+    }
+    public function indexBlogDetails($slug,Request $request){
+        $blog = Blog::where('slug',$slug);
+        if($blog->get()->count() > 0){
+            $blog = $blog->first();
+            $blogTag = BlogTag::where('blogId',$blog->id)->get();
+            $latestBlog = Blog::orderBy('id', 'DESC')->limit(3)->get();
+            $countLike = BlogLikeDislike::where('blogId',$blog->id)->where('is_like','1')->get()->count();
+            $countDislike = BlogLikeDislike::where('blogId',$blog->id)->where('is_like','0')->get()->count();
+
+            $cookie_name = (Str::replace('.','',($request->ip())).'-'. $blog->id);
+
+            if(Cookie::get($cookie_name) == ''){
+                $cookie =   Cookie::queue(Cookie::make($cookie_name, $blog->id , 60));
+            }
+
+            $viewB = BlogView::where('blogId',$blog->id)->where('ip',$request->ip())->where('cookie',$cookie_name);
+            if($viewB->get()->count() == 0){
+                $viewInsert = new BlogView();
+                $viewInsert->blogId = $blog->id;
+                $viewInsert->ip = $request->ip();
+                $viewInsert->session_id = session()->getId();
+                $viewInsert->cookie = $cookie_name;
+                $viewInsert->save();
+
+                $blogUpdate = Blog::find($blog->id);
+                $blogUpdate->views = ($blog->views + 1);
+                $blogUpdate->save();
+            }
+
+            return view('user.blog-details',compact(['blog','latestBlog','blogTag','countLike','countDislike']));
+        }else{
+            return view('user.404');
+        }
+    }
+    public function indexBlogSearch(Request $request){
+        if( $request->has('search') ) {
+           $query = $request->query('search');
+           $allBlog = Blog::where('title', 'LIKE', '%'.$query.'%')->orderBy('id', 'DESC')->paginate(10);
+           $latestBlog = Blog::orderBy('id', 'DESC')->limit(3)->get();
+           return view('user.blog-search',compact(['allBlog','latestBlog']));
+        }else{
+            return view('user.404');
+        }
+    }
+    public function indexBlogTagSearch($slug){
+        $blogTag = BlogTag::select('blogId')->where('slug',$slug);
+        if($blogTag->get()->count()){
+            $blogTag = $blogTag->pluck('blogId')->toArray();
+            $allBlog = Blog::whereIn('id',$blogTag)->orderBy('id', 'DESC')->paginate(10);
+            $latestBlog = Blog::orderBy('id', 'DESC')->limit(3)->get();
+            return view('user.blog-tag-search',compact(['allBlog','latestBlog']));
+        }else{
+            return view('user.404');
+        }
+    }
+    public function indexBlogCategorySearch($slug){
+        $blogCategory = BlogCategory::where('slug',$slug);
+        if($blogCategory->get()->count()){
+            $blogCategory = $blogCategory->first();
+            $allBlog = Blog::where('categoryId',$blogCategory->id)->orderBy('id', 'DESC')->paginate(10);
+            $latestBlog = Blog::orderBy('id', 'DESC')->limit(3)->get();
+            return view('user.blog-category-search',compact(['allBlog','latestBlog']));
+        }else{
+            return view('user.404');
+        }
+    }
+    public function blogLikeFun($id){
+        $blogLike = BlogLikeDislike::where('blogId',$id)->where('userId',Auth::guard('user')->user()->id);
+        if($blogLike->get()->count() > 0){
+            BlogLikeDislike::where('blogId',$id)->where('userId',Auth::guard('user')->user()->id)->update([
+                "is_like" => '1'
+            ]);
+        }else{
+            $like = new BlogLikeDislike();
+            $like->blogId = $id;
+            $like->userId = Auth::guard('user')->user()->id;
+            $like->is_like = '1';
+            $like->save();
+        }
+
+        $countLike = BlogLikeDislike::where('blogId',$id)->where('is_like','1')->get()->count();
+        $countDislike = BlogLikeDislike::where('blogId',$id)->where('is_like','0')->get()->count();
+
+        return response()->json(['countLike'=>$countLike,'countDislike' => $countDislike]);
+
+    }
+    public function blogDislikeFun($id){
+        $blogLike = BlogLikeDislike::where('blogId',$id)->where('userId',Auth::guard('user')->user()->id);
+        if($blogLike->get()->count() > 0){
+            BlogLikeDislike::where('blogId',$id)->where('userId',Auth::guard('user')->user()->id)->update([
+                "is_like" => '0'
+            ]);
+        }else{
+            $like = new BlogLikeDislike();
+            $like->blogId = $id;
+            $like->userId = Auth::guard('user')->user()->id;
+            $like->is_like = '0';
+            $like->save();
+        }
+
+        $countLike = BlogLikeDislike::where('blogId',$id)->where('is_like','1')->get()->count();
+        $countDislike = BlogLikeDislike::where('blogId',$id)->where('is_like','0')->get()->count();
+
+        return response()->json(['countLike'=>$countLike,'countDislike' => $countDislike]);
     }
 }

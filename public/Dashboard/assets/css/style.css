@@ -15920,6 +15920,26 @@ code {
         .dash_card .card-body{
           background: #e3e3e3;
         }
+        .dash_card .share_icon_box{
+            position: relative;
+            background: #fff;
+          }
+          .dash_card .share_icon_box .share_box_dtls{
+            position: absolute;
+            top: -100px;
+            right: 0;
+            padding: 8px;
+            background: #fff;
+            overflow: hidden;
+            overflow-x: auto;
+            width: 150px;
+            box-shadow: 2px 5px 10px  rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            display: none;
+          }
+          .dash_card .share_icon_box .share_box_dtls a{
+            padding: 3px;
+          }
         .card_btn .test_btn{
           padding: 8px 15px;
           background: #1d308d;
@@ -15939,6 +15959,10 @@ code {
         .blog_share .test_btn{
           font-size: 13px;
           color: #1e5bb5;
+          cursor: pointer;
+        }
+        .dash_card .share_icon_box .share_box_dtls.share_box_show{
+          display: block !important;
         }
 
 @media (min-width: 576px) {

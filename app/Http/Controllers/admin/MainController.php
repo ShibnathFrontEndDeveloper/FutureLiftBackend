@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User_information;
 use App\Models\HelpForm;
 use App\Models\QueryForm;
+use App\Models\SubscribeEmail;
 
 class MainController extends Controller
 {
@@ -111,6 +112,19 @@ class MainController extends Controller
     }
     public function deleteHelpFormFun($id){
         $help = HelpForm::where('id',$id)->delete();
+        Toastr::success('Data deleted successfully','success');
+        return back();
+    }
+    public function subscribeEmailIndex($show){
+        if($show == "list"){
+            $data = SubscribeEmail::orderBy('id','DESC')->get();
+            return view('admin.Dashboard.subscribe-email',compact(['data']));
+        }else{
+            return view('admin.Dashboard.404');
+        }
+    }
+    public function subscribeEmailDeleteFun($id){
+        $query = SubscribeEmail::where('id',$id)->delete();
         Toastr::success('Data deleted successfully','success');
         return back();
     }

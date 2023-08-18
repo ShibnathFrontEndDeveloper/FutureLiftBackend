@@ -16,6 +16,7 @@ use App\Models\UserRole;
 use App\Models\Role;
 use App\Models\MenuAccess;
 use App\Models\Menu;
+use App\Models\BlogCategory;
 
 class Helpers
 {
@@ -32,7 +33,7 @@ class Helpers
     	$html = '';
     	$html .= '<table width="100%" style="background-color: #5a5a5a;color:white;">';
     	$html .= 	'<tr>';
-    	$html .= 		'<td style="padding: 55px;"><h1>Futurelit</h1></td>';
+    	$html .= 		'<td style="padding: 55px;"><h1>FutureLift</h1></td>';
     	$html .= 	'</tr>';
     	$html .= '</table>';
 
@@ -105,7 +106,20 @@ class Helpers
         $data = CounsellingPrice::find($id);
         return $data;
     }
+    public static function getEmailConfig(){
+        $array = [
+            "smtp"=>"tls",
+            "host"=>"smtp.gmail.com",
+            "username"=>"rajdeeproychowdhuryb@gmail.com",
+            "mailform"=>"rajdeeproychowdhuryb@gmail.com",
+            "password"=>"uxrijlygawdnwecr",
+            "port"=>587,
+            "fromname"=>"FutureLift"
+        ];
+        return json_encode($array);
+    }
     public static function phpMailerMailSend($toMail , $toName , $subject , $body) {
+        $mailConfig = json_decode(Helpers::getEmailConfig());
 
         $html = Helpers::mailHeader();
         $html .= $body;
@@ -119,18 +133,12 @@ class Helpers
         $mail->Mailer = "smtp";
         $mail->SMTPDebug = 0;
         $mail->SMTPAuth = true;
-        // $mail->SMTPSecure = env('MAIL_ENCRYPTION');
-        // $mail->Host = env('MAIL_HOST');
-        // $mail->Username = env('MAIL_USERNAME');
-        // $mail->Password = env('MAIL_PASSWORD');
-        // $mail->Port = env('MAIL_PORT');
-        // $mail->setFrom(env('MAIL_FROM_ADDRESS'), 'Futurelit');
-        $mail->SMTPSecure = 'tls';
-        $mail->Host = 'smtp.gmail.com';
-        $mail->Username = "rajdeeproychowdhuryb@gmail.com";
-        $mail->Password = "uxrijlygawdnwecr";
-        $mail->Port = 587;
-        $mail->setFrom("rajdeeproychowdhuryb@gmail.com", 'Futurelit');
+        $mail->SMTPSecure = $mailConfig->smtp;
+        $mail->Host = $mailConfig->host;
+        $mail->Username = $mailConfig->username;
+        $mail->Password = $mailConfig->password;
+        $mail->Port = $mailConfig->port;
+        $mail->setFrom($mailConfig->mailform, $mailConfig->fromname);
         $mail->addAddress($toMail, $toName);
         $mail->isHTML(true);
         $mail->Subject = $subject;
@@ -144,7 +152,7 @@ class Helpers
 
         $mailData = new MailLogs();
         $mailData->toEmail = $toMail;
-        $mailData->fromEmail = "rajdeeproychowdhuryb@gmail.com";
+        $mailData->fromEmail = $mailConfig->mailform;
         $mailData->subject = $subject;
         $mailData->body = base64_encode($html);
         $mailData->status = $status;
@@ -190,6 +198,7 @@ class Helpers
         return $name;
     }
     public static function roleWiseRouteChecking($routeName){
+        ////// role wise menu id checking
         switch ($routeName) {
             case 'userlistedit':
                 $flag = false;
@@ -327,6 +336,78 @@ class Helpers
                 }
                 return $flag;
                 break;
+            case 'subscribeEmail':
+                $flag = false;
+                $check = Helpers::accessHasCheck([11]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'blogCategory':
+                $flag = false;
+                $check = Helpers::accessHasCheck([12]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'blogCategoryAdd':
+                $flag = false;
+                $check = Helpers::accessHasCheck([12]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'blogCategoryEdit':
+                $flag = false;
+                $check = Helpers::accessHasCheck([12]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'blogCategoryDelete':
+                $flag = false;
+                $check = Helpers::accessHasCheck([12]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'blogSection':
+                $flag = false;
+                $check = Helpers::accessHasCheck([13]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'blogSectionAdd':
+                $flag = false;
+                $check = Helpers::accessHasCheck([13]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'blogSectionEdit':
+                $flag = false;
+                $check = Helpers::accessHasCheck([13]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'blogSectionDelete':
+                $flag = false;
+                $check = Helpers::accessHasCheck([13]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
 
             default:
                 # code...
@@ -335,7 +416,6 @@ class Helpers
     }
 
     public static function accessHasCheck($menuIds){
-
         $flag = false;
         $userRole = UserRole::where('userId',Auth::guard('admin')->user()->id);
         if($userRole->get()->count() > 0){
@@ -351,8 +431,15 @@ class Helpers
                 }
             }
         }
-
         return $flag;
+    }
+    public static function getBlogCategoryIdByName($id){
+        $data = BlogCategory::find($id);
+        return $data->name;
+    }
+    public static function getBlogCategoryIdBySlug($id){
+        $data = BlogCategory::find($id);
+        return $data->slug;
     }
 
 }

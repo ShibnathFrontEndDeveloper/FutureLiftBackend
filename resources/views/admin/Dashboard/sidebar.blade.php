@@ -23,6 +23,7 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{asset('Dashboard/assets/css/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('Dashboard/assets/images/favicon.png')}}" />
     <style>
@@ -230,6 +231,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     {!! Toastr::message() !!}
 
 

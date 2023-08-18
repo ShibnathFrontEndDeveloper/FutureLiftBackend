@@ -20,7 +20,7 @@ use App\Http\Controllers\admin\FaqController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\SessionSubscriptionController;
 use App\Http\Controllers\admin\RoleController;
-
+use App\Http\Controllers\admin\BlogController;
 
 
 Route::get('/',[HomeController::class , 'indexHome']);
@@ -73,6 +73,14 @@ Route::get('/policy',[HomeController::class , 'indexPolicy']);
 Route::get('/about',[HomeController::class , 'indexAbout']);
 Route::post('/submitHelpForm',[HomeController::class , 'submitHelpFormFun']);
 Route::post('/submitQueryForm',[HomeController::class , 'submitQueryFormFun']);
+Route::post('/subscribeSubmit',[HomeController::class , 'subscribeSubmitFun']);
+Route::get('/blog',[HomeController::class , 'indexBlog']);
+Route::get('/blog-details/{slug}',[HomeController::class , 'indexBlogDetails']);
+Route::get('/blog-search',[HomeController::class , 'indexBlogSearch']);
+Route::get('/blog/blog-tag/{slug}',[HomeController::class , 'indexBlogTagSearch']);
+Route::get('/blog/blog-category/{slug}',[HomeController::class , 'indexBlogCategorySearch']);
+Route::get('/blogLike/{id}',[HomeController::class , 'blogLikeFun']);
+Route::get('/blogDislike/{id}',[HomeController::class , 'blogDislikeFun']);
 
 
 
@@ -119,11 +127,23 @@ Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::post('/roleEdit',[RoleController::class , 'roleEditFun']);
     Route::get('/menu-access/{show}/{id}',[RoleController::class , 'indexMenuAccess'])->name('roleMenuAccess')->middleware('adminUrlCheck');
     Route::post('/role-wise-menu-access',[RoleController::class , 'roleWiseMenuAccess']);
-    Route::get('/change-password/{show}',[LoginController::class , 'adminChangePasswordIndex'])->name('changePassword')->middleware('adminUrlCheck');
+    Route::get('/change-password/{show}',[LoginController::class , 'adminChangePasswordIndex']);
     Route::post('/adminChangePassword',[LoginController::class , 'adminChangePasswordFun']);
     Route::get('/form/{show}',[MainController::class , 'formIndex'])->name('siteForms')->middleware('adminUrlCheck');
     Route::get('/deleteQueryForm/{id}',[MainController::class , 'deleteQueryFormFun']);
     Route::get('/deleteHelpForm/{id}',[MainController::class , 'deleteHelpFormFun']);
+    Route::get('/subscribe-email/{show}',[MainController::class , 'subscribeEmailIndex'])->name('subscribeEmail')->middleware('adminUrlCheck');
+    Route::get('/subscribeEmailDelete/{id}',[MainController::class , 'subscribeEmailDeleteFun']);
+    Route::get('/blog-category/{show}',[BlogController::class , 'indexBlogCategory'])->name('blogCategory')->middleware('adminUrlCheck');
+    Route::post('/blogCategoryAdd',[BlogController::class , 'blogCategoryAddFun'])->name('blogCategoryAdd')->middleware('adminUrlCheck');
+    Route::get('/blog-category/{show}/{id}',[BlogController::class , 'indexBlogCategoryEdit'])->name('blogCategoryEdit')->middleware('adminUrlCheck');
+    Route::post('/blogCategoryEdit',[BlogController::class , 'blogCategoryEditFun']);
+    Route::get('/blogCategoryDelete/{id}',[BlogController::class , 'blogCategoryDeleteFun'])->name('blogCategoryDelete')->middleware('adminUrlCheck');
+    Route::get('/blog-section/{show}',[BlogController::class , 'indexBlogSection'])->name('blogSection')->middleware('adminUrlCheck');
+    Route::post('/blogAdd',[BlogController::class , 'blogAddFun'])->name('blogSectionAdd')->middleware('adminUrlCheck');
+    Route::get('/blog-section/{show}/{id}',[BlogController::class , 'indexBlogSectionEdit'])->name('blogSectionEdit')->middleware('adminUrlCheck');
+    Route::post('/blogEdit',[BlogController::class , 'blogEditFun']);
+    Route::get('/blogDelete/{id}',[BlogController::class , 'blogDeleteFun'])->name('blogSectionDelete')->middleware('adminUrlCheck');
 });
 
 

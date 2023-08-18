@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Helpers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User_information;
+use App\Models\Blog;
 
 class DashboardController extends Controller
 {
@@ -19,7 +20,8 @@ class DashboardController extends Controller
         $profilePercentage = $profileCompleteStat['percentage'];
         $profileField = $profileCompleteStat['totalField'];
         $profileComplete = $profileCompleteStat['completed'];
-        return view('user.Dashboard.dashboard',compact(['profilePercentage','profileField','profileComplete']));
+        $latestBlog = Blog::orderBy('id', 'DESC')->limit(3)->get();
+        return view('user.Dashboard.dashboard',compact(['profilePercentage','profileField','profileComplete','latestBlog']));
     }
     public function profileCompletePercentage(){
         $dataCount = User_information::where('userId',Auth::guard('user')->user()->id)->get()->count();
@@ -118,6 +120,8 @@ class DashboardController extends Controller
             $completed = $completed + 1;
             $personal = $personal + 1;
         }
+
+        ///// each tab 25%
 
         if($personal == 7){
             $percentage = $percentage + 25;

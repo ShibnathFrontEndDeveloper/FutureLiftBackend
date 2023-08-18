@@ -84,6 +84,8 @@ class AuthController extends Controller
             Session::forget('refer_session_code');
         }
 
+        /////////// SSO login ///////////////
+
         $remember = true;
         if(Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password , 'role' => 'user'],$remember)){
             Toastr::success('Login Successfully','success');
@@ -107,6 +109,7 @@ class AuthController extends Controller
         	return back()->withInput();
         }
 
+        /////////// SSO login ///////////////
         $remember = true;
         if(Auth::guard('user')->attempt(['email' => $request->userEmail, 'password' => $request->userPassword , 'role' => 'user'],$remember)){
             Toastr::success('Login Successfully','success');
@@ -140,6 +143,9 @@ class AuthController extends Controller
         if($exits->get()->count() > 0){
             $exitData = $exits->first();
             $remember = true;
+
+            ///// static password generate for login
+
             $pass = "bkqmk2u50psss";
             if(Auth::guard('user')->attempt(['email' => $exitData->email, 'password' => $pass , 'role' => 'user'],$remember)){
                 Toastr::success('Login Successfully','success');
@@ -151,6 +157,8 @@ class AuthController extends Controller
         }else{
             $first_name = Helpers::split_name($userData->name);
             $my_referral_code = strtolower(str_replace(' ','',$first_name[0])).Helpers::uniqueCode(5);
+
+            ///// static password generate for login
 
             $pass = "bkqmk2u50psss";
 
@@ -186,6 +194,9 @@ class AuthController extends Controller
         if($exits->get()->count() > 0){
             $exitData = $exits->first();
             $remember = true;
+
+            ///// static password generate for login
+
             $pass = "bkqmk2u50psss";
             if(Auth::guard('user')->attempt(['email' => $exitData->email, 'password' => $pass , 'role' => 'user'],$remember)){
                 Toastr::success('Login Successfully','success');
@@ -197,6 +208,8 @@ class AuthController extends Controller
         }else{
             $first_name = Helpers::split_name($userData->name);
             $my_referral_code = strtolower(str_replace(' ','',$first_name[0])).Helpers::uniqueCode(5);
+
+            ///// static password generate for login
 
             $pass = "bkqmk2u50psss";
 
