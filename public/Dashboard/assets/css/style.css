@@ -22071,3 +22071,9 @@ fieldset h1{
     color: black;
     text-decoration: underline;
 }
+
+.notification-zoom-in{
+    transform: scale(1.1);
+    background-color: #9540ad !important;
+    color: #ffffff;
+}

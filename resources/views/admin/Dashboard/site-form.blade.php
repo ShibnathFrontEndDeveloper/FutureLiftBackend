@@ -31,11 +31,29 @@
                                 <td>{{$queryKey + 1}}</td>
                                 <td>{{$queryValue->name}}</td>
                                 <td>{{$queryValue->email}}</td>
-                                <td>{{$queryValue->message}}</td>
+                                <td>{!! html_entity_decode(App\Helpers::readMoreHelper($queryValue->message,100,'readmoreModal'.$queryKey))!!}</td>
                                 <td>
                                     <a href="javascript:void(0)" onclick="deleteConfirmQuery('{{$queryValue->id}}')"><i style="font-size:30px;" class="mdi mdi-delete-circle"></i></a>
                                 </td>
                             </tr>
+
+                            <div class="modal popup_box" id="readmoreModal{{$queryKey}}" tabindex="-1" aria-labelledby="readmoreModal{{$queryKey}}" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content ref_mdal_box">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title season_header">
+                                                Comment
+                                            </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{$queryValue->message}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         @endforeach
                     </tbody>
                     <tfoot>
@@ -86,11 +104,30 @@
                                 <td>{{$helpValue->email}}</td>
                                 <td>{{$helpValue->phone_number}}</td>
                                 <td>{{$helpValue->course_type}}</td>
-                                <td>{{$helpValue->comment}}</td>
+                                <td>{!! html_entity_decode(App\Helpers::readMoreHelper($helpValue->comment,100,'readmoreModal'.$helpKey))!!}
+                                </td>
                                 <td>
                                     <a href="javascript:void(0)" onclick="deleteConfirmHelp('{{$helpValue->id}}')"><i style="font-size:30px;" class="mdi mdi-delete-circle"></i></a>
                                 </td>
                             </tr>
+
+
+                            <div class="modal popup_box" id="readmoreModal{{$helpKey}}" tabindex="-1" aria-labelledby="readmoreModal{{$helpKey}}" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content ref_mdal_box">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title season_header">
+                                                Comment
+                                            </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {{$helpValue->comment}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         @endforeach
                     </tbody>
                     <tfoot>

@@ -47,6 +47,11 @@ class ReferController extends Controller
         return view('user.Dashboard.refer',compact(['referReg','data','getDataMailReferCount','getDataMailRefer','Edata']));
     }
     public function referCodeFunction($code){
+        $exitsRefer = User::where('code',$code)->where('role','user')->get()->count();
+        if($exitsRefer == 0){
+            Toastr::error('Invalid Refer code!','error');
+            return back()->withInput();
+        }
         Session::put('refer_session_code',$code);
         Toastr::success('Refer Code Applied!','success');
         return Redirect('/login-signup');

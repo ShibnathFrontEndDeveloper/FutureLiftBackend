@@ -29,6 +29,7 @@ use App\Models\BlogLikeDislike;
 use App\Models\BlogView;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
+use App\Models\UserNotification;
 
 
 class HomeController extends Controller
@@ -99,6 +100,9 @@ class HomeController extends Controller
                 $book->schedule_date_time = $dateFormat.' '.$timeFormat;
                 $book->save();
 
+                $notificationContent = "Session Confirmed! Your booking is all set. Get ready for an insightful and engaging session. We're excited to connect with you and provide valuable insights. See you soon!";
+                Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_session','Book Session','session',$notificationContent);
+
                 Toastr::success('Book session Successfully','success');
                 return back();
             }else{
@@ -115,6 +119,7 @@ class HomeController extends Controller
                 return $payment->receive();
 
             }
+
 
         } catch (Exception $e) {
             Toastr::error('something went wrong','error');
@@ -378,17 +383,33 @@ class HomeController extends Controller
         }
     }
     public function blogLikeFun($id){
+        $flag = true;
+        $notificationContent = 'Appreciation Alert! Thank You for Liking Our Blog Post! Your support means the world to us. We re glad you enjoyed our content. Stay tuned for more exciting updates coming your way soon!';
         $blogLike = BlogLikeDislike::where('blogId',$id)->where('userId',Auth::guard('user')->user()->id);
         if($blogLike->get()->count() > 0){
+            $blogLike = $blogLike->first();
+            $prev = $blogLike->is_like;
             BlogLikeDislike::where('blogId',$id)->where('userId',Auth::guard('user')->user()->id)->update([
                 "is_like" => '1'
             ]);
+
+            $blogData = BlogLikeDislike::where('blogId',$id)->where('userId',Auth::guard('user')->user()->id)->first();
+            $next = $blogData->is_like;
+            if($prev == $next){
+                $flag = false;
+            }
+
         }else{
             $like = new BlogLikeDislike();
             $like->blogId = $id;
             $like->userId = Auth::guard('user')->user()->id;
             $like->is_like = '1';
             $like->save();
+
+        }
+
+        if($flag){
+            Helpers::addUserNotification(Auth::guard('user')->user()->id,'blog_like','Blog Like','blog',$notificationContent);
         }
 
         $countLike = BlogLikeDislike::where('blogId',$id)->where('is_like','1')->get()->count();
@@ -398,11 +419,20 @@ class HomeController extends Controller
 
     }
     public function blogDislikeFun($id){
+        $flag = true;
+        $notificationContent = 'Acknowledging Your Feedback!  Thank You for Sharing Your Thoughts. We re sorry to hear that the recent blog post wasnt up to your expectations. We value your input and will work harder to bring you better content in the future. Your honesty helps us improve!';
         $blogLike = BlogLikeDislike::where('blogId',$id)->where('userId',Auth::guard('user')->user()->id);
         if($blogLike->get()->count() > 0){
+            $blogLike = $blogLike->first();
+            $prev = $blogLike->is_like;
             BlogLikeDislike::where('blogId',$id)->where('userId',Auth::guard('user')->user()->id)->update([
                 "is_like" => '0'
             ]);
+            $blogData = BlogLikeDislike::where('blogId',$id)->where('userId',Auth::guard('user')->user()->id)->first();
+            $next = $blogData->is_like;
+            if($prev == $next){
+                $flag = false;
+            }
         }else{
             $like = new BlogLikeDislike();
             $like->blogId = $id;
@@ -411,9 +441,17 @@ class HomeController extends Controller
             $like->save();
         }
 
+        if($flag){
+            Helpers::addUserNotification(Auth::guard('user')->user()->id,'blog_dislike','Blog Dislike','blog',$notificationContent);
+        }
+
         $countLike = BlogLikeDislike::where('blogId',$id)->where('is_like','1')->get()->count();
         $countDislike = BlogLikeDislike::where('blogId',$id)->where('is_like','0')->get()->count();
 
         return response()->json(['countLike'=>$countLike,'countDislike' => $countDislike]);
+    }
+    public function indexUserNotification(){
+        $notification = UserNotification::where('userId',Auth::guard('user')->user()->id)->orderBy('id','DESC')->get();
+        return view('user.Dashboard.user-notification-list',compact(['notification']));
     }
 }

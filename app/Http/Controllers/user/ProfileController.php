@@ -121,6 +121,9 @@ class ProfileController extends Controller
             Toastr::success('Profile updated successfully','success');
             return Redirect('/user-profile');
 
+            $notificationContent = "Profile Update Successful! Your profile is now complete and up-to-date. Thank you for providing all the necessary information. Your profile is a reflection of your journey keep shining!";
+            Helpers::addUserNotification(Auth::guard('user')->user()->id,'profile_update','Profile Updated','profile',$notificationContent);
+
 
 
     }

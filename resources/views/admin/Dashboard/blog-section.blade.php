@@ -90,8 +90,8 @@
                             <input type="text" name="title" id="" required class="form-control" value="{{old('title')}}">
                         </div>
                         <div class="col-md-12 form-group">
-                            <label for="">Blog Image</label>
-                            <input type="file" name="image" id="" required class="form-control">
+                            <label for="">Blog Image <small class="text-danger">(image maximum resolution 570 x 300 and minimum resolution 370 x 260)</small></label>
+                            <input type="file" name="image" id="" onchange="checkImageResolution(this);" required class="form-control">
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="">Blog Tags</label>
@@ -146,8 +146,8 @@
                             <input type="text" name="title" id="" required class="form-control" value="{{$blog->title}}">
                         </div>
                         <div class="col-md-12 form-group">
-                            <label for="">Blog Image</label>
-                            <input type="file" name="image" id="" class="form-control">
+                            <label for="">Blog Image <small class="text-danger">(image maximum resolution 570 x 300 and minimum resolution 370 x 260)</small></label>
+                            <input type="file" name="image" id="" accept="image/*" onchange="checkImageResolution(this)" class="form-control">
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="">Blog Tags</label>
@@ -173,6 +173,9 @@
 @endsection
 @section('scripts')
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<!-- <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script> -->
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+
 <script>
     new DataTable('#example');
     function deleteConfirm(id){
@@ -180,28 +183,69 @@
             window.location.href="{{url('/admin/blogDelete')}}/"+id;
         }
     }
-    tinymce.init({
-        selector: 'textarea#description',
-        height: 500,
-        valid_elements : '*[*]',
-        init_instance_callback : function(editor) {
-            var freeTiny = document.querySelector('.tox .tox-notification--in');
-            freeTiny.style.display = 'none';
-        },
-        plugins: [
-            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-            'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-            'insertdatetime', 'media', 'table', 'help', 'wordcount'
-        ],
-        toolbar: 'undo redo | blocks | ' +
-        'bold italic backcolor | alignleft aligncenter ' +
-        'alignright alignjustify | bullist numlist outdent indent | ' +
-        'removeformat | help',
-        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+    // tinymce.init({
+    //     selector: 'textarea#description',
+    //     height: 500,
+    //     valid_elements : '*[*]',
+    //     init_instance_callback : function(editor) {
+    //         var freeTiny = document.querySelector('.tox .tox-notification--in');
+    //         freeTiny.style.display = 'none';
+    //     },
+    //     plugins: [
+    //         'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+    //         'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+    //         'insertdatetime', 'media', 'table', 'help', 'wordcount'
+    //     ],
+    //     toolbar: 'undo redo | blocks | ' +
+    //     'bold italic backcolor | alignleft aligncenter ' +
+    //     'alignright alignjustify | bullist numlist outdent indent | ' +
+    //     'removeformat | help',
+    //     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+    // });
+
+    // ClassicEditor
+    //     .create( document.querySelector( '#description' ),{
+    //         ckfinder: {
+    //             uploadUrl: '{{route('ckeditor.upload').'?_token='.csrf_token()}}',
+    //         }
+
+    //     })
+    //     .catch( error => {
+
+    //     } );
+
+    CKEDITOR.replace( 'description', {
+        filebrowserUploadUrl: '{{route('ckeditor.upload').'?_token='.csrf_token()}}'
     });
+
+
+
+
 
     $(".js-example-tags").select2({
             tags: true
         });
+        var img = new Image();
+
+        function checkImageResolution(input) {
+            var file = input.files[0];
+            console.log(file);
+            img.src = URL.createObjectURL(file);
+
+            img.onload = function() {
+                var maxWidth = 570; // Define your maximum width here
+                var maxHeight = 300; // Define your maximum height here
+                const minWidth = 370; // Minimum allowed width
+                const minHeight = 260; // Minimum allowed height
+                console.log(img.width);
+                if (img.width > maxWidth || img.height > maxHeight) {
+                    alert("Image resolution is too high. Maximum resolution allowed is " + maxWidth + "x" + maxHeight);
+                    input.value = ''; // Clear the file input
+                }else if (img.width < minWidth || img.height < minHeight) {
+                    alert(`Image resolution must be at least ${minWidth}x${minHeight} pixels`);
+                    input.value = ''; // Clear the file input
+                }
+            };
+        }
 </script>
 @endsection

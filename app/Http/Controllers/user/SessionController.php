@@ -53,6 +53,9 @@ class SessionController extends Controller
             "status" => 'Processing'
         ]);
 
+        $notificationContent = "Career Counseling Session Scheduled! Your session has been successfully booked. We're excited to assist you on your career journey. Get ready to gain valuable insights and clarity. We look forward to our upcoming session!";
+        Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_counselling_career_session','Schedule Counselling Career Session','career_session_booked',$notificationContent);
+
         Toastr::success('Session booked Successfully','success');
         return Redirect('/session');
     }

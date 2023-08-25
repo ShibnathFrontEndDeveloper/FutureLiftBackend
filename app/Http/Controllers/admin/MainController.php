@@ -49,6 +49,10 @@ class MainController extends Controller
                 $updateStatus->save();
             }
         }
+
+        $notificationContent = "Career Counseling Session Completed! Your counseling session has concluded, and we hope it was a fruitful experience for you. If you have any more questions or need ongoing support, feel free to reach out. Your career success is our priority!";
+        Helpers::addUserNotification($userId,'counselling_session_complete','Counselling Session Completed','career_session_complete',$notificationContent);
+
         Toastr::success('Counselling session updated successfully','success');
         return Redirect('/admin/counselling-session/list');
     }
@@ -127,5 +131,24 @@ class MainController extends Controller
         $query = SubscribeEmail::where('id',$id)->delete();
         Toastr::success('Data deleted successfully','success');
         return back();
+    }
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function uploadCkeditor(Request $request){
+        if ($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+
+            $request->file('upload')->move(public_path('media'), $fileName);
+
+            $url = asset('media/' . $fileName);
+
+            return response()->json(['fileName' => $fileName, 'uploaded'=> 1, 'url' => $url]);
+        }
     }
 }

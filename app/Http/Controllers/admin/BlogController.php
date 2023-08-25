@@ -20,7 +20,7 @@ class BlogController extends Controller
 {
     public function indexBlogCategory($show){
         if($show == "list"){
-            $blogCategory = BlogCategory::get();
+            $blogCategory = BlogCategory::orderBy('id','DESC')->get();
             return view('admin.Dashboard.blog-category',compact(['blogCategory']));
         }else if($show == "add"){
             return view('admin.Dashboard.blog-category');
@@ -102,7 +102,7 @@ class BlogController extends Controller
     }
     public function indexBlogSection($show){
         if($show == "list"){
-            $blog = Blog::get();
+            $blog = Blog::orderBy('id','DESC')->get();
             return view('admin.Dashboard.blog-section',compact(['blog']));
         }else if($show == "add"){
             $blogCategory = BlogCategory::get();

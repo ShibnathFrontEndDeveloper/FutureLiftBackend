@@ -81,6 +81,8 @@ class SubscriptionController extends Controller
         }
 
 
+        $notificationContent = "Welcome to Your Journey of Growth! You're now subscribed to our counseling sessions. Get ready to embark on a path of self-discovery and empowerment. We're here to support you every step of the way. Your transformation begins now!";
+        Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_counselling_session','Subscribe Counselling Session','session',$notificationContent);
 
 
         Toastr::success('Subscription updated successfully','success');

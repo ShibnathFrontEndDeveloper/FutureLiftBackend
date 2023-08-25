@@ -18,7 +18,11 @@ use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
-    public function indexAuth(){
+    public function indexAuth(Request $request){
+        if ($request->has('redirectURL')) {
+            $recUri = $request->query('redirectURL');
+            Session::put('redirectURL',$recUri);
+        }
         return view('user.login-signup');
     }
     public function signupFunction(Request $request){
@@ -84,11 +88,19 @@ class AuthController extends Controller
             Session::forget('refer_session_code');
         }
 
+        $notificationContent = "Welcome to FutureLift!  We're thrilled to have you join us. Explore, discover, and make the most of your journey here. If you have any questions or need assistance, don't hesitate to ask. Happy browsing!";
+        Helpers::addUserNotification($user->id,'user_registration','Welcome to FutureLift','registration',$notificationContent);
+
         /////////// SSO login ///////////////
 
         $remember = true;
         if(Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password , 'role' => 'user'],$remember)){
             Toastr::success('Login Successfully','success');
+            if(Session::has('redirectURL')){
+                $uri = Session::get('redirectURL');
+                Session::forget('redirectURL');
+                return Redirect($uri);
+            }
             return Redirect('/user-dashboard');
     	}
 
@@ -113,6 +125,11 @@ class AuthController extends Controller
         $remember = true;
         if(Auth::guard('user')->attempt(['email' => $request->userEmail, 'password' => $request->userPassword , 'role' => 'user'],$remember)){
             Toastr::success('Login Successfully','success');
+            if(Session::has('redirectURL')){
+                $uri = Session::get('redirectURL');
+                Session::forget('redirectURL');
+                return Redirect($uri);
+            }
             return Redirect('/user-dashboard');
     	}else{
             Toastr::error('User email and password mismatch','Please try again');
@@ -175,9 +192,17 @@ class AuthController extends Controller
             $user_information->userId = $user->id;
             $user_information->save();
 
+            $notificationContent = "Welcome to FutureLift!  We're thrilled to have you join us. Explore, discover, and make the most of your journey here. If you have any questions or need assistance, don't hesitate to ask. Happy browsing!";
+            Helpers::addUserNotification($user->id,'user_registration','Welcome to FutureLift','registration',$notificationContent);
+
             $remember = true;
             if(Auth::guard('user')->attempt(['email' => $user->email, 'password' => $pass , 'role' => 'user'],$remember)){
                 Toastr::success('Login Successfully','success');
+                if(Session::has('redirectURL')){
+                    $uri = Session::get('redirectURL');
+                    Session::forget('redirectURL');
+                    return Redirect($uri);
+                }
                 return Redirect('/user-dashboard');
             }
 
@@ -226,9 +251,17 @@ class AuthController extends Controller
             $user_information->userId = $user->id;
             $user_information->save();
 
+            $notificationContent = "Welcome to FutureLift!  We're thrilled to have you join us. Explore, discover, and make the most of your journey here. If you have any questions or need assistance, don't hesitate to ask. Happy browsing!";
+            Helpers::addUserNotification($user->id,'user_registration','Welcome to FutureLift','registration',$notificationContent);
+
             $remember = true;
             if(Auth::guard('user')->attempt(['email' => $user->email, 'password' => $pass , 'role' => 'user'],$remember)){
                 Toastr::success('Login Successfully','success');
+                if(Session::has('redirectURL')){
+                    $uri = Session::get('redirectURL');
+                    Session::forget('redirectURL');
+                    return Redirect($uri);
+                }
                 return Redirect('/user-dashboard');
             }
         }

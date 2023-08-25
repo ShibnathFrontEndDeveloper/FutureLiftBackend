@@ -17,6 +17,7 @@ use App\Models\Role;
 use App\Models\MenuAccess;
 use App\Models\Menu;
 use App\Models\BlogCategory;
+use App\Models\UserNotification;
 
 class Helpers
 {
@@ -440,6 +441,66 @@ class Helpers
     public static function getBlogCategoryIdBySlug($id){
         $data = BlogCategory::find($id);
         return $data->slug;
+    }
+    public static function readMoreHelper($story_desc, $chars = 100,$modalId) {
+        // $story_desc = substr($story_desc,0,$chars);
+        // $story_desc = substr($story_desc,0,strrpos($story_desc,' '));
+        //$story_desc = $story_desc." <a href='#".$modalId."'>Read More...</a>";
+        $story_desc = substr($story_desc, 0, $chars)." <a href='javascript:void(0)' data-toggle='modal' data-target='#".$modalId."' id='readmore".$modalId."'>Read More...</a>";
+        return $story_desc;
+    }
+    public static function addUserNotification($userId = 0,$section,$title,$type,$content,$url = "") {
+        $flag = false;
+        $notification = new UserNotification();
+        if($userId != 0){
+            $notification->userId = $userId;
+        }
+        $notification->section = $section;
+        $notification->title = $title;
+        $notification->type = $type;
+        $notification->content = $content;
+        $notification->url = $url;
+        $notification->save();
+        if($notification){
+            $flag = true;
+        }
+        return $flag = true;
+    }
+    public static function notificationTypeWiseIcon($type) {
+        switch ($type) {
+            case 'subscription':
+                return '<i class="mdi mdi-approval"></i>';
+                break;
+            case 'session':
+                return '<i class="mdi mdi-account-check"></i>';
+                break;
+            case 'refer':
+                return '<i class="mdi mdi-account-multiple"></i>';
+                break;
+            case 'profile':
+                return '<i class="mdi mdi-account-settings-variant"></i>';
+                break;
+            case 'blog':
+                return '<i class="mdi mdi-blogger"></i>';
+                break;
+            case 'career_session_booked':
+                return '<i class="mdi mdi-calendar-clock"></i>';
+                break;
+            case 'career_session_complete':
+                return '<i class="mdi mdi-checkbox-marked-circle"></i>';
+                break;
+            case 'registration':
+                return '<i class="mdi mdi-human-greeting"></i>';
+                break;
+
+            default:
+                # code...
+                break;
+        }
+    }
+    public static function getUserNotificationList($userId) {
+        $notification = UserNotification::where('userId',$userId)->orderBy('id','DESC')->limit(3)->get();
+        return $notification;
     }
 
 }

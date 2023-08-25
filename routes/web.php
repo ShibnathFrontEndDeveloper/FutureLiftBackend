@@ -37,16 +37,15 @@ Route::get('/forget-password',[HomeController::class , 'indexForgetPassword']);
 Route::post('/forgetPasswordSubmit',[HomeController::class , 'forgetPasswordSubmitFun']);
 Route::get('/password-set/{id}/{link}/{linkT}',[HomeController::class , 'passwordSetFun']);
 Route::post('/setResetPassword',[HomeController::class , 'setResetPasswordFun']);
+Route::post('/user/demo-registration',[HomeController::class , 'demoRegistration'])->middleware('userLoginCheck');
+Route::post('/user/booksession',[HomeController::class , 'booksessionFunction']);
 Route::group(['middleware' => 'userAuth'], function () {
     Route::get('/user/logout',[AuthController::class , 'logoutFunction']);
     Route::get('/user-dashboard',[DashboardController::class , 'indexDashboard']);
-    Route::post('/user/demo-registration',[HomeController::class , 'demoRegistration']);
-    Route::post('/user/booksession',[HomeController::class , 'booksessionFunction']);
     Route::post('/payment-callback',[HomeController::class , 'paymentCallbackFunction']);
     Route::get('/user-profile',[ProfileController::class , 'indexProfile']);
     Route::post('/user/personalInformationSave',[ProfileController::class , 'personalInfoSaveFunction']);
     Route::get('/refer-and-earn',[ReferController::class , 'indexRefer']);
-
     Route::post('/user/send-refer-mail',[ReferController::class , 'referMailSend']);
     Route::post('/user/step-one-submit',[ProfileController::class , 'stepOneSubmitFunction']);
     Route::post('/user/step-two-submit',[ProfileController::class , 'stepTwoSubmitFunction']);
@@ -59,6 +58,7 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::post('/updatePhoneNumber',[ProfileController::class , 'updatePhoneNumberFun']);
     Route::get('/change-password',[AuthController::class , 'indexChangePassword']);
     Route::post('/user/updatePassword',[AuthController::class , 'updatePasswordFun']);
+    Route::get('/notification',[HomeController::class , 'indexUserNotification']);
 });
 
 Route::get('/eight-ten-counselling',[HomeController::class , 'indexEightTenCoun']);
@@ -94,7 +94,7 @@ Route::get('/admin/forget-password',[LoginController::class , 'adminForgetPasswo
 Route::post('/admin/submitForgetPasswordAdmin',[LoginController::class , 'submitForgetPasswordAdminFun']);
 Route::get('/admin/new-password-set/{id}/{link}/{linkT}',[LoginController::class , 'adminNewPasswordIndex'])->middleware('adminLoginCheck');
 Route::post('/admin/newPasswordSubmitAdmin',[LoginController::class , 'newPasswordSubmitAdminFun']);
-
+Route::post('ckeditor/upload', [MainController::class, 'uploadCkeditor'])->name('ckeditor.upload');
 Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::get('/logout',[LoginController::class , 'adminLogout']);
     Route::get('/admin-dashboard',[AdminDashboardController::class , 'dashboardIndex']);

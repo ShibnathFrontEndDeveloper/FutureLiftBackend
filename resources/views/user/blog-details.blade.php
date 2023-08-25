@@ -166,7 +166,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
   <script src="{{asset('toaster/toastr.min.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  {!! Toastr::message() !!}
+
   <script>
     $('#picker').datepicker({
             minDate: 1,
@@ -271,7 +271,18 @@
         }
 
         function loginAlert(){
-            Swal.fire('Need to login!');
+            //Swal.fire('Need to login!');
+            Swal.fire({
+            title: 'Need to login!',
+            showCancelButton: true,
+            confirmButtonText: 'Go to Login Page',
+            }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                localStorage.setItem("display", "signIn");
+                window.location.href = "<?=url('/login-signup')?>?redirectURL=<?=url()->current()?>";
+            }
+            })
         }
 
         function likeBlog(id){
