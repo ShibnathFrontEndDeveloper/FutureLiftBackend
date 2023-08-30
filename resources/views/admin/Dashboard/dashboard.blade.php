@@ -59,8 +59,45 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" id="picker_start_session" class="form-control picker_input" value="" placeholder="Start Date ({{\Carbon\Carbon::now()->format('01-m-Y')}})" name="session_date_start"/>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" id="picker_end_session" class="form-control picker_input" placeholder="End Date ({{\Carbon\Carbon::now()->format('t-m-Y')}})" name="session_date_end"/>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="button" class="btn btn-dark" value="Search" onclick="sessionDateChange();"/>
+                        </div>
+                    </div>
+                </div>
                 <div id="piechart_3d" style="width: 100%; height: 300px;"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" id="picker_start_subscription" class="form-control picker_input" value="" placeholder="Start Date ({{\Carbon\Carbon::now()->format('01-m-Y')}})" name="subscription_date_start"/>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" id="picker_end_subscription" class="form-control picker_input" placeholder="End Date ({{\Carbon\Carbon::now()->format('t-m-Y')}})" name="subscription_date_end"/>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="button" class="btn btn-dark" value="Search" onclick="subscriptionDateChange();"/>
+                        </div>
+                    </div>
+                </div>
+                <div id="piechart_3d_subs" style="width: 100%; height: 300px;"></div>
             </div>
             <div class="col-md-12">
                 <div id="columnchart_values" style="width: 100%; height: 300px;"></div>
@@ -73,21 +110,47 @@
 @section('scripts')
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
+    var currentMonthTotal249SessionBook = <?=(int)$currentMonthTotal249SessionBook?>;
+    var currentMonthTotal499SessionBook = <?=(int)$currentMonthTotal499SessionBook?>;
+    var currentMonthTotalFreeSessionBook = <?=(int)$currentMonthTotalFreeSessionBook?>;
+    var currentMonthTotal13449Subscription = <?=(int)$currentMonthTotal13449Subscription?>;
+    var currentMonthTotal6449Subscription = <?=(int)$currentMonthTotal6449Subscription?>;
+    var currentMonthTotal449Subscription = <?=(int)$currentMonthTotal449Subscription?>;
+
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Monthly Calculate'],
-          ['Total Book Session',     <?=(int)$currentMonthTotalSessionBook?>],
-          ['Total Subscription',      <?=(int)$currentMonthTotalSubscription?>]
+          ['249 Total Book Session',     currentMonthTotal249SessionBook],
+          ['499 Total Book Session',      currentMonthTotal499SessionBook],
+          ['Free Total Book Session',      currentMonthTotalFreeSessionBook]
         ]);
 
         var options = {
-          title: 'Current Month (<?=date('M')?>) Stats',
+          title: 'Month Wise Total Book Sessions Stats',
          is3D: true,
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+
+      google.charts.setOnLoadCallback(drawChart_subs);
+      function drawChart_subs() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Monthly Calculate'],
+          ['Total Future Lift Advance',     currentMonthTotal13449Subscription],
+          ['Total Future Lift Pro',      currentMonthTotal6449Subscription],
+          ['Total Future Lift Career Test',      currentMonthTotal449Subscription]
+        ]);
+
+        var options = {
+          title: 'Month Wise Total Subscription Stats',
+         is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d_subs'));
         chart.draw(data, options);
       }
 
@@ -160,6 +223,53 @@
                 result.push(json[key]);
             });
             return result;
+        }
+
+
+        function sessionDateChange(){
+            var start = $("#picker_start_session").val();
+            var end = $("#picker_end_session").val();
+            if(start !='' && end !=''){
+                $("#ftco-loader").show();
+                $.ajax({
+                    type : 'GET',
+                    url: "<?=url('/admin/admin-dashboard?section=session&startDate=')?>"+start+"&endDate="+end,
+                    success : function(data){
+                        currentMonthTotal249SessionBook = data.currentMonthTotal249SessionBook;
+                        currentMonthTotal499SessionBook = data.currentMonthTotal499SessionBook;
+                        currentMonthTotalFreeSessionBook = data.currentMonthTotalFreeSessionBook;
+                        google.charts.setOnLoadCallback(drawChart);
+                        $("#ftco-loader").hide();
+                    },error: function(data){
+                        $("#ftco-loader").hide();
+                    },
+                })
+            }else{
+                alert('Start date and End date required!');
+            }
+        }
+
+        function subscriptionDateChange(){
+            var start = $("#picker_start_subscription").val();
+            var end = $("#picker_end_subscription").val();
+            if(start !='' && end !=''){
+                $("#ftco-loader").show();
+                $.ajax({
+                    type : 'GET',
+                    url: "<?=url('/admin/admin-dashboard?section=subscription&startDate=')?>"+start+"&endDate="+end,
+                    success : function(data){
+                        currentMonthTotal13449Subscription = data.currentMonthTotal13449Subscription;
+                        currentMonthTotal6449Subscription = data.currentMonthTotal6449Subscription;
+                        currentMonthTotal449Subscription = data.currentMonthTotal449Subscription;
+                        google.charts.setOnLoadCallback(drawChart_subs);
+                        $("#ftco-loader").hide();
+                    },error: function(data){
+                        $("#ftco-loader").hide();
+                    },
+                })
+            }else{
+                alert('Start date and End date required!');
+            }
         }
 
 

@@ -24,6 +24,8 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{asset('Dashboard/assets/css/style.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css" rel="stylesheet"/>
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('Dashboard/assets/images/favicon.png')}}" />
     <style>
@@ -232,6 +234,8 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
     {!! Toastr::message() !!}
 
 
@@ -250,6 +254,9 @@
                 }
             });
         }
+        $('.picker_input').datepicker({
+            dateFormat: 'dd-mm-yy'
+        });
     //     $('button[type="submit"]').click(function() {
     //         $('.modal').modal('hide');
     //         $("#ftco-loader").show();

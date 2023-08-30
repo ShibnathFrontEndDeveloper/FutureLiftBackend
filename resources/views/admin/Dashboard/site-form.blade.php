@@ -31,10 +31,14 @@
                                 <td>{{$queryKey + 1}}</td>
                                 <td>{{$queryValue->name}}</td>
                                 <td>{{$queryValue->email}}</td>
+                                @if (strlen($queryValue->message) > 20)
                                 <td>{!! html_entity_decode(App\Helpers::readMoreHelper($queryValue->message,100,'readmoreModal'.$queryKey))!!}</td>
+                                @else
+                                <td>{{$queryValue->message}}</td>
                                 <td>
                                     <a href="javascript:void(0)" onclick="deleteConfirmQuery('{{$queryValue->id}}')"><i style="font-size:30px;" class="mdi mdi-delete-circle"></i></a>
                                 </td>
+                                @endif
                             </tr>
 
                             <div class="modal popup_box" id="readmoreModal{{$queryKey}}" tabindex="-1" aria-labelledby="readmoreModal{{$queryKey}}" aria-hidden="true">
@@ -104,8 +108,12 @@
                                 <td>{{$helpValue->email}}</td>
                                 <td>{{$helpValue->phone_number}}</td>
                                 <td>{{$helpValue->course_type}}</td>
+                                @if (strlen($helpValue->comment) > 20)
                                 <td>{!! html_entity_decode(App\Helpers::readMoreHelper($helpValue->comment,100,'readmoreModal'.$helpKey))!!}
                                 </td>
+                                @else
+                                <td>{{$helpValue->comment}}</td>
+                                @endif
                                 <td>
                                     <a href="javascript:void(0)" onclick="deleteConfirmHelp('{{$helpValue->id}}')"><i style="font-size:30px;" class="mdi mdi-delete-circle"></i></a>
                                 </td>

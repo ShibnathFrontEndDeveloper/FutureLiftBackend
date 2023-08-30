@@ -29,7 +29,11 @@
                     <div class="row">
                         @foreach ($menu as $menuKey => $menuValue)
                             <div class="col-md-4 form-group" style="<?=($menuValue->name == 'Dashboard')?'cursor:not-allowed;':''?>">
-                                <input type="checkbox" style="<?=($menuValue->name == 'Dashboard')?'cursor:not-allowed;pointer-events:none;':''?>" name="menuIdAttr[]" value="{{$menuValue->id}}" id="menuId{{$menuKey}}" <?=(count($allMenuIds) > 0)?(in_array($menuValue->id,$allMenuIds))?'checked':'':($menuValue->name == 'Dashboard')?'checked':''?>> <label style="font-size:20px;" for="menuId{{$menuKey}}">{{$menuValue->name}}</label>
+                            @if ($menuValue->name == 'Dashboard')
+                            <input type="checkbox" style="cursor:not-allowed;pointer-events:none;" name="menuIdAttr[]" value="{{$menuValue->id}}" id="menuId{{$menuKey}}" <?=(count($allMenuIds) > 0)?(in_array($menuValue->id,$allMenuIds))?'checked':'checked':'checked'?>> <label style="font-size:20px;" for="menuId{{$menuKey}}">{{$menuValue->name}}</label>
+                            @else
+                            <input type="checkbox"  name="menuIdAttr[]" value="{{$menuValue->id}}" id="menuId{{$menuKey}}" <?=(count($allMenuIds) > 0)?(in_array($menuValue->id,$allMenuIds))?'checked':'':''?>> <label style="font-size:20px;" for="menuId{{$menuKey}}">{{$menuValue->name}}</label>
+                            @endif
                             </div>
                         @endforeach
                         <div class="col-md-12 form-group">

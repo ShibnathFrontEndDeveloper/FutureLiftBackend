@@ -21,6 +21,7 @@
                 <table id="example" class="display" style="width:100%">
                     <thead>
                         <tr>
+                            <th>Sl No</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
@@ -32,6 +33,7 @@
                     <tbody>
                         @foreach ($userList as $key => $value)
                             <tr>
+                                <td>{{$key + 1}}</td>
                                 <td>{{$value->name}}</td>
                                 <td>{{$value->email}}</td>
                                 <td>{{$value->phone}}</td>
@@ -51,6 +53,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
+                            <th>Sl No</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
@@ -170,6 +173,8 @@
 @endsection
 @section('scripts')
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        order: [[0, 'asc']]
+    });
 </script>
 @endsection

@@ -22073,7 +22073,7 @@ fieldset h1{
 }
 
 .notification-zoom-in{
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
     background-color: #9540ad !important;
     color: #ffffff;
 }
