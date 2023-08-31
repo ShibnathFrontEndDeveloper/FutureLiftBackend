@@ -15,7 +15,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <table id="example" class="display" style="width:100%">
+                <table id="example" class="display table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>Schedule Date & Time</th>
@@ -85,7 +85,8 @@
 @section('scripts')
 <script>
     new DataTable('#example',{
-        order: [[6, 'desc']]
+        order: [[6, 'desc']],
+        responsive: true
     });
     function markDone(id,userId,package_id){
         if(confirm("Do you want to mark done this session?")){

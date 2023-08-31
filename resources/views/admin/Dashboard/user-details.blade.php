@@ -132,7 +132,7 @@
                     </div>
 
                     <div class="col-md-12 form-group">
-                        <table class="table">
+                        <table class="table table-design-responsive">
                             <thead>
                                 <th>Subject</th>
                                 <th>CGPA / %age</th>
@@ -158,7 +158,7 @@
                     </div>
 
                     <div class="col-md-12 form-group">
-                        <table class="table">
+                        <table class="table table-design-responsive">
                             <thead>
                                 <th>Subject</th>
                                 <th>CGPA / %age</th>
@@ -184,7 +184,7 @@
                     </div>
 
                     <div class="col-md-12 form-group">
-                        <table class="table">
+                        <table class="table table-design-responsive">
                             <thead>
                                 <th>Session Name</th>
                                 <th>Session Date</th>

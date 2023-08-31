@@ -21,7 +21,7 @@
                 <a href="{{url('/admin/blog-section/add')}}" class="btn btn-primary float-right mb-3 btn-lg">Add Blog</a>
             </div>
             <div class="col-md-12">
-                <table id="example" class="display" style="width:100%">
+                <table id="example" class="display table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>Sl No</th>
@@ -177,7 +177,9 @@
 <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        responsive: true
+    });
     function deleteConfirm(id){
         if(confirm('Do you want to delete?')){
             window.location.href="{{url('/admin/blogDelete')}}/"+id;

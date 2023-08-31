@@ -18,7 +18,7 @@
                 <a href="{{url('/admin/testimonial/add')}}" class="btn btn-primary float-right mb-3 btn-lg">Add Testimonial</a>
             </div>
             <div class="col-md-12">
-                <table id="example" class="display" style="width:100%">
+                <table id="example" class="display table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>Sl No</th>
@@ -212,7 +212,9 @@
 @endsection
 @section('scripts')
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        responsive: true
+    });
     function deleteConfirm(id){
         if(confirm('Do you want to delete?')){
             window.location.href="{{url('/admin/testimonialDelete')}}/"+id;

@@ -18,7 +18,7 @@
                 <a href="{{url('/admin/role/add')}}" class="btn btn-primary float-right mb-3 btn-lg">Add Role</a>
             </div>
             <div class="col-md-12">
-                <table id="example" class="display" style="width:100%">
+                <table id="example" class="display table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>Sl No</th>
@@ -117,7 +117,9 @@
 @section('scripts')
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-    new DataTable('#example');
+    new DataTable('#example',{
+        responsive: true
+    });
     function deleteConfirm(id){
         if(confirm('Do you want to delete?')){
             window.location.href="{{url('/admin/roleDelete')}}/"+id;

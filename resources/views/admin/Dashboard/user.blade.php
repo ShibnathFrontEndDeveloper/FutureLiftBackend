@@ -18,7 +18,7 @@
                 <a href="{{url('/admin/user/add')}}" class="btn btn-primary float-right mb-3 btn-lg">Add User</a>
             </div>
             <div class="col-md-12">
-                <table id="example" class="display" style="width:100%">
+                <table id="example" class="display table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>Sl No</th>
@@ -174,7 +174,8 @@
 @section('scripts')
 <script>
     new DataTable('#example',{
-        order: [[0, 'asc']]
+        order: [[0, 'asc']],
+        responsive: true
     });
 </script>
 @endsection

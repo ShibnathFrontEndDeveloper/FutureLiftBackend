@@ -22077,3 +22077,52 @@ fieldset h1{
     background-color: #9540ad !important;
     color: #ffffff;
 }
+
+@media screen and (max-width: 600px) {
+    .table-design-responsive {
+     border: 0;
+   }
+
+    .table-design-responsive caption {
+     font-size: 1.3em;
+   }
+
+    .table-design-responsive thead {
+     border: none;
+     clip: rect(0 0 0 0);
+     height: 1px;
+     margin: -1px;
+     overflow: hidden;
+     padding: 0;
+     position: absolute;
+     width: 1px;
+   }
+
+    .table-design-responsive tr {
+     border-bottom: 3px solid #ddd;
+     display: block;
+     margin-bottom: .625em;
+   }
+
+    .table-design-responsive td {
+     border-bottom: 1px solid #ddd;
+     display: block;
+     font-size: .8em;
+     text-align: right;
+   }
+
+    .table-design-responsive td::before {
+     /*
+     * aria-label has no advantage, it won't be read inside a table
+     content: attr(aria-label);
+     */
+     content: attr(data-label);
+     float: left;
+     font-weight: bold;
+     text-transform: uppercase;
+   }
+
+    .table-design-responsive td:last-child {
+     border-bottom: 0;
+   }
+ }

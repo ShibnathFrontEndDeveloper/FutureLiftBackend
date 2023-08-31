@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="{{asset('Dashboard/assets/vendors/owl-carousel-2/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('Dashboard/assets/vendors/owl-carousel-2/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('toaster/toastr.min.css')}}">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -42,6 +44,34 @@
         select.tt-query,
         select.tt-hint{
             border: 1px solid !important;
+        }
+        .pagination li {
+            padding: 7px;
+        }
+        li.paginate_button.page-item .page-link {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        li.paginate_button.page-item.active .page-link {
+            background-color: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+        li.paginate_button.page-item .page-link:hover {
+            z-index: 2;
+            color: #0a58ca;
+            background-color: #e9ecef;
+            border-color: #dee2e6;
+        }
+        .dataTables_wrapper select.form-select.form-select-sm {
+            background-color: transparent;
+        }
+        table.dataTable td {
+            padding: 10px;
+            border-bottom: 1px solid #b9b9b9;
+        }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: inherit;
         }
     </style>
     @yield('csss')
@@ -233,6 +263,10 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
