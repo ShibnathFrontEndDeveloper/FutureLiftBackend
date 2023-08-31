@@ -152,7 +152,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="../index.html"style="color:#6a1ddf; font-weight: 800;">F</a>
+            <a class="navbar-brand brand-logo-mini" href="{{url('/')}}"style="color:#6a1ddf; font-weight: 800;">F</a>
           </div>
           <div class="navbar-menu-wrapper d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
