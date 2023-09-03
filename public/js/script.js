@@ -39,6 +39,7 @@ var swiper = new Swiper(".topCollectionSwiper", {
     },
   },
 });
+
 var swiper = new Swiper(".BenefitsSection", {
   slidesPerView: "auto",
   slidesPerGroup: 1,
@@ -128,6 +129,8 @@ var swiper = new Swiper(".careerWhyCards", {
     },
   },
 });
+
+
 var swiper = new Swiper(".tabSwiper", {
   slidesPerView: 2,
   spaceBetween:20,
@@ -178,6 +181,8 @@ var swiper = new Swiper(".whyCounsellingSwiper", {
     },
   },
 });
+
+
 var swiper = new Swiper(".pickSectionSwiper", {
   slidesPerView: "auto",
   loop: true,
@@ -376,3 +381,20 @@ $(document).ready(function(){
     navigator.clipboard.writeText(copyText1.value);
     toastr.success('Copied!', 'Success');
   }
+
+
+  // let clsose = document.querySelector('.close');
+  // let moadl_all = document.querySelector('modal');
+  // clsose.onclick =()=>{
+  //   alert('all is wel');
+  //   moadl_all.style.display = 'none';
+  // };
+
+
+//   $(".close").on('click', function(event){
+//     alert('allllllllllah');
+//     $('.modal').modal('hide');
+// });
+
+
+

@@ -4,6 +4,7 @@
       <div class="header-left-content d-flex align-items-center col-6">
         <button class="navbar-toggler-xl" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <i class="fa-solid fa-bars"></i>
+          header
         </button>
         <a href="index.html" class="logo"><img src="{{asset('assets/images/new_blak_logo.webp')}}" alt="" class="img-fluid"></a>
       </div>
@@ -152,7 +153,8 @@
       src="https://code.jquery.com/jquery-3.6.1.js"
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"
-    ></script>
+    >
+</script>
 <script>
   $(document).ready(function () {
     $(".dropdown-toggle").click(function (e) {

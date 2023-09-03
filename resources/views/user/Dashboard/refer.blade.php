@@ -333,4 +333,17 @@
 @endsection
 @section('scripts')
 <script src="{{asset('js/script.js')}}"></script>
+
+
+<script>
+  
+  $(".close").on('click', function(event){
+    
+    $('.modal').modal('hide');
+});
+
+</script>
 @endsection
+
+
+

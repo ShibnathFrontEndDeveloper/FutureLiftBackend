@@ -16,7 +16,7 @@
 <!--Coded with love by Mutiullah Samim-->
 <body>
 	<div class="container h-100">
-	    <div class="row">
+	    <div class="d-flex flex-wrap ">
 	        <div class="col-lg-6">
 	            <span class="left-lotte"><script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
                             <lottie-player src="https://assets-v2.lottiefiles.com/a/4a774176-1171-11ee-ae48-bf87d1dea7a3/FNescAuHvG.json"  background="transparent"  speed="1"  style="width: 512px; height: 512px;"  loop  autoplay></lottie-player>

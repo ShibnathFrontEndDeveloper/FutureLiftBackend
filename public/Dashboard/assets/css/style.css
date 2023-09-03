@@ -20822,7 +20822,10 @@ position: fixed;}
     flex-wrap: nowrap;
     flex-direction: column;
     margin-bottom: 60px;
-    padding-top: 70px; }
+    padding-top: 70px;
+    height: 90vh;
+    overflow-y: auto;
+  }
     @media (max-width: 992px) {
       .sidebar .nav {
         padding-top: 0; } }
@@ -20833,9 +20836,11 @@ position: fixed;}
       transition-duration: 0.25s;
       transition-property: background;
       -webkit-transition-property: background;
-      padding-right: 20px; }
+      }
+
       .sidebar .nav .nav-item .collapse {
         z-index: 999; }
+
       .sidebar .nav .nav-item .nav-link {
         display: -webkit-flex;
         display: flex;
@@ -20851,7 +20856,7 @@ position: fixed;}
         transition-property: color;
         -webkit-transition-property: color;
         height: 46px;
-        border-radius: 0px 100px 100px 0px; }
+      }
         .sidebar .nav .nav-item .nav-link:hover{
           background: #006db0 !important;
         }
@@ -21034,7 +21039,11 @@ position: fixed;}
               margin: 0; }
       .sidebar .nav .nav-item.nav-category {
         padding: 0.5rem 1.188rem;
-        line-height: 1; }
+        line-height: 1; 
+      }
+      .sidebar .nav .nav-item.nav-category:hover .nav-link{
+        background: transparent !important;
+      }
         .sidebar .nav .nav-item.nav-category .nav-link {
           color: #6c7293;
           font-weight: 500;
@@ -21060,7 +21069,10 @@ position: fixed;}
       margin-bottom: 0;
       margin-top: 0;
       padding: 0 0 0 3.25rem;
-      list-style: none; }
+      list-style: none; 
+      height: 50px;
+    
+    }
       .sidebar .nav.sub-menu .nav-item {
         padding: 0; }
         .sidebar .nav.sub-menu .nav-item .nav-link {
@@ -21148,7 +21160,9 @@ position: fixed;}
       overflow: visible; }
       .sidebar-icon-only .sidebar .nav .nav-item {
         position: relative;
-        padding: 0; }
+        padding: 0; 
+        overflow: hidden;
+      }
         .sidebar-icon-only .sidebar .nav .nav-item .profile-name {
           display: none; }
         .sidebar-icon-only .sidebar .nav .nav-item .mdi-dots-vertical {
@@ -22058,15 +22072,24 @@ fieldset h1{
 
 
 .package-li{
-    margin-left: 600px;
+    /* margin-left: 600px; */
 }
 .package-header{
-    background-color: #d6e3e9;
+    background:linear-gradient(45deg, #6610f2, #eb6fb4);
     padding: 7px;
     font-weight: 500;
     border-radius: 5px;
 }
-
+.package-header span{
+  color: #fff;
+  font-size: 15px;
+}
+@media screen and (max-width:991px) {
+  .package-header{
+    display: none;
+  }
+  
+}
 .txt-hef a{
     color: black;
     text-decoration: underline;
