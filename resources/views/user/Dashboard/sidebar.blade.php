@@ -167,7 +167,7 @@
             <a class="navbar-brand brand-logo-mini" href="{{url('/')}}"style="color:#6a1ddf; font-weight: 800;">F</a>
           </div>
           <div class="navbar-menu-wrapper d-flex align-items-stretch">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize" id="tggle_memu">
               <span class="mdi mdi-menu"></span>
             </button>
             @php
@@ -419,13 +419,14 @@
     //         $('.modal').modal('hide');
     //         $("#ftco-loader").show();
     //   });
+    </script>
 
-
-
-
-
-
-
+    <script>
+      let header = document.getElementById('tggle_memu');
+      let main_panel = doccument.getElementById('main_pannel')
+      header.onclick =()=>{
+        main_panel.classList.toggle('pannel_length');
+      }
     </script>
     @if (!Auth::guard('user')->user()->phone)
         <script>

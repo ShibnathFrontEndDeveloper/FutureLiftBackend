@@ -11,7 +11,7 @@ var swiper = new Swiper('.home_swiper', {
 //   autoplay:{
 //     delay:5000
 //   },
-  loop:true,
+  // loop:true,
 });
 document.querySelector
 var swiper = new Swiper(".topCollectionSwiper", {

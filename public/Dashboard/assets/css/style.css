@@ -15896,6 +15896,8 @@ code {
         margin-top: 1.8rem; font-size: 15px;}
         .card_para{
           color: #011572;
+          display: block;
+          height: 50px;
         }
         .card_progress_bar .progress{
           height: 8px;
@@ -15919,6 +15921,17 @@ code {
         }
         .dash_card .card-body{
           background: #e3e3e3;
+        }
+        .dash_blog{
+          display: block;
+          width: 100%;
+          height: 200px;
+          overflow: hidden;
+        }
+        .dash_blog img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
         }
         .dash_card .share_icon_box{
             position: relative;

@@ -2,7 +2,7 @@
 @section('title') Dashboard @endsection
 @section('content')
 
-    <div class="main-panel">
+    <div class="main-panel" id="main_pannel">
           <div class="content-wrapper">
             @include('user.Dashboard.update-pro')
             <div class="row">
@@ -96,7 +96,7 @@
                   <div class="card-body p-3">
                     <a href="{{url('/blog-details/'.$latestBlogValue->slug)}}" class="card_para ">{{$latestBlogValue->title}}</a >
                       <div class="blog_img_box mt-3">
-                        <a href="{{url('/blog-details/'.$latestBlogValue->slug)}}"><img src="{{asset('assets/blog_images/'.$latestBlogValue->image)}}" alt="" class="img-fluid"></a>
+                        <a href="{{url('/blog-details/'.$latestBlogValue->slug)}}" class="dash_blog"><img src="{{asset('assets/blog_images/'.$latestBlogValue->image)}}" alt="" class="img-fluid"></a>
                         <p class="mt-3">{{Str::words(strip_tags($latestBlogValue->content), 30, ' ...')}}</p>
                       </div>
 

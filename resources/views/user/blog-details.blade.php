@@ -79,7 +79,7 @@
 
                       <div class="latestPost_box">
                         <div class="lts_post_img">
-                          <a href="{{url('/blog-details/'.$latestBlogValue->slug)}}">
+                          <a href="{{url('/blog-details/'.$latestBlogValue->slug)}}" class="all_article_img">
                             <img src="{{asset('assets/blog_images/'.$latestBlogValue->image)}}" alt="" class="img-fluid">
                           </a>
                         </div>

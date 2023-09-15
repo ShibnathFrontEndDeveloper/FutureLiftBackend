@@ -42,7 +42,7 @@
                 <p class="heading">EXPLORE SOMETHING DIFFERENT</p>
                 <i class="fa-solid fa-angle-right mx-1 mb-1 rotateIcon"></i>
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu show">
                 <li class="px-0 d-flex align-items-center px-1">
                   <a class="dropdown-item px-0" href="{{url('/personality-test')}}">PERSONALITY TEST</a>
                   <i class="fa fa-angle-right mx-1 mt-1"></i>
@@ -85,14 +85,14 @@
                   <i class="fa fa-angle-right mx-1 mt-1"></i>
                 </li>
                 <hr class="subheading-border">
-                <li class="px-0 d-flex align-items-center px-1">
+                <!-- <li class="px-0 d-flex align-items-center px-1">
                   <a class="dropdown-item px-0" href="#">For Working Professional</a>
                   <i class="fa fa-angle-right mx-1 mt-1"></i>
-                </li>
+                </li> -->
               </ul>
             </li>
 
-            <li class="nav-item dropdown sidemenu-a">
+            <!-- <li class="nav-item dropdown sidemenu-a">
               <a class="nav-link dropdown-toggle d-flex align-items-center px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <p class="heading">EXPLORE SCHOLARSHIP</p>
                 <i class="fa-solid fa-angle-right mx-1 mb-1 rotateIcon"></i>
@@ -120,13 +120,15 @@
                 <i class="fa-solid fa-angle-right mx-1 mb-1 rotateIcon"></i>
               </a>
               <ul class="dropdown-menu"></ul>
-            </li>
+            </li> -->
             <li class="nav-item dropdown sidemenu-a">
               <a class="nav-link dropdown-toggle d-flex align-items-center px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <p class="heading">FUTURE LIFT BLOG</p>
                 <i class="fa-solid fa-angle-right mx-1 mb-1 rotateIcon"></i>
               </a>
-              <ul class="dropdown-menu"></ul>
+              <ul class="dropdown-menu">
+                <li><a href="{{url('/blog')}}">Blog</a></li>
+              </ul>
             </li>
             <li class="px-2 py-1 d-flex align-items-center justify-content-between">
               <p style="color: green; font-weight: 600">REFER AND EARN</p>

@@ -937,6 +937,9 @@ backdrop-filter: blur(6px);
   border-radius: 5px;
   box-shadow: 0px 5px 15px -12px rgb(184, 2, 184);
   padding: 0.5rem;
+  height: 300px;
+  width: 253px;
+
 }
 .topCard:hover {
   transform: scale(1.04);
@@ -945,6 +948,17 @@ backdrop-filter: blur(6px);
 .topCard-img {
   display: flex;
   justify-content: center;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+.topCard-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.topContent{
+  margin-top: 8px;
 }
 .topContent a {
   color: rgb(184, 2, 184);
@@ -1092,6 +1106,14 @@ backdrop-filter: blur(6px);
 }
 .tabCardContent .tabCrad_img{
   position: relative;
+  width: 209px;
+  height: 180px;
+  overflow: hidden;
+}
+.tabCardContent .tabCrad_img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .tabCardContent .tabCrad_img .overlay_box{
   position: absolute;
@@ -3365,6 +3387,28 @@ transform: translate(-5px, 5px) rotate(-45deg)
   font-size: 35px;
   color: #192e95;
 }
+.populer_blog_img_link{
+  display: block;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.populer_blog_img_link img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.all_article_img{
+  display: block;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+.all_article_img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .share_part{
     position: fixed;
     left: 30px;
@@ -3605,6 +3649,28 @@ transform: translate(-5px, 5px) rotate(-45deg)
   font-size: 14px;
   font-family:'Times New Roman', Times, serif !important;
 }
+
+@media screen and (max-width:560px) {
+      .blog_heading::after{
+        top: 112%;
+        left: 0;
+        margin-left: 0;
+        width: 50%;
+        margin-top: 5px;
+    }
+
+    .blog_heading{
+      font-size: 25px;
+    }
+    .blog_single_text .text-left{
+      margin-bottom: 20px;
+    }
+    .share_part{
+      display: none;
+    }
+  }
+  
+
 
 
 

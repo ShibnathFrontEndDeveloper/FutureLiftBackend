@@ -2,7 +2,7 @@
     <div class="blog_article_box mb-3 pb-3" style="display:block;">
         <div class="row g-4 align-items-center">
         <div class="col-lg-4 col-md-6">
-            <a href="{{url('/blog-details/'.$allBlogValue->slug)}}"><img src="{{asset('assets/blog_images/'.$allBlogValue->image)}}" alt="" class="img-fluid"></a>
+            <a href="{{url('/blog-details/'.$allBlogValue->slug)}}" class="all_article_img"><img src="{{asset('assets/blog_images/'.$allBlogValue->image)}}" alt="" class="img-fluid"></a>
         </div>
         <div class="col-lg-8 col-md-6">
             <div class="article_text_box">
