@@ -107,8 +107,8 @@
           @endphp
           @if (count($roleMenu) > 0)
             @foreach ($roleMenu as $roleMenuKey => $roleMenuValue)
-            <li class="nav-item menu-items">
-                <a class="nav-link {{Request::is($roleMenuValue->url)?'active':''}}" href="{{url($roleMenuValue->url)}}">
+            <li class="nav-item menu-items {{Request::is($roleMenuValue->url)?'active':''}}">
+                <a class="nav-link" href="{{url($roleMenuValue->url)}}">
                 <span class="menu-icon">
                     <?=$roleMenuValue->icon?>
                 </span>
