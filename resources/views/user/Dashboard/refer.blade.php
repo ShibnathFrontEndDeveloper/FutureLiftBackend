@@ -153,10 +153,10 @@
                       <div class="col-md-4">
                         <div class="link_ref_box ref_social_box">
                           <p class="social_para">Share on Social Media:</p>
-                          <a href=""><img src="{{asset('assets/images/tweeter.png')}}" alt="" class="img-fluid" width="20"/>
-                          <a href=""><img src="{{asset('assets/images/facebook.png')}}" alt="" class="img-fluid" width="20"/>
-                          <a href=""><img src="{{asset('assets/images/whatsApp.png')}}" alt="" class="img-fluid" width="20"/>
-                          <a href=""><img src="{{asset('assets/images/linkedin.png')}}" alt="" class="img-fluid" width="20"/>
+                          <a target="_blank" href="https://twitter.com/share?url={{url('refer-user/'.Auth::guard('user')->user()->code)}}&text=Refar and Earn"><img src="{{asset('assets/images/tweeter.png')}}" alt="" class="img-fluid" width="20"/>
+                          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{url('refer-user/'.Auth::guard('user')->user()->code)}}"><img src="{{asset('assets/images/facebook.png')}}" alt="" class="img-fluid" width="20"/>
+                          <a target="_blank" href="https://api.whatsapp.com/send?text={{url('refer-user/'.Auth::guard('user')->user()->code)}}"><img src="{{asset('assets/images/whatsApp.png')}}" alt="" class="img-fluid" width="20"/>
+                          <a target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url={{url('refer-user/'.Auth::guard('user')->user()->code)}}"><img src="{{asset('assets/images/linkedin.png')}}" alt="" class="img-fluid" width="20"/>
                           </a>
                         </div>
                       </div>
@@ -336,9 +336,9 @@
 
 
 <script>
-  
+
   $(".close").on('click', function(event){
-    
+
     $('.modal').modal('hide');
 });
 
