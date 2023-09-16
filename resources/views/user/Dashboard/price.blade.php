@@ -13,6 +13,9 @@
                 </ol>
               </nav>
             </div>
+            @php
+                $currenSession = App\Helpers::getCurrentPackage();
+            @endphp
             <div class="row">
               <div class="col-md-12 mx-0 upgrt_price_box">
                 <div class="card">
@@ -28,7 +31,7 @@
                                     </div>
                                     {!! $value->description !!}
                                     <div class=" pirce_btn_box text-center mt-4">
-                                    <button class="btn" onclick="subscription_purchase('{{$value->id}}')">Buy Now</button>
+                                    <button class="btn" onclick="subscription_purchase('{{$value->id}}')"><?=($currenSession !='')?($value->plan_name == $currenSession)?'Purchased <i class="mdi mdi-checkbox-marked-circle text-success"></i>':'Buy Now':'Buy Now'?></button>
                                     </div>
                                 </div>
                             </div>

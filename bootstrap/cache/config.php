@@ -194,7 +194,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\storage\\framework/cache/data',
+        'path' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -271,7 +271,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'futurelift_new',
+        'database' => 'futurelit',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -281,7 +281,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'futurelift_new',
+        'database' => 'futurelit',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -301,7 +301,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'futurelift_new',
+        'database' => 'futurelit',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -316,7 +316,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'futurelift_new',
+        'database' => 'futurelit',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -360,12 +360,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\storage\\app',
+        'root' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\storage\\app/public',
+        'root' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -382,7 +382,7 @@
     ),
     'links' => 
     array (
-      'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\public\\storage' => 'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\storage\\app/public',
+      'D:\\xampp\\htdocs\\FutureLiftBackend\\public\\storage' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -416,13 +416,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\storage\\logs/laravel.log',
+        'path' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\storage\\logs/laravel.log',
+        'path' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -472,7 +472,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\storage\\logs/laravel.log',
+        'path' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -529,7 +529,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\resources\\views/vendor/mail',
+        0 => 'D:\\xampp\\htdocs\\FutureLiftBackend\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -629,7 +629,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\storage\\framework/sessions',
+    'files' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -663,11 +663,6 @@
     'animatecss' => 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css',
     'show_confirm_button' => true,
     'show_close_button' => false,
-    'button_text' => 
-    array (
-      'confirm' => 'OK',
-      'cancel' => 'Cancel',
-    ),
     'toast_position' => 'top-end',
     'timer_progress_bar' => false,
     'middleware' => 
@@ -707,9 +702,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\resources\\views',
+      0 => 'D:\\xampp\\htdocs\\FutureLiftBackend\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\FutureLiftBackend\\FutureLiftBackend\\storage\\framework\\views',
+    'compiled' => 'D:\\xampp\\htdocs\\FutureLiftBackend\\storage\\framework\\views',
   ),
   'flare' => 
   array (

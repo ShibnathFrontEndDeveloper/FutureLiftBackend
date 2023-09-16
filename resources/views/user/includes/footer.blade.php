@@ -17,7 +17,7 @@
                     src="{{asset('assets/images/new new new  black -1-01 (1).png')}}"
                     alt=""
                   />
-                  <p>Book Your Personalized Career Session</p>
+                  <p>Book Your InstantAdvice Career Session</p>
                 </div>
                 <div class="modalfeatureSwiper swiper">
                   <div class="featureslides swiper-wrapper">

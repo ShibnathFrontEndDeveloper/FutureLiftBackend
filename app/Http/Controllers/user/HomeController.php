@@ -151,8 +151,11 @@ class HomeController extends Controller
     }
     public function indexCollegeGraduateCoun(){
         $faq = Faq::where('type','graduation')->get();
+        //$parentTestimonial = Testimonial::where('type','parent')->where('category','graduation')->get();
+        $studentTestimonial = Testimonial::where('type','student')->where('category','graduation')->get();
         $parentTestimonial = Testimonial::where('type','parent')->where('category','graduation')->get();
-        return view('user.college-graduate-counselling',compact(['faq','parentTestimonial']));
+        // return view('user.college-graduate-counselling',compact(['faq','parentTestimonial']));
+        return view('user.college-graduate-counselling',compact(['faq','studentTestimonial','parentTestimonial']));
     }
     public function indexPersonalityTestCoun(){
         $faq = Faq::where('type','personality')->get();

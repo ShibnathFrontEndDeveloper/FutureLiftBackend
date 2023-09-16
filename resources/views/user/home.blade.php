@@ -504,7 +504,7 @@
                 <div class="topContent">
                   <p class="topText1">{{App\Helpers::getBlogCategoryIdByName($latestBlogValue->categoryId)}}</p>
                   <p class="topText2">
-                  {{$latestBlogValue->title}}
+                  {{Str::words(strip_tags($latestBlogValue->title), 8, ' ...')}}
                   </p>
                   <a href="{{url('/blog-details/'.$latestBlogValue->slug)}}">Read more</a>
                 </div>
