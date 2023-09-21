@@ -15,7 +15,9 @@
             </div>
             @php
                 $currenSession = App\Helpers::getCurrentPackage();
+                $currenSessionPrice = App\Helpers::getCurrentPackagePrice();
             @endphp
+            {{$currenSessionPrice}}
             <div class="row">
               <div class="col-md-12 mx-0 upgrt_price_box">
                 <div class="card">
@@ -31,7 +33,7 @@
                                     </div>
                                     {!! $value->description !!}
                                     <div class=" pirce_btn_box text-center mt-4">
-                                    <button class="btn" onclick="subscription_purchase('{{$value->id}}')"><?=($currenSession !='')?($value->plan_name == $currenSession)?'Purchased <i class="mdi mdi-checkbox-marked-circle text-success"></i>':'Buy Now':'Buy Now'?></button>
+                                    <button class="btn" onclick="subscription_purchase('{{$value->id}}','{{$value->plan_price}}','{{$currenSessionPrice}}')"><?=($currenSession !='')?($value->plan_name == $currenSession)?'Buy Now <i class="mdi mdi-checkbox-marked-circle text-success"></i>':'Buy Now':'Buy Now'?></button>
                                     </div>
                                 </div>
                             </div>
@@ -46,8 +48,24 @@
 @endsection
 @section('scripts')
 <script>
-    function subscription_purchase(id){
-        window.location.href="{{url('/user/subscription-submit')}}/"+id;
+    function subscription_purchase(id,price,currenSessionPrice){
+       // window.location.href="{{url('/user/subscription-submit')}}/"+id;
+
+       const gourl = "<?=url('user/subscription-submit')?>/"+id;
+       if(parseFloat(price) < parseFloat(currenSessionPrice)){
+            swal({
+                title: 'Are you sure?',
+                text: 'This session has fewer features than your current session.Do you want to continue?',
+                icon: 'warning',
+                buttons: ["Cancel", "Continue"],
+                }).then(function(value) {
+                if (value) {
+                window.location.href = gourl;
+                }
+            });
+        }else{
+            window.location.href="{{url('/user/subscription-submit')}}/"+id;
+        }
     }
 </script>
 @endsection

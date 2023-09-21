@@ -11,3 +11,6 @@ npm-debug.log
 yarn-error.log
 composer.lock
 .env
+/public/assets/blog_images
+/public/assets/testimonial_images
+/public/assets/user_images

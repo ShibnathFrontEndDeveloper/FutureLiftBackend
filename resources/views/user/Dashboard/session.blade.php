@@ -142,7 +142,7 @@
       <div class="modal-header">
         <h1 class="modal-title season_header" id="exampleModalLabel">Upgrade to the world's most advanced career guidance platform.
         </h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close" onclick="popupModalClose();"></button>
       </div>
       <div class="modal-body">
         <div class="row g-5">
@@ -202,6 +202,8 @@
       });
 
 
+
+
     //   $(document).ready(function () {
     //     $('.picker').datepicker({
     //         minDate: 1,
@@ -250,4 +252,11 @@
         $("#sesionPopUp").modal('show');
     </script>
 @endif
+
+<script>
+    function popupModalClose(){
+        $("#sesionPopUp").modal().hide();
+        $(".modal-backdrop").addClass('d-none');
+    }
+</script>
 @endsection

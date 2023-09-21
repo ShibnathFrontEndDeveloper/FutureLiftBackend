@@ -130,10 +130,10 @@
                 <li><a href="{{url('/blog')}}">Blog</a></li>
               </ul>
             </li>
-            <li class="px-2 py-1 d-flex align-items-center justify-content-between">
+            <!-- <li class="px-2 py-1 d-flex align-items-center justify-content-between">
               <p style="color: green; font-weight: 600">REFER AND EARN</p>
               <img src="{{asset('assets/images/newBadge.png')}}" alt="" style="max-width: 40px">
-            </li>
+            </li> -->
             <li class="my-2 sidemenu-social p-2">
               <p style="color: white">CONNECT WITH US</p>
               <div class="sidemenu-social-icon">

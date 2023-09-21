@@ -390,7 +390,7 @@
     <script src="{{asset('Dashboard/assets/js/todolist.js')}}"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="{{asset('Dashboard/assets/js/dashboard.js')}}"></script>
+
     <!-- End custom js for this page -->
     <script src="{{asset('toaster/toastr.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
@@ -423,7 +423,7 @@
 
     <script>
       let header = document.getElementById('tggle_memu');
-      let main_panel = doccument.getElementById('main_pannel')
+      let main_panel = document.getElementById('main_pannel');
       header.onclick =()=>{
         main_panel.classList.toggle('pannel_length');
       }

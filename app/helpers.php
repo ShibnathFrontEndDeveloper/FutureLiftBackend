@@ -170,6 +170,17 @@ class Helpers
 
         return $packageName;
     }
+    public static function getCurrentPackagePrice(){
+        $userSubscription = UserSubscriptionModel::where('userId',Auth::guard('user')->user()->id)->where('status','active')->first();
+        if($userSubscription){
+            $sessionData = CounsellingPrice::find($userSubscription->package_id);
+            $packagePrice = (float)$sessionData->plan_price;
+        }else{
+            $packagePrice = 0;
+        }
+
+        return $packagePrice;
+    }
     public static function userIdWiseMenu($id){
         $userRole = UserRole::where('userId',$id);
         $menus = [];

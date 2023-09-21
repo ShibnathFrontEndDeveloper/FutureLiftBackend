@@ -1,15 +1,15 @@
 @extends('admin.Dashboard.sidebar')
-@section('title') Book Session Section @endsection
+@section('title') InstantAdvice Section @endsection
 @section('content')
 @if(request()->route('show') == 'list')
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> Book Session</h3>
+            <h3 class="page-title"> InstantAdvice</h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/admin/admin-dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Book Session</li>
+                    <li class="breadcrumb-item active" aria-current="page">InstantAdvice</li>
                 </ol>
             </nav>
         </div>

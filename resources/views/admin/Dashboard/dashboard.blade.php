@@ -9,6 +9,8 @@
 @endsection
 @section('content')
 <div class="main-panel">
+    @if (Auth::guard('admin')->user()->name == 'Super Admin' || App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) == 'Admin')
+
     <div class="content-wrapper">
         <div class="page-header">
             <h3 class="page-title"> Dashboard</h3>
@@ -106,6 +108,31 @@
 
 
     </div>
+    @else
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title"> Dashboard</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+				<lottie-player src="https://assets-v2.lottiefiles.com/a/8b2e9442-116e-11ee-ba60-ef900d50f442/2isEFteXKx.json"  background="transparent"  speed="1"   loop  autoplay></lottie-player>
+            </div>
+            <div class="col-md-6 mt-5">
+                <blockquote>
+                Welcome to the FutureLift Company Dashboard, where access is tailored to your specific role for a seamless and efficient experience. Our commitment to enhancing productivity and facilitating collaboration begins with personalized access that ensures you have the right tools at your fingertips. Whether you're an executive, manager, or team member, this dashboard is designed to empower you with the information and functionalities you need to excel in your role. From tracking key performance indicators to facilitating cross-functional communication, FutureLift's role-wise access ensures that you have the resources to drive success. Explore your dedicated space and unlock the potential of a unified, role-centric approach to managing our future together.
+                </blockquote>
+            </div>
+        </div>
+
+
+    </div>
+    @endif
 @endsection
 @section('scripts')
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -122,13 +149,13 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Monthly Calculate'],
-          ['249 Total Book Session',     currentMonthTotal249SessionBook],
-          ['499 Total Book Session',      currentMonthTotal499SessionBook],
-          ['Free Total Book Session',      currentMonthTotalFreeSessionBook]
+          ['249 Total InstantAdvice',     currentMonthTotal249SessionBook],
+          ['499 Total InstantAdvice',      currentMonthTotal499SessionBook],
+          ['Free Total InstantAdvice',      currentMonthTotalFreeSessionBook]
         ]);
 
         var options = {
-          title: 'Month Wise Total Book Sessions Stats',
+          title: 'Month Wise Total InstantAdvice Stats',
          is3D: true,
         };
 
