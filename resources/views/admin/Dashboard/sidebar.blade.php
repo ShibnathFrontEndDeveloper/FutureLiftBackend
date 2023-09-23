@@ -155,7 +155,7 @@
             <a class="navbar-brand brand-logo-mini" href="{{url('/')}}"style="color:#6a1ddf; font-weight: 800;">F</a>
           </div>
           <div class="navbar-menu-wrapper d-flex align-items-stretch">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <button class="navbar-toggler navbar-toggler align-self-center navbar_target" type="button" data-toggle="minimize">
               <span class="mdi mdi-menu"></span>
             </button>
 
@@ -291,10 +291,21 @@
         $('.picker_input').datepicker({
             dateFormat: 'dd-mm-yy'
         });
+
+
     //     $('button[type="submit"]').click(function() {
     //         $('.modal').modal('hide');
     //         $("#ftco-loader").show();
     //   });
+
+
+    let navbar_target = document.querySelector('.navbar_target');
+      
+    let mainBodyPannel = document.querySelector('.main-panel');
+    navbar_target.onclick = ()=>{
+      
+      mainBodyPannel.classList.toggle('main_body_margin');
+    }
 
 
 

@@ -21331,6 +21331,11 @@ background: #F0FFFF;
   -webkit-flex-direction: column;
   flex-direction: column;
 margin-left: 250px;}
+
+
+.main_body_margin{
+  margin-left: 70px;
+}
   @media (max-width: 991px) {
     .main-panel {
       margin-left: 0px;

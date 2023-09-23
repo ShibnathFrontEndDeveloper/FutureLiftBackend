@@ -167,7 +167,7 @@
             <a class="navbar-brand brand-logo-mini" href="{{url('/')}}"style="color:#6a1ddf; font-weight: 800;">F</a>
           </div>
           <div class="navbar-menu-wrapper d-flex align-items-stretch">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize" id="tggle_memu">
+            <button class="navbar-toggler navbar-toggler align-self-center navbar_target" type="button" data-toggle="minimize" id="tggle_memu">
               <span class="mdi mdi-menu"></span>
             </button>
             @php
@@ -419,15 +419,28 @@
     //         $('.modal').modal('hide');
     //         $("#ftco-loader").show();
     //   });
+
+
+    let navbar_target = document.querySelector('.navbar_target');
+  
+    let mainBodyPannel = document.querySelector('.main-panel');
+    navbar_target.onclick = ()=>{
+      
+      mainBodyPannel.classList.toggle('main_body_margin');
+    }
+
     </script>
 
-    <script>
-      let header = document.getElementById('tggle_memu');
-      let main_panel = document.getElementById('main_pannel');
-      header.onclick =()=>{
-        main_panel.classList.toggle('pannel_length');
-      }
-    </script>
+    <!-- <script>
+
+        let navbar_target = document.querySelector('.navbar_target');
+          console.log(navbar_target);
+        let mainBodyPannel = document.querySelector('.main-panel');
+        navbar_target.onclick = ()=>{
+          alert("Hello")
+          mainBodyPannel.classList.toggle('main_body_margin');
+        }
+    </script> -->
     @if (!Auth::guard('user')->user()->phone)
         <script>
             $("#missingPhonePopup").modal({backdrop: 'static', keyboard: false});

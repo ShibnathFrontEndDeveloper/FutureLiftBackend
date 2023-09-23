@@ -34,6 +34,9 @@
     .role_box p,.role_box span{
         font-size:15px:
     }
+    .main_body_margin{
+        margin-left:70px;
+    }
 </style>
 @endsection
 @section('content')
