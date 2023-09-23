@@ -45,32 +45,43 @@
                           <div class="col-lg-9 mt-4 profile_input">
                             <div class="row p-3">
                               <div class="col-lg-4 mb-3">
-                                <label class="form-label" for="">Student Name</label>
+                                <label class="form-label" for="">Full Name</label>
                                 <input type="text" class="form-control " id="name" name="name" value="{{Auth::guard('user')->user()->name}}" placeholder="Jane Doe">
                               </div>
                               <div class="col-lg-4 mb-3">
-                                <label class="form-label" for="">Father Name</label>
-                                <input type="text" class="form-control" id="father_name" name="father_name" value="{{($dataCount > 0)?($data->father_name)?$data->father_name:'':''}}" placeholder="Jane Doe" >
+                                <label class="form-label" for="">Phone Number</label>
+                                <!-- <input type="text" class="form-control" id="father_name" name="father_name" value="{{($dataCount > 0)?($data->father_name)?$data->father_name:'':''}}" placeholder="Jane Doe" > -->
+                                <div class="d-flex phone_selectBox">
+                                <select name="" id="" class="form-select phone_select">
+                                  <option value="0">+91<i class="bi bi-chevron-down"></i></option>
+                                  <option value="1">+91<i class="bi bi-chevron-down"></i></option>
+                                  <option value="2">+91<i class="bi bi-chevron-down"></i></option>
+                                  <option value="3">+91<i class="bi bi-chevron-down"></i></option>
+                                </select>
+                                <input type="tel" class="form-control" placeholder="Phone Number">
+                                </div>
                               </div>
                               <div class="col-lg-4 mb-3">
-                                <label class="form-label" for="">Mother Name</label>
-                                <input type="text" class="form-control" id="mother_name" name="mother_name" value="{{($dataCount > 0)?($data->mother_name)?$data->mother_name:'':''}}" placeholder="Jane Doe">
+                                <label class="form-label" for="">Date of Birth</label>
+                                <!-- <input type="text" class="form-control" id="mother_name" name="mother_name" value="{{($dataCount > 0)?($data->mother_name)?$data->mother_name:'':''}}" placeholder="Jane Doe"> -->
+                                <input type="date" class="form-control" id="dob" value="{{($dataCount > 0)?($data->dob)?$data->dob:'':''}}" name="dob">
                               </div>
                             </div>
                             <div class="row align-items-center p-3">
                               <div class="col-lg-4 mb-3">
-                                <label class="form-label" for="">DOB</label>
-                                <input type="date" class="form-control" id="dob" value="{{($dataCount > 0)?($data->dob)?$data->dob:'':''}}" name="dob">
+                                <label class="form-label" for="">Email address</label>
+                                <!-- <input type="Email" class="form-control" id="email" value="{{($dataCount > 0)?($data->email)?$data->dob:'':''}}" name="dob"> -->
+                                <input type="email" class="form-control" placeholder="Enter email address">
                               </div>
-                              <div class="col-lg-4 mb-3">
+                              <!-- <div class="col-lg-4 mb-3">
                                 <label class="form-label" for="">City</label>
                                 <select class="form-select" name="city" id="city">
                                     <option <?=($dataCount > 0)?($data->city)?($data->city=='kolkata')?'selected':'':'':''?> value="kolkata" >Kolkata</option>
                                     <option <?=($dataCount > 0)?($data->city)?($data->city=='indore')?'selected':'':'':''?> value="indore">Indore</option>
                                     <option <?=($dataCount > 0)?($data->city)?($data->city=='bangalore')?'selected':'':'':''?> value="bangalore">Bangalore</option>
                                 </select>
-                              </div>
-                              <div class="col-lg-4 mb-0">
+                              </div> -->
+                              <div class="col-lg-8 mb-0">
                                 <div class="d-flex">
                                   <div class="form-check">
                                     <label class="form-check-label">
@@ -86,6 +97,13 @@
                                   </div>
                                 </div>
                               </div>
+                              <div class="col-lg-4 mb-0 ">
+                                <div class="d-flex justify-content-between align-items-center">
+                                  <p class="mb-0 show_input">Add Email</p>
+                                  <span class="hide_input">Cancel</span>
+                                </div>
+                                <input type="email" id="collapse_input" class="form-control mt-2 addEmail" placeholder="Add email">
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -95,25 +113,25 @@
                         <div class="row p-3">
                           <div class="col-lg-6">
                             <div class="form-group">
-                              <label for="" class="form-label">College</label>
+                              <label for="" class="form-label">School</label>
                               <input type="text" name="college" id="college" value="{{($dataCount > 0)?($data->college)?$data->college:'':''}}" class="form-control" >
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
-                              <label for="" class="form-label">University</label>
+                              <label for="" class="form-label">Current Class</label>
                               <input type="text" name="university" id="university" value="{{($dataCount > 0)?($data->university)?$data->university:'':''}}" class="form-control" >
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
-                              <label for="" class="form-label">Course</label>
+                              <label for="" class="form-label">Board</label>
                               <input type="text" name="course" id="course" value="{{($dataCount > 0)?($data->course)?$data->course:'':''}}" class="form-control" >
                             </div>
                           </div>
                           <div class="col-lg-6">
                             <div class="form-group">
-                              <label for="" class="form-label">Year of Passing</label>
+                              <label for="" class="form-label">Year of Passing Current Class</label>
                               <input type="text" class="form-control" id="year_of_passing" value="{{($dataCount > 0)?($data->year_of_passing)?$data->year_of_passing:'':''}}" name="year_of_passing">
                             </div>
                           </div>
@@ -217,6 +235,12 @@
                                     </div>
                                   </div>
                                 </div>
+                                <div class="col-lg-12 my-3 upload_marksheetBox text-center">
+                                  <p class="text-dark  fw-bold mb-0">-or-</p>
+                                  <span>Upload your Marksheet</span>
+                                  <input type="file" class="form-control mt-2">
+                                </div>
+                                
                               </div>
                               <div class="col-lg-6">
                                 <div class="form_heading_box">
@@ -261,6 +285,12 @@
                                     </div>
                                   </div>
                                 </div>
+
+                                <div class="col-lg-12 my-3 upload_marksheetBox text-center">
+                                  <p class="text-dark  fw-bold mb-0">-or-</p>
+                                  <span>Upload your Marksheet</span>
+                                  <input type="file" class="form-control mt-2">
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -283,3 +313,7 @@
 @section('scripts')
 <script src="{{asset('js/educationform.js')}}"></script>
 @endsection
+
+<!-- <script>
+  
+</script> -->

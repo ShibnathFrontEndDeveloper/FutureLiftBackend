@@ -55,7 +55,7 @@
             <div class="frrr" >
               <div class="container">
                 <div class="row">
-                  <div class="col-4">
+                  <div class="col-lg-4">
                     <div>
                       <div class="round_text_box">
                         <img src="{{asset('assets/images/round_box.png')}}" alt="">
@@ -68,7 +68,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-4">
+                  <div class="col-lg-4">
                     <div>
                       <div class="round_text_box">
                         <img src="{{asset('assets/images/round_box.png')}}" alt="">
@@ -81,7 +81,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-4">
+                  <div class="col-lg-4">
                     <div>
                       <div class="round_text_box">
                         <img src="{{asset('assets/images/round_box.png')}}" alt="">

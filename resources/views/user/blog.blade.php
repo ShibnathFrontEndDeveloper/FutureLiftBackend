@@ -33,15 +33,19 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-5 col-md-5 personalityBannerImg">
-                  <img src="{{asset('assets/images/blog_banner_new.png')}}" alt="" class="img-fluid">
+              <div class="col-lg-5 col-md-5 personalityBannerImg blog_banner_img">
+                  <img src="{{asset('assets/images/blog_banner_new.png')}}" alt="" class="img-fluid desktop_img">
+                  
+              </div>
+              <div class="blog_banner_img">
+              <img src="{{asset('assets/images/blog_banner.png')}}" alt="" class="img-fluid mobile_img">
               </div>
             </div>
           </div>
         </div>
 
         <!-- Blog Articles start -->
-        <div class="container p-5">
+        <div class="container p-4">
             <h1 class="blog_heading">populer Blog</h1>
             <div class="row g-3">
             @foreach ($populerBlog as $populerBlogKey => $populerBlogValue)

@@ -17102,6 +17102,22 @@ code {
     color: #6c7293;
     font-size: 0.875rem; }
 
+    .phone_selectBox .phone_select{
+      width: 45% !important;
+      border: none;
+    }
+    .phone_selectBox .phone_select:focus{
+      box-shadow: none !important;
+    }
+    .phone_selectBox{
+      border: 1px solid #1d308d;
+      border-radius: 3px;
+    }
+    .phone_selectBox .form-control{
+      border: none !important;
+      padding: 0 !important;
+    }
+
 .navbar .form-control, .navbar .asColorPicker-input, .navbar .dataTables_wrapper select, .dataTables_wrapper .navbar select, .navbar .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], .jsgrid .jsgrid-table .jsgrid-filter-row .navbar input[type=text],
 .navbar .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row .navbar select, .navbar .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .jsgrid .jsgrid-table .jsgrid-filter-row .navbar input[type=number], .navbar .select2-container--default .select2-selection--single, .select2-container--default .navbar .select2-selection--single, .navbar .select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-selection--single .navbar .select2-search__field, .navbar .typeahead,
 .navbar .tt-query,
@@ -21382,7 +21398,29 @@ margin-top: 30px;
   color: #002b45;
 }
 
+.profile_input .show_input, .profile_input .hide_input{
+  color: #1d308d;
+  cursor: pointer;
+}
+.profile_input .hide_input{
+  text-decoration: underline;
+}
+.profile_input .addEmail{
+  display: none;
+}
+.form_control_open{
+  display: block !important;
+}
+.hideEmail{
+  display: none !important;
+}
 
+
+.upload_marksheetBox span{
+  color: #2c3e50;
+  text-align: center !important;
+  font-size: 12px;
+}
 
 /* Multisteps form */
 

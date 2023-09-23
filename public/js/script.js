@@ -15,9 +15,9 @@ var swiper = new Swiper('.home_swiper', {
 });
 document.querySelector
 var swiper = new Swiper(".topCollectionSwiper", {
-  slidesPerView: "auto",
+  slidesPerView: 6,
   loop: true,
-  slidesPerGroup: 1,
+  // slidesPerGroup: 1,
   spaceBetween: 20,
   pagination: {
     el: ".swiper-pagination",
@@ -35,7 +35,7 @@ var swiper = new Swiper(".topCollectionSwiper", {
       slidesPerView: 3,
     },
     1024: {
-      slidesPerView: 5,
+      slidesPerView: 4,
     },
   },
 });

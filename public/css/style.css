@@ -527,17 +527,20 @@ input::-webkit-calendar-picker-indicator {
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 30px;
+    right: 10px;
     z-index: 99;
-    font-size: 20px;
+    font-size: 18px;
     border: none;
     outline: none;
-    background-color: red;
+    background-color: rgba(255, 0, 0,.5);
     color: white;
     cursor: pointer;
     padding: 10px;
     border-radius: 4px;
     transition:.5s all ease-in-out;
+}
+.toToBottom_btn_box:hover{
+  background:rgba(255, 0, 0,1) ;
 }
 
 .home_part{
@@ -2935,7 +2938,9 @@ transform: translate(-5px, 5px) rotate(-45deg)
   }
   .personalityBanner_box_row{
     flex-direction: column-reverse;
+    position: relative;
   }
+  .blog_single_text .text-left
   .footer-area .footer-logo{
     width: 135px;
   }
@@ -2949,6 +2954,10 @@ transform: translate(-5px, 5px) rotate(-45deg)
 }
 .footer-area .footer_div ul li a{
     font-size:14px;
+}
+
+.topCard{
+  width: 222px;
 }
   .topCard-img img{
     width: 100%;
@@ -2964,7 +2973,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   width: 80px;
 }
 .book_btn{
-    font-size:10px;
+    font-size:9px;
 }
 
 .login_box .logLink {
@@ -2990,7 +2999,17 @@ transform: translate(-5px, 5px) rotate(-45deg)
     top: 230px;
     left:0;
 }
+.header-left-content{
+  padding-left: 0;
 }
+.header-right-content{
+  padding-right: 0;
+}
+
+}
+
+
+
 @media screen and (max-width: 376px) {
   .modal-content {
     padding: 0.2rem;
@@ -3338,6 +3357,14 @@ transform: translate(-5px, 5px) rotate(-45deg)
   }
 
 }
+.blogBanner_box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.blog_banner_img .mobile_img{
+  display: none;
+}
 .blog_page_heading{
     font-size: 25px;
     font-weight: 600;
@@ -3662,10 +3689,35 @@ transform: translate(-5px, 5px) rotate(-45deg)
     .blog_heading{
       font-size: 25px;
     }
-    .blog_single_text .text-left{
+    .personalityBanner_box_row .blog_single_text .text-left{
       margin-bottom: 20px;
+      position: absolute;
+      bottom: 3px;
+    }
+    .blog_single_text .text-left a{
+      font-size: 14px;
     }
     .share_part{
+      display: none;
+    }
+    .blog_banner_img .desktop_img{
+      display: none;
+    }
+    .blog_banner_img .mobile_img{
+      display: block;
+    }
+    .blog_banner_img{
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+    .blog_single_text{
+      margin-left: 12px;
+    }
+    .blog_single_text h1{
+      display: none;
+    }
+    .blog_single_text p{
       display: none;
     }
   }
@@ -3762,7 +3814,7 @@ policy  /////////////////////////////////////
 
   @media screen and (max-width:576px) {
     .whoWeAre_box_text p{
-      padding: 22px;
+      padding: 22px !important;
       font-size: 13px;
     }
     .navLink_tab{
@@ -3775,8 +3827,6 @@ policy  /////////////////////////////////////
     .about_text_blow{
       padding: 10px 6px;
       border-radius: 5px;
-      height: 50px;
-      overflow: auto;
     }
     .about_text_blow p{
       font-size: 11px;
@@ -3789,7 +3839,8 @@ policy  /////////////////////////////////////
       transform: translate(-50%,-62%);
     }
     .round_text_box .text p{
-      font-size: 12px;
+      font-size: 12px !important;
+      margin-bottom: 5px;
     }
     .whoWeAre_box_text,.contact_section,.specification_futureLift{
       padding: 20px 0;
@@ -4005,6 +4056,7 @@ About Futurelift ////////////////////////////////////////
   }
   .about_text_blow p{
     font-size: 14px;
+    margin-bottom: 0;
   }
 
   .frrr{

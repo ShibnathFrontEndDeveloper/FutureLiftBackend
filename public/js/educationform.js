@@ -201,3 +201,18 @@ $(".prev").click(function(){
     });
 });
 });
+
+
+
+
+let show_input =document.querySelector('.show_input')
+  let hide_input =document.querySelector('.hide_input')
+  let collapse_input =document.querySelector('#collapse_input')
+
+  show_input.onclick = () =>{
+    collapse_input.style.display='block';
+  }
+
+  hide_input.onclick=()=>{
+    collapse_input.style.display='none';
+  }
