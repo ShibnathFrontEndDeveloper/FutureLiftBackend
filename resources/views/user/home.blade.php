@@ -49,17 +49,17 @@
                     <!-- Slides -->
                     <div class="swiper-slide">
                       <a href="{{url('/eight-ten-counselling')}}">
-                        <img src="{{asset('assets/images/card-1.webp')}}" alt="" class="img-fluid">
+                        <img src="{{asset('assets/images/card-02.png')}}" alt="" class="img-fluid">
                       </a>
                     </div>
                     <div class="swiper-slide">
                       <a href="{{url('/ten-twelve-counselling')}}">
-                        <img src="{{asset('assets/images/card-2.webp')}}" alt="" class="img-fluid">
+                        <img src="{{asset('assets/images/card-01.png')}}" alt="" class="img-fluid">
                       </a>
                     </div>
                     <div class="swiper-slide">
                       <a href="{{url('/college-graduate-counselling')}}">
-                        <img src="{{asset('assets/images/card-3.webp')}}" alt="" class="img-fluid">
+                        <img src="{{asset('assets/images/card-03.png')}}" alt="" class="img-fluid">
                       </a>
                     </div>
                     <!-- <div class="swiper-slide">
