@@ -168,7 +168,13 @@
                     <span>{{App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id)}}</span>
                 </div>
                 <p class="mt-3">
-                Please enjoy your role
+                <p>i) Your actions directly impact the quality of career counseling and guidance our users receive. Motivate yourself by recognizing the positive influence and set an example for entire admin team with integrity, empathy, and professionalism</p>
+
+                <p>ii) Stay informed about industry trends and career development to better assess and accurate content.</p>
+
+                <p>iii) Embrace the opportunity to innovate and optimize our platform. Seek out ways to streamline processes, improve user engagement, and enhance the overall functionality of Future Lift.</p>
+
+                <p>iv) View challenges as opportunities to problem-solve and improve. Every issue you resolve contributes to a smoother and more user-friendly experience on Future Lift. Use these experiences to grow and develop your own skills.</p>
                 </p>
             </div>
         </div>

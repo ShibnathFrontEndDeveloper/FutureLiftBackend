@@ -70,7 +70,7 @@
                     <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
                   </div>
                 </a>
-                <div class="dropdown-divider"></div>
+                <!-- <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
                     <div class="preview-icon bg-dark rounded-circle">
@@ -80,7 +80,7 @@
                   <div class="preview-item-content">
                     <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
                   </div>
-                </a>
+                </a> -->
               </div>
             </div>
           </li>
@@ -422,10 +422,10 @@
 
 
     let navbar_target = document.querySelector('.navbar_target');
-  
+
     let mainBodyPannel = document.querySelector('.main-panel');
     navbar_target.onclick = ()=>{
-      
+
       mainBodyPannel.classList.toggle('main_body_margin');
     }
 

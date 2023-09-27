@@ -55,7 +55,7 @@
        if(parseFloat(price) < parseFloat(currenSessionPrice)){
             swal({
                 title: 'Are you sure?',
-                text: 'This session has fewer features than your current session.Do you want to continue?',
+                text: 'Choose your subscription package wisely, If you buy this package previous will be deactivated. Your Next journey depends on it.',
                 icon: 'warning',
                 buttons: ["Cancel", "Continue"],
                 }).then(function(value) {

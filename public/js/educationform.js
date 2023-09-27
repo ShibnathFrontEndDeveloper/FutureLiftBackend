@@ -22,6 +22,7 @@ function step_one(){
     var name = $("#name").val();
     var city = $("#city").val();
     var infoId = $("#infoId").val();
+    var additional_email = $("#additional_email").val();
 
     var formData = new FormData();
     formData.append('file', uploadFile);
@@ -32,6 +33,7 @@ function step_one(){
     formData.append('father_name', father_name);
     formData.append('name', name);
     formData.append('city', city);
+    formData.append('additional_email', additional_email);
 
     axios.post(BASE_URL+'/user/step-one-submit', formData)
       .then(function (response) {
@@ -207,7 +209,7 @@ $(".prev").click(function(){
 
 let show_input =document.querySelector('.show_input')
   let hide_input =document.querySelector('.hide_input')
-  let collapse_input =document.querySelector('#collapse_input')
+  let collapse_input =document.querySelector('#additional_email')
 
   show_input.onclick = () =>{
     collapse_input.style.display='block';
@@ -215,4 +217,40 @@ let show_input =document.querySelector('.show_input')
 
   hide_input.onclick=()=>{
     collapse_input.style.display='none';
+  }
+
+
+  function validateSize(input) {
+    const fileSize = input.files[0].size / 1024 / 1024; // in MiB
+    if (fileSize > 2) {
+        toastr.error('File size exceeds 2 MB', 'error');
+      // $(file).val(''); //for clearing with Jquery
+    } else {
+      // Proceed further
+    }
+  }
+
+  function validateFileUpload(fileInput) {
+    // Get the file object from the input element.
+    var file = fileInput.files[0];
+
+    // Check if the file is a PDF file.
+    if (file.type !== "application/pdf") {
+        toastr.error('Please select a PDF file.', 'error');
+      return;
+    }
+
+    // Check if the file size is less than 2MB.
+    if (file.size > 2 * 1024 * 1024) {
+        toastr.error('The file size cannot be more than 2MB.', 'error');
+      return;
+    }
+
+    // Upload the file.
+    // ...
+  }
+
+  function marksheetModalOpen(url){
+    $("#marksheetModal").modal('show');
+    $("#marksheetEm").attr("src",url);
   }

@@ -36,10 +36,16 @@ class LoginController extends Controller
 
         $remember = true;
         if(Auth::guard('admin')->attempt(['email' => $request->userName, 'password' => $request->password , 'role' => 'admin'],$remember)){
-            Toastr::success('Login Successfully','success');
-            return Redirect('/admin/admin-dashboard');
+            if(Auth::guard('admin')->user()->status == 'active'){
+                Toastr::success('Login Successfully','success');
+                return Redirect('/admin/admin-dashboard');
+            }else{
+                Auth::guard('admin')->logout();
+                Toastr::error('Your account has been deactivated','Account Deactivate');
+    		    return redirect()->back();
+            }
     	}else{
-            Toastr::error('Admin email and password mismatch','Please try again');
+            Toastr::error('Email and password mismatch','Please try again');
     		return redirect()->back();
     	}
     }

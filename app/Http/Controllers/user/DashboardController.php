@@ -34,14 +34,14 @@ class DashboardController extends Controller
         $academic = 0;
         if($dataCount > 0){
             $data = User_information::where('userId',Auth::guard('user')->user()->id)->first();
-            if($data->father_name){
-                $completed = $completed + 1;
-                $personal = $personal + 1;
-            }
-            if($data->mother_name){
-                $completed = $completed + 1;
-                $personal = $personal + 1;
-            }
+            // if($data->father_name){
+            //     $completed = $completed + 1;
+            //     $personal = $personal + 1;
+            // }
+            // if($data->mother_name){
+            //     $completed = $completed + 1;
+            //     $personal = $personal + 1;
+            // }
             if($data->profile_image){
                 $completed = $completed + 1;
                 $personal = $personal + 1;
@@ -50,10 +50,10 @@ class DashboardController extends Controller
                 $completed = $completed + 1;
                 $personal = $personal + 1;
             }
-            if($data->city){
-                $completed = $completed + 1;
-                $personal = $personal + 1;
-            }
+            // if($data->city){
+            //     $completed = $completed + 1;
+            //     $personal = $personal + 1;
+            // }
             if($data->gender){
                 $completed = $completed + 1;
                 $personal = $personal + 1;
@@ -90,29 +90,41 @@ class DashboardController extends Controller
                 $completed = $completed + 1;
                 $family = $family + 1;
             }
-            if($data->recent_subject){
-                if($this->nullCheckingProfileField($data->recent_subject)){
-                    $completed = $completed + 1;
-                    $academic = $academic + 1;
+            if(!$data->recent_marksheet){
+                if($data->recent_subject){
+                    if($this->nullCheckingProfileField($data->recent_subject)){
+                        $completed = $completed + 1;
+                        $academic = $academic + 5;
+                    }
+                }
+                if($data->recent_score){
+                    if($this->nullCheckingProfileField($data->recent_score)){
+                        $completed = $completed + 1;
+                        $academic = $academic + 5;
+                    }
                 }
             }
-            if($data->recent_score){
-                if($this->nullCheckingProfileField($data->recent_score)){
-                    $completed = $completed + 1;
-                    $academic = $academic + 1;
+            if(!$data->previous_marksheet){
+                if($data->previous_subject){
+                    if($this->nullCheckingProfileField($data->previous_subject)){
+                        $completed = $completed + 1;
+                        $academic = $academic + 5;
+                    }
+                }
+                if($data->previous_score){
+                    if($this->nullCheckingProfileField($data->previous_score)){
+                        $completed = $completed + 1;
+                        $academic = $academic + 5;
+                    }
                 }
             }
-            if($data->previous_subject){
-                if($this->nullCheckingProfileField($data->previous_subject)){
-                    $completed = $completed + 1;
-                    $academic = $academic + 1;
-                }
+            if($data->recent_marksheet){
+                $completed = $completed + 1;
+                $academic = $academic + 1;
             }
-            if($data->previous_score){
-                if($this->nullCheckingProfileField($data->previous_score)){
-                    $completed = $completed + 1;
-                    $academic = $academic + 1;
-                }
+            if($data->previous_marksheet){
+                $completed = $completed + 1;
+                $academic = $academic + 1;
             }
         }
         $user = User::find(Auth::guard('user')->user()->id);
@@ -123,7 +135,7 @@ class DashboardController extends Controller
 
         ///// each tab 25%
 
-        if($personal == 7){
+        if($personal == 4){
             $percentage = $percentage + 25;
         }
         if($education == 4){
@@ -132,7 +144,7 @@ class DashboardController extends Controller
         if($family == 4){
             $percentage = $percentage + 25;
         }
-        if($academic == 4){
+        if($academic == 20 || $academic == 2 || $academic == 11){
             $percentage = $percentage + 25;
         }
 

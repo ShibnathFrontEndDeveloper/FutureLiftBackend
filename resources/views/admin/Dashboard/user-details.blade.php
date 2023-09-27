@@ -62,23 +62,26 @@
                         <p>Email : <b>{{$user->email}}</b></p>
                     </div>
                     <div class="col-md-3 form-group">
-                        <p>Phone : <b>{{$user->phone}}</b></p>
+                        <p>Additional Email : <b>{{$userInfo->additional_email}}</b></p>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <p>Phone : <b>+91 {{$user->phone}}</b></p>
                     </div>
                     <div class="col-md-3 form-group">
                         <p>State : <b>{{$user->state}}</b></p>
                     </div>
-                    <div class="col-md-3 form-group">
+                    <!-- <div class="col-md-3 form-group">
                         <p>Father Name : <b>{{$userInfo->father_name}}</b></p>
                     </div>
                     <div class="col-md-3 form-group">
                         <p>Mother Name : <b>{{$userInfo->mother_name}}</b></p>
-                    </div>
+                    </div> -->
                     <div class="col-md-3 form-group">
                         <p>Date Of Birth : <b>{{$userInfo->dob}}</b></p>
                     </div>
-                    <div class="col-md-3 form-group">
+                    <!-- <div class="col-md-3 form-group">
                         <p>City : <b>{{$userInfo->city}}</b></p>
-                    </div>
+                    </div> -->
                     <div class="col-md-3 form-group">
                         <p>Gender : <b>{{$userInfo->gender}}</b></p>
                     </div>
@@ -93,16 +96,16 @@
                         <h3>Education Details</h3>
                     </div>
                     <div class="col-md-3 form-group">
-                        <p>College : <b>{{$userInfo->college}}</b></p>
+                        <p>School : <b>{{$userInfo->college}}</b></p>
                     </div>
                     <div class="col-md-3 form-group">
-                        <p>University : <b>{{$userInfo->university}}</b></p>
+                        <p>Current Class : <b>{{$userInfo->university}}</b></p>
                     </div>
                     <div class="col-md-3 form-group">
-                        <p>Course : <b>{{$userInfo->course}}</b></p>
+                        <p>Board : <b>{{$userInfo->course}}</b></p>
                     </div>
                     <div class="col-md-3 form-group">
-                        <p>Year Of Passing : <b>{{$userInfo->year_of_passing}}</b></p>
+                        <p>Year of Passing Current Class : <b>{{$userInfo->year_of_passing}}</b></p>
                     </div>
                 </div>
             </div>
@@ -149,6 +152,12 @@
                             </tbody>
                         </table>
                     </div>
+                    @if ($userInfo->recent_marksheet)
+                    <div class="col-md-12 form-group">
+                        <h4>Recent Academic Marksheet</h4>
+                        <embed src="{{asset('/assets/marksheets/'.$userInfo->recent_marksheet)}}" width="100%" height="400" alt="pdf" id="marksheetEm">
+                    </div>
+                    @endif
                 </div>
             </div>
             <div class="col-md-12 form-group">
@@ -175,6 +184,12 @@
                             </tbody>
                         </table>
                     </div>
+                    @if ($userInfo->previous_marksheet)
+                    <div class="col-md-12 form-group">
+                        <h4>Previous Academic Marksheet</h4>
+                        <embed src="{{asset('/assets/marksheets/'.$userInfo->previous_marksheet)}}" width="100%" height="400" alt="pdf" id="marksheetEm">
+                    </div>
+                    @endif
                 </div>
             </div>
             <div class="col-md-12 form-group">

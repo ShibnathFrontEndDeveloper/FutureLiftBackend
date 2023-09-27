@@ -111,11 +111,50 @@ class ProfileController extends Controller
     // }
     public function personalInfoSaveFunction(Request $request){
 
+        if($request->has('recent_marksheet')){
+            $validator = Validator::make($request->all(), [
+                'recent_marksheet' => 'file|mimes:pdf|max:2000'
+            ]);
+
+            if ($validator->fails()) {
+                Toastr::error('Recent Marksheet check file format and file size','Error');
+                return Redirect('/user-profile?er=err');
+            }
+        }
+
+        if($request->has('previous_marksheet')){
+            $validator = Validator::make($request->all(), [
+                'previous_marksheet' => 'file|mimes:pdf|max:2000'
+            ]);
+
+            if ($validator->fails()) {
+                Toastr::error('Previous Marksheet check file format and file size','Error');
+                return Redirect('/user-profile?er=err');
+            }
+        }
+
+        $lastData = User_information::find($request->infoId);
+        if($request->has('recent_marksheet')){
+            $recent_marksheet = time().'_'.rand(999,9999).'.'.$request->recent_marksheet->extension();
+            $request->recent_marksheet->move(public_path('assets/marksheets'), $recent_marksheet);
+        }else{
+            $recent_marksheet = $lastData->recent_marksheet;
+        }
+
+        if($request->has('previous_marksheet')){
+            $previous_marksheet = time().'_'.rand(999,9999).'.'.$request->previous_marksheet->extension();
+            $request->previous_marksheet->move(public_path('assets/marksheets'), $previous_marksheet);
+        }else{
+            $previous_marksheet = $lastData->previous_marksheet;
+        }
+
             $user_information = User_information::find($request->infoId);
             $user_information->recent_subject = (!empty($request->recent_subject))?json_encode($request->recent_subject):NULL;
             $user_information->recent_score = (!empty($request->recent_score))?json_encode($request->recent_score):NULL;
             $user_information->previous_subject = (!empty($request->previous_subject))?json_encode($request->previous_subject):NULL;
             $user_information->previous_score = (!empty($request->previous_score))?json_encode($request->previous_score):NULL;
+            $user_information->recent_marksheet = $recent_marksheet;
+            $user_information->previous_marksheet = $previous_marksheet;
             $user_information->save();
 
             Toastr::success('Profile updated successfully','success');
@@ -130,8 +169,8 @@ class ProfileController extends Controller
     public function stepOneSubmitFunction(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'father_name' => 'required',
-            'mother_name' => 'required',
+            // 'father_name' => 'required',
+            // 'mother_name' => 'required',
             'dob' => 'required',
             'city' => 'required',
             'gender' => 'required'
@@ -185,12 +224,13 @@ class ProfileController extends Controller
 
 
         $user_information = User_information::find($request->infoId);
-        $user_information->father_name = $request->father_name;
-        $user_information->mother_name = $request->mother_name;
+        // $user_information->father_name = $request->father_name;
+        // $user_information->mother_name = $request->mother_name;
         $user_information->profile_image = $imageName;
         $user_information->dob = $request->dob;
-        $user_information->city = $request->city;
+        //$user_information->city = $request->city;
         $user_information->gender = $request->gender;
+        $user_information->additional_email = $request->additional_email;
         $user_information->save();
 
         $result = [

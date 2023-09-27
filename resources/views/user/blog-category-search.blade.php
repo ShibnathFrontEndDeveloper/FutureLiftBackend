@@ -21,7 +21,7 @@
 
       <div class="container-fluid">
 
-        <div class="personalityBanner container-fluid">
+      <div class="personalityBanner container-fluid">
           <div class="container">
             <div class="row align-items-center personalityBanner_box_row">
               <div class="col-lg-7 col-md-7">
@@ -33,8 +33,12 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-5 col-md-5 personalityBannerImg">
-                  <img src="{{asset('assets/images/blog_banner_new.png')}}" alt="" class="img-fluid">
+              <div class="col-lg-5 col-md-5 personalityBannerImg blog_banner_img">
+                  <img src="{{asset('assets/images/blog_banner_new.png')}}" alt="" class="img-fluid desktop_img">
+
+              </div>
+              <div class="blog_banner_img">
+              <img src="{{asset('assets/images/blog_banner.png')}}" alt="" class="img-fluid mobile_img">
               </div>
             </div>
           </div>

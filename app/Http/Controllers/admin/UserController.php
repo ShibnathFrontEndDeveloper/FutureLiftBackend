@@ -95,6 +95,7 @@ class UserController extends Controller
         $user = User::find($request->editId);
         $user->name = $request->name;
         $user->phone = $request->phone;
+        $user->status = $request->status;
         $user->save();
 
         UserRole::where('userId',$request->editId)->update([

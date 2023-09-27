@@ -464,7 +464,7 @@
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
             >
-              Book Now
+            Take Instant Advice
             </button>
           </div>
           <div class="sessionImg">

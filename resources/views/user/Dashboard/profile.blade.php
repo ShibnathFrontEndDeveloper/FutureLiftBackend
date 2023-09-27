@@ -22,13 +22,13 @@
                         @csrf
                       <!-- progressbar -->
                       <ul id="progressbar">
-                          <li class="pro_bar active" id=""><i class="bi bi-person-circle"></i><strong>Personal Details</strong></li>
+                          <li class="pro_bar {{(request()->get('er'))?'':'active'}}" id=""><i class="bi bi-person-circle"></i><strong>Personal Details</strong></li>
                           <li class="pro_bar" id=""><i class="bi bi-journal-richtext"></i><strong>Education Details</strong></li>
                           <li class="pro_bar" id=""><i class="bi bi-people-fill"></i><strong>Family Details</strong></li>
-                          <li class="pro_bar" id=""><i class="bi bi-pencil-square"></i><strong>Academic Details</strong></li>
+                          <li class="pro_bar {{(request()->get('er'))?'active':''}}" id=""><i class="bi bi-pencil-square"></i><strong>Academic Details</strong></li>
                       </ul>
                       <!-- fieldsets -->
-                      <fieldset>
+                      <fieldset style="{{(request()->get('er'))?'display: none; position: relative; opacity: 0;':''}}">
                         @if ($dataCount > 0)
                             <input type="hidden" name="infoId" id="infoId" value="{{$data->id}}">
                         @endif
@@ -54,11 +54,8 @@
                                 <div class="d-flex phone_selectBox">
                                 <select name="" id="" class="form-select phone_select">
                                   <option value="0">+91<i class="bi bi-chevron-down"></i></option>
-                                  <option value="1">+91<i class="bi bi-chevron-down"></i></option>
-                                  <option value="2">+91<i class="bi bi-chevron-down"></i></option>
-                                  <option value="3">+91<i class="bi bi-chevron-down"></i></option>
                                 </select>
-                                <input type="tel" class="form-control" placeholder="Phone Number">
+                                <input type="tel" class="form-control" disabled placeholder="Phone Number" value="{{Auth::guard('user')->user()->phone}}">
                                 </div>
                               </div>
                               <div class="col-lg-4 mb-3">
@@ -71,7 +68,7 @@
                               <div class="col-lg-4 mb-3">
                                 <label class="form-label" for="">Email address</label>
                                 <!-- <input type="Email" class="form-control" id="email" value="{{($dataCount > 0)?($data->email)?$data->dob:'':''}}" name="dob"> -->
-                                <input type="email" class="form-control" placeholder="Enter email address">
+                                <input type="email" class="form-control" disabled placeholder="Enter email address" value="{{Auth::guard('user')->user()->email}}">
                               </div>
                               <!-- <div class="col-lg-4 mb-3">
                                 <label class="form-label" for="">City</label>
@@ -102,7 +99,7 @@
                                   <p class="mb-0 show_input">Add Email</p>
                                   <span class="hide_input">Cancel</span>
                                 </div>
-                                <input type="email" id="collapse_input" class="form-control mt-2 addEmail" placeholder="Add email">
+                                <input type="email" id="additional_email" value="{{($dataCount > 0)?($data->additional_email)?$data->additional_email:'':''}}" class="form-control mt-2 addEmail" placeholder="Add email" name="additional_email" style="<?=($dataCount > 0)?($data->additional_email)?'display:block':'':''?>">
                               </div>
                             </div>
                           </div>
@@ -169,7 +166,7 @@
                         <input type="button" name="previous" class=" btn btn-outline-primary prev" value="Back"/>
                         <input type="button" name="next" class="btn btn-primary next" onclick="step_three()" value="Next"/>
                       </fieldset>
-                      <fieldset>
+                      <fieldset style="{{(request()->get('er'))?'display: block; opacity: 1;':''}}">
                         <div class="container"></div>
                         <div class="row p-3">
                           <div class="col-lg-12">
@@ -237,10 +234,13 @@
                                 </div>
                                 <div class="col-lg-12 my-3 upload_marksheetBox text-center">
                                   <p class="text-dark  fw-bold mb-0">-or-</p>
-                                  <span>Upload your Marksheet</span>
-                                  <input type="file" class="form-control mt-2">
+                                  <span>Upload your Marksheet <small class="text-danger">(Please select only pdf file and max file size 2MB)</small></span>
+                                  <input type="file" name="recent_marksheet" onchange="validateFileUpload(this)" class="form-control mt-2">
+                                  @if ($data->recent_marksheet)
+                                  <p class="text-warning">Last uploaded marksheet view to <a href="javascript:void(0)" onclick="marksheetModalOpen('{{asset('/assets/marksheets/'.$data->recent_marksheet)}}');">click here</a></p>
+                                  @endif
                                 </div>
-                                
+
                               </div>
                               <div class="col-lg-6">
                                 <div class="form_heading_box">
@@ -288,8 +288,11 @@
 
                                 <div class="col-lg-12 my-3 upload_marksheetBox text-center">
                                   <p class="text-dark  fw-bold mb-0">-or-</p>
-                                  <span>Upload your Marksheet</span>
-                                  <input type="file" class="form-control mt-2">
+                                  <span>Upload your Marksheet <small class="text-danger">(Please select only pdf file and max file size 2MB)</small></span>
+                                  <input type="file" name="previous_marksheet" onchange="validateFileUpload(this)" class="form-control mt-2">
+                                  @if ($data->previous_marksheet)
+                                  <p class="text-warning">Last uploaded marksheet view to <a href="javascript:void(0)" onclick="marksheetModalOpen('{{asset('/assets/marksheets/'.$data->previous_marksheet)}}');">click here</a></p>
+                                  @endif
                                 </div>
                               </div>
                             </div>
@@ -309,11 +312,26 @@
           </div>
         </div>
 
+
+        <div class="modal fade" id="marksheetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">View Marksheet</h5>
+                        <button type="button" onclick="$('#marksheetModal').modal('hide');" class="close text-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <embed src="" width="999" height="500" alt="pdf" id="marksheetEm">
+                    </div>
+                </div>
+            </div>
+        </div>
+
 @endsection
 @section('scripts')
 <script src="{{asset('js/educationform.js')}}"></script>
 @endsection
 
 <!-- <script>
-  
+
 </script> -->

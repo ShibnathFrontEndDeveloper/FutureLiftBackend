@@ -157,6 +157,13 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">Status</label>
+                            <select name="status" id="" class="form-control" required>
+                                <option value="active" {{($user->status == 'active')?'selected':''}}>Active</option>
+                                <option value="inactive" {{($user->status == 'inactive')?'selected':''}}>Inactive</option>
+                            </select>
+                        </div>
                         <!-- <div class="col-md-6 form-group">
                             <label for="">Password</label>
                             <input type="password" name="password" id="" required class="form-control">
