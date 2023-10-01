@@ -2955,9 +2955,12 @@ transform: translate(-5px, 5px) rotate(-45deg)
 .footer-area .footer_div ul li a{
     font-size:14px;
 }
-
+.topCollection-card {
+  padding: 1rem 5.7rem;
+}
 .topCard{
-  width: 222px;
+  /* width: 222px; */
+  /* margin-left: 65px; */
 }
   .topCard-img img{
     width: 100%;
@@ -3201,7 +3204,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
     font-size: 0.8rem;
   }
   .topCollection-card {
-    padding: 3rem;
+    padding: 1rem 4rem;
   }
   .swiper-button-next::after {
     font-size: 1rem !important;
@@ -3324,6 +3327,9 @@ transform: translate(-5px, 5px) rotate(-45deg)
 }
 .sd_text {
     font-size:18px;
+}
+.topCollection-card{
+  padding:1rem 2rem;
 }
 }
 
