@@ -93,7 +93,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="">Answer</label>
-                            <textarea name="answer" required class="form-control" id="" cols="30" rows="10">{{old('answer')}}</textarea>
+                            <textarea name="answer" required class="form-control" id="answer" cols="30" rows="10">{{old('answer')}}</textarea>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="submit" value="Submit" class="btn btn-primary">
@@ -142,7 +142,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="">Answer</label>
-                            <textarea name="answer" required class="form-control" id="" cols="30" rows="10">{{$faq->answer}}</textarea>
+                            <textarea name="answer" required class="form-control" id="answer" cols="30" rows="10">{{$faq->answer}}</textarea>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="submit" value="Submit" class="btn btn-primary">
@@ -155,6 +155,7 @@
 @endif
 @endsection
 @section('scripts')
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 <script>
     new DataTable('#example',{
         responsive: true
@@ -164,5 +165,6 @@
             window.location.href="{{url('/admin/faqDelete')}}/"+id;
         }
     }
+    CKEDITOR.replace( 'answer');
 </script>
 @endsection

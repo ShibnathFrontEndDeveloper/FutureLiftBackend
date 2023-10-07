@@ -82,12 +82,9 @@ class LoginController extends Controller
 
         $url = url('/admin/new-password-set/'.$Iddecode.'/'.$linkGenerate.'/'.$uniqueCode2);
 
-        $subject = "Forget Your Password";
-
-        $html = "";
-        $html .= '<p>Hello '.$exits->name.'</p>';
-        $html .= '<p>Your password reset link : <a href="'.$url.'">'.$url.'</a></p>';
-
+        $html = '';
+        $html .= Helpers::forgotPasswordEmailContent($exits->name,$url);
+        $subject = "Password Reset Instructions for FUTURE LIFT Admin";
         $mailSend = Helpers::phpMailerMailSend($request->email,$exits->name,$subject,$html);
 
         Toastr::success('We have e-mailed your password reset link','success');

@@ -91,6 +91,12 @@ class AuthController extends Controller
         $notificationContent = "Welcome to FutureLift!  We're thrilled to have you join us. Explore, discover, and make the most of your journey here. If you have any questions or need assistance, don't hesitate to ask. Happy browsing!";
         Helpers::addUserNotification($user->id,'user_registration','Welcome to FutureLift','registration',$notificationContent);
 
+
+        $html = '';
+        $html .= Helpers::welcomeEmailContent($request->name);
+        $subject = "Welcome to FUTURE LIFT - Your Partner in Career Success!";
+        $mailSend = Helpers::phpMailerMailSend($request->email,$request->name,$subject,$html);
+
         /////////// SSO login ///////////////
 
         $remember = true;
@@ -253,6 +259,11 @@ class AuthController extends Controller
 
             $notificationContent = "Welcome to FutureLift!  We're thrilled to have you join us. Explore, discover, and make the most of your journey here. If you have any questions or need assistance, don't hesitate to ask. Happy browsing!";
             Helpers::addUserNotification($user->id,'user_registration','Welcome to FutureLift','registration',$notificationContent);
+
+            $html = '';
+            $html .= Helpers::welcomeEmailContent($userData->name);
+            $subject = "Welcome to FUTURE LIFT - Your Partner in Career Success!";
+            $mailSend = Helpers::phpMailerMailSend($userData->email,$userData->name,$subject,$html);
 
             $remember = true;
             if(Auth::guard('user')->attempt(['email' => $user->email, 'password' => $pass , 'role' => 'user'],$remember)){

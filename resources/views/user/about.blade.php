@@ -64,7 +64,7 @@
                         </div>
                       </div>
                       <div class="about_text_blow">
-                        <p>in 4 teens in India suffers from depression. - World Health Organisation (2015)</p>
+                        <p>70% of professionals in India are unhappy and frustrated with their careers. -- Society for Human Resource Management 2022.</p>
                       </div>
                     </div>
                   </div>
@@ -77,7 +77,7 @@
                         </div>
                       </div>
                       <div class="about_text_blow">
-                        <p>26 students commit suicide in India on a daily basis. - Indian Crime Records Bureau (2017)</p>
+                        <p>54 million young Indians struggle to find suitable employment due to a mismatch between their qualifications and available job opportunities. -- World Bank 2022.</p>
                       </div>
                     </div>
                   </div>
@@ -90,7 +90,7 @@
                         </div>
                       </div>
                       <div class="about_text_blow">
-                        <p>57% of India's working population is unhappy and frustrated with the careers they are pursuing.</p>
+                        <p>51% of professionals in India believe that they would be happier in their careers if they had received proper guidance when making career decisions.</p>
                       </div>
                     </div>
                   </div>

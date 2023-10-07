@@ -200,11 +200,9 @@ class HomeController extends Controller
         $linkGenerate = base64_encode($uniqueCode);
         $url = url('/password-set/'.$Iddecode.'/'.$linkGenerate.'/'.$uniqueCode2);
 
-        $subject = "Forget Your Password";
-
-        $html = "";
-        $html .= '<p>Hello '.$exits->name.'</p>';
-        $html .= '<p>Your password reset link : <a href="'.$url.'">'.$url.'</a></p>';
+        $html = '';
+        $html .= Helpers::forgotPasswordEmailContent($exits->name,$url);
+        $subject = "Reset Your FUTURE LIFT Password";
 
         $mailSend = Helpers::phpMailerMailSend($request->email,$exits->name,$subject,$html);
 
@@ -456,5 +454,14 @@ class HomeController extends Controller
     public function indexUserNotification(){
         $notification = UserNotification::where('userId',Auth::guard('user')->user()->id)->orderBy('id','DESC')->get();
         return view('user.Dashboard.user-notification-list',compact(['notification']));
+    }
+    public function indextest(Request $request){
+        $html = '';
+    	$html .= Helpers::mailHeader();
+        $html .= Helpers::blogMailContent('Blog Title',asset('assets/images/blog-1.webp'),'https://www.facebook.com/Future-Lift-Education-PVT-LTD-112127913993548');
+        $html .= Helpers::mailFooter();
+
+
+        echo $html;
     }
 }

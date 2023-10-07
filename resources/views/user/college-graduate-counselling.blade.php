@@ -106,7 +106,7 @@
         <!-- Counselling Journey Section Start -->
         <div class="counsellingJourneySection">
           <div class="counsellingJourneyContent">
-            <p>Book Personalized Career Session!</p>
+            <p>InstantAdvice Career Session!</p>
             <p>
               It helps to understand oneself, world of work, set professional
               goals and then develop a career path to achieve them.
@@ -125,7 +125,7 @@
           <div class="callExpertBottom">
             <div class="callExpertBottomContent">
               <p>Have any Questions?</p>
-              <p>Book Personalized Career Session</p>
+              <p>InstantAdvice Career Session</p>
               <p>Get help in choosing the right career,course and College</p>
               <button class="callExpertBottombtn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Know More</button>
             </div>

@@ -25,6 +25,11 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('Dashboard/assets/images/favicon.png')}}" />
     @yield('csss')
+    <style>
+        .swal-text{
+            text-align:center !important;
+        }
+    </style>
   </head>
   <body>
     <div class="container-scroller">

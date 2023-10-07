@@ -20,7 +20,11 @@
               </nav>
             </div>
             <div class="row">
-            @if ($sessionHas > 0)
+                @php
+                    $percentageData = App\Helpers::profileCompletePercentage();
+                    $percentage = $percentageData['percentage'];
+                @endphp
+            @if ($sessionHas > 0 && $percentage == 100)
                 @foreach ($allData as $key => $value)
                     <div class="col-md-4 grid-margin stretch-card">
                         <div class="card dash_card">
@@ -252,6 +256,22 @@
         $("#sesionPopUp").modal('show');
     </script>
 @endif
+
+@if ($sessionHas > 0 && $percentage != 100)
+    <script>
+        swal({
+                title: 'Profile Completion Alert!',
+                text: 'Your profile is almost complete! To get the most out of your experience on FutureLift, we recommend finishing your profile. Completing your profile helps you connect better with others and discover relevant opportunities.',
+                icon: 'warning',
+                buttons: ["Cancel", "Go To Profile"],
+                }).then(function(value) {
+                if (value) {
+                window.location.href = "<?=url('/user-profile')?>";
+                }
+            });
+    </script>
+@endif
+
 
 <script>
     function popupModalClose(){

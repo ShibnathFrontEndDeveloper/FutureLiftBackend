@@ -9,7 +9,7 @@
               <h3 class="page-title"> Refar and Earn</h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="/Dashboard/dash.html">Dashboard</a></li>
+                  <li class="breadcrumb-item"><a href="{{url('/user-dashboard')}}">Dashboard</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Refar and earn</li>
                 </ol>
               </nav>
@@ -189,7 +189,7 @@
                       <input type="tel" placeholder="Mobile" class="form-control" required>
                     </div> -->
                     <div class="form-group">
-                      <input type="text" name="subject" class="form-control" placeholder="Subject: Referral Code - Invitation to Join Futurelit" disabled>
+                      <input type="text" name="subject" class="form-control" placeholder="Subject: Join Me on FUTURE LIFT - Unlock Your Career Potential!" disabled>
                     </div>
                     <div class="msg_refer_box">
                       <p>I discovered my perfect career with Mindler. You can, too!</p>

@@ -14,3 +14,7 @@ composer.lock
 /public/assets/blog_images
 /public/assets/testimonial_images
 /public/assets/user_images
+/public/assets/marksheets
+/bootstrap/cache
+/bootstrap/cache/config.php
+/bootstrap/cache/routes-v7.php

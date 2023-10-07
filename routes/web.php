@@ -59,6 +59,7 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::get('/change-password',[AuthController::class , 'indexChangePassword']);
     Route::post('/user/updatePassword',[AuthController::class , 'updatePasswordFun']);
     Route::get('/notification',[HomeController::class , 'indexUserNotification']);
+    Route::get('/test',[HomeController::class , 'indextest']);
 });
 
 Route::get('/eight-ten-counselling',[HomeController::class , 'indexEightTenCoun']);

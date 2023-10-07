@@ -72,10 +72,7 @@ class ReferController extends Controller
 
         $referLink = url('refer-user/'.Auth::guard('user')->user()->code);
 
-        $subject = "Referral Code - Invitation to Join Futurelit";
-        $html = '';
-        $html .= '<p>Hello '.$request->mailer_name.'</p>';
-        $html .= '<p>Your Referral Link is : '.$referLink.'</p>';
+        $subject = "Join Me on FUTURE LIFT - Unlock Your Career Potential!";
 
         $referMail = new ReferMailHistory();
         $referMail->refer_email = $request->mailer_mail;
@@ -83,7 +80,8 @@ class ReferController extends Controller
         $referMail->userId = Auth::guard('user')->user()->id;
         $referMail->save();
 
-
+        $html = '';
+        $html .= Helpers::referMailContent($request->mailer_name,$referLink);
         $mailSend = Helpers::phpMailerMailSend($request->mailer_mail,$request->mailer_name,$subject,$html);
 
         Toastr::success('Mail sent successfully','success');

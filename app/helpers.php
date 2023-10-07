@@ -18,6 +18,7 @@ use App\Models\MenuAccess;
 use App\Models\Menu;
 use App\Models\BlogCategory;
 use App\Models\UserNotification;
+use App\Models\User_information;
 
 class Helpers
 {
@@ -32,33 +33,47 @@ class Helpers
     }
     public static function mailHeader(){
     	$html = '';
-    	$html .= '<table width="100%" style="background-color: #5a5a5a;color:white;">';
+    	$html .= '<table width="100%" style="padding-right:100px;">';
     	$html .= 	'<tr>';
-    	$html .= 		'<td style="padding: 55px;"><h1>FutureLift</h1></td>';
+    	$html .= 		'<td style="padding: 55px;text-align:right"><img style="width:158px;" src="'.asset('/assets/images/new_blak_logo.webp').'"></td>';
     	$html .= 	'</tr>';
     	$html .= '</table>';
+        $html .= '<table width="100%" style="padding-left: 100px;padding-right: 100px;padding-bottom: 20px;padding-top: 0px;">';
+        $html .= 	'<tr>';
+        $html .= 		'<td>';
 
     	return $html;
     }
     public static function mailFooter(){
     	$html = '';
-    	$html .= '<div style="background-color: #5a5a5a;color:white;padding:55px;width:100%;">';
-    	$html .= 	'<table  style="width:100%;">';
+    	$html .= 		'</td>';
+        $html .= 	'</tr>';
+        $html .= '</table>';
+    	$html .= 	'<table  style="width:100%;padding-left:100px;">';
     	$html .= 		'<tr>';
-    	$html .= 			'<td style="float:left;"><h3>Contact Us</h3></td>';
-    	$html .= 			'<td style="float:right;"><a href="#"><img src="'.asset('/assets/img/mail_logo.png').'"></a></td>';
+    	$html .= 			'<td style="float:left;"><p>Thank you for choosing FUTURE LIFT for your career counseling needs. We are here to assist you on your journey to success, and we are committed to ensuring your account security</p></td>';
     	$html .= 		'</tr>';
     	$html .= 		'<tr>';
-    	$html .= 			'<td style="float:left;"><p>Email : admin@gmail.com</h3></p>';
+    	$html .= 			'<td style="float:left;"><p>Warm regards,</p>';
+        $html .= 		        '<p>Mr. Rahul Dubey</p>';
+        $html .= 		        '<p>Founder, Future Lift</p>';
+        $html .= 		    '</td>';
+    	$html .= 		'</tr>';
+        $html .= 	'</table>';
+        $html .= 	'<table  style="width:100%;">';
+    	$html .= 		'<tr>';
+    	$html .= 			'<td style="text-align:center;"><h3><b>Follow us yet?</b></h3></td>';
     	$html .= 		'</tr>';
     	$html .= 		'<tr>';
-    	$html .= 			'<td style="float:left;"><p>Phone Number : 9876543210</h3></p>';
-    	$html .= 		'</tr>';
-    	$html .= 		'<tr>';
-    	$html .= 			'<td style="text-align:center"><p>copy right @2023</h3></p>';
+    	$html .= 			'<td style="text-align:center;padding-top: 20px;">';
+        $html .= 		        '<a href="https://www.facebook.com/Future-Lift-Education-PVT-LTD-112127913993548/"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/facebook.png').'"></a>';
+        $html .= 		        '<a href="https://www.instagram.com/invites/contact/?i=2nxyq2sxhhyi&utm_content=7k4l34c"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/insta.png').'"></a>';
+        $html .= 		        '<a href="https://twitter.com/Futurelift_edu?s=09"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/tweeter.png').'"></a>';
+        $html .= 		        '<a href="https://youtube.com/channel/UCvY_1Aon-HqSHzqWwvIU2zQ"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/youtube.png').'"></a>';
+        $html .= 		        '<a href="https://www.linkedin.com/company/futurelift-duication"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/linkedin.png').'"></a>';
+        $html .= 		    '</td>';
     	$html .= 		'</tr>';
     	$html .= 	'</table>';
-    	$html .= '</div>';
 
     	return $html;
     }
@@ -512,6 +527,286 @@ class Helpers
     public static function getUserNotificationList($userId) {
         $notification = UserNotification::where('userId',$userId)->orderBy('id','DESC')->limit(3)->get();
         return $notification;
+    }
+    public static function profileCompletePercentage(){
+        $dataCount = User_information::where('userId',Auth::guard('user')->user()->id)->get()->count();
+        $totalField = 19;
+        $percentage = 0;
+        $completed = 0;
+        $personal = 0;
+        $education = 0;
+        $family = 0;
+        $academic = 0;
+        if($dataCount > 0){
+            $data = User_information::where('userId',Auth::guard('user')->user()->id)->first();
+            // if($data->father_name){
+            //     $completed = $completed + 1;
+            //     $personal = $personal + 1;
+            // }
+            // if($data->mother_name){
+            //     $completed = $completed + 1;
+            //     $personal = $personal + 1;
+            // }
+            if($data->profile_image){
+                $completed = $completed + 1;
+                $personal = $personal + 1;
+            }
+            if($data->dob){
+                $completed = $completed + 1;
+                $personal = $personal + 1;
+            }
+            // if($data->city){
+            //     $completed = $completed + 1;
+            //     $personal = $personal + 1;
+            // }
+            if($data->gender){
+                $completed = $completed + 1;
+                $personal = $personal + 1;
+            }
+            if($data->college){
+                $completed = $completed + 1;
+                $education = $education + 1;
+            }
+            if($data->university){
+                $completed = $completed + 1;
+                $education = $education + 1;
+            }
+            if($data->course){
+                $completed = $completed + 1;
+                $education = $education + 1;
+            }
+            if($data->year_of_passing){
+                $completed = $completed + 1;
+                $education = $education + 1;
+            }
+            if($data->father_guardian_name){
+                $completed = $completed + 1;
+                $family = $family + 1;
+            }
+            if($data->mother_guardian_name){
+                $completed = $completed + 1;
+                $family = $family + 1;
+            }
+            if($data->father_profession){
+                $completed = $completed + 1;
+                $family = $family + 1;
+            }
+            if($data->mother_profession){
+                $completed = $completed + 1;
+                $family = $family + 1;
+            }
+            if(!$data->recent_marksheet){
+                if($data->recent_subject){
+                    if(Helpers::nullCheckingProfileField($data->recent_subject)){
+                        $completed = $completed + 1;
+                        $academic = $academic + 5;
+                    }
+                }
+                if($data->recent_score){
+                    if(Helpers::nullCheckingProfileField($data->recent_score)){
+                        $completed = $completed + 1;
+                        $academic = $academic + 5;
+                    }
+                }
+            }
+            if(!$data->previous_marksheet){
+                if($data->previous_subject){
+                    if(Helpers::nullCheckingProfileField($data->previous_subject)){
+                        $completed = $completed + 1;
+                        $academic = $academic + 5;
+                    }
+                }
+                if($data->previous_score){
+                    if(Helpers::nullCheckingProfileField($data->previous_score)){
+                        $completed = $completed + 1;
+                        $academic = $academic + 5;
+                    }
+                }
+            }
+            if($data->recent_marksheet){
+                $completed = $completed + 1;
+                $academic = $academic + 1;
+            }
+            if($data->previous_marksheet){
+                $completed = $completed + 1;
+                $academic = $academic + 1;
+            }
+        }
+        $user = User::find(Auth::guard('user')->user()->id);
+        if($user->name){
+            $completed = $completed + 1;
+            $personal = $personal + 1;
+        }
+
+        ///// each tab 25%
+
+        if($personal == 4){
+            $percentage = $percentage + 25;
+        }
+        if($education == 4){
+            $percentage = $percentage + 25;
+        }
+        if($family == 4){
+            $percentage = $percentage + 25;
+        }
+        if($academic == 20 || $academic == 2 || $academic == 11){
+            $percentage = $percentage + 25;
+        }
+
+
+        //$percentage = ($completed / $totalField) * 100;
+
+        $setData = [
+            "percentage" => $percentage,
+            "completed" => $completed,
+            "totalField" => $totalField
+        ];
+
+        return $setData;
+    }
+    public static function nullCheckingProfileField($fieldData){
+        $field = false;
+        foreach(json_decode($fieldData,true) as $key => $value){
+            if($value!=null){
+                $field = true;
+                break;
+            }
+        }
+        return $field;
+    }
+    public static function welcomeEmailContent($name){
+        $html = '';
+        $html .= '<p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong>Dear '.$name.',</strong></span></span></p>
+
+        <p>&nbsp;</p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif">We are thrilled to welcome you to Future Lift, your trusted partner on your journey towards a successful and fulfilling career. We understand that choosing the right path can be a significant step, and we are here to guide and support you every step of the way.</span></span></p>
+
+        <p>&nbsp;</p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif">At Future Lift, we believe that each student is unique, with their own aspirations, strengths, and dreams. Our mission is to empower you to make informed decisions about your future, discover your passions, and chart a course that leads to success and happiness.</span></span></p>
+
+        <p>&nbsp;</p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong><span dir="ltr" lang="EN" style="color:#c00000">Here&#39;s what you can expect from us:</span></strong></span></span></p>
+
+        <p>&nbsp;</p>
+
+        <ul style="list-style-type:circle">
+            <li><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong>Expert Guidance:</strong> Our team of experienced career counselors and advisors are here to provide you with personalized guidance tailored to your goals. Whether you&#39;re exploring career options, seeking internship opportunities, or planning for further education, we have you covered.</span></span></li>
+        </ul>
+
+        <p>&nbsp;</p>
+
+        <ul style="list-style-type:circle">
+            <li><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong>Comprehensive Resources:</strong> Access a wealth of resources, including articles, webinars, and assessments designed to help you gain insights into various career paths and industries.</span></span></li>
+        </ul>
+
+        <p>&nbsp;</p>
+
+        <ul style="list-style-type:circle">
+            <li><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong>Career Development Workshops:</strong> Join our interactive workshops and seminars to enhance your skills, from resume building and interview preparation to networking strategies.</span></span></li>
+        </ul>
+
+        <p>&nbsp;</p>
+
+        <ul style="list-style-type:circle">
+            <li><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong>Job and Internship Opportunities:</strong> Stay informed about the latest job and internship openings in your field through our job board and exclusive partnerships with leading companies.</span></span></li>
+        </ul>
+
+        <p>&nbsp;</p>
+
+        <p>&nbsp;</p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif">Once again, welcome to Future Lift. Together, we will make your dreams a reality!</span></span></p>
+        ';
+
+        return $html;
+    }
+    public static function forgotPasswordEmailContent($name,$link){
+        $html = '';
+        $html .= '<p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">Dear '.$name.',</span></span></span></p>
+
+        <p>&nbsp;</p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">We hope this message finds you well. It appears that you&#39;ve forgotten your password for your FUTURE LIFT account. Not to worry, we&#39;re here to help you regain access to your account.</span></span></span></p>
+
+        <p>&nbsp;</p>
+
+        <p style="text-align:center"><a href="'.$link.'"><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong><span dir="ltr" lang="EN" style="font-size:14.0pt"><span style="background-color:darkblue"><span style="font-family:&quot;Calibri&quot;,sans-serif"><span style="color:white">Reset Password</span></span></span></span></strong></span></span></a></p>
+
+        <p style="text-align:center">&nbsp;</p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">* Must be at least 8 characters long.</span></span></span></p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">* Should include a mix of upper and lower-case letters.</span></span></span></p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">* Should contain at least one number and one special character (e.g., !, @, #, $, etc.).</span></span></span></p>
+
+        <p>&nbsp;</p>
+
+        <p><span dir="ltr" lang="EN" style="font-size:11.0pt"><span style="font-family:&quot;Calibri&quot;,sans-serif">If you did not initiate this password reset or believe this request was made in error, please contact our support team immediately at myfuturelift@gmail.com or +91 8617373674 for further assistance.</span></span></p>
+        ';
+
+        return $html;
+    }
+    public static function referMailContent($name,$link){
+        $html = '';
+        $html .= '<p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">Hey '.$name.',</span></span></span></p>
+
+        <p>&nbsp;</p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">I&#39;ve been using FUTURE LIFT, a fantastic career counseling platform that offers a wide range of resources, guidance, and support to help you navigate your career path effectively. Whether you&#39;re a student looking for internships, a recent graduate seeking job opportunity, or simply someone who wants to explore various career options, FUTURE LIFT has got you covered.</span></span></span></p>
+
+        <p>&nbsp;</p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">Here&#39;s why I think you should check it out:</span></strong></span></span></p>
+
+        <p>&nbsp;</p>
+
+        <ul style="list-style-type:circle">
+            <li><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">Personalized Career Guidance:</span></strong><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif"> FUTURE LIFT offers personalized career counseling sessions with experienced advisors who can help you define and achieve your career goals.</span></span></span></li>
+            <li><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">Rich Resource Library:</span></strong><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif"> You&#39;ll find a treasure trove of articles, webinars, and assessments that provide insights into different industries, job search strategies, and skill development.</span></span></span></li>
+            <li><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">Job and Internship Opportunities</span></strong><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">: The platform regularly updates job listings and internship opportunities, making it easier for you to find and apply for positions in your field of interest.</span></span></span></li>
+        </ul>
+
+        <p>&nbsp;</p>
+
+        <p style="text-align:center">&nbsp;</p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">The best part? If you sign up through my referral link, you&#39;ll receive a special welcome offer! Here&#39;s the link to get started: <strong><em><a href="'.$link.'">'.$link.' </a></em></strong><span style="background-color:darkblue"><span style="color:white"><a href="'.$link.'" style="color:white">Click Here</a></span></span></span></span></span></p>
+
+        <p>&nbsp;</p>
+
+        <p>&nbsp;</p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">I&#39;ve already benefited a lot from using FUTURE LIFT, and I believe you will too. Feel free to reach out if you have any questions or if you&#39;d like to chat about how FUTURE LIFT can help you achieve your career aspirations.</span></span></span></p>
+
+        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">Looking forward to seeing you thrive in your career journey!</span></span></span></p>
+        ';
+
+        return $html;
+    }
+    public static function blogMailContent($title,$image,$link){
+        $html = '';
+        $html .= '<p>&nbsp;</p>
+
+        <p style="text-align:center"><a href="'.$link.'"><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span style="background-color:yellow">'.$title.'</span></span></span></a></p>
+
+        <p style="text-align:center">&nbsp;</p>
+
+        <p style="text-align:center">
+            <a href="'.$link.'"><img style="width:700px;" src="'.$image.'"></a>
+        </p>
+
+        <p style="text-align:center"><a href="'.url('/blog').'"><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong><span style="background-color:darkblue"><span style="color:white">Read More Blogs</span></span></strong></span></span></a></p>
+
+        <p>&nbsp;</p>
+
+        <p><span dir="ltr" lang="EN" style="font-size:11.0pt"><span style="font-family:&quot;Arial&quot;,sans-serif">At FUTURE LIFT, we&#39;re here to support you every step of the way. Explore our platform for a wealth of resources, career counseling sessions, and job opportunities tailored to your interests.</span></span></p>
+        ';
+
+        return $html;
     }
 
 }

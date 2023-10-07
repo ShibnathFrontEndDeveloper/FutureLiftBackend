@@ -447,7 +447,7 @@
         <!-- Career Session Section Start -->
         <div class="session container-fluid d-flex align-items-center">
           <div class="sessionContent">
-            <p>Book Personalized Career Session...</p>
+            <p>InstantAdvice Career Session...</p>
             <p>
               Are you know about your specific career options and career
               opportunities?Like:

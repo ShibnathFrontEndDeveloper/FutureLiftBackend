@@ -178,11 +178,9 @@ class BlogController extends Controller
         $subsEmail = SubscribeEmail::get();
         if($subsEmail->count() > 0){
             foreach ($subsEmail as $subsEmailkey => $subsEmailvalue) {
-                $subject = "Latest Blog";
-                $html = "";
-                $html .= '<p><img style="width:100%;height:900px" src="'.url('/assets/blog_images/'.$blogDetails->image).'"></p>';
-                $html .= '<p><h3>'.$blogDetails->title.'</h3></p>';
-                $html .= '<p><a href="'.url('/blog-details/'.$blogDetails->slug).'"><button style="border: 0;background-color: #0d6efd;color: white;border-radius: 5px;padding: 8px 15px;">Read More</button></a></p>';
+                $html = '';
+                $html .= Helpers::blogMailContent($blogDetails->title,asset('/assets/blog_images/'.$blogDetails->image),url('/blog-details/'.$blogDetails->slug));
+                $subject = $blogDetails->title;
                 $mailSend = Helpers::phpMailerMailSend($subsEmailvalue->email,'Subscriber',$subject,$html);
             }
         }
