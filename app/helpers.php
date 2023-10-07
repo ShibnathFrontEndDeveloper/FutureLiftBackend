@@ -35,7 +35,7 @@ class Helpers
     	$html = '';
     	$html .= '<table width="100%" style="padding-right:100px;">';
     	$html .= 	'<tr>';
-    	$html .= 		'<td style="padding: 55px;text-align:right"><img style="width:158px;" src="'.asset('/assets/images/new_blak_logo.webp').'"></td>';
+    	$html .= 		'<td style="padding: 55px;text-align:right"><img style="width:158px;" src="'.asset('/assets/images/new_blak_logo.png').'"></td>';
     	$html .= 	'</tr>';
     	$html .= '</table>';
         $html .= '<table width="100%" style="padding-left: 100px;padding-right: 100px;padding-bottom: 20px;padding-top: 0px;">';
