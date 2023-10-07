@@ -472,7 +472,7 @@ class Helpers
         // $story_desc = substr($story_desc,0,$chars);
         // $story_desc = substr($story_desc,0,strrpos($story_desc,' '));
         //$story_desc = $story_desc." <a href='#".$modalId."'>Read More...</a>";
-        $story_desc = substr($story_desc, 0, $chars)." <a href='javascript:void(0)' data-toggle='modal' data-target='#".$modalId."' id='readmore".$modalId."'>Read More...</a>";
+        $story_desc = substr($story_desc, 0, $chars)." <a href='javascript:void(0)' onclick='openModal(`".$modalId."`)' id='readmore".$modalId."'>Read More...</a>";
         return $story_desc;
     }
     public static function addUserNotification($userId = 0,$section,$title,$type,$content,$url = "") {

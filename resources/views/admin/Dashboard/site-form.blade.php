@@ -35,23 +35,27 @@
                                 <td>{!! html_entity_decode(App\Helpers::readMoreHelper($queryValue->message,100,'readmoreModal'.$queryKey))!!}</td>
                                 @else
                                 <td>{{$queryValue->message}}</td>
+                                @endif
                                 <td>
                                     <a href="javascript:void(0)" onclick="deleteConfirmQuery('{{$queryValue->id}}')"><i style="font-size:30px;" class="mdi mdi-delete-circle"></i></a>
                                 </td>
-                                @endif
+
                             </tr>
 
-                            <div class="modal popup_box" id="readmoreModal{{$queryKey}}" tabindex="-1" aria-labelledby="readmoreModal{{$queryKey}}" aria-hidden="true">
+
+
+
+                            <div class="modal " id="readmoreModal{{$queryKey}}" tabindex="-1" aria-labelledby="readmoreModal{{$queryKey}}" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content ref_mdal_box">
                                         <div class="modal-header">
                                             <h1 class="modal-title season_header">
                                                 Comment
                                             </h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close"></button>
+                                            <button type="button" onclick="popupModalClose();" class="btn-close" id="close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            {{$queryValue->message}}
+                                        {{$queryValue->message}}
                                         </div>
                                     </div>
                                 </div>
@@ -120,14 +124,14 @@
                             </tr>
 
 
-                            <div class="modal popup_box" id="readmoreModal{{$helpKey}}" tabindex="-1" aria-labelledby="readmoreModal{{$helpKey}}" aria-hidden="true">
+                            <div class="modal " id="readmoreModal{{$helpKey}}" tabindex="-1" aria-labelledby="readmoreModal{{$helpKey}}" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content ref_mdal_box">
                                         <div class="modal-header">
                                             <h1 class="modal-title season_header">
                                                 Comment
                                             </h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close"></button>
+                                            <button type="button" onclick="popupModalClose();" class="btn-close" id="close"></button>
                                         </div>
                                         <div class="modal-body">
                                             {{$helpValue->comment}}
@@ -169,6 +173,18 @@
         if(confirm('Do you want to delete?')){
             window.location.href="{{url('/admin/deleteHelpForm')}}/"+id;
         }
+    }
+    function popupModalClose(){
+        $(".modal").modal().hide();
+        $(".modal").removeClass('show');
+        $(".modal-backdrop").removeClass('modal-backdrop show');
+        // setTimeout(() => {
+        //     $(".modal-backdrop").removeClass('d-none');
+        // }, 1000);
+
+    }
+    function openModal(id){
+        $("#"+id).modal().show();
     }
 </script>
 @endsection
