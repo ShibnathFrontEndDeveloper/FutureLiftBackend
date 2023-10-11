@@ -179,7 +179,7 @@ class BlogController extends Controller
         if($subsEmail->count() > 0){
             foreach ($subsEmail as $subsEmailkey => $subsEmailvalue) {
                 $html = '';
-                $html .= Helpers::blogMailContent($blogDetails->title,asset('/assets/blog_images/'.$blogDetails->image),url('/blog-details/'.$blogDetails->slug),Str::words(strip_tags($blogDetails->content), 30, ' ...'));
+                $html .= Helpers::blogMailContent($blogDetails->title,asset('/assets/blog_images/'.$blogDetails->image),url('/blog-details/'.$blogDetails->slug),Str::words(strip_tags($blogDetails->content), 70, ' ...'));
                 $subject = $blogDetails->title;
                 $mailSend = Helpers::phpMailerMailSend($subsEmailvalue->email,'Subscriber',$subject,$html);
             }
