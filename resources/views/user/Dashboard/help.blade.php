@@ -46,7 +46,7 @@
                             <h4 class="card-title">For any type of help</h4>
                             <p class="card-description">Speek with our expert</p>
                             <a href="tel:+91 8617373674" class="call_btn"><i class="bi bi-telephone-fill"></i>+91 8617373674</a>
-                            <p class="schedule">Mondayn to saturday</p>
+                            <p class="schedule">Monday to Saturday</p>
                             <p class="schedule ">10am - 6pm</p>
                         </div>
                     </div>
