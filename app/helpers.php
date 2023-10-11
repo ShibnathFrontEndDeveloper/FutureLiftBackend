@@ -33,12 +33,12 @@ class Helpers
     }
     public static function mailHeader(){
     	$html = '';
-    	$html .= '<table width="100%" style="padding-right:100px;">';
+    	$html .= '<table width="100%">';
     	$html .= 	'<tr>';
-    	$html .= 		'<td style="padding: 55px;text-align:right"><img style="width:158px;" src="'.asset('/assets/images/new_blak_logo.png').'"></td>';
+    	$html .= 		'<td style="padding: 55px;text-align:center"><img style="width:158px;" src="'.asset('/assets/images/new_blak_logo.png').'"></td>';
     	$html .= 	'</tr>';
     	$html .= '</table>';
-        $html .= '<table width="100%" style="padding-left: 100px;padding-right: 100px;padding-bottom: 20px;padding-top: 0px;">';
+        $html .= '<table width="100%">';
         $html .= 	'<tr>';
         $html .= 		'<td>';
 
@@ -49,7 +49,7 @@ class Helpers
     	$html .= 		'</td>';
         $html .= 	'</tr>';
         $html .= '</table>';
-    	$html .= 	'<table  style="width:100%;padding-left:100px;">';
+    	$html .= 	'<table  style="width:100%;">';
     	$html .= 		'<tr>';
     	$html .= 			'<td style="float:left;"><p>Thank you for choosing FUTURE LIFT for your career counseling needs. We are here to assist you on your journey to success, and we are committed to ensuring your account security</p></td>';
     	$html .= 		'</tr>';
@@ -787,19 +787,23 @@ class Helpers
 
         return $html;
     }
-    public static function blogMailContent($title,$image,$link){
+    public static function blogMailContent($title,$image,$link,$content){
         $html = '';
         $html .= '<p>&nbsp;</p>
 
-        <p style="text-align:center"><a href="'.$link.'"><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span style="background-color:yellow">'.$title.'</span></span></span></a></p>
+        <p style="text-align:center"><a href="'.$link.'"><span style="font-size:14pt;font-weight:900;"><span style="font-family:Arial,sans-serif"><span style="background-color:yellow">'.$title.'</span></span></span></a></p>
 
         <p style="text-align:center">&nbsp;</p>
 
         <p style="text-align:center">
-            <a href="'.$link.'"><img style="width:700px;" src="'.$image.'"></a>
+            <a href="'.$link.'"><img style="width:300px;border-radius:10px;" src="'.$image.'"></a>
         </p>
-
-        <p style="text-align:center"><a href="'.url('/blog').'"><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong><span style="background-color:darkblue"><span style="color:white">Read More Blogs</span></span></strong></span></span></a></p>
+        <div>
+            <p style="text-align:center;font-size:19px;">
+                '.$content.'
+            </p>
+        </div>
+        <p style="text-align:center"><a href="'.url('/blog').'"><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong><span style="background-color:darkblue;padding:8px;margin-top:20px;"><span style="color:white">Read More Blogs</span></span></strong></span></span></a></p>
 
         <p>&nbsp;</p>
 

@@ -456,12 +456,27 @@ class HomeController extends Controller
         return view('user.Dashboard.user-notification-list',compact(['notification']));
     }
     public function indextest(Request $request){
-        $html = '';
-    	$html .= Helpers::mailHeader();
-        $html .= Helpers::blogMailContent('Blog Title',asset('assets/images/blog-1.webp'),'https://www.facebook.com/Future-Lift-Education-PVT-LTD-112127913993548');
-        $html .= Helpers::mailFooter();
+        $blogDetails = Blog::find(41);
 
 
-        echo $html;
+
+
+         $html = '';
+            $htmlT = '';
+    	// $htmlT .= Helpers::mailHeader();
+        // $htmlT .= Helpers::blogMailContent('Blog Title',asset('assets/images/blog-1.webp'),'https://www.facebook.com/Future-Lift-Education-PVT-LTD-112127913993548',Str::words(strip_tags('adasd'), 30, ' ...'));
+        // $htmlT .= Helpers::mailFooter();
+
+
+        $html .= Helpers::blogMailContent($blogDetails->title,asset('/assets/blog_images/'.$blogDetails->image),url('/blog-details/'.$blogDetails->slug),Str::words(strip_tags($blogDetails->content), 70, ' ...'));
+        $subject = $blogDetails->title;
+        $mailSend = Helpers::phpMailerMailSend('','Subscriber',$subject,$html);
+
+        $htmlT .= Helpers::mailHeader();
+        $htmlT .= Helpers::blogMailContent($blogDetails->title,asset('/assets/blog_images/'.$blogDetails->image),url('/blog-details/'.$blogDetails->slug),Str::words(strip_tags($blogDetails->content), 70, ' ...'));
+        $htmlT .= Helpers::mailFooter();
+
+
+        echo $htmlT;
     }
 }

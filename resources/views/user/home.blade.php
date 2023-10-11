@@ -671,7 +671,7 @@
               </h2>
               <div id="collapse{{$faqKey}}" class="accordion-collapse collapse" aria-labelledby="heading{{$faqKey}}" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <p>{{$faqValue->answer}}</p>
+                  <p>{!!$faqValue->answer!!}</p>
                 </div>
               </div>
             </div>

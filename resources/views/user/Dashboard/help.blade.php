@@ -31,7 +31,7 @@
 
                                     <div id="collapseOne{{$faqKey}}" class="collapse" aria-labelledby="headingOne{{$faqKey}}" data-parent="#accordion">
                                         <div class="card-body">
-                                            <p>{{$faqValue->answer}}</p>
+                                            <p>{!!$faqValue->answer!!}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                 <div class="col-md-4 grid-margin stretch-card">
                     <div class="card help_card collapse_card">
                         <div class="card-body text-center">
-                            <h4 class="card-title">For any tpye of help</h4>
+                            <h4 class="card-title">For any type of help</h4>
                             <p class="card-description">Speek with our expert</p>
                             <a href="tel:+91 8617373674" class="call_btn"><i class="bi bi-telephone-fill"></i>+91 8617373674</a>
                             <p class="schedule">Mondayn to saturday</p>

@@ -23,7 +23,6 @@
                         <tr>
                             <th>Sl No</th>
                             <th>Question</th>
-                            <th>Answer</th>
                             <th>Type</th>
                             <th>Action</th>
                         </tr>
@@ -33,7 +32,6 @@
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$value->question}}</td>
-                                <td>{{$value->answer}}</td>
                                 <td>{{($value->type)?ucfirst($value->type):'Basic'}}</td>
                                 <td>
                                     <a href="{{url('admin/faq/edit/'.$value->id)}}"><i style="font-size:30px;" class="mdi mdi-pencil-box-outline"></i></a>
@@ -46,7 +44,6 @@
                         <tr>
                             <th>Sl No</th>
                             <th>Question</th>
-                            <th>Answer</th>
                             <th>Type</th>
                             <th>Action</th>
                         </tr>
