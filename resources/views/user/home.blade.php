@@ -178,7 +178,7 @@
                     <i class="fa-solid fa-people-group"></i>
                   </div>
                   <div class="whyCard-career-1-content" id="whyContent1-career-1">
-                    <p class="whyCard-career-1-text1">1,00,000+ Happy Students</p>
+                    <p class="whyCard-career-1-text1">10,000+ Happy Students</p>
                     <p class="whyCard-career-1-text2 d-none d-sm-block">
                       We have served our service to more than 1 lakh students.
                     </p>

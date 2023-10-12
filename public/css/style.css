@@ -4031,6 +4031,7 @@ About Futurelift ////////////////////////////////////////
   }
   .round_text_box img{
     animation: moving 5s linear infinite;
+    animation-delay: 3s;
   }
   @keyframes moving {
     0%{

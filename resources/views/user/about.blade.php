@@ -60,7 +60,7 @@
                       <div class="round_text_box">
                         <img src="{{asset('assets/images/round_box.png')}}" alt="">
                         <div class="text">
-                          <p>1/2</p>
+                          <p>70%</p>
                         </div>
                       </div>
                       <div class="about_text_blow">
@@ -73,7 +73,7 @@
                       <div class="round_text_box">
                         <img src="{{asset('assets/images/round_box.png')}}" alt="">
                         <div class="text">
-                          <p>26</p>
+                          <p>54</p>
                         </div>
                       </div>
                       <div class="about_text_blow">
@@ -86,7 +86,7 @@
                       <div class="round_text_box">
                         <img src="{{asset('assets/images/round_box.png')}}" alt="">
                         <div class="text">
-                          <p>57%</p>
+                          <p>51%</p>
                         </div>
                       </div>
                       <div class="about_text_blow">
