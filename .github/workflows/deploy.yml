@@ -24,13 +24,13 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        scp -i ssh_key -r ./ ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/var/www/html/FutureLiftBackend
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && composer install --no-interaction --no-dev --optimize-autoloader'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && cp .env.example .env'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan key:generate'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan migrate --force'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan config:cache'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan route:cache'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan optimize'
+        scp -i ${{ secrets.SSH_PRIVATE_KEY }} -r ./ ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/var/www/html/FutureLiftBackend
+        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && composer install --no-interaction --no-dev --optimize-autoloader'
+        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && cp .env.example .env'
+        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan key:generate'
+        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan migrate --force'
+        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan config:cache'
+        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan route:cache'
+        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan optimize'
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
