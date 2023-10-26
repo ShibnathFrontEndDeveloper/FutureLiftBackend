@@ -17,19 +17,19 @@ jobs:
       run: |
         echo "$SSH_PRIVATE_KEY" > ssh_key
         chmod 600 ssh_key
-        ssh-keyscan -t rsa ${{ secrets.EC2_PUBLIC_IP }} >> ~/.ssh/known_hosts
+        # ssh-keyscan -t rsa ${{ secrets.EC2_PUBLIC_IP }} >> ~/.ssh/known_hosts
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Deploy to EC2
       run: |
-        scp -i ssh_key -r ./ ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/var/www/html/laravel-app
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/laravel-app && composer install --no-interaction --no-dev --optimize-autoloader'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/laravel-app && cp .env.example .env'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/laravel-app && php artisan key:generate'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/laravel-app && php artisan migrate --force'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/laravel-app && php artisan config:cache'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/laravel-app && php artisan route:cache'
-        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/laravel-app && php artisan optimize'
+        scp -i ssh_key -r ./ ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/var/www/html/FutureLiftBackend
+        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && composer install --no-interaction --no-dev --optimize-autoloader'
+        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && cp .env.example .env'
+        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan key:generate'
+        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan migrate --force'
+        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan config:cache'
+        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan route:cache'
+        ssh -i ssh_key ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan optimize'
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
