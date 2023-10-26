@@ -24,13 +24,6 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        scp -i ${{ secrets.SSH_PRIVATE_KEY }} -r ./ ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/var/www/html/FutureLiftBackend
-        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && composer install --no-interaction --no-dev --optimize-autoloader'
-        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && cp .env.example .env'
-        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan key:generate'
-        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan migrate --force'
-        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan config:cache'
-        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan route:cache'
-        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && php artisan optimize'
+        ssh -i ~/.ssh/ssh_key -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} 'cd /var/www/html/FutureLiftBackend && git pull && composer install --no-interaction --no-dev --optimize-autoloader && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan optimize'
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        EC2_PUBLIC_IP: ${{ secrets.EC2_PUBLIC_IP }}
