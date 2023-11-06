@@ -82,6 +82,9 @@ Route::get('/blog/blog-tag/{slug}',[HomeController::class , 'indexBlogTagSearch'
 Route::get('/blog/blog-category/{slug}',[HomeController::class , 'indexBlogCategorySearch']);
 Route::get('/blogLike/{id}',[HomeController::class , 'blogLikeFun']);
 Route::get('/blogDislike/{id}',[HomeController::class , 'blogDislikeFun']);
+Route::get('/career-library',[HomeController::class , 'careerLibraryIndex']);
+Route::get('/career-library-details',[HomeController::class , 'careerLibraryDetailsIndex']);
+Route::get('/instant-advice',[HomeController::class , 'InstantAdviceIndex']);
 
 
 

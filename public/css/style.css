@@ -3727,7 +3727,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
       display: none;
     }
   }
-  
+
 
 
 
@@ -3816,6 +3816,119 @@ policy  /////////////////////////////////////
   .navLink_tab:hover{
     color: #fff;
   }
+
+
+  .library_home{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.library_home .headi_search{
+    position: absolute;
+    top: 50%;
+    width: 30%;
+
+}
+.library_home .headi_search .form-control{
+    background-image: url(../assets/images//magnifying-glass_151773.png);
+    background-repeat: no-repeat;
+    background-position:5px, 50%;
+    background-size: 20px;
+    text-indent: 20px;
+}
+
+.library_home .headi_search h5{
+    margin-bottom: 20px;
+    color: #0d0303;
+    text-transform: uppercase;
+    padding: 10px 5px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.libry_banner{
+    height: 500px;
+    overflow: hidden;
+}
+
+.features_pannel{
+    margin-top: 50px;
+}
+.feature_box{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+
+}
+
+.feature_box .img_box{
+    height: 130px;
+    overflow: hidden;
+
+}
+.feature_box .feature_boxDetails{
+    box-shadow: 2px 5px 10px rgba(0,0,0,.5);
+    border-radius: 5px;
+    overflow: hidden;
+}
+.feature_box .textBoxHeading{
+    text-align: center;
+    padding: 10px 0;
+}
+.feature_box .textBoxHeading h5{
+    font-size: 14px;
+    color: darkgrey;
+
+}
+.feature_box a{
+    text-decoration: none;
+}
+
+.featureTabBox .nav{
+    width: 900px;
+}
+.featureTabBox .nav-link{
+    padding: 3px 0;
+    background: #e0e0e0;
+    border-radius: 0;
+    color: #000;
+    text-align: left;
+    padding-left: 10px;
+    border-bottom: 1px solid #989898;
+    font-size: 14px;
+}
+.featureTabBox .nav-link.active{
+background-color: #dc357c;
+border-radius: 0;
+}
+.bestForYou{
+    width: 222px;
+    border: 1px solid #989898 ;
+    border-radius: 3px;
+    padding: 8px;
+    margin-top: 20px;
+}
+.bestForYou h5{
+    color: #d71c6d;
+    font-size: 16px;
+    text-align: center;
+}
+.bestForYou p{
+    font-size: 12px;
+    text-align: center;
+}
+.bestForYou form button{
+    background: #d71c6d;
+    margin-top: 5px;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    color: #fff;
+    padding: 5px 0;
+    border-radius: 3px;
+}
 
 
   @media screen and (max-width:576px) {

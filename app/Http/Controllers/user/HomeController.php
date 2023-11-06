@@ -479,4 +479,13 @@ class HomeController extends Controller
 
         echo $htmlT;
     }
+    public function careerLibraryIndex(){
+        return view('user.career-library');
+    }
+    public function careerLibraryDetailsIndex(){
+        return view('user.career-library-details');
+    }
+    public function InstantAdviceIndex(){
+        return view('user.instant-advice');
+    }
 }
