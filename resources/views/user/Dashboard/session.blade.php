@@ -41,8 +41,23 @@
                                 <button type="button" class="btn border scdle_btn disabled btn-warning">Session Processing</button>
                                 @elseif ($value->status == 'Completed')
                                 <button type="button" class="btn border scdle_btn disabled btn-success">Session Completed</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewReportModal{{$key}}">Session Report</button>
                                 @endif
 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal" id="viewReportModal{{$key}}">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content" style="background-color:#ffffff;color: #000000;">
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Counselling Session Report</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                {!!$value->counselling_report!!}
+                                </div>
                             </div>
                         </div>
                     </div>

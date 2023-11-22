@@ -108,7 +108,9 @@ Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::post('/userEdit',[UserController::class , 'userEditFun']);
     Route::get('/book-session/{show}',[MainController::class , 'indexBookSession'])->name('booksessionAddEdit')->middleware('adminUrlCheck');
     Route::get('/counselling-session/{show}',[MainController::class , 'indexCounsellingSession'])->name('counsellingSession')->middleware('adminUrlCheck');
-    Route::get('/mark-done/{id}/{userId}/{package_id}',[MainController::class , 'markDoneCounselling']);
+    // Route::get('/mark-done/{id}/{userId}/{package_id}',[MainController::class , 'markDoneCounselling']);
+    Route::post('/mark-done',[MainController::class , 'markDoneCounselling']);
+    Route::post('/assign-counselor-session',[MainController::class , 'assignCounselorSession']);
     Route::post('/session-complete',[MainController::class , 'sessionCompleteFun']);
     Route::get('/user-details/{show}/{id}',[MainController::class , 'indexUserDetails'])->name('userDetails')->middleware('adminUrlCheck');
     Route::get('/faq/{show}',[FaqController::class , 'indexFaq'])->name('faqAddList')->middleware('adminUrlCheck');

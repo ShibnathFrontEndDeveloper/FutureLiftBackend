@@ -17,6 +17,9 @@ use App\Models\User_information;
 use App\Models\HelpForm;
 use App\Models\QueryForm;
 use App\Models\SubscribeEmail;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Role;
+use App\Models\UserRole;
 
 class MainController extends Controller
 {
@@ -30,15 +33,50 @@ class MainController extends Controller
     }
     public function indexCounsellingSession($show){
         if($show == "list"){
-            $sessionList = SessionHistory::where('package_status','active')->orderByRaw("FIELD(status , 'Pending','Active','Completed','Processing') DESC")->get();
-            return view('admin.Dashboard.counselling-session',compact(['sessionList']));
+            $roleName = Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id);
+            if($roleName == 'Admin' || $roleName == 'Super Admin'){
+                $sessionList = SessionHistory::where('package_status','active')->orderByRaw("FIELD(status , 'Pending','Active','Completed','Processing') DESC")->get();
+            }else{
+                $sessionList = SessionHistory::where('package_status','active')->where('assign_user',Auth::guard('admin')->user()->id)->orderByRaw("FIELD(status , 'Pending','Active','Completed','Processing') DESC")->get();
+            }
+
+
+            $role = Role::where('name','Counselor')->first();
+            $counselorList = [];
+            if($role){
+                $roleWiseUser = UserRole::select('userId')->where('roleId',$role->id)->pluck('userId');
+                if($roleWiseUser){
+                    $counselorList = User::whereIn('id',$roleWiseUser)->get();
+                }
+            }
+
+
+            return view('admin.Dashboard.counselling-session',compact(['sessionList','counselorList']));
         }else{
             return view('admin.Dashboard.404');
         }
     }
-    public function markDoneCounselling($id,$userId,$package_id){
+    public function markDoneCounselling(Request $request){
+        $id = $request->id;
+        $userId = $request->userId;
+        $package_id = $request->package_id;
+
+        $validator = Validator::make($request->all(), [
+            'counselling_report' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error($value[0],'error');
+        	}
+        	return back();
+        }
+
+
         $update = SessionHistory::find($id);
         $update->status = "Completed";
+        $update->counselling_report = $request->counselling_report;
         $update->save();
 
         if($update){
@@ -54,6 +92,27 @@ class MainController extends Controller
         Helpers::addUserNotification($userId,'counselling_session_complete','Counselling Session Completed','career_session_complete',$notificationContent);
 
         Toastr::success('Counselling session updated successfully','success');
+        return Redirect('/admin/counselling-session/list');
+    }
+
+    public function assignCounselorSession(Request $request){
+        $validator = Validator::make($request->all(), [
+            'assign_user' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error('Please select counselor!','error');
+        	}
+        	return back();
+        }
+
+        $update = SessionHistory::find($request->id);
+        $update->assign_user = $request->assign_user;
+        $update->save();
+
+        Toastr::success('Counselling session assign successfully','success');
         return Redirect('/admin/counselling-session/list');
     }
 

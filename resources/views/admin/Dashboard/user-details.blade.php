@@ -217,8 +217,28 @@
                                     @endif
                                         <td>Session {{$userSessionHistoryDataKey + 1}}</td>
                                         <td>{{($userSessionHistoryDataValue->session_date_time)?date('l jS F Y h:i A',strtotime($userSessionHistoryDataValue->session_date_time)):'N/A'}}</td>
-                                        <td>{{$userSessionHistoryDataValue->status}}</td>
+                                        <td>
+                                            {{$userSessionHistoryDataValue->status}}
+
+                                            @if ($userSessionHistoryDataValue->status == 'Completed')
+                                                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#viewReportModal{{$userSessionHistoryDataKey}}">View Report</button>
+                                            @endif
+                                        </td>
                                     </tr>
+
+                                    <div class="modal" id="viewReportModal{{$userSessionHistoryDataKey}}">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content" style="background-color:#ffffff;">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Counselling Session Report</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                {!!$userSessionHistoryDataValue->counselling_report!!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     @endforeach
                                 @endif
                             </tbody>

@@ -32,7 +32,7 @@
                                 <td>{{$key + 1}}</td>
                                 <td>{{$value->name}}</td>
                                 <td>
-                                    @if ($value->name != 'Super Admin')
+                                    @if ($value->name != 'Super Admin' && $value->name != 'Counselor')
                                         <a href="{{url('admin/role/edit/'.$value->id)}}"><i style="font-size:30px;" class="mdi mdi-pencil-box-outline"></i></a>
                                         <a href="{{url('admin/menu-access/list/'.$value->id)}}"><i style="font-size:30px;" class="mdi mdi-menu"></i></button>
                                     @endif
