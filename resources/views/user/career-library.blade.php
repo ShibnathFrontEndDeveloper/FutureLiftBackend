@@ -62,7 +62,7 @@
                         <div class="tab-content" id="v-pills-tabContent">
                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                 <div class="feature_box">
-                                    <a href="">
+                                    <a href="{{url('/career-library-details')}}">
                                         <div class="feature_boxDetails">
                                             <div class="img_box">
                                                 <img src="{{asset('assets/images/2011.i511.025_tailoring modeling flat.jpg')}}" alt=""class="img-fluid">

@@ -452,20 +452,21 @@
               Are you know about your specific career options and career
               opportunities?Like:
             </p>
-            <ul class="row">
+            <ul class="row mb-5">
               <li class="col-6">Career Threats</li>
               <li class="col-6">Career Details</li>
               <li class="col-6">Career Road Maps</li>
               <li class="col-6">Career Paths</li>
             </ul>
 
-            <button
+            <!-- <button
               class="sessionBtn"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
             >
             Take Instant Advice
-            </button>
+            </button> -->
+            <a href="{{url('/instant-advice')}}" class="adviceButton">Take a tour</a>
           </div>
           <div class="sessionImg">
             <img

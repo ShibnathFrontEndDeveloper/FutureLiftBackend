@@ -21099,7 +21099,9 @@ position: fixed;}
       margin-top: 0;
       padding: 0 0 0 3.25rem;
       list-style: none; 
-      height: 50px;
+      height: 60px;
+      overflow: auto;
+      overflow-y: hidden;
     
     }
       .sidebar .nav.sub-menu .nav-item {
