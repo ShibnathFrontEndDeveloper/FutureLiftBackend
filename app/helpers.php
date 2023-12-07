@@ -19,6 +19,7 @@ use App\Models\Menu;
 use App\Models\BlogCategory;
 use App\Models\UserNotification;
 use App\Models\User_information;
+use App\Models\CareerLibraryDetails;
 
 class Helpers
 {
@@ -435,6 +436,62 @@ class Helpers
                 }
                 return $flag;
                 break;
+            case 'careerLibraryCategoryAddList':
+                $flag = false;
+                $check = Helpers::accessHasCheck([14]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'careerLibraryCategoryEdit':
+                $flag = false;
+                $check = Helpers::accessHasCheck([14]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'careerLibraryCategoryAdd':
+                $flag = false;
+                $check = Helpers::accessHasCheck([14]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'CareerLibraryCategoryDelete':
+                $flag = false;
+                $check = Helpers::accessHasCheck([14]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'careerLibraryAddList':
+                $flag = false;
+                $check = Helpers::accessHasCheck([15]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'careerLibraryEdit':
+                $flag = false;
+                $check = Helpers::accessHasCheck([15]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'CareerLibraryDelete':
+                $flag = false;
+                $check = Helpers::accessHasCheck([15]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
 
             default:
                 # code...
@@ -811,6 +868,19 @@ class Helpers
         ';
 
         return $html;
+    }
+    public static function anyArrayFieldNullChecking($array){
+        $flag = false;
+        foreach ($array as $key => $value) {
+            if($value == ''){
+                $flag = true;
+                break;
+            }
+        }
+        return $flag;
+    }
+    public static function getCategoryWiseLibraryList($categoryId){
+       return $list = CareerLibraryDetails::where('category',$categoryId)->get();
     }
 
 }

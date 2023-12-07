@@ -30,7 +30,8 @@ use App\Models\BlogView;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
 use App\Models\UserNotification;
-
+use App\Models\CareerLibraryCategory;
+use App\Models\CareerLibraryDetails;
 
 class HomeController extends Controller
 {
@@ -480,12 +481,69 @@ class HomeController extends Controller
         echo $htmlT;
     }
     public function careerLibraryIndex(){
-        return view('user.career-library');
+        $category = CareerLibraryCategory::get();
+        return view('user.career-library',compact(['category']));
     }
-    public function careerLibraryDetailsIndex(){
-        return view('user.career-library-details');
+    public function careerLibraryDetailsIndex($slug){
+        $data = CareerLibraryDetails::where('slug',$slug)->first();
+        return view('user.career-library-details',compact(['data']));
     }
     public function InstantAdviceIndex(){
         return view('user.instant-advice');
+    }
+    public function getLibraryData($key,$categoryId){
+        if($categoryId != 0){
+        $list = Helpers::getCategoryWiseLibraryList($categoryId);
+        ?>
+            <div class="tab-pane fade show active" id="tab-key-<?=$key?>" role="tabpanel" aria-labelledby="tab-key-<?=$key?>">
+                <div class="feature_box">
+        <?php
+        if($list){
+            foreach ($list as $key => $value){
+                ?>
+                    <a href="<?=url('/career-library-details/'.$value->slug)?>">
+                        <div class="feature_boxDetails">
+                            <div class="img_box">
+                                <img src="<?=asset('assets/career_library/'.$value->thumbnail)?>" alt=""class="img-fluid">
+                            </div>
+                            <div class="textBoxHeading">
+                                <h5><?=$value->title?></h5>
+                            </div>
+                        </div>
+                    </a>
+                <?php
+            }
+        }
+        ?>
+                </div>
+            </div>
+        <?php
+        }else{
+            $list = CareerLibraryDetails::get();
+            ?>
+            <div class="tab-pane fade show active" id="tab-key-<?=$key?>" role="tabpanel" aria-labelledby="tab-key-<?=$key?>">
+                <div class="feature_box">
+        <?php
+        if($list){
+            foreach ($list as $key => $value){
+                ?>
+                    <a href="<?=url('/career-library-details/'.$value->slug)?>">
+                        <div class="feature_boxDetails">
+                            <div class="img_box">
+                                <img src="<?=asset('assets/career_library/'.$value->thumbnail)?>" alt=""class="img-fluid">
+                            </div>
+                            <div class="textBoxHeading">
+                                <h5><?=$value->title?></h5>
+                            </div>
+                        </div>
+                    </a>
+                <?php
+            }
+        }
+        ?>
+                </div>
+            </div>
+        <?php
+        }
     }
 }

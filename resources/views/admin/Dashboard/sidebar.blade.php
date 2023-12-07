@@ -73,6 +73,10 @@
         .table-striped tbody tr:nth-of-type(odd) {
             background-color: inherit;
         }
+        .lib-admin-design{
+            padding: 12px;
+            border: 1px solid #00000047;
+        }
     </style>
     @yield('csss')
   </head>
@@ -300,10 +304,10 @@
 
 
     let navbar_target = document.querySelector('.navbar_target');
-      
+
     let mainBodyPannel = document.querySelector('.main-panel');
     navbar_target.onclick = ()=>{
-      
+
       mainBodyPannel.classList.toggle('main_body_margin');
     }
 

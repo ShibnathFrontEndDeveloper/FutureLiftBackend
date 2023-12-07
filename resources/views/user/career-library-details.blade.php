@@ -48,17 +48,15 @@
                 </div>
               </div>
               <div class="col-md-9">
-                <h1 class="career_haeding">Artificial Intelligence and Machine Learning</h1>
+                <h1 class="career_haeding">{{$data->title}}</h1>
                 <div class="career_content_box" id="Summary">
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Summery</h1>
                     <div class="d-flex justify-content-between">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis maiores recusandae provident aperiam atque totam, veniam culpa qui. Esse quos libero quidem autem repellendus molestiae modi blanditiis explicabo cum! Repellat.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis maiores recusandae provident aperiam atque totam, veniam culpa qui. Esse quos libero quidem autem repellendus molestiae modi blanditiis explicabo cum! Repellat.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis maiores recusandae provident aperiam atque totam, veniam culpa qui. Esse quos libero quidem autem repellendus molestiae modi blanditiis explicabo cum! Repellat.
+                    <p>{!!$data->summery_content!!}
                     </p>
-                    
-                    <img src="{{asset('assets/images/library-content.png')}}" alt="" class="img-fluid">
+
+                    <img src="{{asset('assets/career_library/'.$data->summery_image)}}" alt="" class="img-fluid">
                     </div>
                   </div>
                 </div>
@@ -67,36 +65,19 @@
                     <h1><img src="{{asset('assets/images/oppertunityIcon.png')}}" alt="" class="img-fluid">Career Opportunities in Artificial Intelligence and Machine Learning</h1>
                     <div class="accordian_box">
                       <div class="accordion accordion-flush" id="accordionFlushExample">
+                      @foreach (json_decode($data->career_opportunities,true) as $career_opportunitiesKey => $career_opportunitiesValue)
                         <div class="accordion-item">
-                          <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Big Data Engineer
+                          <h2 class="accordion-header" id="flush-heading{{$career_opportunitiesKey}}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{$career_opportunitiesKey}}" aria-expanded="false" aria-controls="flush-collapse{{$career_opportunitiesKey}}">
+                            {{$career_opportunitiesValue['career_op_title']}}
                             </button>
                           </h2>
-                          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+                          <div id="flush-collapse{{$career_opportunitiesKey}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{$career_opportunitiesKey}}" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">{{$career_opportunitiesValue['career_op_content']}}</div>
                           </div>
                         </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="flush-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            Business Intelligence Developer
-                            </button>
-                          </h2>
-                          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="flush-headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            Data Scientist
-                            </button>
-                          </h2>
-                          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-                          </div>
-                        </div>
+                        @endforeach
+
                       </div>
                     </div>
                   </div>
@@ -116,50 +97,19 @@
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach (json_decode($data->career_artificial,true) as $career_artificialKey => $career_artificialValue)
                           <tr>
                             <th>
                               <div class="path_box">
-                                path 1
+                                path {{$career_artificialKey + 1}}
                               </div>
                             </th>
-                            <td>Class XII in Science stream with PCM along with any other subject</td>
-                            <td>B.Tech in Computer science / Software/ Information Technology/ Data science/Electrical and Electronics/Robotics /Artificial Intelligence/ AI&ML and more</td>
-                            <td>M.Tech in Computer science / Software/ Information Technology/ Data science/Artificial Intelligence/ AI&ML and more</td>
-                            <td>Pursue Ph.D in Computer Science Computer Science /Software/Information Technology/ Data science/Artificial Intelligence/ AI&ML /Deep learning and more</td>
+                            <td>{{$career_artificialValue['career_stream']}}</td>
+                            <td>{{$career_artificialValue['career_graduation']}}</td>
+                            <td>{{$career_artificialValue['career_after_graduation']}}</td>
+                            <td>{{$career_artificialValue['career_post_graduation']}}</td>
                           </tr>
-                          <tr>
-                            <th>
-                              <div class="path_box">
-                                path 2
-                              </div>
-                            </th>
-                            <td>Class XII in Science stream with PCM along with any other subject</td>
-                            <td>B.Tech in Computer science / Software/ Information Technology/ Data science/Electrical and Electronics/Robotics /Artificial Intelligence/ AI&ML and more</td>
-                            <td>M.Tech in Computer science / Software/ Information Technology/ Data science/Artificial Intelligence/ AI&ML and more</td>
-                            <td>Pursue Ph.D in Computer Science Computer Science /Software/Information Technology/ Data science/Artificial Intelligence/ AI&ML /Deep learning and more</td>
-                          </tr>
-                          <tr>
-                            <th>
-                              <div class="path_box">
-                                path 3
-                              </div>
-                            </th>
-                            <td>Class XII in Science stream with PCM along with any other subject</td>
-                            <td>B.Tech in Computer science / Software/ Information Technology/ Data science/Electrical and Electronics/Robotics /Artificial Intelligence/ AI&ML and more</td>
-                            <td>M.Tech in Computer science / Software/ Information Technology/ Data science/Artificial Intelligence/ AI&ML and more</td>
-                            <td>Pursue Ph.D in Computer Science Computer Science /Software/Information Technology/ Data science/Artificial Intelligence/ AI&ML /Deep learning and more</td>
-                          </tr>
-                          <tr>
-                            <th>
-                              <div class="path_box">
-                                path 4
-                              </div>
-                            </th>
-                            <td>Class XII in Science stream with PCM along with any other subject</td>
-                            <td>B.Tech in Computer science / Software/ Information Technology/ Data science/Electrical and Electronics/Robotics /Artificial Intelligence/ AI&ML and more</td>
-                            <td>M.Tech in Computer science / Software/ Information Technology/ Data science/Artificial Intelligence/ AI&ML and more</td>
-                            <td>Pursue Ph.D in Computer Science Computer Science /Software/Information Technology/ Data science/Artificial Intelligence/ AI&ML /Deep learning and more</td>
-                          </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
@@ -169,8 +119,8 @@
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/skillIcon.png')}}" alt="" class="img-fluid">Skills and Qualities</h1>
                     <div class="d-flex justify-content-between">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis maiores recusandae provident aperiam atque totam, veniam culpa qui. Esse quos libero quidem autem repellendus molestiae modi blanditiis explicabo cum! Repellat.</p>
-                    <img src="{{asset('assets/images/library-content.png')}}" alt="" class="img-fluid">
+                    <p>{!!$data->skill_content!!}</p>
+                    <img src="{{asset('assets/career_library/'.$data->skill_image)}}" alt="" class="img-fluid">
                     </div>
                   </div>
                 </div>
@@ -178,8 +128,8 @@
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Occupational Profile</h1>
                     <div class="d-flex justify-content-between">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis maiores recusandae provident aperiam atque totam, veniam culpa qui. Esse quos libero quidem autem repellendus molestiae modi blanditiis explicabo cum! Repellat.</p>
-                    <img src="{{asset('assets/images/library-content.png')}}" alt="" class="img-fluid">
+                    <p>{!!$data->occupational_content!!}</p>
+                    <img src="{{asset('assets/career_library/'.$data->occupational_image)}}" alt="" class="img-fluid">
                     </div>
                   </div>
                 </div>
@@ -187,7 +137,7 @@
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/instituteIcon.png')}}" alt="" class="img-fluid">Landing Indtitute</h1>
                     <p>Top Artificial Intelligence and Machine Learning Institutes in India</p>
-                    
+
                     <div class="careerPath_tabel">
                       <table class="career_tabel institute_table">
                         <thead>
@@ -198,22 +148,24 @@
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach (json_decode($data->landing_indtitute,true) as $landing_indtituteKey => $landing_indtituteValue)
                           <tr>
-                            <td>IIT Hyderabad</td>
-                            <td>Hyderabad</td>
+                            <td>{{$landing_indtituteValue['landing_indtitute_university']}}</td>
+                            <td>{{$landing_indtituteValue['landing_indtitute_location']}}</td>
                             <td>
                               <div class="d-flex align-items-center copy_text">
-                                <a href="#" id="myText">https://www.iith.ac.in/</a>
-                                <button class="ms-3 copy_btn" onclick="copyContent()">Copy</button>
+                                <a href="#" id="myText">{{$landing_indtituteValue['landing_indtitute_website']}}</a>
+                                <button class="ms-3 copy_btn" onclick="copyCodeDynamic(`{{$landing_indtituteValue['landing_indtitute_website']}}`)">Copy</button>
                               </div>
                             </td>
                           </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="career_content_box" id="AbroadInstitute">
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/abrodIcon.png')}}" alt="" class="img-fluid">Abroad Institute</h1>
@@ -227,16 +179,18 @@
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach (json_decode($data->abroad_indtitute,true) as $abroad_indtituteKey => $abroad_indtituteValue)
                           <tr>
-                            <td>University of UK</td>
-                            <td>University of Singapore</td>
+                            <td>{{$abroad_indtituteValue['abroad_indtitute_college']}}</td>
+                            <td>{{$abroad_indtituteValue['abroad_indtitute_location']}}</td>
                             <td>
                               <div class="d-flex align-items-center copy_text">
-                                <a href="#" id="myTextCopy">https://www.iith000kioooo.ac.in/</a>
-                                <button class="ms-3 copy_btn" onclick="copyContentText()">Copy</button>
+                                <a href="#" id="myTextCopy">{{$abroad_indtituteValue['abroad_indtitute_website']}}</a>
+                                <button class="ms-3 copy_btn" onclick="copyCodeDynamic(`{{$abroad_indtituteValue['abroad_indtitute_website']}}`)">Copy</button>
                               </div>
                             </td>
                           </tr>
+                          @endforeach
                         </tbody>
                       </table>
                     </div>
@@ -246,8 +200,8 @@
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Entrance Exam</h1>
                     <div class="d-flex justify-content-between">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis maiores recusandae provident aperiam atque totam, veniam culpa qui. Esse quos libero quidem autem repellendus molestiae modi blanditiis explicabo cum! Repellat.</p>
-                    <img src="{{asset('assets/images/library-content.png')}}" alt="" class="img-fluid">
+                    <p>{!!$data->entrance_exam_content!!}</p>
+                    <img src="{{asset('assets/career_library/'.$data->entrance_exam_image)}}" alt="" class="img-fluid">
                     </div>
                   </div>
                 </div>
@@ -255,8 +209,8 @@
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Industry Trends</h1>
                     <div class="d-flex justify-content-between">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis maiores recusandae provident aperiam atque totam, veniam culpa qui. Esse quos libero quidem autem repellendus molestiae modi blanditiis explicabo cum! Repellat.</p>
-                    <img src="{{asset('assets/images/library-content.png')}}" alt="" class="img-fluid">
+                    <p>{!!$data->industry_trends_content!!}</p>
+                    <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="img-fluid">
                     </div>
                   </div>
                 </div>
@@ -272,7 +226,7 @@
                         <button type="submit">Take a free demo</button>
                     </form>
                 </div>
-                
+
               </div>
             </div>
           </div>
@@ -284,7 +238,7 @@
                   <a href="">Yes</a>
                   <a href="">No</a>
                 </div>
-                
+
               </div>
             </div>
           </div>

@@ -31,7 +31,7 @@ var swiper = new Swiper(".topCollectionSwiper", {
    0:{
     slidesPerView: 1,
    },
-   
+
     768: {
       slidesPerView: 3,
     },
@@ -389,6 +389,21 @@ $(document).ready(function(){
 
     // Copy the text inside the text field
     navigator.clipboard.writeText(copyText1.value);
+    toastr.success('Copied!', 'Success');
+  }
+
+  function copyCodeDynamic(value){
+
+    // Get the text field
+    // let copyText1 = document.getElementById(id);
+
+    // // Select the text field
+    // copyText1.select();
+    // copyText1.setSelectionRange(0, 99999);
+    // For mobile devices
+
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(value);
     toastr.success('Copied!', 'Success');
   }
 

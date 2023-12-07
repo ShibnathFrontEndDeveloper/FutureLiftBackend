@@ -21,6 +21,7 @@ use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\SessionSubscriptionController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\BlogController;
+use App\Http\Controllers\admin\CareerLibraryController;
 
 
 Route::get('/',[HomeController::class , 'indexHome']);
@@ -83,8 +84,9 @@ Route::get('/blog/blog-category/{slug}',[HomeController::class , 'indexBlogCateg
 Route::get('/blogLike/{id}',[HomeController::class , 'blogLikeFun']);
 Route::get('/blogDislike/{id}',[HomeController::class , 'blogDislikeFun']);
 Route::get('/career-library',[HomeController::class , 'careerLibraryIndex']);
-Route::get('/career-library-details',[HomeController::class , 'careerLibraryDetailsIndex']);
+Route::get('/career-library-details/{slug}',[HomeController::class , 'careerLibraryDetailsIndex']);
 Route::get('/instant-advice',[HomeController::class , 'InstantAdviceIndex']);
+Route::get('/get-library-data/{key}/{categoryId}',[HomeController::class , 'getLibraryData']);
 
 
 
@@ -150,6 +152,16 @@ Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::get('/blog-section/{show}/{id}',[BlogController::class , 'indexBlogSectionEdit'])->name('blogSectionEdit')->middleware('adminUrlCheck');
     Route::post('/blogEdit',[BlogController::class , 'blogEditFun']);
     Route::get('/blogDelete/{id}',[BlogController::class , 'blogDeleteFun'])->name('blogSectionDelete')->middleware('adminUrlCheck');
+    Route::get('/career-library-category/{show}',[CareerLibraryController::class , 'indexLibraryCategory'])->name('careerLibraryCategoryAddList')->middleware('adminUrlCheck');
+    Route::post('/CareerLibraryCategoryAdd',[CareerLibraryController::class , 'CareerLibraryCategoryAddFun'])->name('careerLibraryCategoryAdd')->middleware('adminUrlCheck');
+    Route::get('/career-library-category/{show}/{id}',[CareerLibraryController::class , 'indexCareerLibraryCategoryEdit'])->name('careerLibraryCategoryEdit')->middleware('adminUrlCheck');
+    Route::post('/CareerLibraryCategoryEdit',[CareerLibraryController::class , 'CareerLibraryCategoryEditFun']);
+    Route::get('/CareerLibraryCategoryDelete/{id}',[CareerLibraryController::class , 'CareerLibraryCategoryDeleteFun'])->name('CareerLibraryCategoryDelete')->middleware('adminUrlCheck');
+    Route::get('/career-library/{show}',[CareerLibraryController::class , 'indexLibrary'])->name('careerLibraryAddList')->middleware('adminUrlCheck');
+    Route::post('/CareerLibraryAdd',[CareerLibraryController::class , 'CareerLibraryAddFun']);
+    Route::get('/career-library/{show}/{id}',[CareerLibraryController::class , 'indexCareerLibraryEdit'])->name('careerLibraryEdit')->middleware('adminUrlCheck');
+    Route::post('/CareerLibraryEdit',[CareerLibraryController::class , 'CareerLibraryEditFun']);
+    Route::get('/CareerLibraryDelete/{id}',[CareerLibraryController::class , 'CareerLibraryDeleteFun'])->name('CareerLibraryDelete')->middleware('adminUrlCheck');
 });
 
 
