@@ -41,10 +41,15 @@
                         <p>Take world class Assessment test Take world class Assessment test</p>
                       </div>
                     </div>
-                    <form action="" class="addFirm">
-                        <input type="text" placeholder="Your mail address" class="form-control">
+                    @if(Auth::guard('user')->check())
+
+                    @else
+                    <form action="{{url('/user/demo-registration')}}" method="post" class="addFirm">
+                    @csrf
+                    <input type="text" placeholder="Your mail address" name="reg_email" value="{{old('reg_email')}}" class="form-control">
                         <button type="submit">Take a free demo</button>
                     </form>
+                    @endif
                 </div>
               </div>
               <div class="col-md-9">
@@ -120,7 +125,7 @@
                     <h1><img src="{{asset('assets/images/skillIcon.png')}}" alt="" class="img-fluid">Skills and Qualities</h1>
                     <div class="d-flex justify-content-between">
                     <p>{!!$data->skill_content!!}</p>
-                    <img src="{{asset('assets/career_library/'.$data->skill_image)}}" alt="" class="img-fluid">
+                    <!-- <img src="{{asset('assets/career_library/'.$data->skill_image)}}" alt="" class="img-fluid"> -->
                     </div>
                   </div>
                 </div>
@@ -129,7 +134,7 @@
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Occupational Profile</h1>
                     <div class="d-flex justify-content-between">
                     <p>{!!$data->occupational_content!!}</p>
-                    <img src="{{asset('assets/career_library/'.$data->occupational_image)}}" alt="" class="img-fluid">
+                    <!-- <img src="{{asset('assets/career_library/'.$data->occupational_image)}}" alt="" class="img-fluid"> -->
                     </div>
                   </div>
                 </div>
@@ -201,16 +206,22 @@
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Entrance Exam</h1>
                     <div class="d-flex justify-content-between">
                     <p>{!!$data->entrance_exam_content!!}</p>
-                    <img src="{{asset('assets/career_library/'.$data->entrance_exam_image)}}" alt="" class="img-fluid">
+                    <!-- <img src="{{asset('assets/career_library/'.$data->entrance_exam_image)}}" alt="" class="img-fluid"> -->
                     </div>
                   </div>
                 </div>
                 <div class="career_content_box" id="Industry">
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Industry Trends</h1>
-                    <div class="d-flex justify-content-between">
+                    <div class=" justify-content-between">
                     <p>{!!$data->industry_trends_content!!}</p>
-                    <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="img-fluid">
+                    <!-- <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="img-fluid"> -->
+                    @if(Auth::guard('user')->check())
+                    <embed src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" width="100%" height="400" alt="pdf" id="marksheetEm">
+                    @else
+                    <embed src="{{asset('media/sample.pdf')}}" width="100%" height="400" alt="pdf" id="marksheetEm" style="filter: blur(6px);">
+                    <a href="javascript:void(0)" onclick="logInform()" class="btn btn-primary position-relative book_btn">View PDF</a>
+                    @endif
                     </div>
                   </div>
                 </div>
@@ -221,10 +232,15 @@
                         <p>Take world class Assessment test Take world class Assessment test</p>
                       </div>
                     </div>
-                    <form action="" class="addFirm  adrorm_width">
-                        <input type="text" placeholder="Your mail address" class="form-control">
+                    @if(Auth::guard('user')->check())
+
+                    @else
+                    <form action="{{url('/user/demo-registration')}}" method="post" class="addFirm  adrorm_width">
+                    @csrf
+                        <input type="text" placeholder="Your mail address" name="reg_email" value="{{old('reg_email')}}" class="form-control">
                         <button type="submit">Take a free demo</button>
                     </form>
+                    @endif
                 </div>
 
               </div>

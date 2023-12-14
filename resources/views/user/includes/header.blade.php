@@ -121,7 +121,7 @@
               </a>
               <ul class="dropdown-menu"></ul>
             </li> -->
-            <li class="nav-item dropdown sidemenu-a">
+            <!-- <li class="nav-item dropdown sidemenu-a">
               <a class="nav-link dropdown-toggle d-flex align-items-center px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <p class="heading">FUTURE LIFT BLOG</p>
                 <i class="fa-solid fa-angle-right mx-1 mb-1 rotateIcon"></i>
@@ -129,6 +129,12 @@
               <ul class="dropdown-menu">
                 <li><a href="{{url('/blog')}}">Blog</a></li>
               </ul>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link active px-2" aria-current="page" href="{{url('/blog')}}"><p>BLOG</p></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active px-2" aria-current="page" href="{{url('/career-library')}}"><p>CAREER LIBRARY</p></a>
             </li>
             <!-- <li class="px-2 py-1 d-flex align-items-center justify-content-between">
               <p style="color: green; font-weight: 600">REFER AND EARN</p>

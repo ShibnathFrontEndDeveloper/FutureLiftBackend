@@ -127,6 +127,7 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/blog')}}">Blog Career</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/career-library')}}"> Career Library</a></li>
               </ul>
             </div>
           </li>
@@ -141,7 +142,6 @@
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/session')}}"> Sessions</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('/career-library')}}"> Career Library</a></li>
               </ul>
             </div>
           </li>

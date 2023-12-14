@@ -172,9 +172,9 @@
                                     <label for="">Skill Content</label>
                                     <textarea name="skill_content" required class="form-control" id="content1" cols="30" rows="10">{{old('skill_content')}}</textarea>
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group d-none">
                                     <label for="">Skill Image</label>
-                                    <input type="file" class="form-control" name="skill_image" id="skill_image" required>
+                                    <input type="file" class="form-control" name="skill_image" id="skill_image">
                                 </div>
                             </div>
                         </div>
@@ -189,9 +189,9 @@
                                     <label for="">Occupational Content</label>
                                     <textarea name="occupational_content" required class="form-control" id="content2" cols="30" rows="10">{{old('occupational_content')}}</textarea>
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group d-none">
                                     <label for="">Occupational Image</label>
-                                    <input type="file" class="form-control" name="occupational_image" id="occupational_image" required>
+                                    <input type="file" class="form-control" name="occupational_image" id="occupational_image" >
                                 </div>
                             </div>
                         </div>
@@ -266,9 +266,9 @@
                                     <label for="">Entrance Exam Content</label>
                                     <textarea name="entrance_exam_content" required class="form-control" id="content3" cols="30" rows="10">{{old('entrance_exam_content')}}</textarea>
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group d-none">
                                     <label for="">Entrance Exam Image</label>
-                                    <input type="file" class="form-control" name="entrance_exam_image" id="entrance_exam_image" required>
+                                    <input type="file" class="form-control" name="entrance_exam_image" id="entrance_exam_image">
                                 </div>
                             </div>
                         </div>
@@ -284,7 +284,7 @@
                                     <textarea name="industry_trends_content" required class="form-control" id="content4" cols="30" rows="10">{{old('industry_trends_content')}}</textarea>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for="">Industry Trends Image</label>
+                                    <label for="">Industry Trends PDF</label>
                                     <input type="file" class="form-control" name="industry_trends_image" id="industry_trends_image" required>
                                 </div>
                             </div>
@@ -429,7 +429,7 @@
                                     <label for="">Skill Content</label>
                                     <textarea name="skill_content" required class="form-control" id="content1" cols="30" rows="10">{{$data->skill_content}}</textarea>
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group d-none">
                                     <label for="">Skill Image</label>
                                     <input type="file" class="form-control" name="skill_image" id="skill_image">
                                     <img src="{{asset('assets/career_library/'.$data->skill_image)}}" alt="" class="mt-2" width="200">
@@ -447,7 +447,7 @@
                                     <label for="">Occupational Content</label>
                                     <textarea name="occupational_content" required class="form-control" id="content2" cols="30" rows="10">{{$data->occupational_content}}</textarea>
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group d-none">
                                     <label for="">Occupational Image</label>
                                     <input type="file" class="form-control" name="occupational_image" id="occupational_image">
                                     <img src="{{asset('assets/career_library/'.$data->occupational_image)}}" alt="" class="mt-2" width="200">
@@ -529,7 +529,7 @@
                                     <label for="">Entrance Exam Content</label>
                                     <textarea name="entrance_exam_content" required class="form-control" id="content3" cols="30" rows="10">{{$data->entrance_exam_content}}</textarea>
                                 </div>
-                                <div class="col-md-6 form-group">
+                                <div class="col-md-6 form-group d-none">
                                     <label for="">Entrance Exam Image</label>
                                     <input type="file" class="form-control" name="entrance_exam_image" id="entrance_exam_image">
                                     <img src="{{asset('assets/career_library/'.$data->entrance_exam_image)}}" alt="" class="mt-2" width="200">
@@ -548,9 +548,10 @@
                                     <textarea name="industry_trends_content" required class="form-control" id="content4" cols="30" rows="10">{{$data->industry_trends_content}}</textarea>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for="">Industry Trends Image</label>
+                                    <label for="">Industry Trends PDF</label>
                                     <input type="file" class="form-control" name="industry_trends_image" id="industry_trends_image">
-                                    <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="mt-2" width="200">
+                                    <!-- <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="mt-2" width="200"> -->
+                                    <embed src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" width="100%" height="400" alt="pdf" id="marksheetEm">
                                 </div>
                             </div>
                         </div>
