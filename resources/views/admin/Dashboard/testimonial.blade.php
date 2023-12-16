@@ -45,6 +45,8 @@
                                         11-12th class
                                     @elseif ($value->category == 'graduation')
                                         Graduation
+                                    @elseif ($value->category == 'instant_advice')
+                                        Instant Advice
                                     @endif
                                 </td>
                                 <td>{{$value->name}}</td>
@@ -111,6 +113,7 @@
                                 <option value="eight_ten">8-10th class</option>
                                 <option value="eleven_twelve">11-12th class</option>
                                 <option value="graduation">Graduation</option>
+                                <option value="instant_advice">Instant Advice</option>
                             </select>
                         </div>
                         <div class="col-md-6 form-group">
@@ -176,6 +179,7 @@
                                 <option value="eight_ten" {{($testimonial->category == 'eight_ten')?'selected':''}}>8-10th class</option>
                                 <option value="eleven_twelve" {{($testimonial->category == 'eleven_twelve')?'selected':''}}>11-12th class</option>
                                 <option value="graduation" {{($testimonial->category == 'graduation')?'selected':''}}>Graduation</option>
+                                <option value="instant_advice" {{($testimonial->category == 'instant_advice')?'selected':''}}>Instant Advice</option>
                             </select>
                         </div>
                         <div class="col-md-6 form-group">

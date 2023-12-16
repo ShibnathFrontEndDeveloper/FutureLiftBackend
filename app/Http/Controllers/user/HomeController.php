@@ -489,7 +489,10 @@ class HomeController extends Controller
         return view('user.career-library-details',compact(['data']));
     }
     public function InstantAdviceIndex(){
-        return view('user.instant-advice');
+        $faq = Faq::where('type','instant_advice')->get();
+        $studentTestimonial = Testimonial::where('type','student')->where('category','instant_advice')->get();
+        $parentTestimonial = Testimonial::where('type','parent')->where('category','instant_advice')->get();
+        return view('user.instant-advice',compact(['faq','studentTestimonial','parentTestimonial']));
     }
     public function getLibraryData($key,$categoryId){
         if($categoryId != 0){

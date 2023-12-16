@@ -82,6 +82,7 @@
                                 <option value="eight_ten">8-10th class</option>
                                 <option value="eleven_twelve">11-12th class</option>
                                 <option value="graduation">Graduation</option>
+                                <option value="instant_advice">Instant Advice</option>
                             </select>
                         </div>
                         <div class="col-md-12 form-group">
@@ -131,6 +132,7 @@
                                 <option value="eight_ten" {{($faq->type == 'eight_ten')?'selected':''}}>8-10th class</option>
                                 <option value="eleven_twelve" {{($faq->type == 'eleven_twelve')?'selected':''}}>11-12th class</option>
                                 <option value="graduation" {{($faq->type == 'graduation')?'selected':''}}>Graduation</option>
+                                <option value="instant_advice" {{($faq->type == 'instant_advice')?'selected':''}}>Instant Advice</option>
                             </select>
                         </div>
                         <div class="col-md-12 form-group">

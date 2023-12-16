@@ -4016,6 +4016,138 @@
               </div>
             </div>
           </div>
+
+
+          <div class="container-fluid d-flex align-items-center flex-column mb-5">
+        <div class="d-flex align-items-center flex-column px-3">
+            <h1>Why Everyone Love Future Lift!</h1>
+            <p>
+              Our users get value from our services, here they share their
+              experience and thoughts about us.
+            </p>
+          </div>
+         <div class="tab-Section container-fluid d-flex flex-column px-2">
+            <nav
+              class="nav nav-pills d-flex align-items-center align-self-center"
+            >
+              <button
+                type="button"
+                class="nav-link active"
+                data-bs-target="#parents"
+                data-bs-toggle="tab"
+              >
+                Parents
+              </button>
+              <div class="divider"></div>
+              <button
+                type="button"
+                class="nav-link"
+                data-bs-target="#students"
+                data-bs-toggle="tab"
+              >
+                Students
+              </button>
+            </nav>
+            <div class="container">
+              <div class="tab-content swiper container-fluid">
+                <div
+                  class="tab-pane fade show active container-fluid"
+                  id="parents"
+                >
+                  <div class="tabSwiper container-fluid">
+                    <div class="tabCards swiper-wrapper">
+                    @foreach ($parentTestimonial as $parentTestimonialKey => $parentTestimonialValue)
+                        <div class="tabCard swiper-slide">
+                            <div class="tabCardContent">
+                                <div class="tabCrad_img">
+                                    <img src="{{asset('assets/testimonial_images/'.$parentTestimonialValue->image)}}" alt="" />
+                                    <div class="overlay_box"></div>
+                                </div>
+                                <div class="tabCardContentText">
+                                    <p class="parentName">- {{$parentTestimonialValue->name}}</p>
+                                    <div class="rating_star">
+                                        @for ($rating = 0; $rating < $parentTestimonialValue->rating; $rating++)
+                                            <i class="bi bi-star-fill"></i>
+                                        @endfor
+                                    </div>
+                                    <p>
+                                    {{$parentTestimonialValue->content}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    </div>
+                    <div class="swiper-button-next">
+                      <i class="fa fa-solid fa-caret-right"></i>
+                    </div>
+                    <div class="swiper-button-prev">
+                      <i class="fa fa-solid fa-caret-left"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade container-fluid" id="students">
+                  <div class="tabSwiper">
+                    <div class="tabCards swiper-wrapper">
+                    @foreach ($studentTestimonial as $studentTestimonialKey => $studentTestimonialValue)
+                        <div class="tabCard swiper-slide">
+                            <div class="tabCardContent">
+                                <div class="tabCrad_img">
+                                    <img src="{{asset('assets/testimonial_images/'.$studentTestimonialValue->image)}}" alt="" />
+                                    <div class="overlay_box"></div>
+                                </div>
+                                <div class="tabCardContentText">
+                                    <p class="parentName">- {{$studentTestimonialValue->name}}</p>
+                                    <div class="rating_star">
+                                        @for ($rating = 0; $rating < $studentTestimonialValue->rating; $rating++)
+                                            <i class="bi bi-star-fill"></i>
+                                        @endfor
+                                    </div>
+                                    <p>
+                                    {{$studentTestimonialValue->content}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    </div>
+                    <div class="swiper-button-next">
+                      <i class="fa fa-solid fa-caret-right"></i>
+                    </div>
+                    <div class="swiper-button-prev">
+                      <i class="fa fa-solid fa-caret-left"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="container-fluid faqSection">
+          <h1 style="font-weight: bold">FAQ</h1>
+          <div class="accordion" id="accordionExample">
+          @foreach ($faq as $faqKey => $faqValue)
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading{{$faqKey}}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$faqKey}}" aria-expanded="true" aria-controls="collapse{{$faqKey}}">
+                  {{$faqValue->question}}
+                </button>
+              </h2>
+              <div id="collapse{{$faqKey}}" class="accordion-collapse collapse" aria-labelledby="heading{{$faqKey}}" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <p>{!!$faqValue->answer!!}</p>
+                </div>
+              </div>
+            </div>
+            @endforeach
+          </div>
+        </div>
+
+
+
         </div>
       <div id="footer">
       @include('user.includes.footer')
