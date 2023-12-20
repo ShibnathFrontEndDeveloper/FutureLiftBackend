@@ -87,6 +87,8 @@ Route::get('/career-library',[HomeController::class , 'careerLibraryIndex']);
 Route::get('/career-library-details/{slug}',[HomeController::class , 'careerLibraryDetailsIndex']);
 Route::get('/instant-advice',[HomeController::class , 'InstantAdviceIndex']);
 Route::get('/get-library-data/{key}/{categoryId}',[HomeController::class , 'getLibraryData']);
+Route::get('/career-library-post-like/{id}',[HomeController::class , 'careerLibraryPostLike']);
+Route::post('/career-library-post-dislike',[HomeController::class , 'careerLibraryPostDisLike']);
 
 
 

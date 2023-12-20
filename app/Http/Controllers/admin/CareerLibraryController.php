@@ -102,10 +102,12 @@ class CareerLibraryController extends Controller
             // 'skill_image' => 'required',
             'occupational_content' => 'required',
             // 'occupational_image' => 'required',
-            'entrance_exam_content' => 'required',
+            // 'entrance_exam_content' => 'required',
             // 'entrance_exam_image' => 'required',
             'industry_trends_content' => 'required',
             'industry_trends_image' => 'required',
+            'work_description_content' => 'required',
+            'pros_and_cons_content' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -127,7 +129,11 @@ class CareerLibraryController extends Controller
         count($request->landing_indtitute_website) == 0 ||
         count($request->abroad_indtitute_college) == 0 ||
         count($request->abroad_indtitute_location) == 0 ||
-        count($request->abroad_indtitute_website) == 0
+        count($request->abroad_indtitute_website) == 0 ||
+        count($request->entrance_college) == 0 ||
+        count($request->entrance_tentative_date) == 0 ||
+        count($request->entrance_important_elements) == 0 ||
+        count($request->entrance_website) == 0
         ){
             Toastr::error('All fields are mandatory!','error');
             return back();
@@ -144,7 +150,11 @@ class CareerLibraryController extends Controller
         Helpers::anyArrayFieldNullChecking($request->landing_indtitute_website) ||
         Helpers::anyArrayFieldNullChecking($request->abroad_indtitute_college) ||
         Helpers::anyArrayFieldNullChecking($request->abroad_indtitute_location) ||
-        Helpers::anyArrayFieldNullChecking($request->abroad_indtitute_website)
+        Helpers::anyArrayFieldNullChecking($request->abroad_indtitute_website) ||
+        Helpers::anyArrayFieldNullChecking($request->entrance_college) ||
+        Helpers::anyArrayFieldNullChecking($request->entrance_tentative_date) ||
+        Helpers::anyArrayFieldNullChecking($request->entrance_important_elements) ||
+        Helpers::anyArrayFieldNullChecking($request->entrance_website)
         ){
             Toastr::error('All fields are mandatory!','error');
             return back();
@@ -220,6 +230,16 @@ class CareerLibraryController extends Controller
             $abroad_indtitute[$abroad_indtitute_collegekey]['abroad_indtitute_website'] = (isset($request->abroad_indtitute_website[$abroad_indtitute_collegekey]))?$request->abroad_indtitute_website[$abroad_indtitute_collegekey]:'';
         }
 
+        $entrance_college = [];
+        foreach ($request->entrance_college as $entrance_collegekey => $entrance_collegevalue) {
+            $entrance_college[$entrance_collegekey]['entrance_college'] = $entrance_collegevalue;
+            $entrance_college[$entrance_collegekey]['entrance_tentative_date'] = (isset($request->entrance_tentative_date[$entrance_collegekey]))?$request->entrance_tentative_date[$entrance_collegekey]:'';
+            $entrance_college[$entrance_collegekey]['entrance_important_elements'] = (isset($request->entrance_important_elements[$entrance_collegekey]))?$request->entrance_important_elements[$entrance_collegekey]:'';
+            $entrance_college[$entrance_collegekey]['entrance_website'] = (isset($request->entrance_website[$entrance_collegekey]))?$request->entrance_website[$entrance_collegekey]:'';
+
+        }
+
+
 
 
         $CareerLibrary = new CareerLibraryDetails();
@@ -232,7 +252,7 @@ class CareerLibraryController extends Controller
         $CareerLibrary->skill_image = $skill_imageName;
         $CareerLibrary->occupational_content = $request->occupational_content;
         $CareerLibrary->occupational_image = $occupational_imageName;
-        $CareerLibrary->entrance_exam_content = $request->entrance_exam_content;
+        $CareerLibrary->entrance_exam_content = json_encode($entrance_college);
         $CareerLibrary->entrance_exam_image = $entrance_exam_imageName;
         $CareerLibrary->industry_trends_content = $request->industry_trends_content;
         $CareerLibrary->industry_trends_image = $industry_trends_imageName;
@@ -241,6 +261,8 @@ class CareerLibraryController extends Controller
         $CareerLibrary->landing_indtitute = json_encode($landing_indtitute);
         $CareerLibrary->abroad_indtitute = json_encode($abroad_indtitute);
         $CareerLibrary->slug = Str::slug($request->title);
+        $CareerLibrary->work_description_content = $request->work_description_content;
+        $CareerLibrary->pros_and_cons_content = $request->pros_and_cons_content;
         $CareerLibrary->save();
 
         Toastr::success('Career Library added successfully','success');
@@ -264,8 +286,10 @@ class CareerLibraryController extends Controller
             'summery_content' => 'required',
             'skill_content' => 'required',
             'occupational_content' => 'required',
-            'entrance_exam_content' => 'required',
-            'industry_trends_content' => 'required'
+            // 'entrance_exam_content' => 'required',
+            'industry_trends_content' => 'required',
+            'work_description_content' => 'required',
+            'pros_and_cons_content' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -287,7 +311,11 @@ class CareerLibraryController extends Controller
         count($request->landing_indtitute_website) == 0 ||
         count($request->abroad_indtitute_college) == 0 ||
         count($request->abroad_indtitute_location) == 0 ||
-        count($request->abroad_indtitute_website) == 0
+        count($request->abroad_indtitute_website) == 0 ||
+        count($request->entrance_college) == 0 ||
+        count($request->entrance_tentative_date) == 0 ||
+        count($request->entrance_important_elements) == 0 ||
+        count($request->entrance_website) == 0
         ){
             Toastr::error('All fields are mandatory!','error');
             return back();
@@ -305,7 +333,11 @@ class CareerLibraryController extends Controller
         Helpers::anyArrayFieldNullChecking($request->landing_indtitute_website) ||
         Helpers::anyArrayFieldNullChecking($request->abroad_indtitute_college) ||
         Helpers::anyArrayFieldNullChecking($request->abroad_indtitute_location) ||
-        Helpers::anyArrayFieldNullChecking($request->abroad_indtitute_website)
+        Helpers::anyArrayFieldNullChecking($request->abroad_indtitute_website) ||
+        Helpers::anyArrayFieldNullChecking($request->entrance_college) ||
+        Helpers::anyArrayFieldNullChecking($request->entrance_tentative_date) ||
+        Helpers::anyArrayFieldNullChecking($request->entrance_important_elements) ||
+        Helpers::anyArrayFieldNullChecking($request->entrance_website)
         ){
             Toastr::error('All fields are mandatory!','error');
             return back();
@@ -385,6 +417,15 @@ class CareerLibraryController extends Controller
             $abroad_indtitute[$abroad_indtitute_collegekey]['abroad_indtitute_website'] = (isset($request->abroad_indtitute_website[$abroad_indtitute_collegekey]))?$request->abroad_indtitute_website[$abroad_indtitute_collegekey]:'';
         }
 
+        $entrance_college = [];
+        foreach ($request->entrance_college as $entrance_collegekey => $entrance_collegevalue) {
+            $entrance_college[$entrance_collegekey]['entrance_college'] = $entrance_collegevalue;
+            $entrance_college[$entrance_collegekey]['entrance_tentative_date'] = (isset($request->entrance_tentative_date[$entrance_collegekey]))?$request->entrance_tentative_date[$entrance_collegekey]:'';
+            $entrance_college[$entrance_collegekey]['entrance_important_elements'] = (isset($request->entrance_important_elements[$entrance_collegekey]))?$request->entrance_important_elements[$entrance_collegekey]:'';
+            $entrance_college[$entrance_collegekey]['entrance_website'] = (isset($request->entrance_website[$entrance_collegekey]))?$request->entrance_website[$entrance_collegekey]:'';
+
+        }
+
 
         $CareerLibrary = CareerLibraryDetails::find($request->editId);
         $CareerLibrary->category = $request->category;
@@ -396,7 +437,7 @@ class CareerLibraryController extends Controller
         $CareerLibrary->skill_image = $skill_imageName;
         $CareerLibrary->occupational_content = $request->occupational_content;
         $CareerLibrary->occupational_image = $occupational_imageName;
-        $CareerLibrary->entrance_exam_content = $request->entrance_exam_content;
+        $CareerLibrary->entrance_exam_content = json_encode($entrance_college);
         $CareerLibrary->entrance_exam_image = $entrance_exam_imageName;
         $CareerLibrary->industry_trends_content = $request->industry_trends_content;
         $CareerLibrary->industry_trends_image = $industry_trends_imageName;
@@ -405,6 +446,8 @@ class CareerLibraryController extends Controller
         $CareerLibrary->landing_indtitute = json_encode($landing_indtitute);
         $CareerLibrary->abroad_indtitute = json_encode($abroad_indtitute);
         $CareerLibrary->slug = Str::slug($request->title);
+        $CareerLibrary->work_description_content = $request->work_description_content;
+        $CareerLibrary->pros_and_cons_content = $request->pros_and_cons_content;
         $CareerLibrary->save();
 
         Toastr::success('Career Library updated successfully','success');

@@ -33,6 +33,8 @@
                   <li class="career_list_links"><a href="#AbroadInstitute">Abroad Institute</a></li>
                   <li class="career_list_links"><a href="#Entrance">Entrance Exam</a></li>
                   <li class="career_list_links"><a href="#Industry">Industry Trends</a></li>
+                  <li class="career_list_links"><a href="#WorkDescription">Work Description</a></li>
+                  <li class="career_list_links"><a href="#ProsCons">Pros & Cons of a Career</a></li>
                 </ul>
                 <div class=" left_bestForYou">
                     <div class="addbox">
@@ -123,7 +125,7 @@
                 <div class="career_content_box" id="Qualities">
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/skillIcon.png')}}" alt="" class="img-fluid">Skills and Qualities</h1>
-                    <div class="d-flex justify-content-between">
+                    <div class=" justify-content-between">
                     <p>{!!$data->skill_content!!}</p>
                     <!-- <img src="{{asset('assets/career_library/'.$data->skill_image)}}" alt="" class="img-fluid"> -->
                     </div>
@@ -132,7 +134,7 @@
                 <div class="career_content_box" id="Occupational">
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Occupational Profile</h1>
-                    <div class="d-flex justify-content-between">
+                    <div class=" justify-content-between">
                     <p>{!!$data->occupational_content!!}</p>
                     <!-- <img src="{{asset('assets/career_library/'.$data->occupational_image)}}" alt="" class="img-fluid"> -->
                     </div>
@@ -204,9 +206,36 @@
                 <div class="career_content_box" id="Entrance">
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Entrance Exam</h1>
-                    <div class="d-flex justify-content-between">
-                    <p>{!!$data->entrance_exam_content!!}</p>
+                    <!-- <div class="d-flex justify-content-between"> -->
+
                     <!-- <img src="{{asset('assets/career_library/'.$data->entrance_exam_image)}}" alt="" class="img-fluid"> -->
+                    <!-- </div> -->
+                    <div class="careerPath_tabel">
+                      <table class="career_tabel institute_table">
+                        <thead>
+                          <tr>
+                            <th>College</th>
+                            <th>Tentative Date</th>
+                            <th>Important Elements</th>
+                            <th>Website</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (json_decode($data->entrance_exam_content,true) as $entrance_exam_contentKey => $entrance_exam_contentValue)
+                          <tr>
+                            <td>{{$entrance_exam_contentValue['entrance_college']}}</td>
+                            <td>{{$entrance_exam_contentValue['entrance_tentative_date']}}</td>
+                            <td>{{$entrance_exam_contentValue['entrance_important_elements']}}</td>
+                            <td>
+                              <div class="d-flex align-items-center copy_text">
+                                <a href="#" id="myTextCopy">{{$entrance_exam_contentValue['entrance_website']}}</a>
+                                <button class="ms-3 copy_btn" onclick="copyCodeDynamic(`{{$entrance_exam_contentValue['entrance_website']}}`)">Copy</button>
+                              </div>
+                            </td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
@@ -222,6 +251,24 @@
                     <embed src="{{asset('media/sample.pdf')}}" width="100%" height="400" alt="pdf" id="marksheetEm" style="filter: blur(6px);">
                     <a href="javascript:void(0)" onclick="logInform()" class="btn btn-primary position-relative book_btn">View PDF</a>
                     @endif
+                    </div>
+                  </div>
+                </div>
+                <div class="career_content_box" id="WorkDescription">
+                  <div class="career_content_boxDtls">
+                    <h1><img src="{{asset('assets/images/my-icon-7.jpg')}}" alt="" class="img-fluid">Work Description</h1>
+                    <div class=" justify-content-between">
+                    <p>{!!$data->work_description_content!!}</p>
+                    <!-- <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="img-fluid"> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="career_content_box" id="ProsCons">
+                  <div class="career_content_boxDtls">
+                    <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Pros & Cons of a Career</h1>
+                    <div class=" justify-content-between">
+                    <p>{!!$data->pros_and_cons_content!!}</p>
+                    <!-- <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="img-fluid"> -->
                     </div>
                   </div>
                 </div>
@@ -246,18 +293,26 @@
               </div>
             </div>
           </div>
+          @if (App\Models\CareerLibraryVote::canLike($data->id))
           <div class="help_box_part">
             <div class="container">
               <div class="col-md-6">
                 <div class="help_yn_box">
                   <p>Did you find this information helpful?</p>
-                  <a href="">Yes</a>
-                  <a href="">No</a>
+                  <a href="{{url('/career-library-post-like/'.$data->id)}}">Yes</a>
+                  <a href="javascript:void(0)" onclick="voteCommentToggle()">No</a>
+                  <form action="{{url('/career-library-post-dislike')}}" method="post" class="d-none" id="voteForm">
+                    @csrf
+                    <input type="hidden" name="postId" value="{{$data->id}}">
+                    <textarea placeholder="Please enter your comment here" id="" cols="80" rows="5" name="vote_comment" class="form-control"></textarea>
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                  </form>
                 </div>
 
               </div>
             </div>
           </div>
+          @endif
         </section>
       <div id="footer">
       @include('user.includes.footer')
@@ -367,6 +422,10 @@
         function topFunction() {
           document.body.scrollTop = 0;
           document.documentElement.scrollTop = 0;
+        }
+
+        function voteCommentToggle(){
+            $("#voteForm").removeClass('d-none');
         }
     </script>
 

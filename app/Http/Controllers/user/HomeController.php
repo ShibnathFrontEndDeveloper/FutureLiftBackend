@@ -32,6 +32,7 @@ use Illuminate\Support\Str;
 use App\Models\UserNotification;
 use App\Models\CareerLibraryCategory;
 use App\Models\CareerLibraryDetails;
+use App\Models\CareerLibraryVote;
 
 class HomeController extends Controller
 {
@@ -548,5 +549,24 @@ class HomeController extends Controller
             </div>
         <?php
         }
+    }
+    public function careerLibraryPostLike(Request $request){
+        $insert = new CareerLibraryVote();
+        $insert->post_id = $request->id;
+        $insert->is_like = '1';
+        $insert->ip_address = $request->ip();
+        $insert->save();
+        Toastr::success('Thank you for submitting your feedback','success');
+        return back();
+    }
+    public function careerLibraryPostDisLike(Request $request){
+        $insert = new CareerLibraryVote();
+        $insert->post_id = $request->postId;
+        $insert->is_dislike = '1';
+        $insert->ip_address = $request->ip();
+        $insert->comment = $request->vote_comment;
+        $insert->save();
+        Toastr::success('Thank you for submitting your feedback','success');
+        return back();
     }
 }

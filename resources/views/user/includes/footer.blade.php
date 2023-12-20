@@ -264,6 +264,7 @@
                   Already a member? <a href="{{url('/login-signup')}}">Click Here</a>it's easy!
                 </p>
                 @endif
+                <a href="{{url('/instant-advice')}}" target="_blank" class="btn btn-primary btn-sm">Know More</a>
                 <button
                   type="button"
                   class="btn-close"

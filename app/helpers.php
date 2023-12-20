@@ -20,6 +20,7 @@ use App\Models\BlogCategory;
 use App\Models\UserNotification;
 use App\Models\User_information;
 use App\Models\CareerLibraryDetails;
+use App\Models\CareerLibraryVote;
 
 class Helpers
 {
@@ -881,6 +882,18 @@ class Helpers
     }
     public static function getCategoryWiseLibraryList($categoryId){
        return $list = CareerLibraryDetails::where('category',$categoryId)->get();
+    }
+    public static function getCareerLibraryLikeVoteCount($postId){
+        $getCount = CareerLibraryVote::where('is_like','1')->where('post_id',$postId)->get()->count();
+        return $getCount;
+    }
+    public static function getCareerLibraryDisLikeVoteCount($postId){
+        $getCount = CareerLibraryVote::where('is_dislike','1')->where('post_id',$postId)->get()->count();
+        return $getCount;
+    }
+    public static function getCareerLibraryDisLikeComments($postId){
+        $getCount = CareerLibraryVote::select('comment')->where('is_dislike','1')->where('post_id',$postId)->get();
+        return $getCount;
     }
 
 }

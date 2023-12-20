@@ -77,6 +77,12 @@
             padding: 12px;
             border: 1px solid #00000047;
         }
+        .ref_mdal_box {
+            background: #fff;
+            color: rgba(0, 0, 0, 0.5);
+            overflow-y: scroll;
+            height: 350px;
+        }
     </style>
     @yield('csss')
   </head>
