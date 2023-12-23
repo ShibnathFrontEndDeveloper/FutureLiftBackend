@@ -293,7 +293,7 @@
               </div>
             </div>
           </div>
-          @if (App\Models\CareerLibraryVote::canLike($data->id))
+
           <div class="help_box_part">
             <div class="container">
               <div class="col-md-6">
@@ -312,7 +312,7 @@
               </div>
             </div>
           </div>
-          @endif
+
         </section>
       <div id="footer">
       @include('user.includes.footer')
