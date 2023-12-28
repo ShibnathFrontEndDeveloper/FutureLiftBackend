@@ -13,10 +13,10 @@
             <div class="modal-body">
               <div class="sessionModalContent">
                 <div class="modalContentImg">
-                  <img
+                  <!-- <img
                     src="{{asset('assets/images/new new new  black -1-01 (1).png')}}"
                     alt=""
-                  />
+                  /> -->
                   <p>Book Your InstantAdvice Career Session</p>
                 </div>
                 <div class="modalfeatureSwiper swiper">

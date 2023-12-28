@@ -301,10 +301,10 @@
                   <p>Did you find this information helpful?</p>
                   <a href="{{url('/career-library-post-like/'.$data->id)}}">Yes</a>
                   <a href="javascript:void(0)" onclick="voteCommentToggle()">No</a>
-                  <form action="{{url('/career-library-post-dislike')}}" method="post" class="d-none" id="voteForm">
+                  <form action="{{url('/career-library-post-dislike')}}" method="post" class="voteForm d-none" id="voteForm">
                     @csrf
                     <input type="hidden" name="postId" value="{{$data->id}}">
-                    <textarea placeholder="Please enter your comment here" id="" cols="80" rows="5" name="vote_comment" class="form-control"></textarea>
+                    <textarea placeholder="Please enter your comment here" id="" cols="80" rows="3" name="vote_comment" class="form-control"></textarea>
                     <input type="submit" value="Submit" class="btn btn-primary">
                   </form>
                 </div>
@@ -430,7 +430,7 @@
     </script>
 
     <script>
-      // Postion Sticky//
+      // Postion Sticky
       //  let career_list =document.querySelector('.career_list');
       //  window.onscroll=function(e){
       //   window.pageYoffset>10;
@@ -439,12 +439,25 @@
 
 
       //  $(window). scroll(function(){
-      //     if ($(this). scrollTop() > 50) {
-      //     $('.career_list'). addClass('newClass');
+      //     if ($(this).scrollTop() > 50) {
+      //       console.log($(this).scrollTop(),'if');
+      //     $('.career_list').addClass('newClass');
       //     } else {
-      //     $('.career_list'). removeClass('newClass');
+      //       if ($(this).scrollTop() > 2959) {
+      //       console.log($(this).scrollTop(),'else');
+      //       $('.career_list').removeClass('newClass');
+      //     }
       //     }
       //     });
+
+      $(window). scroll(function(){
+            if ($(this).scrollTop() > 2959) {
+              $('.career_list').removeClass('newClass');
+            }else if($(this).scrollTop() > 300){
+              console.log($(this).scrollTop(),'else');
+              $('.career_list').addClass('newClass');
+            }
+          });
     </script>
   </body>
 </html>

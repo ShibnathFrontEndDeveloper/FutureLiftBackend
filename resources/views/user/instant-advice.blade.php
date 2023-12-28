@@ -29,8 +29,8 @@
                     <p>Your Future is Our Pride</p>
                   </div>
                   <div class="linkDiv">
-                    <a href="" class="pkgBtn">View Package</a>
-                    <a href="" class="knoBtn">Know More</a>
+                    <a href="{{url('/price')}}" class="pkgBtn">View Package</a>
+                    <a href="#futureLiftTimeLine" class="knoBtn">Know More</a>
                   </div>
                 </div>
                 <div class="col-md-6 ">
@@ -41,7 +41,7 @@
               </div>
             </div>
           </div>
-          <div class="futureLiftTimeLine">
+          <div class="futureLiftTimeLine" id="futureLiftTimeLine">
             <div class="container">
               <h1 class="text-center mt-5 mb-5">Benefits of Instant Advice</h1>
               <div class="main-timeline">

@@ -264,6 +264,13 @@ a {
   color: white !important;
   padding: 0.8px;
 }
+#header{
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  background: #fff;
+}
 /*.careerPadding {*/
 /*  padding-right: 2.5rem;*/
 /*}*/
@@ -3864,12 +3871,14 @@ policy  /////////////////////////////////////
 
 .features_pannel{
     margin-top: 50px;
+    position: relative;
 }
 .feature_box{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     gap: 20px;
     margin-bottom: 50px;
+    /* margin-left: 50px; */
 
 }
 
@@ -3896,8 +3905,15 @@ policy  /////////////////////////////////////
     text-decoration: none;
 }
 
-.featureTabBox .nav{
+.features_pannel .featureTabBox .nav{
     width: 900px;
+    /* position: absolute;
+    z-index: 100;
+    top: 35%; */
+}
+.sticky{
+  position: fixed;
+  top: 0;
 }
 .featureTabBox .nav-link{
     padding: 3px 0;
@@ -3981,6 +3997,7 @@ border-radius: 0;
 .help_yn_box{
   display: flex;
   align-items: center;
+  position: relative;
 }
 .help_yn_box p{
   margin-bottom: 0;
@@ -3995,6 +4012,12 @@ border-radius: 0;
 .help_yn_box a:hover{
   background: #0a58ca;
   color: #fff;
+}
+.voteForm{
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
 }
 .career_list .career_list_links a{
     display: block;
@@ -4143,7 +4166,18 @@ border-radius: 0;
 }
 
 
-
+@media screen and (max-width:768px){
+.libry_banner{
+  height: 300px;
+  margin-top: 50px;
+}
+.featureTabBox{
+  flex-direction: column;
+}
+.features_pannel .featureTabBox .nav{
+  width: 100%;
+}
+}
 
   @media screen and (max-width:576px) {
     .whoWeAre_box_text p{
@@ -4181,6 +4215,52 @@ border-radius: 0;
     .mission_main_box{
       padding: 0;
     }
+    .libry_banner{
+      height: 150px;
+      margin-top: 80px;
+    }
+    .library_home .headi_search{
+      width:100%;
+      padding: 0 25px;
+    }
+    .library_home .headi_search h5{
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+    .acabemicDetails h1{
+      font-size: 28px !important;
+    }
+    .linkDiv{
+      padding-bottom: 30px;
+    }
+    .main-timeline:before{
+      width: 0 !important;
+    }
+    .workMapBox{
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr)) !important;
+    }
+    .workMapBox .workDetailsBox{
+      flex-direction: column;
+      align-items: center;
+    }
+    .imgBox img{
+      width: 100px;
+    }
+    .bestForYou{
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+    .feature_box{
+      margin-top: 30px;
+    }
+    .bestForYou h5{
+      font-size: 24px;
+    }
+    .voteForm{
+      top: -23px;
+    }
+
 
   }
 

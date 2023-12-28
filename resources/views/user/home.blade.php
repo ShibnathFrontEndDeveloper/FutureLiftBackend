@@ -387,6 +387,10 @@
         <section class="bg_img" style="background: url({{asset('assets/images/why-bg-1.webp')}});">
           <div class="container">
             <div class="homepage-card row col-12 reverse_card" data-aos="fade-right">
+              <div class="contentImg col-lg-6 col-md-6">
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_jG18nt.json"  background="transparent"  speed="1"  loop autoplay></lottie-player>
+              </div>
               <div class="content col-lg-6 col-md-6">
                 <div class="cardText">
                   <p class="homepageCard-text1">
@@ -403,20 +407,12 @@
                   <button class="cardbtn">Know More</button></a
                 >
               </div>
-              <div class="contentImg col-lg-6 col-md-6">
-                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_jG18nt.json"  background="transparent"  speed="1"  loop autoplay></lottie-player>
-              </div>
             </div>
           </div>
         </section>
         <section class="bg_img" style="background: url({{asset('assets/images/why-bg-.webp')}});">
           <div class="container">
             <div class="homepage-card row col-12" data-aos="fade-left">
-              <div class="contentImg col-lg-6 col-md-6">
-                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-                <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_xk8oiud5.json"  background="transparent"  speed="1"   loop  autoplay></lottie-player>
-              </div>
               <div class="content col-lg-6 col-md-6">
                 <div class="cardText">
                   <p class="homepageCard-text1">
@@ -433,6 +429,10 @@
                 <a href="{{url('/iq-test')}}">
                   <button class="cardbtn">Know More</button></a
                 >
+              </div>
+              <div class="contentImg col-lg-6 col-md-6">
+                <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_xk8oiud5.json"  background="transparent"  speed="1"   loop  autoplay></lottie-player>
               </div>
             </div>
           </div>

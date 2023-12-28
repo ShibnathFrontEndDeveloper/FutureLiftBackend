@@ -7,6 +7,9 @@
 
     <title>Future Lift</title>
     @include('user.includes.css-link')
+
+    
+    
   </head>
   <body>
     <div class="main-container">
@@ -31,13 +34,14 @@
             </div>
             <div class="container">
                 <div class="features_pannel">
+                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque distinctio unde repellendus dolorum doloribus? Labore, exercitationem. Maiores animi, modi exercitationem provident, rem beatae ducimus et impedit deserunt laborum alias ipsam.</p>
                     <div class="d-flex align-items-start featureTabBox">
-                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <div class="nav flex-column nav-pills me-3 p elimeni_box" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <button class="nav-link active" id="tab-key-all-career-data" data-bs-toggle="pill" data-bs-target="#tab-key-all-career-data" type="button" role="tab" aria-controls="tab-key-all-career-data" aria-selected="true" onclick="getData('all-career-data',0)">All Careers</button>
                             @foreach ($category as $categoryKey => $categoryValue)
                                 <button class="nav-link" id="tab-key-{{$categoryKey}}" data-bs-toggle="pill" data-bs-target="#tab-key-{{$categoryKey}}" type="button" role="tab" aria-controls="tab-key-{{$categoryKey}}" aria-selected="false" onclick="getData('{{$categoryKey}}','{{$categoryValue->id}}')">{{$categoryValue->name}}</button>
                             @endforeach
-                            <div class="bestForYou">
+                            <div class="bestForYou d-none d-lg-block">
                                 <h5>Know what is best for you!</h5>
                                 <p>Take world class Assessment test</p>
                                 <form action="">
@@ -49,6 +53,14 @@
                         <div class="tab-content" id="v-pills-tabContent">
 
                         </div>
+                    </div>
+                    <div class="bestForYou d-lg-none d-sm-block">
+                        <h5>Know what is best for you!</h5>
+                        <p>Take world class Assessment test</p>
+                        <form action="">
+                            <input type="text" placeholder="Your mail address" class="form-control">
+                            <button type="submit">Take a free demo</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -64,13 +76,11 @@
     @include('user.includes.js-link')
     <script>
       $(document).ready(function () {
-
-
-
         AOS.init({
           offset: 150,
           duration: 600,
         });
+
         $("#myLocalDate").focus(function () {
           const date = new Date();
           let minDate = date.getDate();
@@ -162,9 +172,46 @@
                 })
         }
 
-        getData('all-career-data',0)
-
-
+        getData('all-career-data',0);
     </script>
+    <script>
+     // Get the navbar
+        // const navbar = document.getElementById("v-pills-tab");
+
+        // Get the offset position of the navbar
+        // const sticky = navbar.offsetTop;
+        // console.log(navbar.offsetTop);
+
+        // Add the sticky class to the navbar when you reach its scroll position. Remove the sticky class when you leave the scroll position.
+        // function myFunction() {
+        //   if (window.pageYOffset >= sticky) {
+        //     navbar.classList.add("sticky")
+        //   } else {
+        //     navbar.classList.remove("sticky");
+        //   }
+        // }
+        
+        // let tabNav = document.getElementById('v-pills-tab');
+        // let sticky = tabNav.offsetTop;
+        // window.onscroll = function navFun(){
+        //   // console.log();
+        //   if(window.pageYOffest>=sticky){
+        //     tabNav.classList.add('sticky');
+        //   }else{
+        //     tabNav.classList.remove('sticky');
+        //   }
+        // }
+
+        // $(window). scroll(function(){
+        //     if ($(this).scrollTop() > 2959) {
+        //       $('#v-pills-tab').removeClass('newClass');
+        //     }else if($(this).scrollTop() > 300){
+        //       console.log($(this).scrollTop(),'else');
+        //       $('#v-pills-tab').addClass('newClass');
+        //     }
+        //   });
+    </script>
+
+    
   </body>
 </html>
