@@ -47,7 +47,7 @@
                                     <small>Price : {{$getSession->price}}</small>
                                 </td>
                                 <td>{{$value->payment_status}}</td>
-                                <td>{{($value->remarks)?$value->remarks:'N/A'}}</td>
+                                <td style="width:20%;"><div style="height: 130px;overflow-y: scroll;">{{($value->remarks)?$value->remarks:'N/A'}}</div></td>
                                 <td>{{date('l jS F Y h:i A',strtotime($value->created_at))}}</td>
                                 <td>{{$value->status}}</td>
                                 <td style="width:5%;">

@@ -10,11 +10,4 @@ class CareerLibraryVote extends Model
 {
     use HasFactory;
     protected $table = "career_library_vote";
-    public function canLike($id)
-    {
-        $userIp = Request::ip();
-        $getData = CareerLibraryVote::where('ip_address',$userIp)->where('post_id',$id)->get()->count();
-
-        return ($getData > 0)?false:true;
-    }
 }

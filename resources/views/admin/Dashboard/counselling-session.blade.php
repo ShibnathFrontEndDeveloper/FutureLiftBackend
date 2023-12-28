@@ -1,6 +1,7 @@
 @extends('admin.Dashboard.sidebar')
 @section('title') Counselling Session Section @endsection
 @section('content')
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 @if(request()->route('show') == 'list')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -87,7 +88,10 @@
                                                 <input type="hidden" name="package_id" value="{{$value->package_id}}">
                                                 <div class="row">
                                                     <div class="col-md-12 form-group">
-                                                        <textarea name="counselling_report" id="counselling_report" cols="30" rows="10"></textarea>
+                                                        <textarea name="counselling_report" id="counselling_report{{$key}}" cols="30" rows="10"></textarea>
+                                                        <script>
+                                                            CKEDITOR.replace( 'counselling_report{{$key}}');
+                                                        </script>
                                                     </div>
                                                     <div class="col-md-12 form-group">
                                                         <button class="btn btn-primary float-right" type="submit">Submit</button>
@@ -169,7 +173,7 @@
 @endif
 @endsection
 @section('scripts')
-<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+
 <script>
     $(document).ready(function() {
         $('.js-example-basic-single').select2();
@@ -177,7 +181,7 @@
                 order: [[7, 'desc']],
                 responsive: true
             });
-        CKEDITOR.replace( 'counselling_report');
+        // CKEDITOR.replace( 'counselling_report');
 
     });
 

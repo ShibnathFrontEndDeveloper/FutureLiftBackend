@@ -8,8 +8,8 @@
     <title>Future Lift</title>
     @include('user.includes.css-link')
 
-    
-    
+
+
   </head>
   <body>
     <div class="main-container">
@@ -190,7 +190,7 @@
         //     navbar.classList.remove("sticky");
         //   }
         // }
-        
+
         // let tabNav = document.getElementById('v-pills-tab');
         // let sticky = tabNav.offsetTop;
         // window.onscroll = function navFun(){
@@ -202,16 +202,15 @@
         //   }
         // }
 
-        // $(window). scroll(function(){
-        //     if ($(this).scrollTop() > 2959) {
-        //       $('#v-pills-tab').removeClass('newClass');
-        //     }else if($(this).scrollTop() > 300){
-        //       console.log($(this).scrollTop(),'else');
-        //       $('#v-pills-tab').addClass('newClass');
-        //     }
-        //   });
+        $(window). scroll(function(){
+            if ($(this).scrollTop() > 500) {
+                $('#v-pills-tab').addClass('newClass');
+            }else{
+                $('#v-pills-tab').removeClass('newClass');
+            }
+          });
     </script>
 
-    
+
   </body>
 </html>

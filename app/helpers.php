@@ -21,6 +21,7 @@ use App\Models\UserNotification;
 use App\Models\User_information;
 use App\Models\CareerLibraryDetails;
 use App\Models\CareerLibraryVote;
+use Illuminate\Support\Facades\Request;
 
 class Helpers
 {
@@ -894,6 +895,13 @@ class Helpers
     public static function getCareerLibraryDisLikeComments($postId){
         $getCount = CareerLibraryVote::select('comment')->where('is_dislike','1')->where('post_id',$postId)->get();
         return $getCount;
+    }
+    public static function canLike($id)
+    {
+        $userIp = Request::ip();
+        $getData = CareerLibraryVote::where('ip_address',$userIp)->where('post_id',$id)->get()->count();
+
+        return ($getData > 0)?false:true;
     }
 
 }

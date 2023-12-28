@@ -293,7 +293,7 @@
               </div>
             </div>
           </div>
-
+          @if (App\Helpers::canLike($data->id))
           <div class="help_box_part">
             <div class="container">
               <div class="col-md-6">
@@ -308,7 +308,7 @@
                     <input type="submit" value="Submit" class="btn btn-primary">
                   </form>
                 </div>
-
+                @endif
               </div>
             </div>
           </div>
@@ -450,14 +450,13 @@
       //     }
       //     });
 
-      $(window). scroll(function(){
-            if ($(this).scrollTop() > 2959) {
-              $('.career_list').removeClass('newClass');
-            }else if($(this).scrollTop() > 300){
-              console.log($(this).scrollTop(),'else');
-              $('.career_list').addClass('newClass');
-            }
-          });
+            $(window). scroll(function(){
+                if ($(this).scrollTop() > 50 && $(this).scrollTop() < 8600) {
+                    $('.career_list').addClass('newClass');
+                }else{
+                    $('.career_list').removeClass('newClass');
+                }
+            });
     </script>
   </body>
 </html>
