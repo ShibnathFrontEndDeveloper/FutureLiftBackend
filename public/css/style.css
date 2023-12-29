@@ -3906,7 +3906,7 @@ policy  /////////////////////////////////////
 }
 
 .features_pannel .featureTabBox .nav{
-    width: 900px;
+    /* width: 900px; */
     /* position: absolute;
     z-index: 100;
     top: 35%; */
@@ -3982,11 +3982,31 @@ border-radius: 0;
 .career_list{
   list-style: none;
   padding-left: 0;
+  width: 220px;
 }
 .newClass{
   position: fixed;
-  top: 7%;
+  top: 15%;
 }
+.newTab{
+  margin-left: 240px;
+}
+
+/* .position_box{
+  position: relative;
+} */
+.position_box.newClassTab{
+  position: fixed;
+  top: 12%;
+  width: 220px;
+  height: 95%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+/* .position_box .bestForYouForm{
+  position: fixed;
+  top: 55%;
+} */
 .help_box_part{
   
   border-bottom: 1px solid #bfbfbf;

@@ -36,7 +36,7 @@
                   <li class="career_list_links"><a href="#WorkDescription">Work Description</a></li>
                   <li class="career_list_links"><a href="#ProsCons">Pros & Cons of a Career</a></li>
                 </ul>
-                <div class=" left_bestForYou">
+                <div class=" left_bestForYou" id="addBoxTop">
                     <div class="addbox">
                       <div class="textPart_box">
                         <h5>Know what is best for you!</h5>
@@ -54,7 +54,7 @@
                     @endif
                 </div>
               </div>
-              <div class="col-md-9">
+              <div class="col-md-9 tabRight">
                 <h1 class="career_haeding">{{$data->title}}</h1>
                 <div class="career_content_box" id="Summary">
                   <div class="career_content_boxDtls">
@@ -451,10 +451,12 @@
       //     });
 
             $(window). scroll(function(){
-                if ($(this).scrollTop() > 50 && $(this).scrollTop() < 8600) {
-                    $('.career_list').addClass('newClass');
+                if ($(this).scrollTop() > 150 && $(this).scrollTop() < 8600) {
+                    $('.position_box').addClass('newClassTab');
+                    $('.tabRight').addClass('newTab');
                 }else{
-                    $('.career_list').removeClass('newClass');
+                    $('.position_box').removeClass('newClassTab');
+                    $('.tabRight').removeClass('newTab');
                 }
             });
     </script>

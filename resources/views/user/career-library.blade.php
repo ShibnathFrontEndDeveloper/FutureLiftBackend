@@ -34,7 +34,7 @@
             </div>
             <div class="container">
                 <div class="features_pannel">
-                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque distinctio unde repellendus dolorum doloribus? Labore, exercitationem. Maiores animi, modi exercitationem provident, rem beatae ducimus et impedit deserunt laborum alias ipsam.</p>
+                  
                     <div class="d-flex align-items-start featureTabBox">
                         <div class="nav flex-column nav-pills me-3 p elimeni_box" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <button class="nav-link active" id="tab-key-all-career-data" data-bs-toggle="pill" data-bs-target="#tab-key-all-career-data" type="button" role="tab" aria-controls="tab-key-all-career-data" aria-selected="true" onclick="getData('all-career-data',0)">All Careers</button>
@@ -203,10 +203,12 @@
         // }
 
         $(window). scroll(function(){
-            if ($(this).scrollTop() > 500) {
+            if ($(this).scrollTop() > 400) {
                 $('#v-pills-tab').addClass('newClass');
+                $('.feature_box').addClass('newTab');
             }else{
                 $('#v-pills-tab').removeClass('newClass');
+                $('.feature_box').removeClass('newTab');
             }
           });
     </script>
