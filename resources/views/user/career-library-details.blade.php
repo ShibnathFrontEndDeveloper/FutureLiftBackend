@@ -17,7 +17,7 @@
       </div>
       <!-- Header End -->
         <section class="libryDtls_sec">
-          <h3>Career Library</h3>
+          <!-- <h3>Career Library</h3> -->
         </section>
         <section class="detls_content_tab">
           <div class="container">
@@ -59,9 +59,8 @@
                 <div class="career_content_box" id="Summary">
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Summery</h1>
-                    <div class="d-flex justify-content-between">
-                    <p>{!!$data->summery_content!!}
-                    </p>
+                    <div class="d-flex justify-content-between dFlex">
+                    <p>{!!$data->summery_content!!}</p>
 
                     <img src="{{asset('assets/career_library/'.$data->summery_image)}}" alt="" class="img-fluid">
                     </div>

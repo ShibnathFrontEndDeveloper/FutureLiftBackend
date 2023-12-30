@@ -562,6 +562,7 @@ input::-webkit-calendar-picker-indicator {
 .home_part{
   background: linear-gradient(#9540ad,#192e95);
   padding: 80px 0;
+  margin-top: 50px;
 
 }
 @media screen and (max-width:560px) {
@@ -1577,7 +1578,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
    background-position: center center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  padding: 110px 0;
+  padding: 50px 0;
 }
 
 /* Why section Counselling Styling */
@@ -3840,13 +3841,20 @@ policy  /////////////////////////////////////
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 250px;
+    background: #26bdd0;
+    background-image: url(../assets/images/career.jpg);
+    background-position: center center;
+    background-position-y: 100px;
+    background-size: calc(100% - 70%);
+    background-repeat: no-repeat;
 }
-.library_home .headi_search{
+/* .library_home .headi_search{
     position: absolute;
     top: 50%;
     width: 30%;
 
-}
+} */
 .library_home .headi_search .form-control{
     background-image: url(../assets/images//magnifying-glass_151773.png);
     background-repeat: no-repeat;
@@ -3961,12 +3969,13 @@ border-radius: 0;
 /* ////////////Career Library Details//////////// */
 
 .libryDtls_sec{
-  background-image: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)),url(../assets/images/library_details2.png);
+  background-color: #0fccde;
+  background-image: url(../assets/images/OJXL4S0.png);
+  background-position: center center;
+  background-position-y: 80px;
+  background-size: calc(100% - 70%);
   background-repeat: no-repeat;
-  background-size:  auto 250px;
   height: 250px;
-  background-position: center;
-  background-color:#fdfdfd;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -3982,7 +3991,7 @@ border-radius: 0;
 .career_list{
   list-style: none;
   padding-left: 0;
-  width: 220px;
+
 }
 .newClass{
   position: fixed;
@@ -3998,10 +4007,13 @@ border-radius: 0;
 .position_box.newClassTab{
   position: fixed;
   top: 12%;
-  width: 220px;
+  width: 250px;
   height: 95%;
   overflow: hidden;
   overflow-y: auto;
+}
+.position_box.newClassTab::-webkit-scrollbar{
+  width: 0;
 }
 /* .position_box .bestForYouForm{
   position: fixed;
@@ -4060,6 +4072,7 @@ border-radius: 0;
 }
 .career_haeding{
   font-size: 30px;
+  margin-top: 30px;
 }
 .career_content_boxDtls{
   padding: 20px 8px;
@@ -4071,10 +4084,15 @@ border-radius: 0;
 .career_content_boxDtls h1{
   font-size: 22px;
   font-weight: 500;
+  color: #d71c6d;
 }
 .career_content_boxDtls h1 img{
   width: 40px;
   margin-right: 10px;
+}
+.career_content_boxDtls .dFlex img{
+  width: 150px;
+  height: 150px;
 }
 .accordian_box .accordion-item{
   margin-bottom: 3px;
@@ -4197,6 +4215,9 @@ border-radius: 0;
 .features_pannel .featureTabBox .nav{
   width: 100%;
 }
+.career_content_boxDtls .dFlex{
+  flex-direction: column;
+}
 }
 
   @media screen and (max-width:576px) {
@@ -4280,7 +4301,27 @@ border-radius: 0;
     .voteForm{
       top: -23px;
     }
-
+    .newClass{
+      position: unset;
+    }
+    .newTab{
+      margin-left: 0;
+    }
+    .library_home{
+      background-size: calc(100% - 10%);
+    }
+    .position_box.newClassTab{
+      position: unset;
+      width: 100%;
+    }
+    .libryDtls_sec{
+      background-position-y: 100px;
+      background-size: calc(100% - 27%);
+    }
+    .career_tabel,.careerPath_tabel{
+      overflow: hidden;
+      overflow-x: auto;
+    }
 
   }
 

@@ -9,7 +9,7 @@
       </div>
       <div class="header-right-content col-6 d-flex justify-content-end careerPadding">
       <button type="button" class="btn btn-primary position-relative book_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        Book Session
+      Instant Advice
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill ">
           Free
           <span class="visually-hidden">unread messages</span>

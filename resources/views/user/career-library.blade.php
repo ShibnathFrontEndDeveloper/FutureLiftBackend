@@ -24,13 +24,13 @@
 
         <div class="container-fluid">
             <div class="library_home">
-                <div class="libry_banner">
+                <!-- <div class="libry_banner">
                     <img src="{{asset('assets/images/7333316.png')}}" alt="" class="img-fluid">
-                </div>
-                <div class="headi_search">
+                </div> -->
+                <!-- <div class="headi_search">
                     <h5>future lift career library</h5>
                     <input type="search" class="form-control">
-                </div>
+                </div> -->
             </div>
             <div class="container">
                 <div class="features_pannel">
@@ -203,7 +203,7 @@
         // }
 
         $(window). scroll(function(){
-            if ($(this).scrollTop() > 400) {
+            if ($(this).scrollTop() > 200) {
                 $('#v-pills-tab').addClass('newClass');
                 $('.feature_box').addClass('newTab');
             }else{
