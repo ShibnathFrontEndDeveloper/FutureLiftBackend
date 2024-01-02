@@ -262,6 +262,7 @@
                     <div class=" justify-content-between">
                     <p>{!!$data->industry_trends_content!!}</p>
                     <!-- <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="img-fluid"> -->
+                    <div id="blankdiv"></div>
                     @if(Auth::guard('user')->check())
                     <embed src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" width="100%" height="400" alt="pdf" id="marksheetEm">
                     @else
@@ -271,7 +272,7 @@
                     </div>
                   </div>
                 </div>
-                <div id="blankdiv"></div>
+
                 <div class=" left_bestForYou banner_bestForYou" id="sticky_bar">
                     <div class="addbox">
                       <div class="textPart_box">
