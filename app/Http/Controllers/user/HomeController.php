@@ -569,4 +569,13 @@ class HomeController extends Controller
         Toastr::success('Thank you for submitting your feedback','success');
         return back();
     }
+    public function indexCareerLibrarySearch(Request $request){
+        if( $request->has('search') ) {
+            $query = $request->query('search');
+            $allLibrary = CareerLibraryDetails::where('title', 'LIKE', '%'.$query.'%')->orderBy('id', 'DESC')->paginate(10);
+            return view('user.career-library-search',compact(['allLibrary']));
+         }else{
+             return view('user.404');
+         }
+    }
 }

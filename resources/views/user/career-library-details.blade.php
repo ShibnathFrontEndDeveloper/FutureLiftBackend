@@ -19,7 +19,7 @@
         <section class="libryDtls_sec">
           <!-- <h3>Career Library</h3> -->
         </section>
-        <section class="detls_content_tab">
+        <section class="detls_content_tab" id="scla">
           <div class="container">
             <div class="row">
               <div class="col-md-3 position_box">
@@ -238,21 +238,6 @@
                     </div>
                   </div>
                 </div>
-                <div class="career_content_box" id="Industry">
-                  <div class="career_content_boxDtls">
-                    <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Industry Trends</h1>
-                    <div class=" justify-content-between">
-                    <p>{!!$data->industry_trends_content!!}</p>
-                    <!-- <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="img-fluid"> -->
-                    @if(Auth::guard('user')->check())
-                    <embed src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" width="100%" height="400" alt="pdf" id="marksheetEm">
-                    @else
-                    <embed src="{{asset('media/sample.pdf')}}" width="100%" height="400" alt="pdf" id="marksheetEm" style="filter: blur(6px);">
-                    <a href="javascript:void(0)" onclick="logInform()" class="btn btn-primary position-relative book_btn">View PDF</a>
-                    @endif
-                    </div>
-                  </div>
-                </div>
                 <div class="career_content_box" id="WorkDescription">
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/my-icon-7.jpg')}}" alt="" class="img-fluid">Work Description</h1>
@@ -271,6 +256,23 @@
                     </div>
                   </div>
                 </div>
+                <div class="career_content_box" id="Industry">
+                  <div class="career_content_boxDtls">
+                    <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Industry Trends</h1>
+                    <div class=" justify-content-between">
+                    <p>{!!$data->industry_trends_content!!}</p>
+                    <!-- <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="img-fluid"> -->
+                    <div id="blankdiv"></div>
+                    @if(Auth::guard('user')->check())
+                    <embed src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" width="100%" height="400" alt="pdf" id="marksheetEm">
+                    @else
+                    <embed src="{{asset('media/sample.pdf')}}" width="100%" height="400" alt="pdf" id="marksheetEm" style="filter: blur(6px);">
+                    <a href="javascript:void(0)" onclick="logInform()" class="btn btn-primary position-relative book_btn">View PDF</a>
+                    @endif
+                    </div>
+                  </div>
+                </div>
+
                 <div class=" left_bestForYou banner_bestForYou" id="sticky_bar">
                     <div class="addbox">
                       <div class="textPart_box">
@@ -324,8 +326,7 @@
     @include('user.includes.js-link')
     <script>
       $(document).ready(function () {
-
-
+        var scrollPosition = $('#blankdiv').offset().top;
 
         AOS.init({
           offset: 150,
@@ -382,6 +383,18 @@
     //         $("#ftco-loader").show();
     //   });
 
+
+
+            $(window).scroll(function(){
+                if ($(this).scrollTop() > 150 && $(this).scrollTop() < scrollPosition) {
+                    $('.position_box').addClass('newClassTab');
+                    $('.tabRight').addClass('newTab');
+                }else{
+                     $('.position_box').removeClass('newClassTab');
+                     $('.tabRight').removeClass('newTab');
+
+                }
+            });
 
       });
 
@@ -449,15 +462,9 @@
       //     }
       //     });
 
-            $(window). scroll(function(){
-                if ($(this).scrollTop() > 150 && $(this).scrollTop() < 8600) {
-                    $('.position_box').addClass('newClassTab');
-                    $('.tabRight').addClass('newTab');
-                }else{
-                    $('.position_box').removeClass('newClassTab');
-                    $('.tabRight').removeClass('newTab');
-                }
-            });
+
+
+
     </script>
   </body>
 </html>
