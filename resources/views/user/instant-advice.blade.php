@@ -61,7 +61,7 @@
                       <div class="timeline-content">
                         <h3 class="title">Personalized Guidance</h3>
                         <p class="description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
+                          Unlock your full potential with personalized insights from seasoned career advisors. Personalized guidance is essential for achieving your unique goals, tailoring advice and support to your individual needs
                         </p>
                     </div>
                   </a>
@@ -75,7 +75,7 @@
                     <div class="timeline-content">
                       <h3 class="title">Get Diversity of Options</h3>
                       <p class="description">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
+                        Explore a world of educational possibilities tailored to your unique interests and aspirations. Embracing a diverse range of perspectives and ideas in our team meetings helps us get diversity of options, fostering innovation and creativity.
                       </p>
                     </div>
                   </a>
@@ -1138,7 +1138,7 @@
                     <div class="timeline-content">
                       <h3 class="title">Stream Selection</h3>
                       <p class="description">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
+                        Navigate confidently through the myriad of academic streams to find your ideal fit. During the college orientation, students were guided through the stream selection process to choose their majors.
                       </p>
                     </div>
                   </a>
@@ -2049,7 +2049,7 @@
                     <div class="timeline-content">
                       <h3 class="title">College/University Selection</h3>
                       <p class="description">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
+                        Choose the perfect institution that aligns with your academic and career goals. Selecting the right college involves assessing financial aid options and scholarship opportunities to make higher education more accessible.
                       </p>
                     </div>
                   </a>
@@ -2157,7 +2157,7 @@
                     <div class="timeline-content">
                       <h3 class="title">Application Strategy</h3>
                       <p class="description">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
+                        Craft a winning application strategy for a seamless and successful admission process.
                       </p>
                     </div>
                   </a>

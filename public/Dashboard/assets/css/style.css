@@ -21732,6 +21732,33 @@ fieldset h1{
   line-height: 1.8;
 
 }
+.collapse_card .tab-content{
+  padding: 0;
+}
+.collapse_card .faqTab{
+  color: #191c24;
+}
+.collapse_card .faqLinkTab .nav-link{
+  align-items: flex-start;
+  font-size: 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+.collapse_body .faqLinkTab .tab-content > .active{
+  background: transparent;
+}
+.collapse_card .faqLinkTab .nav-link.active{
+  background-color: #0050e3;
+}
+.faqQTabs{
+  width: 100%;
+}
+.faqQTabs .accordion-button:focus{
+  box-shadow: none;
+}
+.faqQTabs .accordion-button:not(.collapsed){
+  background: transparent;
+}
 .collapse_card .call_btn{
   background: #0050e3;
   padding: 12px 35px;
