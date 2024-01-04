@@ -29,7 +29,7 @@
                     <p>Your Future is Our Pride</p>
                   </div>
                   <div class="linkDiv">
-                    <a href="{{url('/price')}}" class="pkgBtn">View Package</a>
+                    <a href="#instaPackege" class="pkgBtn">View Package</a>
                     <a href="#futureLiftTimeLine" class="knoBtn">Know More</a>
                   </div>
                 </div>
@@ -2157,7 +2157,7 @@
                     <div class="timeline-content">
                       <h3 class="title">Application Strategy</h3>
                       <p class="description">
-                        Craft a winning application strategy for a seamless and successful admission process.
+                        Craft a winning application strategy for a seamless and successful admission process. Craft a winning application strategy for a seamless and successful admission process.
                       </p>
                     </div>
                   </a>
@@ -3972,6 +3972,7 @@
               </div>
             </div>
           </div>
+
           <div class="futureLiftWork_sec">
             <div class="container">
               <h1 class="text-center mt-5">How does it Work?</h1>
@@ -4017,115 +4018,282 @@
             </div>
           </div>
 
-
-          <div class="container-fluid d-flex align-items-center flex-column mb-5">
-        <div class="d-flex align-items-center flex-column px-3">
-            <h1>Why Everyone Love Future Lift!</h1>
-            <p>
-              Our users get value from our services, here they share their
-              experience and thoughts about us.
-            </p>
-          </div>
-         <div class="tab-Section container-fluid d-flex flex-column px-2">
-            <nav
-              class="nav nav-pills d-flex align-items-center align-self-center"
-            >
-              <button
-                type="button"
-                class="nav-link active"
-                data-bs-target="#parents"
-                data-bs-toggle="tab"
-              >
-                Parents
-              </button>
-              <div class="divider"></div>
-              <button
-                type="button"
-                class="nav-link"
-                data-bs-target="#students"
-                data-bs-toggle="tab"
-              >
-                Students
-              </button>
-            </nav>
+          <!-- Instance Packege Part Start -->
+          <section class="instaPackege" id="instaPackege">
             <div class="container">
-              <div class="tab-content swiper container-fluid">
-                <div
-                  class="tab-pane fade show active container-fluid"
-                  id="parents"
-                >
-                  <div class="tabSwiper container-fluid">
-                    <div class="tabCards swiper-wrapper">
-                    @foreach ($parentTestimonial as $parentTestimonialKey => $parentTestimonialValue)
-                        <div class="tabCard swiper-slide">
-                            <div class="tabCardContent">
-                                <div class="tabCrad_img">
-                                    <img src="{{asset('assets/testimonial_images/'.$parentTestimonialValue->image)}}" alt="" />
-                                    <div class="overlay_box"></div>
-                                </div>
-                                <div class="tabCardContentText">
-                                    <p class="parentName">- {{$parentTestimonialValue->name}}</p>
-                                    <div class="rating_star">
-                                        @for ($rating = 0; $rating < $parentTestimonialValue->rating; $rating++)
-                                            <i class="bi bi-star-fill"></i>
-                                        @endfor
-                                    </div>
-                                    <p>
-                                    {{$parentTestimonialValue->content}}
-                                    </p>
-                                </div>
-                            </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card instaAdd_card">
+                    <div class="card-header instaHeadPart">
+                      <div class="d-flex justify-content-between">
+                        <div class="headingPart">
+                          <h1>Free</h1>
+                          <p>Get Started</p>
                         </div>
-                    @endforeach
+                        <div class="pricePart">
+                          <h2><i class="bi bi-currency-rupee"></i>0</h2>
+                        </div>
+                      </div>
+                      <button class="btn" type="button">Call with expert</button>
                     </div>
-                    <div class="swiper-button-next">
-                      <i class="fa fa-solid fa-caret-right"></i>
+                    <div class="card-body">
+                      <p> Also Includes:</p>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-check2-circle"></i>15 min call with expert</li>
+                        <li class="list-group-item disable"><i class="bi bi-check2-circle"></i>Diverse Course & Stream Options</li>
+                        <li class="list-group-item disable"><i class="bi bi-check2-circle"></i> Admission Guidance</li>
+                        <li class="list-group-item disable"><i class="bi bi-check2-circle"></i>Quick Problem Solving</li>
+                        <li class="list-group-item disable"><i class="bi bi-check2-circle"></i>Application &Scholarship Support</li>
+                        <li class="list-group-item disable"><i class="bi bi-check2-circle"></i>1 year chat support</li>
+                      </ul>
                     </div>
-                    <div class="swiper-button-prev">
-                      <i class="fa fa-solid fa-caret-left"></i>
+                    <div class="card-footer">
+                      <button class="adviceBtn">Book Now</button>
                     </div>
                   </div>
                 </div>
-                <div class="tab-pane fade container-fluid" id="students">
-                  <div class="tabSwiper">
-                    <div class="tabCards swiper-wrapper">
-                    @foreach ($studentTestimonial as $studentTestimonialKey => $studentTestimonialValue)
-                        <div class="tabCard swiper-slide">
-                            <div class="tabCardContent">
-                                <div class="tabCrad_img">
-                                    <img src="{{asset('assets/testimonial_images/'.$studentTestimonialValue->image)}}" alt="" />
-                                    <div class="overlay_box"></div>
-                                </div>
-                                <div class="tabCardContentText">
-                                    <p class="parentName">- {{$studentTestimonialValue->name}}</p>
-                                    <div class="rating_star">
-                                        @for ($rating = 0; $rating < $studentTestimonialValue->rating; $rating++)
-                                            <i class="bi bi-star-fill"></i>
-                                        @endfor
-                                    </div>
-                                    <p>
-                                    {{$studentTestimonialValue->content}}
-                                    </p>
-                                </div>
-                            </div>
+                <div class="col-md-4">
+                  <div class="card instaAdd_card">
+                    <div class="card-header instaHeadPart">
+                      <div class="d-flex justify-content-between">
+                        <div class="headingPart">
+                          <h1>Standered</h1>
+                          <p>Get Started</p>
                         </div>
-                    @endforeach
+                        <div class="pricePart">
+                          <h2><i class="bi bi-currency-rupee"></i>299</h2>
+                        </div>
+                      </div>
+                      <button class="btn" type="button"> 30 min Session</button>
                     </div>
-                    <div class="swiper-button-next">
-                      <i class="fa fa-solid fa-caret-right"></i>
+                    <div class="card-body">
+                      <p> Also Includes:</p>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-check2-circle"></i> 7 page career report card</li>
+                        <li class="list-group-item"><i class="bi bi-check2-circle"></i>Diverse Course & Stream Options</li>
+                        <li class="list-group-item"><i class="bi bi-check2-circle"></i> Admission Guidance</li>
+                        <li class="list-group-item"><i class="bi bi-check2-circle"></i> Scholarship Support</li>
+                        <li class="list-group-item disable"><i class="bi bi-check2-circle"></i>Clarification of Goals & Networking Strategy</li>
+                        <li class="list-group-item disable"><i class="bi bi-check2-circle"></i>1 year chat support</li>
+                      </ul>
                     </div>
-                    <div class="swiper-button-prev">
-                      <i class="fa fa-solid fa-caret-left"></i>
+                    <div class="card-footer">
+                      <button class="adviceBtn">Book Now</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card instaAdd_card">
+                    <div class="card-header instaHeadPart">
+                      <div class="d-flex justify-content-between">
+                        <div class="headingPart">
+                          <h1>Premimum</h1>
+                          <p>Get Started</p>
+                        </div>
+                        <div class="pricePart">
+                          <h2><i class="bi bi-currency-rupee"></i>499</h2>
+                        </div>
+                      </div>
+                      <button class="btn" type="button">60 min Session</button>
+                    </div>
+                    <div class="card-body">
+                      <p> Also Includes:</p>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-check2-circle"></i> 7 page career report card</li>
+                        <li class="list-group-item"><i class="bi bi-check2-circle"></i>Diverse Course & Stream Options</li>
+                        <li class="list-group-item"><i class="bi bi-check2-circle"></i> Admission Guidance</li>
+                        <li class="list-group-item"><i class="bi bi-check2-circle"></i> Scholarship Support</li>
+                        <li class="list-group-item"><i class="bi bi-check2-circle"></i>Clarification of Goals & Networking Strategy</li>
+                        <li class="list-group-item"><i class="bi bi-check2-circle"></i>1 year chat support</li>
+                      </ul>
+                    </div>
+                    <div class="card-footer">
+                      <button class="adviceBtn">Book Now</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </section>
+           <!-- Instance Packege Part End -->
+          
 
+          <!-- Meet Our Counseller Part Start -->
+          <section class="futureLiftMeetCounseller">
+            <h1 class="text-center mb-4 ">Meet Our Counseler</h1>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="counsellerImgVdo">
+                    <iframe width="370" height="220" src="https://www.youtube.com/embed/GR8hYllxmJc" title="GIBS College | Best MBA/PGDM College in Bangalore | 8617373674 | Clg Pro Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="counsellerImgVdo">
+                    <iframe width="370" height="220" src="https://www.youtube.com/embed/GR8hYllxmJc" title="GIBS College | Best MBA/PGDM College in Bangalore | 8617373674 | Clg Pro Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="counsellerImgVdo">
+                    <iframe width="370" height="220" src="https://www.youtube.com/embed/GR8hYllxmJc" title="GIBS College | Best MBA/PGDM College in Bangalore | 8617373674 | Clg Pro Review" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Meet Our Counseller Part Start -->
+
+
+          <div class="callUs-section">
+            <div class="callUsCard-section">
+              <div class="callUsCard">
+                <div class="callUsCard-content">
+                  <p>What can we help you with?</p>
+                  <p>
+                    Feel free to write to us. We usually respond within 24 hours!
+                  </p>
+                  <form action="http://localhost:8000/submitHelpForm" method="post" class="callUsForm">
+                      <input type="hidden" name="_token" value="7htdi61VM9YxkGpXS1cAYXW5xgH2eGrUacnvD8c7">                  <div class="form-group">
+                      <input type="text" name="name" class="form-control" placeholder="Full name" required="" value="">
+                    </div>
+                    <div class="form-group">
+                      <input type="email" name="email" class="form-control" placeholder="Email" required="" value="">
+                    </div>
+                    <div class="form-group">
+                      <input type="tel" name="phone_number" pattern="^[6789]\d{9,9}$" class="form-control" placeholder="Mobile Number" required="" value="">
+                    </div>
+                    <div class="form-group">
+                      <select class="form-control" name="course_type" required="">
+                        <option value="">Select One</option>
+                        <option value="8th to 10th Class">8th to 10th Class</option>
+                        <option value="11th to 12th Class">11th to 12th Class</option>
+                        <option value="College Graduate">College Graduate</option>
+                        <option value="Working Professional">Working Professional</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <textarea name="comment" placeholder="Query/Comment" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="callUsbtn" value="submit" name="submit">
+                      Submit
+                    </button>
+                  </form>
+                </div>
+                <div class="callUsCard-img">
+                  <img src="assets/images/call Us.png" alt="">
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
 
+          <div class="container-fluid d-flex align-items-center flex-column mb-5">
+            <div class="d-flex align-items-center flex-column px-3">
+                <h1 class="mt-5">Why Everyone Love Future Lift!</h1>
+                <p>
+                  Our users get value from our services, here they share their
+                  experience and thoughts about us.
+                </p>
+            </div>
+            <div class="tab-Section container-fluid d-flex flex-column px-2">
+                <nav
+                  class="nav nav-pills d-flex align-items-center align-self-center"
+                >
+                  <button
+                    type="button"
+                    class="nav-link active"
+                    data-bs-target="#parents"
+                    data-bs-toggle="tab"
+                  >
+                    Parents
+                  </button>
+                  <div class="divider"></div>
+                  <button
+                    type="button"
+                    class="nav-link"
+                    data-bs-target="#students"
+                    data-bs-toggle="tab"
+                  >
+                    Students
+                  </button>
+                </nav>
+                <div class="container">
+                  <div class="tab-content swiper container-fluid">
+                    <div
+                      class="tab-pane fade show active container-fluid"
+                      id="parents"
+                    >
+                      <div class="tabSwiper container-fluid">
+                        <div class="tabCards swiper-wrapper">
+                        @foreach ($parentTestimonial as $parentTestimonialKey => $parentTestimonialValue)
+                            <div class="tabCard swiper-slide">
+                                <div class="tabCardContent">
+                                    <div class="tabCrad_img">
+                                        <img src="{{asset('assets/testimonial_images/'.$parentTestimonialValue->image)}}" alt="" />
+                                        <div class="overlay_box"></div>
+                                    </div>
+                                    <div class="tabCardContentText">
+                                        <p class="parentName">- {{$parentTestimonialValue->name}}</p>
+                                        <div class="rating_star">
+                                            @for ($rating = 0; $rating < $parentTestimonialValue->rating; $rating++)
+                                                <i class="bi bi-star-fill"></i>
+                                            @endfor
+                                        </div>
+                                        <p>
+                                        {{$parentTestimonialValue->content}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        </div>
+                        <div class="swiper-button-next">
+                          <i class="fa fa-solid fa-caret-right"></i>
+                        </div>
+                        <div class="swiper-button-prev">
+                          <i class="fa fa-solid fa-caret-left"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade container-fluid" id="students">
+                      <div class="tabSwiper">
+                        <div class="tabCards swiper-wrapper">
+                        @foreach ($studentTestimonial as $studentTestimonialKey => $studentTestimonialValue)
+                            <div class="tabCard swiper-slide">
+                                <div class="tabCardContent">
+                                    <div class="tabCrad_img">
+                                        <img src="{{asset('assets/testimonial_images/'.$studentTestimonialValue->image)}}" alt="" />
+                                        <div class="overlay_box"></div>
+                                    </div>
+                                    <div class="tabCardContentText">
+                                        <p class="parentName">- {{$studentTestimonialValue->name}}</p>
+                                        <div class="rating_star">
+                                            @for ($rating = 0; $rating < $studentTestimonialValue->rating; $rating++)
+                                                <i class="bi bi-star-fill"></i>
+                                            @endfor
+                                        </div>
+                                        <p>
+                                        {{$studentTestimonialValue->content}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                        </div>
+                        <div class="swiper-button-next">
+                          <i class="fa fa-solid fa-caret-right"></i>
+                        </div>
+                        <div class="swiper-button-prev">
+                          <i class="fa fa-solid fa-caret-left"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
         <div class="container-fluid faqSection">
           <h1 style="font-weight: bold">FAQ</h1>
           <div class="accordion" id="accordionExample">

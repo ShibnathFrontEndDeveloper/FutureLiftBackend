@@ -4635,6 +4635,94 @@ About Futurelift ////////////////////////////////////////
       margin-left: 30px;
     }
 
+    /* ////////Insta Card Start///////// */
+    .instaPackege{
+      padding: 50px 0;
+    }
+    .instaAdd_card .btn{
+      background: #063f6b;
+      color: #fff;
+      width: 100%;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+    .instaAdd_card .btn:hover{
+      background: #063f6b;
+      color: #fff;
+    }
+    .instaAdd_card{
+      padding: 20px;
+    }
+    .instaAdd_card .instaHeadPart{
+      border-bottom: 1px solid #000;
+      background: transparent;
+      padding: 0;
+    }
+    .instaAdd_card .instaHeadPart .headingPart h1{
+      font-weight: 800;
+      color: #000;
+      font-size: 30px;
+    }
+    .instaAdd_card .instaHeadPart .pricePart h2{
+      color: #12df22;
+      font-weight: 800;
+      font-size: 40px;
+    }
+    .instaAdd_card .instaHeadPart .pricePart h2 i{
+      font-size: 25px;
+    }
+    .instaAdd_card .list-group-item{
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: #000;
+      display: flex;
+      align-items: center;
+      padding: 3px;
+    }
+    .instaAdd_card .list-group-item.disable{
+      color: #c0cdda !important;
+    }
+    .instaAdd_card .list-group-item.disable .bi{
+      color: #c0cdda !important;
+    }
+    .instaAdd_card .list-group-item .bi{
+      color: #063f6b;
+      font-size: 25px;
+      margin-right: 10px;
+    }
+    .instaAdd_card .list-group-item .bi::before{
+      font-weight: 600 !important;
+    }
+    .instaAdd_card .card-footer{
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      border-top: 1px solid #000;
+    }
+    .instaAdd_card .card-footer .adviceBtn{
+      background: #12df22;
+      padding: 5px 15px;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+      font-size: 20px;
+      color: #fff;
+      margin-top: 20px;
+    }
+    /* /////////Meet Our Counseller Start /////////*/
+    .futureLiftMeetCounseller{
+      padding: 50px 0;
+    }
+    .counsellerImgVdo{
+      position: relative;
+      overflow: hidden;
+    }
+
+
+
+
+    /* /////////Meet Our Counseller End /////////*/
 
     /* ////////Time line//////// */
 

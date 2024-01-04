@@ -1,0 +1,9 @@
+<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <ellipse stroke="#0000bf" stroke-width="3" ry="20.81173" rx="20.81173" id="svg_1" cy="31.7306" cx="28.77788" fill="none"/>
+  <rect transform="rotate(43.9949 44.9094 18.9567)" id="svg_3" height="9.82456" width="5.71019" y="14.04437" x="42.05427" fill="#ffffff"/>
+  <path stroke="#ffffff" id="svg_2" d="m15.76274,28.72775l12.33847,14.25006l28.84782,-38.23206c-9.38423,8.92082 -19.93381,22.59741 -29.31804,31.51822l-11.86825,-7.53622z" fill="#0000bf"/>
+ </g>
+</svg>

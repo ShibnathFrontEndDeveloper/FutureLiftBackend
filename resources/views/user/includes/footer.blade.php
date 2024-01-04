@@ -257,14 +257,17 @@
                     By Submitting this form you accept and agree to our
                     <a href="">Terms of Use.</a>
                   </p>
+                  <div class="d-flex justify-content-center align-items-ce">
                   <button type="Submit" class="Modalbtn">Book Session</button>
+                  <a href="{{url('/instant-advice')}}" target="_blank" class="Modalbtn ms-3">Know More</a>
+                  </div>
                 </form>
                 @if(!Auth::guard('user')->check())
                 <p class="alreadyMember">
                   Already a member? <a href="{{url('/login-signup')}}">Click Here</a>it's easy!
                 </p>
                 @endif
-                <a href="{{url('/instant-advice')}}" target="_blank" class="btn btn-primary btn-sm">Know More</a>
+                
                 <button
                   type="button"
                   class="btn-close"
