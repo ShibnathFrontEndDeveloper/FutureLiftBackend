@@ -36,6 +36,7 @@
                 <div class="features_pannel">
                   
                     <div class="d-flex align-items-start featureTabBox">
+                        <i class="bi bi-list" id="careerMenuList"></i>
                         <div class="nav flex-column nav-pills me-3 p elimeni_box" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                             <button class="nav-link active" id="tab-key-all-career-data" data-bs-toggle="pill" data-bs-target="#tab-key-all-career-data" type="button" role="tab" aria-controls="tab-key-all-career-data" aria-selected="true" onclick="getData('all-career-data',0)">All Careers</button>
                             @foreach ($category as $categoryKey => $categoryValue)

@@ -4019,6 +4019,9 @@ border-radius: 0;
   position: fixed;
   top: 55%;
 } */
+#careerMenuList{
+  display: none;
+}
 .help_box_part{
   
   border-bottom: 1px solid #bfbfbf;
@@ -4203,6 +4206,10 @@ border-radius: 0;
   border-bottom-left-radius: 0;
 }
 
+#listMenuCareerLibrary{
+  display: none;
+}
+
 
 @media screen and (max-width:768px){
 .libry_banner{
@@ -4322,7 +4329,27 @@ border-radius: 0;
       overflow: hidden;
       overflow-x: auto;
     }
-
+    .featureTabBox .elimeni_box{
+      display: none;
+    }
+    .openElement{
+      display: initial !important;
+    }
+    .openElement .nav-link{
+      width: 100% !important;
+    }
+    #careerMenuList{
+      display: block;
+    }
+    .career_list{
+      display: none;
+    }
+    .openListElementBox{
+      display: block !important;
+    }
+    #listMenuCareerLibrary{
+      display: block;
+    }
   }
 
 

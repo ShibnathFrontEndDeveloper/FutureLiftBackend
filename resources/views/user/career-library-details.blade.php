@@ -23,7 +23,8 @@
           <div class="container">
             <div class="row">
               <div class="col-md-3 position_box">
-                <ul class="career_list">
+              <i class="bi bi-list" id="listMenuCareerLibrary"></i>
+                <ul class="career_list" id="careerListElement">
                   <li class="career_list_links"><a href="#Summary" class="active">Summary</a></li>
                   <li class="career_list_links"><a href="#Opportunities">Opportunities</a></li>
                   <li class="career_list_links"><a href="#CareerPathway">Career Pathway</a></li>
@@ -461,9 +462,17 @@
       //     }
       //     }
       //     });
+    </script>
 
+    <script>
 
-
+      let listMenuCareerLibrary = document.getElementById('listMenuCareerLibrary');
+     
+      let career_list = document.getElementById('careerListElement');
+        listMenuCareerLibrary.onclick=()=>{
+            career_list.classList.toggle('openListElementBox');
+            // alert("All ok");
+        }
 
     </script>
   </body>

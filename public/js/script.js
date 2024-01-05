@@ -422,4 +422,12 @@ $(document).ready(function(){
 // });
 
 
+let careerMenuList = document.querySelector('#careerMenuList');
+let elimeni_box = document.querySelector('.elimeni_box');
+careerMenuList.onclick=()=>{
+  elimeni_box.classList.toggle('openElement');
+}
+
+
+
 
