@@ -3890,11 +3890,11 @@ policy  /////////////////////////////////////
 
 }
 
-.feature_box .img_box{
+/* .feature_box .img_box{
     height: 130px;
     overflow: hidden;
 
-}
+} */
 .feature_box .feature_boxDetails{
     box-shadow: 2px 5px 10px rgba(0,0,0,.5);
     border-radius: 5px;
