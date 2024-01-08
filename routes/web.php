@@ -61,6 +61,7 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::post('/user/updatePassword',[AuthController::class , 'updatePasswordFun']);
     Route::get('/notification',[HomeController::class , 'indexUserNotification']);
     Route::get('/test',[HomeController::class , 'indextest']);
+    Route::get('/get-help-faq-data/{key}/{categoryId}',[HomeController::class , 'getHelpFaqData']);
 });
 
 Route::get('/eight-ten-counselling',[HomeController::class , 'indexEightTenCoun']);
@@ -165,6 +166,11 @@ Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::get('/career-library/{show}/{id}',[CareerLibraryController::class , 'indexCareerLibraryEdit'])->name('careerLibraryEdit')->middleware('adminUrlCheck');
     Route::post('/CareerLibraryEdit',[CareerLibraryController::class , 'CareerLibraryEditFun']);
     Route::get('/CareerLibraryDelete/{id}',[CareerLibraryController::class , 'CareerLibraryDeleteFun'])->name('CareerLibraryDelete')->middleware('adminUrlCheck');
+    Route::get('/help-faq-category/{show}',[MainController::class , 'indexHelpFaqCategory'])->name('helpFaqCategory')->middleware('adminUrlCheck');
+    Route::post('/helpFaqCategoryAdd',[MainController::class , 'helpFaqCategoryAddFun'])->name('helpFaqCategoryAdd')->middleware('adminUrlCheck');
+    Route::get('/help-faq-category/{show}/{id}',[MainController::class , 'indexHelpFaqCategoryEdit'])->name('helpFaqCategoryEdit')->middleware('adminUrlCheck');
+    Route::post('/helpFaqCategoryEdit',[MainController::class , 'helpFaqCategoryEditFun'])->name('helpFaqCategoryEditSubmit')->middleware('adminUrlCheck');
+    Route::get('/helpFaqCategoryDelete/{id}',[MainController::class , 'helpFaqCategoryDeleteFun'])->name('helpFaqCategoryDelete');
 });
 
 

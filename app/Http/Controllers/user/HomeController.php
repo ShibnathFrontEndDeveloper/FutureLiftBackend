@@ -33,6 +33,7 @@ use App\Models\UserNotification;
 use App\Models\CareerLibraryCategory;
 use App\Models\CareerLibraryDetails;
 use App\Models\CareerLibraryVote;
+use App\Models\HelpFaqCategory;
 
 class HomeController extends Controller
 {
@@ -138,7 +139,9 @@ class HomeController extends Controller
     }
     public function indexHelp(){
         $faq = Faq::where('type','help')->get();
-        return view('user.Dashboard.help',compact(['faq']));
+        $category = HelpFaqCategory::orderBy('id','DESC')->get();
+        $categoryFirstData = HelpFaqCategory::orderBy('id','DESC')->first();
+        return view('user.Dashboard.help',compact(['faq','category','categoryFirstData']));
     }
     public function indexEightTenCoun(){
         $faq = Faq::where('type','eight_ten')->get();
@@ -577,5 +580,39 @@ class HomeController extends Controller
          }else{
              return view('user.404');
          }
+    }
+    public function getHelpFaqData($key,$categoryId){
+        $faq = Faq::where('type','help')->where('help_faq_categoryId',$categoryId)->get();
+        if(count($faq) > 0){
+            ?>
+                <div class="tab-pane fade show active faqTab" id="v-pills-<?=$key?>" role="tabpanel" aria-labelledby="v-pills-<?=$key?>">
+                                        <!-- Collapse button -->
+                    <div class="accordion accordion-flush" id="accordionFlushExample2">
+                        <?php
+                            foreach ($faq as $faqkey => $value) {
+                        ?>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-heading<?=$faqkey?>">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?=$faqkey?>" aria-expanded="false" aria-controls="flush-collapse<?=$faqkey?>">
+                                <?=$value->question?>
+                            </button>
+                            </h2>
+                            <div id="flush-collapse<?=$faqkey?>" class="accordion-collapse collapse" aria-labelledby="flush-heading<?=$faqkey?>" data-bs-parent="#accordionFlushExample2">
+                                <div class="accordion-body"><?=$value->answer?></div>
+                            </div>
+                        </div>
+                        <?php
+                            }
+                        ?>
+                    </div>
+                </div>
+            <?php
+        }else{
+            ?>
+                <div class="tab-pane fade show active faqTab" id="v-pills-<?=$key?>" role="tabpanel" aria-labelledby="v-pills-<?=$key?>">
+                    No Data Found
+                </div>
+            <?php
+        }
     }
 }

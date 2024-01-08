@@ -9,6 +9,7 @@ use App\Helpers;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Faq;
+use App\Models\HelpFaqCategory;
 
 class FaqController extends Controller
 {
@@ -17,7 +18,8 @@ class FaqController extends Controller
             $faq = Faq::get();
             return view('admin.Dashboard.faq',compact(['faq']));
         }else if($show == "add"){
-            return view('admin.Dashboard.faq');
+            $category = HelpFaqCategory::orderBy('id','DESC')->get();
+            return view('admin.Dashboard.faq',compact(['category']));
         }
         else{
             return view('admin.Dashboard.404');
@@ -37,10 +39,20 @@ class FaqController extends Controller
         	return back()->withInput();
         }
 
+        if($request->type == 'help'){
+            if(!$request->category){
+                Toastr::error('Please select help category!','error');
+                return back()->withInput();
+            }
+        }
+
         $faq = new Faq();
         $faq->question = $request->question;
         $faq->answer = $request->answer;
         $faq->type = $request->type;
+        if($request->type == 'help'){
+            $faq->help_faq_categoryId = $request->category;
+        }
         $faq->save();
         Toastr::success('Faq added successfully','success');
         return Redirect('/admin/faq/list');
@@ -48,7 +60,8 @@ class FaqController extends Controller
     public function indexFaqEdit($show,$id){
         if($show == "edit"){
             $faq = Faq::find($id);
-            return view('admin.Dashboard.faq',compact(['faq']));
+            $category = HelpFaqCategory::orderBy('id','DESC')->get();
+            return view('admin.Dashboard.faq',compact(['faq','category']));
         }
         else{
             return view('admin.Dashboard.404');
@@ -67,10 +80,21 @@ class FaqController extends Controller
         	}
         	return back()->withInput();
         }
+
+        if($request->type == 'help'){
+            if(!$request->category){
+                Toastr::error('Please select help category!','error');
+                return back()->withInput();
+            }
+        }
+
         $faq = Faq::find($request->editId);
         $faq->question = $request->question;
         $faq->answer = $request->answer;
         $faq->type = $request->type;
+        if($request->type == 'help'){
+            $faq->help_faq_categoryId = $request->category;
+        }
         $faq->save();
         Toastr::success('Faq updated successfully','success');
         return Redirect('/admin/faq/list');

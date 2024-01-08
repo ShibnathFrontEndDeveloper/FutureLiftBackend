@@ -20,6 +20,7 @@ use App\Models\SubscribeEmail;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Role;
 use App\Models\UserRole;
+use App\Models\HelpFaqCategory;
 
 class MainController extends Controller
 {
@@ -209,5 +210,79 @@ class MainController extends Controller
 
             return response()->json(['fileName' => $fileName, 'uploaded'=> 1, 'url' => $url]);
         }
+    }
+    public function indexHelpFaqCategory($show){
+        if($show == "list"){
+            $category = HelpFaqCategory::orderBy('id','DESC')->get();
+            return view('admin.Dashboard.help-faq-category',compact(['category']));
+        }else if($show == "add"){
+            return view('admin.Dashboard.help-faq-category');
+        }
+        else{
+            return view('admin.Dashboard.404');
+        }
+    }
+    public function helpFaqCategoryAddFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error($value[0],'error');
+        	}
+        	return back()->withInput();
+        }
+
+        $category = HelpFaqCategory::where('name',$request->name)->get()->count();
+        if($category > 0){
+            Toastr::error('This category allready exists','error');
+            return back()->withInput();
+        }
+
+        $category = new HelpFaqCategory();
+        $category->name = $request->name;
+        $category->save();
+        Toastr::success('Category added successfully','success');
+        return Redirect('/admin/help-faq-category/list');
+    }
+    public function indexHelpFaqCategoryEdit($show,$id){
+        if($show == "edit"){
+            $data = HelpFaqCategory::find($id);
+            return view('admin.Dashboard.help-faq-category',compact(['data']));
+        }
+        else{
+            return view('admin.Dashboard.404');
+        }
+    }
+    public function helpFaqCategoryEditFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error($value[0],'error');
+        	}
+        	return back()->withInput();
+        }
+        $category = HelpFaqCategory::where('name',$request->name)->where('id','!=',$request->editId)->get()->count();
+        if($category > 0){
+            Toastr::error('This category allready exists','error');
+            return back()->withInput();
+        }
+
+        $category = HelpFaqCategory::find($request->editId);
+        $category->name = $request->name;
+        $category->save();
+        Toastr::success('Category updated successfully','success');
+        return Redirect('/admin/help-faq-category/list');
+    }
+    public function helpFaqCategoryDeleteFun($id){
+        HelpFaqCategory::where('id',$id)->delete();
+        Toastr::success('Category deleted successfully','success');
+        return Redirect('/admin/help-faq-category/list');
     }
 }

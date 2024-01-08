@@ -494,6 +494,38 @@ class Helpers
                 }
                 return $flag;
                 break;
+            case 'helpFaqCategory':
+                $flag = false;
+                $check = Helpers::accessHasCheck([16]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'helpFaqCategoryAdd':
+                $flag = false;
+                $check = Helpers::accessHasCheck([16]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'helpFaqCategoryEdit':
+                $flag = false;
+                $check = Helpers::accessHasCheck([16]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'helpFaqCategoryEditSubmit':
+                $flag = false;
+                $check = Helpers::accessHasCheck([16]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
 
             default:
                 # code...

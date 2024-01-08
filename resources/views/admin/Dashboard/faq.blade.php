@@ -72,7 +72,7 @@
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="">Type</label>
-                            <select name="type" id="" class="form-control">
+                            <select name="type" id="" class="form-control" onchange="typeChange(this.value);">
                                 <option value="home">Home</option>
                                 <option value="help">Help</option>
                                 <option value="personality">Personality</option>
@@ -83,6 +83,15 @@
                                 <option value="eleven_twelve">11-12th class</option>
                                 <option value="graduation">Graduation</option>
                                 <option value="instant_advice">Instant Advice</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-group d-none" id="categoryDiv">
+                            <label for="">Select Category</label>
+                            <select name="category" id="category" class="form-control">
+                                <option value="">Select</option>
+                                @foreach ($category as $key => $value)
+                                    <option value="{{$value->id}}">{{$value->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-md-12 form-group">
@@ -122,7 +131,7 @@
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label for="">Type</label>
-                            <select name="type" id="" class="form-control">
+                            <select name="type" id="" class="form-control" onchange="typeChange(this.value);">
                                 <option value="home" {{($faq->type == 'home')?'selected':''}}>Home</option>
                                 <option value="help" {{($faq->type == 'help')?'selected':''}}>Help</option>
                                 <option value="personality" {{($faq->type == 'personality')?'selected':''}}>Personality</option>
@@ -133,6 +142,15 @@
                                 <option value="eleven_twelve" {{($faq->type == 'eleven_twelve')?'selected':''}}>11-12th class</option>
                                 <option value="graduation" {{($faq->type == 'graduation')?'selected':''}}>Graduation</option>
                                 <option value="instant_advice" {{($faq->type == 'instant_advice')?'selected':''}}>Instant Advice</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 form-group {{($faq->type == 'help')?'':'d-none'}}" id="categoryDiv">
+                            <label for="">Select Category</label>
+                            <select name="category" id="category" {{($faq->type == 'help')?'required':''}} class="form-control">
+                                <option value="">Select</option>
+                                @foreach ($category as $key => $value)
+                                    <option value="{{$value->id}}" {{($faq->help_faq_categoryId == $value->id)?'selected':''}}>{{$value->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-md-12 form-group">
@@ -165,5 +183,15 @@
         }
     }
     CKEDITOR.replace( 'answer');
+    function typeChange(value){
+        if(value == 'help'){
+            $("#categoryDiv").removeClass('d-none');
+            $("#category").attr('required',true);
+
+        }else{
+            $("#categoryDiv").addClass('d-none');
+            $("#category").attr('required',false);
+        }
+    }
 </script>
 @endsection
