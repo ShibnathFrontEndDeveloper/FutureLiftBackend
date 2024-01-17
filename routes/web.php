@@ -62,6 +62,7 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::get('/notification',[HomeController::class , 'indexUserNotification']);
     Route::get('/test',[HomeController::class , 'indextest']);
     Route::get('/get-help-faq-data/{key}/{categoryId}',[HomeController::class , 'getHelpFaqData']);
+    Route::get('/order-summary',[HomeController::class , 'indexOrderSummary']);
 });
 
 Route::get('/eight-ten-counselling',[HomeController::class , 'indexEightTenCoun']);
