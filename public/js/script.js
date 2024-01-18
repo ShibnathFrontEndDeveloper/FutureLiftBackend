@@ -30,6 +30,7 @@ var swiper = new Swiper(".topCollectionSwiper", {
   breakpoints: {
    0:{
     slidesPerView: 1,
+
    },
 
     768: {
@@ -38,6 +39,9 @@ var swiper = new Swiper(".topCollectionSwiper", {
 
     1024: {
       slidesPerView: 4,
+    },
+    1366:{
+      slidesPerView: 5,
     },
 
     1440:{

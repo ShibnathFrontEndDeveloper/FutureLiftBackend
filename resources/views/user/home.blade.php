@@ -638,15 +638,13 @@
                 <form action="{{url('/subscribeSubmit')}}" method="post">
                     @csrf
                   <div class="form-group d-flex">
-                    <input type="text" name="subscribe_email" class="form-control" placeholder="Email" required>
+                    <input type="email" name="subscribe_email" class="form-control" placeholder="Email" required>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </form>
               </div>
-
-              <a href="#Subscribe_mail_box" data-bs-toggle="collapse">
-                <button class="careerSubscribebtn">Subscribe with Gmail</button>
-              </a>
+              <button class="careerSubscribebtn" data-bs-toggle="collapse" data-bs-target="#Subscribe_mail_box">Subscribe with Gmail</button>
+              
             </div>
             <div class="careerSubscribeImg">
               <img

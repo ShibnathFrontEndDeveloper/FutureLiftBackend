@@ -19,12 +19,69 @@
 
 
 
-      <div class="container-fluid">
-
-
-          <!-- write html -->
-
+     <section class="order_summary" id="summary_order">
+      <div class="container">
+        <div class="main_product_details">
+          <div class="details_summary">
+            <div class="product_Caption">
+              <h3>Product</h3>
+            </div>
+            <div class="product_name">
+              <h1>Future Lift Advance</h1>
+              <p>Including All Facility</p>
+            </div>
+          </div>
+          <div class="details_summary">
+            <div class="product_Caption">
+              <h3>Duration</h3>
+            </div>
+            <div class="product_name">
+              <button class="btn product_btn">365 Days/1 Year</button>
+            </div>
+          </div>
+          <div class="details_summary">
+            <div class="product_Caption">
+              <h3>Price</h3>
+            </div>
+            <div class="product_name">
+              <h1><i class="bi bi-currency-rupee"></i>13,449</h1>
+              <span><i class="bi bi-currency-rupee"></i>15,449</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          
+          <div class="col-md-8 orderDetails">
+            <button class="btn coupon_Btn" data-bs-toggle="collapse" data-bs-target="#coupon_box">Viwe your coupon code</button>
+            <div class="collapse" id="coupon_box">
+              <div class="coupone_code_box">
+                <h3>FUTURELIFT123</h3>
+              </div>
+            </div>
+            <div class="coupon_note">
+              <p><span>Note:</span>Your code will be diapere after 30 days</p>
+            </div>
+          </div>
+          <div class="col-md-4 orderPrice">
+            <div class="card" style="width: 18rem;">
+              <ul class="list-group list-group-flush price_list">
+                <li class="list-group-item">Subtotal: <span><i class="bi bi-currency-rupee"></i>15,449</span></li>
+                <li class="list-group-item">Coupon Discount: <span class="text-success"><i class="bi bi-currency-rupee"></i>2,000</span></li>
+                <li class="list-group-item">Net Amount: <span><i class="bi bi-currency-rupee"></i>13,449</span></li>
+              </ul>
+              <div class="card-footer">
+              Total Amount <span><i class="bi bi-currency-rupee"></i>13,449</span>
+              </div>
+            </div>
+            <div class="paymnt_btnBox mt-5 text-right">
+              <button class="btn paymnt_btn">Next</button>
+            </div>
+          </div>
+        </div>
       </div>
+
+     </section>
+
       <div id="footer">
       @include('user.includes.footer')
 

@@ -1236,6 +1236,7 @@ backdrop-filter: blur(6px);
   background-color: rgb(23, 128, 23);
   padding: 8px 15px;
   border-radius: 5px;
+  width: 200px;
 }
 
 .careerSubscribeImg {
@@ -4974,6 +4975,134 @@ About Futurelift ////////////////////////////////////////
       border-left-color: #2fcea5;
       border-bottom-color: #2fcea5
   }
+
+
+  /* /////////Order Summary Styling /////////*/
+  .order_summary{
+    margin-top: 120px;
+  }
+  .order_summary .main_product_details{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: 1px solid #adb5bd;
+    padding: 20px;
+    border-radius: 5px;
+    background: aliceblue;
+  }
+  .order_summary .main_product_details .details_summary .product_Caption{
+    padding-bottom: 8px;
+  }
+  .order_summary .main_product_details .details_summary h3{
+    font-size: 18px;
+    color: #989898;
+    letter-spacing: 2px;
+  }
+  .order_summary .main_product_details .details_summary .product_name h1{
+    font-size: 24px;
+    color: #084298;
+    font-weight: 700;
+  }
+  .order_summary .main_product_details .details_summary .product_name .product_btn{
+    background: linear-gradient(to right, #9540ad, #192e95);
+    color: #fff;
+    font-size: 25px;
+  }
+  .order_summary .main_product_details .details_summary .product_name{
+    padding-top: 20px;
+  }
+  .order_summary .main_product_details .details_summary .product_name span{
+    text-align: right;
+    text-decoration: line-through;
+    color: #979797;
+    margin-left: 30px;
+  }
+  .order_summary .main_product_details .details_summary{
+    padding: 10px;
+  }
+  .order_summary .main_product_details .details_summary:nth-child(1){
+    width: 35%;
+  }
+  .order_summary .main_product_details .details_summary:nth-child(2){
+    border-left: 1px solid #979797;
+    border-right: 1px solid #979797;
+    width: 38%;
+
+  }
+  .order_summary .main_product_details .details_summary:nth-child(3){
+   text-align: right;
+    width: 20%;
+
+  }
+  .order_summary .main_product_details .details_summary:nth-child(2)>*{
+    margin-left: 50px;
+  }
+  .order_summary .main_product_details .details_summary .product_name p{
+    color: #979797;
+    font-size: 16px;
+  }
+.orderDetails{
+  padding-top: 50px;
+}
+.orderDetails .coupon_Btn{
+  background: linear-gradient(to right, #192e95, #9540ad);
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 14px;
+}
+.orderDetails .coupon_Btn:hover{
+  background: linear-gradient(to left, #192e95, #9540ad);
+  color: #fff;
+}
+.orderDetails .collapse .coupone_code_box{
+  width: 35%;
+}
+.orderDetails .collapse .coupone_code_box h3{
+  margin-top: 30px;
+  border: 1px solid #979797;
+  font-size: 18px;
+  padding: 10px;
+  color: #adb5bd;
+}
+.orderDetails .coupon_note{
+  padding: 15px 0;
+}
+.orderDetails .coupon_note p{
+  font-size: 14px;
+  color: #999;
+}
+.orderDetails .coupon_note p span{
+  font-style: italic;
+  font-weight: 600;
+  margin-right: 5px;
+}
+.orderPrice{
+  padding: 30px 0;
+}
+.orderPrice .price_list .list-group-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.orderPrice .price_list .list-group-item span{
+  font-weight: 600;
+}
+.orderPrice .card-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+.paymnt_btnBox .paymnt_btn{
+  background: linear-gradient(to right, #0a58ca, #9540ad);
+  color: #fff;
+  font-size: 18px;
+}
+.paymnt_btnBox .paymnt_btn:hover{
+  background: linear-gradient(to left, #0a58ca, #9540ad);
+  color: #fff;
+}
+    /* /////////Order Summary Styling End /////////*/
   
   @media only screen and (max-width:1200px) {
       .main-timeline .timeline-icon:before {
@@ -5077,7 +5206,23 @@ About Futurelift ////////////////////////////////////////
           left: 85px
       }
   }
-  
+  @media screen and (max-width:576px) {
+    .order_summary .main_product_details .details_summary:nth-child(3),.order_summary .main_product_details .details_summary:nth-child(2),.order_summary .main_product_details .details_summary:nth-child(1){
+      width: 100%;
+    }
+    .order_summary .main_product_details .details_summary:nth-child(2){
+      border:none;
+    }
+    .order_summary .main_product_details .details_summary:nth-child(2)>* {
+      margin-left: 0px;
+  }
+  .orderPrice{
+    padding: 15px;
+  }
+  .orderPrice .card{
+    width: 100% !important;
+  }
+  }
   @media only screen and (max-width:479px) {
       .main-timeline .timeline-content,
       .main-timeline .timeline:nth-child(2n) .timeline-content {

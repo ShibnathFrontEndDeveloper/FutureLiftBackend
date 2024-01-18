@@ -20906,7 +20906,7 @@ position: fixed;}
             line-height: 1;
             font-size: 1rem;
             margin-left: auto;
-            color: rgba(108, 114, 147, 0.36); }
+             }
             .rtl .sidebar .nav .nav-item .nav-link i.menu-arrow {
               margin-left: 0;
               margin-right: auto; }
@@ -21154,7 +21154,8 @@ position: fixed;}
     .sidebar-tinted .sidebar .nav .nav-item .nav-link .menu-icon i {
       color: white; }
     .sidebar-tinted .sidebar .nav .nav-item .nav-link i.menu-arrow {
-      color: rgba(255, 255, 255, 0.36); }
+      /* color: rgba(255, 255, 255, 0.36); */
+     }
   .sidebar-tinted .sidebar .nav .nav-item.active > .nav-link {
     background: rgba(12, 14, 14, 0.1); }
   .sidebar-tinted .sidebar .nav .nav-item.active:before {
