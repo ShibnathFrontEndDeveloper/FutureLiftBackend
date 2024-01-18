@@ -21,6 +21,9 @@
 
      <section class="order_summary" id="summary_order">
       <div class="container">
+        <div class="coupon_animation">
+          <video loop muted autoplay src="{{asset('assets/images/coupon.mp4')}}" width="320" height="240"></video>
+        </div>
         <div class="main_product_details">
           <div class="details_summary">
             <div class="product_Caption">
@@ -33,7 +36,7 @@
           </div>
           <div class="details_summary">
             <div class="product_Caption">
-              <h3>Duration</h3>
+              <h3>Package Validity</h3>
             </div>
             <div class="product_name">
               <button class="btn product_btn">365 Days/1 Year</button>
@@ -56,7 +59,7 @@
             <div class="coupone_code_box">
               <form action="" class="coupon_past_box">
                 <input type="mail" class="form-control" required placeholder="Your coupon code">
-                <button type="sumit" class="btn coupon_Btn coupon_sendBtn">Send code</button>
+                <button type="sumit" class="btn coupon_Btn coupon_sendBtn">Apply</button>
               </form>
             </div>
             <div class="coupon_note">

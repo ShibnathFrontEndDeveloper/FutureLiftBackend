@@ -5118,6 +5118,11 @@ About Futurelift ////////////////////////////////////////
 .coupon_past_box{
   display: flex;
 }
+.coupon_animation{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
     /* /////////Order Summary Styling End /////////*/
   
   @media only screen and (max-width:1200px) {
