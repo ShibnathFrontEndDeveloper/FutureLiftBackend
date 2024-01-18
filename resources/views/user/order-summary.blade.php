@@ -52,18 +52,19 @@
         <div class="row">
           
           <div class="col-md-8 orderDetails">
-            <button class="btn coupon_Btn" data-bs-toggle="collapse" data-bs-target="#coupon_box">Viwe your coupon code</button>
-            <div class="collapse" id="coupon_box">
-              <div class="coupone_code_box">
-                <h3>FUTURELIFT123</h3>
-              </div>
+            <button class="btn coupon_Btn" >Submit your coupon code</button>
+            <div class="coupone_code_box">
+              <form action="" class="coupon_past_box">
+                <input type="mail" class="form-control" required placeholder="Your coupon code">
+                <button type="sumit" class="btn coupon_Btn coupon_sendBtn">Send code</button>
+              </form>
             </div>
             <div class="coupon_note">
               <p><span>Note:</span>Your code will be diapere after 30 days</p>
             </div>
           </div>
           <div class="col-md-4 orderPrice">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 23rem;">
               <ul class="list-group list-group-flush price_list">
                 <li class="list-group-item">Subtotal: <span><i class="bi bi-currency-rupee"></i>15,449</span></li>
                 <li class="list-group-item">Coupon Discount: <span class="text-success"><i class="bi bi-currency-rupee"></i>2,000</span></li>
@@ -74,7 +75,7 @@
               </div>
             </div>
             <div class="paymnt_btnBox mt-5 text-right">
-              <button class="btn paymnt_btn">Next</button>
+              <button class="btn paymnt_btn">Continue</button>
             </div>
           </div>
         </div>
