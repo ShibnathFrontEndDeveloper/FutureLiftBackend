@@ -22,6 +22,7 @@ use App\Http\Controllers\admin\SessionSubscriptionController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\BlogController;
 use App\Http\Controllers\admin\CareerLibraryController;
+use App\Http\Controllers\admin\CouponController;
 
 
 Route::get('/',[HomeController::class , 'indexHome']);
@@ -52,7 +53,7 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::post('/user/step-two-submit',[ProfileController::class , 'stepTwoSubmitFunction']);
     Route::post('/user/step-three-submit',[ProfileController::class , 'stepThreeSubmitFunction']);
     Route::get('/price',[PriceController::class , 'indexPrice']);
-    Route::get('/user/subscription-submit/{subId}',[SubscriptionController::class , 'subscriptionSubmitFunction']);
+    Route::get('/user/subscription-submit',[SubscriptionController::class , 'subscriptionSubmitFunction']);
     Route::get('/session',[SessionController::class , 'indexSession']);
     Route::post('/user/bookCareerSession',[SessionController::class , 'bookCareerSessionFun']);
     Route::get('/help',[HomeController::class , 'indexHelp']);
@@ -62,7 +63,8 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::get('/notification',[HomeController::class , 'indexUserNotification']);
     Route::get('/test',[HomeController::class , 'indextest']);
     Route::get('/get-help-faq-data/{key}/{categoryId}',[HomeController::class , 'getHelpFaqData']);
-    Route::get('/order-summary',[HomeController::class , 'indexOrderSummary']);
+    Route::get('/order-summary',[SubscriptionController::class , 'indexOrderSummary']);
+    Route::post('/coupon-request',[SubscriptionController::class , 'couponReqFun']);
 });
 
 Route::get('/eight-ten-counselling',[HomeController::class , 'indexEightTenCoun']);
@@ -172,6 +174,13 @@ Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::get('/help-faq-category/{show}/{id}',[MainController::class , 'indexHelpFaqCategoryEdit'])->name('helpFaqCategoryEdit')->middleware('adminUrlCheck');
     Route::post('/helpFaqCategoryEdit',[MainController::class , 'helpFaqCategoryEditFun'])->name('helpFaqCategoryEditSubmit')->middleware('adminUrlCheck');
     Route::get('/helpFaqCategoryDelete/{id}',[MainController::class , 'helpFaqCategoryDeleteFun'])->name('helpFaqCategoryDelete');
+    Route::get('/coupon/{show}',[CouponController::class , 'indexCoupon'])->name('indexCouponList')->middleware('adminUrlCheck');
+    Route::post('/couponAdd',[CouponController::class , 'couponAddFun'])->name('couponAdd')->middleware('adminUrlCheck');
+    Route::get('/coupon/{show}/{id}',[CouponController::class , 'indexcouponEdit'])->name('couponEditindex')->middleware('adminUrlCheck');
+    Route::post('/couponEdit',[CouponController::class , 'couponEditFun'])->name('couponEdit');
+    Route::get('/couponDelete/{id}',[CouponController::class , 'couponDeleteFun'])->name('couponDelete')->middleware('adminUrlCheck');
+
+
 });
 
 

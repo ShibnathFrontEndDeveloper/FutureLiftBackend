@@ -615,7 +615,4 @@ class HomeController extends Controller
             <?php
         }
     }
-    public function indexOrderSummary(){
-        return view('user.order-summary');
-    }
 }

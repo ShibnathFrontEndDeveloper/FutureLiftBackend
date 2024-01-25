@@ -526,6 +526,38 @@ class Helpers
                 }
                 return $flag;
                 break;
+            case 'indexCouponList':
+                $flag = false;
+                $check = Helpers::accessHasCheck([17]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'couponAdd':
+                $flag = false;
+                $check = Helpers::accessHasCheck([17]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'couponEditindex':
+                $flag = false;
+                $check = Helpers::accessHasCheck([17]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
+            case 'couponDelete':
+                $flag = false;
+                $check = Helpers::accessHasCheck([17]);
+                if($check){
+                    $flag = true;
+                }
+                return $flag;
+                break;
 
             default:
                 # code...
@@ -934,6 +966,12 @@ class Helpers
         $getData = CareerLibraryVote::where('ip_address',$userIp)->where('post_id',$id)->get()->count();
 
         return ($getData > 0)?false:true;
+    }
+    public static function base64url_encode($str) {
+        return strtr(base64_encode($str), '+/', '-_');
+    }
+    public static function base64url_decode($base64url) {
+        return base64_decode(strtr($base64url, '-_', '+/'));
     }
 
 }

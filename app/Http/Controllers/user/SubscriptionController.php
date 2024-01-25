@@ -17,11 +17,14 @@ use App\Models\User_information;
 use App\Models\CounsellingPrice;
 use App\Models\UserSubscriptionModel;
 use App\Models\SessionHistory;
+use App\Models\Coupon;
+use App\Models\CouponHistory;
 
 
 class SubscriptionController extends Controller
 {
-    public function subscriptionSubmitFunction($subId){
+    public function subscriptionSubmitFunction(Request $request){
+        $subId = $request->subId;
         $userExitsPackage = UserSubscriptionModel::where('userId', Auth::guard('user')->user()->id)->where('status','active');
         if($userExitsPackage->get()->count() > 0){
             $subData = $userExitsPackage->first();
@@ -79,6 +82,14 @@ class SubscriptionController extends Controller
 
             }
         }
+        if($request->couponId !=''){
+            $couponHistory = new CouponHistory();
+            $couponHistory->couponId = $request->couponId;
+            $couponHistory->userId = Auth::guard('user')->user()->id;
+            $couponHistory->productId = $subId;
+            $couponHistory->save();
+        }
+
 
 
         $notificationContent = "Welcome to Your Journey of Growth! You're now subscribed to our counseling sessions. Get ready to embark on a path of self-discovery and empowerment. We're here to support you every step of the way. Your transformation begins now!";
@@ -87,6 +98,69 @@ class SubscriptionController extends Controller
 
         Toastr::success('Subscription updated successfully','success');
         return Redirect('/user-dashboard');
+
+    }
+    public function indexOrderSummary(Request $request){
+        $id = $request->query('product');
+        $idDecode = Helpers::base64url_decode($id);
+        $getCoun = CounsellingPrice::find($idDecode);
+        if(!$getCoun){
+            $getCoun = [];
+        }
+        return view('user.order-summary',compact(['getCoun']));
+    }
+    public function couponReqFun(Request $request){
+        $coupon = Coupon::where('coupon_code',$request->couponCode)->first();
+        if($coupon){
+            $today = date('Y-m-d');
+            $expire = Coupon::where('coupon_code',$request->couponCode)
+            ->whereDate('from_date','<=', $today)
+            ->whereDate('to_date','>=', $today)
+            ->get()->count();
+            if($expire > 0){
+                $couponHistory = CouponHistory::where('couponId',$coupon->id)->get()->count();
+                if($couponHistory < (int)$coupon->total_no_of_user){
+                    $discountAmount = 0;
+                    $totalAmount = 0;
+                    $coupon_amount = (int)$coupon->coupon_amount;
+                    if($coupon->type == "percentage"){
+                        $discountAmount = ($coupon_amount / 100) * (int)$request->productPrice;
+                        $totalAmount = (int)$request->productPrice - $discountAmount;
+                    }else{
+                        $discountAmount = $coupon_amount;
+                        $totalAmount = (int)$request->productPrice - $discountAmount;
+                    }
+                    $data = [
+                        "status" => true,
+                        "message" => $coupon->description,
+                        "data" => [
+                            "discountAmount" => round($discountAmount,2),
+                            "totalAmount" => round($totalAmount,2),
+                            "couponId" => $coupon->id
+                        ],
+                    ];
+                    return json_encode($data);
+                }else{
+                    $data = [
+                        "status" => false,
+                        "message" => "Coupon has been expired!"
+                    ];
+                    return json_encode($data);
+                }
+            }else{
+                $data = [
+                    "status" => false,
+                    "message" => "Coupon has been expired!"
+                ];
+                return json_encode($data);
+            }
+        }else{
+            $data = [
+                "status" => false,
+                "message" => "Invalid Coupon Code!"
+            ];
+            return json_encode($data);
+        }
 
     }
 }

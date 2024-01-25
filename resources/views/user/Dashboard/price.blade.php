@@ -17,7 +17,6 @@
                 $currenSession = App\Helpers::getCurrentPackage();
                 $currenSessionPrice = App\Helpers::getCurrentPackagePrice();
             @endphp
-            {{$currenSessionPrice}}
             <div class="row">
               <div class="col-md-12 mx-0 upgrt_price_box">
                 <div class="card">
@@ -33,7 +32,7 @@
                                     </div>
                                     {!! $value->description !!}
                                     <div class=" pirce_btn_box text-center mt-4">
-                                    <button class="btn" onclick="subscription_purchase('{{$value->id}}','{{$value->plan_price}}','{{$currenSessionPrice}}')"><?=($currenSession !='')?($value->plan_name == $currenSession)?'Buy Now <i class="mdi mdi-checkbox-marked-circle text-success"></i>':'Buy Now':'Buy Now'?></button>
+                                    <button class="btn" onclick="subscription_purchase('{{$value->id}}','{{$value->plan_price}}','{{$currenSessionPrice}}','<?=App\Helpers::base64url_encode($value->id)?>')"><?=($currenSession !='')?($value->plan_name == $currenSession)?'Buy Now <i class="mdi mdi-checkbox-marked-circle text-success"></i>':'Buy Now':'Buy Now'?></button>
                                     </div>
                                 </div>
                             </div>
@@ -48,10 +47,11 @@
 @endsection
 @section('scripts')
 <script>
-    function subscription_purchase(id,price,currenSessionPrice){
+    function subscription_purchase(id,price,currenSessionPrice,encodeId){
        // window.location.href="{{url('/user/subscription-submit')}}/"+id;
 
-       const gourl = "<?=url('user/subscription-submit')?>/"+id;
+    //    const gourl = "<?=url('user/subscription-submit')?>/"+id;
+    const gourl = "<?=url('/order-summary')?>?product="+encodeId;
        if(parseFloat(price) < parseFloat(currenSessionPrice)){
             swal({
                 title: 'Are you sure?',
@@ -64,7 +64,7 @@
                 }
             });
         }else{
-            window.location.href="{{url('/user/subscription-submit')}}/"+id;
+            window.location.href=gourl;
         }
     }
 </script>
