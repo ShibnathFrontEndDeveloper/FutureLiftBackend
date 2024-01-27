@@ -28,9 +28,7 @@
                 <input type="hidden" name="couponAmount" id="couponAmount" value="">
                 <input type="hidden" name="productAllTotalPrice" id="productAllTotalPrice" value="{{$getCoun->plan_price}}">
                 <div class="container">
-                    <div class="coupon_animation">
-                        <video loop muted autoplay src="{{asset('assets/images/coupon.mp4')}}" width="320" height="240"></video>
-                    </div>
+                    <h1 class="mt-5 mb-3 text-center">Use your coupon</h1>
                     <div class="main_product_details">
                         <div class="details_summary">
                             <div class="product_Caption">
@@ -41,14 +39,7 @@
                                 <p>Including All Facility</p>
                             </div>
                         </div>
-                        <!-- <div class="details_summary">
-                            <div class="product_Caption">
-                                <h3>Package Validity</h3>
-                            </div>
-                            <div class="product_name">
-                                <button class="btn product_btn">365 Days/1 Year</button>
-                            </div>
-                        </div> -->
+                        
                         <div class="details_summary">
                             <div class="product_Caption">
                                 <h3>Price</h3>

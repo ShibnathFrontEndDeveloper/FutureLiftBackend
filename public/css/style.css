@@ -350,6 +350,15 @@ a {
   border: 0;
   margin-bottom: 1rem;
 }
+.modalKnowMore_btn{
+  background: #0a58ca;
+  color: #fff;
+  padding: 5px 10px;
+  height: 30px;
+}
+.modalKnowMore_btn:hover{
+  color: #fff;
+}
 .alreadyMember {
   font-weight: 600;
 }
@@ -3999,7 +4008,7 @@ border-radius: 0;
   top: 15%;
 }
 .newTab{
-  margin-left: 240px;
+  margin-left: 281px;
 }
 
 /* .position_box{
@@ -4008,7 +4017,7 @@ border-radius: 0;
 .position_box.newClassTab{
   position: fixed;
   top: 12%;
-  width: 250px;
+  width: 282px;
   height: 95%;
   overflow: hidden;
   overflow-y: auto;
@@ -4162,6 +4171,7 @@ border-radius: 0;
   border: 1px solid #eaeaea;
   background-size: 90px auto;
   margin-top: 5px;
+  margin-bottom: 60px;
 }
 .banner_bestForYou{
   background-size: 180px auto !important;
@@ -4986,7 +4996,7 @@ About Futurelift ////////////////////////////////////////
     justify-content: space-between;
     flex-wrap: wrap;
     border: 1px solid #adb5bd;
-    padding: 20px;
+    padding: 0px 20px;
     border-radius: 5px;
     background: aliceblue;
   }
@@ -5008,9 +5018,9 @@ About Futurelift ////////////////////////////////////////
     color: #fff;
     font-size: 25px;
   }
-  .order_summary .main_product_details .details_summary .product_name{
+  /* .order_summary .main_product_details .details_summary .product_name{
     padding-top: 20px;
-  }
+  } */
   .order_summary .main_product_details .details_summary .product_name span{
     text-align: right;
     text-decoration: line-through;
@@ -5025,7 +5035,6 @@ About Futurelift ////////////////////////////////////////
   }
   .order_summary .main_product_details .details_summary:nth-child(2){
     border-left: 1px solid #979797;
-    border-right: 1px solid #979797;
     width: 38%;
 
   }

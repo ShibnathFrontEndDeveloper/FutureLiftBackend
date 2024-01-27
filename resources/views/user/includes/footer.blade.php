@@ -259,12 +259,12 @@
                   </p>
                   <div class="d-flex justify-content-center align-items-ce">
                   <button type="Submit" class="Modalbtn">Book Session</button>
-                  <a href="{{url('/instant-advice')}}" target="_blank" class="Modalbtn ms-3">Know More</a>
+                  <a href="{{url('/instant-advice')}}" target="_blank" class="modalKnowMore_btn ms-3">Know More</a>
                   </div>
                 </form>
                 @if(!Auth::guard('user')->check())
                 <p class="alreadyMember">
-                  Already a member? <a href="{{url('/login-signup')}}">Click Here</a>it's easy!
+                  Already a member? <a href="{{url('/login-signup')}}">Click Here</a> it's easy!
                 </p>
                 @endif
                 
