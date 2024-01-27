@@ -4116,7 +4116,7 @@
             </div>
           </section>
            <!-- Instance Packege Part End -->
-          
+
 
           <!-- Meet Our Counseller Part Start -->
           <section class="futureLiftMeetCounseller">
@@ -4152,8 +4152,9 @@
                   <p>
                     Feel free to write to us. We usually respond within 24 hours!
                   </p>
-                  <form action="http://localhost:8000/submitHelpForm" method="post" class="callUsForm">
-                      <input type="hidden" name="_token" value="7htdi61VM9YxkGpXS1cAYXW5xgH2eGrUacnvD8c7">                  <div class="form-group">
+                  <form action="{{url('/submitHelpForm')}}" method="post" class="callUsForm">
+                      @csrf
+                      <div class="form-group">
                       <input type="text" name="name" class="form-control" placeholder="Full name" required="" value="">
                     </div>
                     <div class="form-group">
@@ -4293,7 +4294,7 @@
               </div>
             </div>
           </div>
-        
+
         <div class="container-fluid faqSection">
           <h1 style="font-weight: bold">FAQ</h1>
           <div class="accordion" id="accordionExample">
