@@ -263,12 +263,14 @@
                     <div class=" justify-content-between">
                     <p>{!!$data->industry_trends_content!!}</p>
                     <!-- <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="img-fluid"> -->
-                    <div id="blankdiv"></div>
+                    
                     @if(Auth::guard('user')->check())
                     <embed src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" width="100%" height="400" alt="pdf" id="marksheetEm">
+                    <div id="blankdiv" class="mb-5"></div>
                     @else
                     <embed src="{{asset('media/sample.pdf')}}" width="100%" height="400" alt="pdf" id="marksheetEm" style="filter: blur(6px);">
                     <a href="javascript:void(0)" onclick="logInform()" class="btn btn-primary position-relative book_btn">View PDF</a>
+                    <div id="blankdiv" class="mb-5"></div>
                     @endif
                     </div>
                   </div>
