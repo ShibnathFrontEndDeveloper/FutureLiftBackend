@@ -36,7 +36,18 @@
                             </div>
                             <div class="product_name">
                                 <h1>{{$getCoun->plan_name}}</h1>
-                                <p>Including All Facility</p>
+                                <p>Including Facility</p>
+                                <div class="includFacility_Ditais">
+                                    <div class="includFacility_Ditais_Box">
+                                        <div class="icon_box"><i class="bi bi-check-all"></i></div><p>25+ page Detailed Career Analysis</p>
+                                    </div>
+                                    <div class="includFacility_Ditais_Box">
+                                        <div class="icon_box"><i class="bi bi-check-all"></i></div><p>Personalized Brainstorming Session</p>
+                                    </div>
+                                    <div class="includFacility_Ditais_Box">
+                                        <div class="icon_box"><i class="bi bi-check-all"></i></div><p>Career Exploration</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         

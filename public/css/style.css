@@ -5014,6 +5014,35 @@ About Futurelift ////////////////////////////////////////
     color: #084298;
     font-weight: 700;
   }
+
+  .order_summary .main_product_details .details_summary .product_name .includFacility_Ditais{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-gap: 8px;
+  }
+  .order_summary .main_product_details .details_summary .product_name .includFacility_Ditais .includFacility_Ditais_Box{
+    display: flex;
+  }
+  .order_summary .main_product_details .details_summary .product_name .includFacility_Ditais .includFacility_Ditais_Box .icon_box{
+    border: 1px solid #0a58ca;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    background: #0a58ca;
+  }
+  .order_summary .main_product_details .details_summary .product_name .includFacility_Ditais .includFacility_Ditais_Box .icon_box .bi{
+    font-size: 18px;
+    line-height: 0;
+    color: #fff;
+  }
+  .order_summary .main_product_details .details_summary .product_name .includFacility_Ditais .includFacility_Ditais_Box p{
+    font-size: 14px;
+  }
   .order_summary .main_product_details .details_summary .product_name .product_btn{
     background: linear-gradient(to right, #9540ad, #192e95);
     color: #fff;
@@ -5032,11 +5061,11 @@ About Futurelift ////////////////////////////////////////
     padding: 10px;
   }
   .order_summary .main_product_details .details_summary:nth-child(1){
-    width: 35%;
+    width: 80%;
   }
   .order_summary .main_product_details .details_summary:nth-child(2){
     border-left: 1px solid #979797;
-    width: 38%;
+    width: 20%;
 
   }
   .order_summary .main_product_details .details_summary:nth-child(3){
