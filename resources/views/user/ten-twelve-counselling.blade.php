@@ -20,8 +20,8 @@
 
 
       <div class="container-fluid">
-        <div class="banner container-fluid">
-          <img src="{{asset('assets/images/Banner2-01.png')}}" alt="" class="img-fluid"/>
+        <div class="banner container-fluid mt-5">
+          <img src="{{asset('assets/images/Banner2-01.png')}}" alt="" class="img-fluid mt-4"/>
           <div class="Counselling8th-bannerContent col-6">
             <p>Welcome to 11th-12th Class</p>
             <p>Discover your life goals early</p>

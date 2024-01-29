@@ -19,9 +19,9 @@
 
 
 
-      <div class="container-fluid">
-        <div class="banner container-fluid">
-          <img src="{{asset('assets/images/Banner3-01.png')}}" alt="" class="img-fluid"/>
+      <div class="container-fluid mt-5">
+        <div class="banner container-fluid mt-5">
+          <img src="{{asset('assets/images/Banner3-01.png')}}" alt="" class="img-fluid mt-4"/>
           <div class="Counselling8th-bannerContent col-6">
             <p>Welcome in College Graduate</p>
             <p>Discover your life goals early</p>
