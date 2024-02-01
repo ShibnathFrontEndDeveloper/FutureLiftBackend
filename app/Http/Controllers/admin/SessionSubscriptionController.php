@@ -39,11 +39,17 @@ class SessionSubscriptionController extends Controller
         	return back()->withInput();
         }
 
+        if(count($request->facility_content) == 0){
+            Toastr::error('Please add facility content!','error');
+            return back()->withInput();
+        }
+
         $subscription = new CounsellingPrice();
         $subscription->plan_name = $request->plan_name;
         $subscription->plan_price = $request->plan_price;
         $subscription->session_count = $request->session_count;
         $subscription->description = $request->description;
+        $subscription->facility = json_encode($request->facility_content);
         $subscription->session_has = ($request->session_count > 0)?'yes':'no';
         $subscription->save();
 
@@ -75,11 +81,17 @@ class SessionSubscriptionController extends Controller
         	return back()->withInput();
         }
 
+        if(count($request->facility_content) == 0){
+            Toastr::error('Please add facility content!','error');
+            return back()->withInput();
+        }
+
         $subscription = CounsellingPrice::find($request->editId);
         $subscription->plan_name = $request->plan_name;
         $subscription->plan_price = $request->plan_price;
         $subscription->session_count = $request->session_count;
         $subscription->description = $request->description;
+        $subscription->facility = json_encode($request->facility_content);
         $subscription->session_has = ($request->session_count > 0)?'yes':'no';
         $subscription->save();
 

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     @include('user.includes.favicon')
 
-    <title>Future Lift1</title>
+    <title>Future Lift</title>
     @include('user.includes.css-link')
     @section('csss')
     <link

@@ -235,7 +235,7 @@
                     <input
                       type="text"
                       id="picker"
-                      class="form-control"
+                      class="form-control datepick"
                       placeholder="Schedule Session Date"
                       required
                       name="schedule_date"
@@ -267,7 +267,7 @@
                   Already a member? <a href="{{url('/login-signup')}}">Click Here</a> it's easy!
                 </p>
                 @endif
-                
+
                 <button
                   type="button"
                   class="btn-close"
@@ -280,6 +280,28 @@
         </div>
       </div>
       <!-- Modal End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="ftco-loader" class="show fullscreen pre-loader" style="display: none;">
     <div class="loader-position">

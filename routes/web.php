@@ -41,6 +41,7 @@ Route::get('/password-set/{id}/{link}/{linkT}',[HomeController::class , 'passwor
 Route::post('/setResetPassword',[HomeController::class , 'setResetPasswordFun']);
 Route::post('/user/demo-registration',[HomeController::class , 'demoRegistration'])->middleware('userLoginCheck');
 Route::post('/user/booksession',[HomeController::class , 'booksessionFunction']);
+Route::get('/instant-book',[HomeController::class , 'instantBookIndex']);
 Route::group(['middleware' => 'userAuth'], function () {
     Route::get('/user/logout',[AuthController::class , 'logoutFunction']);
     Route::get('/user-dashboard',[DashboardController::class , 'indexDashboard']);
@@ -56,6 +57,7 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::get('/user/subscription-submit',[SubscriptionController::class , 'subscriptionSubmitFunction']);
     Route::get('/session',[SessionController::class , 'indexSession']);
     Route::post('/user/bookCareerSession',[SessionController::class , 'bookCareerSessionFun']);
+    Route::post('/user/updatebookCareerSession',[SessionController::class , 'updatebookCareerSessionFun']);
     Route::get('/help',[HomeController::class , 'indexHelp']);
     Route::post('/updatePhoneNumber',[ProfileController::class , 'updatePhoneNumberFun']);
     Route::get('/change-password',[AuthController::class , 'indexChangePassword']);

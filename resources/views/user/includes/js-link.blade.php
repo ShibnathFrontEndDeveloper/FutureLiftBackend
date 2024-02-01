@@ -28,12 +28,37 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
   <script src="{{asset('toaster/toastr.min.js')}}"></script>
   <script>
-    $('#picker').datepicker({
+
+$('.datepick').each(function(){
+    console.log(this);
+    $(this).datepicker({
             minDate: 1,
             dateFormat: 'dd/mm/yy'
         });
+});
+    // $('#picker').datepicker({
+    //         minDate: 1,
+    //         dateFormat: 'dd/mm/yy'
+    //     });
+
+
+    //     $('#dddPic').datepicker({
+    //         minDate: 1,
+    //         dateFormat: 'dd/mm/yy'
+    //     });
 
         $('#timepicker').timepicker({
+        minTime: '10:00am',
+        maxTime: '06:00pm',
+        step: 15, // 15 minutes
+        disableTimeRanges: [
+            ['12:00am', '09:15am'],
+            ['06:15pm', '11:45pm']
+        ],
+        // showDuration: true
+        });
+
+        $('#timepicker1').timepicker({
         minTime: '10:00am',
         maxTime: '06:00pm',
         step: 15, // 15 minutes

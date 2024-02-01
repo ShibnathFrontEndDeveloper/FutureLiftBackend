@@ -68,9 +68,9 @@ class HomeController extends Controller
         return Redirect('/login-signup?reg='.$request->reg_email);
     }
     public function booksessionFunction(Request $request){
-        // print_r($request->all());
+        //print_r($request->all());
         // echo date('H:i:s',strtotime($request->schedule_time));
-        // die();
+        //die();
         $validator = Validator::make($request->all(), [
             'candidate_name' => 'required',
             'candidate_email' => 'required',
@@ -102,10 +102,10 @@ class HomeController extends Controller
                 $book->options = $request->options;
                 $book->schedule_date_time = $dateFormat.' '.$timeFormat;
                 $book->save();
-
-                $notificationContent = "Session Confirmed! Your booking is all set. Get ready for an insightful and engaging session. We're excited to connect with you and provide valuable insights. See you soon!";
-                Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_session','Book Session','session',$notificationContent);
-
+                if(Auth::guard('user')->check()){
+                    $notificationContent = "Session Confirmed! Your booking is all set. Get ready for an insightful and engaging session. We're excited to connect with you and provide valuable insights. See you soon!";
+                    Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_session','Book Session','session',$notificationContent);
+                }
                 Toastr::success('Book session Successfully','success');
                 return back();
             }else{
@@ -613,6 +613,16 @@ class HomeController extends Controller
                     No Data Found
                 </div>
             <?php
+        }
+    }
+    public function instantBookIndex(Request $request){
+        $id = base64_decode($request->query('product'));
+        $data = Futurelit_session::find($id);
+        if($data){
+            return view('user.instant-book',compact(['data']));
+        }else{
+            $data = [];
+            return view('user.instant-book',compact(['data']));
         }
     }
 }

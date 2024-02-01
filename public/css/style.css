@@ -3844,6 +3844,10 @@ policy  /////////////////////////////////////
     color: #fff;
   }
 
+  .book-inst{
+    margin-top: 100px;
+  }
+
 /* //////////////////Career Library////////////////// */
 
   .library_home{
@@ -4033,7 +4037,7 @@ border-radius: 0;
   display: none;
 }
 .help_box_part{
-  
+
   border-bottom: 1px solid #bfbfbf;
   border-top: 1px solid #bfbfbf;
   padding: 50px 0;
@@ -4184,7 +4188,7 @@ border-radius: 0;
   height: 160px;
   vertical-align: middle;
   display: table-cell;
- 
+
 }
 .addFirm{
   padding: 0 8px;
@@ -4768,7 +4772,7 @@ About Futurelift ////////////////////////////////////////
     .main-timeline {
       position: relative
   }
-  
+
   .main-timeline:before {
       content: "";
       width: 50px;
@@ -4781,13 +4785,13 @@ About Futurelift ////////////////////////////////////////
       left: 0;
       right: 0
   }
-  
+
   .main-timeline .timeline {
       display: inline-block;
       margin-bottom: 50px;
       position: relative
   }
-  
+
   .main-timeline .timeline:before {
       content: "";
       width: 20px;
@@ -4801,7 +4805,7 @@ About Futurelift ////////////////////////////////////////
       z-index: 1;
       transform: translate(-50%, -50%)
   }
-  
+
   .main-timeline .timeline-icon {
       display: inline-block;
       width: 130px;
@@ -4815,7 +4819,7 @@ About Futurelift ////////////////////////////////////////
       left: 27.5%;
       transform: translateY(-50%)
   }
-  
+
   .main-timeline .timeline-icon i {
       display: block;
       border-radius: 50%;
@@ -4825,9 +4829,9 @@ About Futurelift ////////////////////////////////////////
       line-height: 100px;
       z-index: 1;
       position: relative
-      
+
   }
-  
+
   .main-timeline .timeline-icon:after,
   .main-timeline .timeline-icon:before {
       content: "";
@@ -4840,7 +4844,7 @@ About Futurelift ////////////////////////////////////////
       transform: translateY(-50%);
       z-index: -1;
   }
-  
+
   .main-timeline .timeline-icon:after {
       width: 70px;
       height: 50px;
@@ -4848,7 +4852,7 @@ About Futurelift ////////////////////////////////////////
       top: 89px;
       right: -30px
   }
-  
+
   .main-timeline .timeline-content {
       width: 50%;
       padding: 0 80px;
@@ -4856,7 +4860,7 @@ About Futurelift ////////////////////////////////////////
       float: right;
       position: relative
   }
-  
+
   .main-timeline .timeline-content:before {
       content: "";
       width: 70%;
@@ -4868,7 +4872,7 @@ About Futurelift ////////////////////////////////////////
       bottom: -13px;
       left: 60px
   }
-  
+
   .main-timeline .timeline-content:after {
       content: "";
       width: 37px;
@@ -4878,40 +4882,40 @@ About Futurelift ////////////////////////////////////////
       top: 13px;
       left: 25px;
   }
-  
+
   .main-timeline .title {
       font-size: 20px;
       color: #D81159;
       text-transform: uppercase;
       margin: 0 0 5px
   }
-  
+
   .main-timeline .description {
       display: inline-block;
       color: #404040;
       line-height: 20px;
       margin: 0
   }
-  
+
   .main-timeline .timeline:nth-child(even) .timeline-icon {
       left: auto;
       right: 27.5%
   }
-  
+
   .main-timeline .timeline:nth-child(even) .timeline-icon:before {
       right: auto;
       left: -100px
   }
-  
+
   .main-timeline .timeline:nth-child(even) .timeline-icon:after {
       right: auto;
       left: -30px
   }
-  
+
   .main-timeline .timeline:nth-child(even) .timeline-content {
       float: left
   }
-  
+
   .main-timeline .timeline:nth-child(even) .timeline-content:before {
       left: auto;
       right: 61px;
@@ -4921,67 +4925,67 @@ About Futurelift ////////////////////////////////////////
     background: #F68657;
     border-radius: 50%;
   }
-  
+
   .main-timeline .timeline:nth-child(even) .timeline-content:after {
       left: auto;
       right: 25px;
   }
-  
+
   .main-timeline .timeline:nth-child(2n) .timeline-content:after,
   .main-timeline .timeline:nth-child(2n) .timeline-icon i,
   .main-timeline .timeline:nth-child(2n) .timeline-icon:before,
   .main-timeline .timeline:nth-child(2n):before {
       background: #F68657
   }
-  
+
   .main-timeline .timeline:nth-child(2n) .timeline-icon {
       border-color: #F68657
   }
-  
+
   .main-timeline .timeline:nth-child(2n) .title {
       color: #F68657
   }
-  
+
   .main-timeline .timeline:nth-child(2n) .timeline-content:before {
       border-left-color: #F68657;
       border-bottom-color: #F68657
   }
-  
+
   .main-timeline .timeline:nth-child(3n) .timeline-content:after,
   .main-timeline .timeline:nth-child(3n) .timeline-icon i,
   .main-timeline .timeline:nth-child(3n) .timeline-icon:before,
   .main-timeline .timeline:nth-child(3n):before {
       background: #8fb800
   }
-  
+
   .main-timeline .timeline:nth-child(3n) .timeline-icon {
       border-color: #8fb800
   }
-  
+
   .main-timeline .timeline:nth-child(3n) .title {
       color: #8fb800
   }
-  
+
   .main-timeline .timeline:nth-child(3n) .timeline-content:before {
       border-left-color: #8fb800;
       border-bottom-color: #8fb800
   }
-  
+
   .main-timeline .timeline:nth-child(4n) .timeline-content:after,
   .main-timeline .timeline:nth-child(4n) .timeline-icon i,
   .main-timeline .timeline:nth-child(4n) .timeline-icon:before,
   .main-timeline .timeline:nth-child(4n):before {
       background: #2fcea5
   }
-  
+
   .main-timeline .timeline:nth-child(4n) .timeline-icon {
       border-color: #2fcea5
   }
-  
+
   .main-timeline .timeline:nth-child(4n) .title {
       color: #2fcea5
   }
-  
+
   .main-timeline .timeline:nth-child(4n) .timeline-content:before {
       border-left-color: #2fcea5;
       border-bottom-color: #2fcea5
@@ -5163,7 +5167,7 @@ About Futurelift ////////////////////////////////////////
   margin-bottom: 20px;
 }
     /* /////////Order Summary Styling End /////////*/
-  
+
   @media only screen and (max-width:1200px) {
       .main-timeline .timeline-icon:before {
           width: 50px;
@@ -5177,7 +5181,7 @@ About Futurelift ////////////////////////////////////////
           margin-top: 75px
       }
   }
-  
+
   @media only screen and (max-width:990px) {
       .main-timeline .timeline {
           margin: 0 0 10px
@@ -5192,7 +5196,7 @@ About Futurelift ////////////////////////////////////////
           margin-top: 115px
       }
   }
-  
+
   @media only screen and (max-width:767px) {
       .main-timeline {
           padding-top: 50px
@@ -5297,4 +5301,3 @@ About Futurelift ////////////////////////////////////////
           left: 65px
       }
   }
-    

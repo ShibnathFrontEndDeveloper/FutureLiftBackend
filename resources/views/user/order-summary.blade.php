@@ -28,7 +28,7 @@
                 <input type="hidden" name="couponAmount" id="couponAmount" value="">
                 <input type="hidden" name="productAllTotalPrice" id="productAllTotalPrice" value="{{$getCoun->plan_price}}">
                 <div class="container">
-                    <h1 class="mt-5 mb-3 text-center">Use your coupon</h1>
+                    <h1 class="mt-5 mb-3 text-center">Order Summery</h1>
                     <div class="main_product_details">
                         <div class="details_summary">
                             <div class="product_Caption">
@@ -37,20 +37,19 @@
                             <div class="product_name">
                                 <h1>{{$getCoun->plan_name}}</h1>
                                 <p>Including Facility</p>
+                                @if ($getCoun->facility)
                                 <div class="includFacility_Ditais">
-                                    <div class="includFacility_Ditais_Box">
-                                        <div class="icon_box"><i class="bi bi-check-all"></i></div><p>25+ page Detailed Career Analysis</p>
-                                    </div>
-                                    <div class="includFacility_Ditais_Box">
-                                        <div class="icon_box"><i class="bi bi-check-all"></i></div><p>Personalized Brainstorming Session</p>
-                                    </div>
-                                    <div class="includFacility_Ditais_Box">
-                                        <div class="icon_box"><i class="bi bi-check-all"></i></div><p>Career Exploration</p>
-                                    </div>
+                                    @foreach (json_decode($getCoun->facility,true) as $facilityKey => $facilityValue)
+                                        <div class="includFacility_Ditais_Box">
+                                            <div class="icon_box"><i class="bi bi-check-all"></i></div><p>{{$facilityValue}}</p>
+                                        </div>
+                                    @endforeach
                                 </div>
+                                @endif
+
                             </div>
                         </div>
-                        
+
                         <div class="details_summary">
                             <div class="product_Caption">
                                 <h3>Price</h3>

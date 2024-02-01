@@ -973,6 +973,14 @@ class Helpers
     public static function base64url_decode($base64url) {
         return base64_decode(strtr($base64url, '-_', '+/'));
     }
+    public static function getsessionDataForAdvice() {
+        return Futurelit_session::get();
+    }
+    public static function twoDateTimeHoursCalculate($date1,$date2){
+        $dateDiff = intval((strtotime($date1)-strtotime($date2))/60);
+        $hours = intval($dateDiff/60);
+        return $hours;
+    }
 
 }
 ?>

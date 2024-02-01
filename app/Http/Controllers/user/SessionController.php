@@ -59,4 +59,28 @@ class SessionController extends Controller
         Toastr::success('Session booked Successfully','success');
         return Redirect('/session');
     }
+    public function updatebookCareerSessionFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'schedule_date' => 'required',
+            'schedule_time' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	Toastr::error('All fields are mandatory','error');
+        	return back()->withInput();
+        }
+
+        $timeFormat = date('H:i:s',strtotime($request->schedule_time));
+        $dateFormat = date('Y-m-d',strtotime($request->schedule_date));
+
+        SessionHistory::where('id',$request->sessionId)->update([
+            "session_date_time" => $dateFormat.' '.$timeFormat,
+        ]);
+
+        $notificationContent = "Session Update: Reschedule Request We understand plans change. If you need to reschedule your upcoming session, click here to find a time that works better for you. We're here to accommodate and support your needs. Thank you for your flexibility!";
+        Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_counselling_career_session','Reschedule Counselling Career Session','career_session_booked',$notificationContent);
+
+        Toastr::success('Session updated Successfully','success');
+        return Redirect('/session');
+    }
 }

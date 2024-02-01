@@ -15,7 +15,7 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="{{url('/user-dashboard')}}">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">My Sessions{{$sessionHas}}</li>
+                  <li class="breadcrumb-item active" aria-current="page">My Sessions</li>
                 </ol>
               </nav>
             </div>
@@ -23,6 +23,7 @@
                 @php
                     $percentageData = App\Helpers::profileCompletePercentage();
                     $percentage = $percentageData['percentage'];
+                    $today = date('Y-m-d H:i:s');
                 @endphp
             @if ($sessionHas > 0 && $percentage == 100)
                 @foreach ($allData as $key => $value)
@@ -39,6 +40,9 @@
                                 <button type="button" class="btn border scdle_btn disabled">Schedule</button>
                                 @elseif ($value->status == 'Processing')
                                 <button type="button" class="btn border scdle_btn disabled btn-warning">Session Processing</button>
+                                @if (App\Helpers::twoDateTimeHoursCalculate($value->session_date_time,$today) > 24)
+                                    <button type="button" class="btn border scdle_btn btn-dark" data-bs-toggle="modal" data-bs-target="#sessionReBookPopup{{$key}}">Re-Schedule</button>
+                                @endif
                                 @elseif ($value->status == 'Completed')
                                 <button type="button" class="btn border scdle_btn disabled btn-success">Session Completed</button>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewReportModal{{$key}}">Session Report</button>
@@ -108,6 +112,60 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary upgrade_btn">Book Session</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="modal popup_box" id="sessionReBookPopup{{$key}}" tabindex="-1" aria-labelledby="exampleModalLabel{{$key}}" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content ref_mdal_box">
+                                <div class="modal-header">
+                                    <h1 class="modal-title season_header" id="exampleModalLabel{{$key}}">
+                                        Reschedule Career Session No : {{$key + 1}}
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close"></button>
+                                </div>
+                                <form action="{{url('/user/updatebookCareerSession')}}" class="callUsForm" method="post">
+                                    @csrf
+                                    <input type="hidden" name="sessionId" value="{{$value->id}}">
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group modal-Input">
+                                                    <i class="fa-regular fa-calendar-days"></i>
+                                                    <input
+                                                        type="text"
+                                                        id="picker{{$key}}{{$value->id}}"
+                                                        class="form-control picker"
+                                                        placeholder="Schedule Session Date"
+                                                        required
+                                                        autocomplete="off"
+                                                        name="schedule_date"
+                                                        />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group modal-Input">
+                                                    <i class="fa-regular fa-calendar-days"></i>
+                                                    <input
+                                                        type="text"
+                                                        id="timepicker{{$key}}{{$value->id}}"
+                                                        class="form-control timepicker"
+                                                        placeholder="Session Time"
+                                                        required
+                                                        autocomplete="off"
+                                                        name="schedule_time"
+                                                        />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary upgrade_btn">Update Book Session</button>
                                     </div>
                                 </form>
                             </div>
@@ -251,6 +309,22 @@
         });
 
         $('#timepicker<?=$key?>').timepicker({
+        minTime: '10:00am',
+        maxTime: '06:00pm',
+        step: 15, // 15 minutes
+        disableTimeRanges: [
+            ['12:00am', '09:15am'],
+            ['06:15pm', '11:45pm']
+        ],
+        // showDuration: true
+        });
+
+        $('#picker<?=$key?><?=$value->id?>').datepicker({
+            minDate: 1,
+            dateFormat: 'dd-mm-yy'
+        });
+
+        $('#timepicker<?=$key?><?=$value->id?>').timepicker({
         minTime: '10:00am',
         maxTime: '06:00pm',
         step: 15, // 15 minutes
