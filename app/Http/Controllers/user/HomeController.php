@@ -625,4 +625,8 @@ class HomeController extends Controller
             return view('user.instant-book',compact(['data']));
         }
     }
+    public function indexuserreview(){
+        return view('user.Dashboard.user-review');
+    }
 }
+

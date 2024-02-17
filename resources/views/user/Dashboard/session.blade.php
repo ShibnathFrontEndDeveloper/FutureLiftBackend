@@ -34,19 +34,36 @@
                             </div>
 
                             <div class="card-body text-center das_card_body">
-                                @if ($value->status == 'Active')
-                                <button type="button" class="btn border scdle_btn" data-bs-toggle="modal" data-bs-target="#sessionBookPopup{{$key}}">Schedule</button>
-                                @elseif ($value->status == 'Pending')
-                                <button type="button" class="btn border scdle_btn disabled">Schedule</button>
-                                @elseif ($value->status == 'Processing')
-                                <button type="button" class="btn border scdle_btn disabled btn-warning">Session Processing</button>
-                                @if (App\Helpers::twoDateTimeHoursCalculate($value->session_date_time,$today) > 24)
-                                    <button type="button" class="btn border scdle_btn btn-dark" data-bs-toggle="modal" data-bs-target="#sessionReBookPopup{{$key}}">Re-Schedule</button>
-                                @endif
-                                @elseif ($value->status == 'Completed')
-                                <button type="button" class="btn border scdle_btn disabled btn-success">Session Completed</button>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewReportModal{{$key}}">Session Report</button>
-                                @endif
+                                <div class="session_end">
+                                    <div class="fa_box">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                    <h5>Completed on <span>25/12/2030</span></h5>
+                                    <p>The action plan for this session will be shrtly</p>
+                                </div>
+                                <div class="session_triger_box">
+                                    @if ($value->status == 'Active')
+                                    <button type="button" class="btn border scdle_btn" data-bs-toggle="modal" data-bs-target="#sessionBookPopup{{$key}}">Schedule</button>
+                                    @elseif ($value->status == 'Pending')
+                                    <button type="button" class="btn border scdle_btn disabled">Schedule</button>
+                                    @elseif ($value->status == 'Processing')
+                                    <button type="button" class="btn border scdle_btn disabled btn-warning">Session Processing</button>
+                                    @if (App\Helpers::twoDateTimeHoursCalculate($value->session_date_time,$today) > 24)
+                                        <button type="button" class="btn border scdle_btn btn-success ms-2" data-bs-toggle="modal" data-bs-target="#sessionReBookPopup{{$key}}">Re-Schedule</button>
+                                    @endif
+                                    @elseif ($value->status == 'Completed')
+                                    <button type="button" class="btn border scdle_btn disabled btn-success">Session Completed</button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewReportModal{{$key}}">Session Report</button>
+                                    @endif
+                                </div>
+                                <div class="revw_btn_box mt-3">
+                                    <a class="btn btn-primary" href="{{url('/user-review')}}" class="btn btn-primary">Review</a>
+                                </div>
+                                
 
                             </div>
                         </div>
