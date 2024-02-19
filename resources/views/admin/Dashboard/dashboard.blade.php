@@ -145,6 +145,42 @@
 
 
     </div>
+    @elseif(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title"> Dashboard</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="d-flex flex-column align-items-center">
+            <div class="col-md-12">
+                <!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+				<lottie-player src="https://assets-v2.lottiefiles.com/a/8b2e9442-116e-11ee-ba60-ef900d50f442/2isEFteXKx.json"  background="transparent"  speed="1"   loop  autoplay></lottie-player> -->
+                <img src="{{asset('assets/images/Welcome_banner-01.png')}}" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-6 mt-5">
+                <h1 class="text-center">{{Auth::guard('admin')->user()->name}}</h1>
+                <div class="d-flex justify-content-between anlign-items-center role_box">
+                    <p class="mb-0">Role</p>
+                    <span>{{App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id)}}</span>
+                </div>
+                <p class="mt-3">
+                <p>i) Your actions directly impact the quality of career counseling and guidance our users receive. Motivate yourself by recognizing the positive influence and set an example for entire admin team with integrity, empathy, and professionalism</p>
+
+                <p>ii) Stay informed about industry trends and career development to better assess and accurate content.</p>
+
+                <p>iii) Embrace the opportunity to innovate and optimize our platform. Seek out ways to streamline processes, improve user engagement, and enhance the overall functionality of Future Lift.</p>
+
+                <p>iv) View challenges as opportunities to problem-solve and improve. Every issue you resolve contributes to a smoother and more user-friendly experience on Future Lift. Use these experiences to grow and develop your own skills.</p>
+                </p>
+            </div>
+        </div>
+
+
+    </div>
     @else
     <div class="content-wrapper">
         <div class="page-header">

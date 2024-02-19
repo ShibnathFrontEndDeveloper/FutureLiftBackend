@@ -181,7 +181,8 @@ Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::get('/coupon/{show}/{id}',[CouponController::class , 'indexcouponEdit'])->name('couponEditindex')->middleware('adminUrlCheck');
     Route::post('/couponEdit',[CouponController::class , 'couponEditFun'])->name('couponEdit');
     Route::get('/couponDelete/{id}',[CouponController::class , 'couponDeleteFun'])->name('couponDelete')->middleware('adminUrlCheck');
-
+    Route::get('/my-profile',[MainController::class , 'myProfileIndex']);
+    Route::post('/adminUpdateProfile',[MainController::class , 'adminUpdateProfileFun']);
 
 });
 

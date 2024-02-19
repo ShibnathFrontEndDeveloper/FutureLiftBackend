@@ -99,7 +99,7 @@
             <div class="profile-desc">
               <div class="profile-pic">
                 <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="{{asset('assets/images/no-user.png')}}" alt="">
+                  <img class="img-xs rounded-circle " src="{{(Auth::guard('admin')->user()->profile_image)?asset('assets/user_images/'.Auth::guard('admin')->user()->profile_image):asset('assets/images/no-user.png')}}" alt="">
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
@@ -126,6 +126,16 @@
                 </a>
             </li>
             @endforeach
+          @endif
+          @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) == 'Counselor')
+          <li class="nav-item menu-items {{Request::is('/admin/my-profile')?'active':''}}">
+                <a class="nav-link" href="{{url('/admin/my-profile')}}">
+                <span class="menu-icon">
+                    <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">My Profile</span>
+                </a>
+            </li>
           @endif
           <!-- <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">

@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Role;
 use App\Models\UserRole;
 use App\Models\HelpFaqCategory;
+use App\Models\CouncelorDetails;
 
 class MainController extends Controller
 {
@@ -284,5 +285,54 @@ class MainController extends Controller
         HelpFaqCategory::where('id',$id)->delete();
         Toastr::success('Category deleted successfully','success');
         return Redirect('/admin/help-faq-category/list');
+    }
+    public function myProfileIndex(){
+        $user = User::select('name','id','email','phone','profile_image')->where('id',Auth::guard('admin')->user()->id)->first();
+        $details = CouncelorDetails::where('userId',(Auth::guard('admin')->user()->id))->first();
+        return view('admin.Dashboard.my-profile',compact(['user','details']));
+    }
+    public function adminUpdateProfileFun(Request $request){
+        $user = User::find(Auth::guard('admin')->user()->id);
+        if($request->has('profile_image')){
+            $imageName = time().'_'.rand(999,9999).'.'.$request->profile_image->extension();
+            $request->profile_image->move(public_path('assets/user_images'), $imageName);
+        }else{
+            $imageName = $user->profile_image;
+        }
+
+        $userUpdate = User::find(Auth::guard('admin')->user()->id);
+        $userUpdate->profile_image = $imageName;
+        $userUpdate->phone = $request->phone;
+        $userUpdate->name = $request->name;
+        $userUpdate->save();
+
+
+        $qualification = [];
+        if(count($request->qualification_type) > 0 && !Helpers::anyArrayFieldNullChecking($request->qualification_type)){
+            foreach ($request->qualification_type as $qualification_typekey => $qualification_typevalue) {
+                $qualification[$qualification_typekey]['qualification_type'] = $qualification_typevalue;
+                $qualification[$qualification_typekey]['passed_year'] = (isset($request->passed_year[$qualification_typekey]))?$request->passed_year[$qualification_typekey]:'';
+            }
+        }
+
+
+        $userDetails = CouncelorDetails::where('userId',(Auth::guard('admin')->user()->id))->first();
+        if($userDetails){
+            $userDetails->bio = $request->bio;
+            $userDetails->qualification = (count($qualification) > 0)?json_encode($qualification):NULL;
+            $userDetails->certificate = $request->certificate;
+            $userDetails->specialization = $request->specialization;
+            $userDetails->save();
+        }else{
+            $userDetails = new CouncelorDetails();
+            $userDetails->userId = Auth::guard('admin')->user()->id;
+            $userDetails->bio = $request->bio;
+            $userDetails->qualification = (count($qualification) > 0)?json_encode($qualification):NULL;
+            $userDetails->certificate = $request->certificate;
+            $userDetails->specialization = $request->specialization;
+            $userDetails->save();
+        }
+        Toastr::success('Profile updated successfully','success');
+        return Redirect('/admin/my-profile');
     }
 }
