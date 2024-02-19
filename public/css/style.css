@@ -1785,8 +1785,9 @@ transform: translate(-5px, 5px) rotate(-45deg)
   padding: 30px;
 }
 .personalityBannerImg img {
-  width: 100%;
+  width: 78%;
   animation: jumping 5s linear infinite;
+  margin-top: 50px;
 }
 
 @keyframes jumping {
@@ -4390,6 +4391,7 @@ About Futurelift ////////////////////////////////////////
     background: transparent;
     backdrop-filter: blur(5px);
     border-radius: 5px;
+    margin-top: 50px;
   }
 
 

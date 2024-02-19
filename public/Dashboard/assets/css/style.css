@@ -21562,11 +21562,39 @@ fieldset h1{
   /* color: rgba(0,0,0,.5); */
   color:rgb(0 0 0);
 }
+.scdle_btn.btn-warning{
+  background: #f7000a;
+  font-size: 12px;
+}
+.scdle_btn.btn-success{
+  font-size: 12px;
+}
 .scdle_btn:hover{
   color: rgba(0,0,0,.5);
 }
 .dash_card .das_card_body{
   background: #f1f4f5;
+
+}
+.dash_card .das_card_body .session_triger_box{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.dash_card .das_card_body .session_end .bi{
+  color:#d41459;
+}
+.dash_card .das_card_body .session_end h5, .dash_card .das_card_body .session_end p{
+  color: #212529;
+  margin-bottom: 0;
+}
+.dash_card .das_card_body .session_end h5{
+  font-size: 18px;
+  margin-top: 8px;
+}
+.das_card_body .session_end p{
+  font-size: 14px;
+  margin-top: 8px;
 }
 
 .refer_card{
@@ -21812,19 +21840,260 @@ fieldset h1{
 }
 
 
-/* Price Part */
-.upgrt_price_box .card{
-  background: transparent;
+/* Review Part */
+
+#review_check_form {
+  text-align: center;
+  position: relative;
+  margin-top: 20px;
+  display: flex;
 }
-.price_box .cord_pice{
-  border: 1px solid rgba(0, 0, 0, 0.3) ;
+
+#review_check_form fieldset .form-card {
+  background: white;
+  border: 0 none;
+  border-radius: 8px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  box-sizing: border-box;
+  width: 94%;
+  margin: 0 3% 20px 3%;
+
+  /*stacking fieldsets above each other*/
+  position: relative;
+}
+
+#review_check_form fieldset {
+  border: 0 none;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 20px;
+
+  /*stacking fieldsets above each other*/
+  position: relative;
+}
+
+/*Hide all except first fieldset*/
+#review_check_form fieldset:not(:first-of-type) {
+  display: none;
+}
+
+#review_check_form fieldset .form-card {
+  text-align: left;
+  color: #9E9E9E;
+}
+
+.valu_box .form-check .form-check-label{
+  padding-left: 0;
+  padding-top: 2px;
+  color: red;
+  font-size: 16px;
+}
+.valu_box .form-check .form-check-label .bi{
+  margin-left: -5px;
+}
+.valu_box .form-check{
+  margin-right: 15px;
+}
+
+/*Blue Buttons*/
+#review_check_form .action-button {
+  width: 100px;
+  background: #fc424a;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+  border-radius: 5px;
+}
+
+#review_check_form .action-button:hover, #review_check_form .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue;
+}
+
+/*Previous Buttons*/
+#review_check_form .action-button-previous {
+  width: 100px;
+  background: #f56767;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+  border-radius: 5px;
+}
+
+#review_check_form .action-button-previous:hover, #review_check_form .action-button-previous:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #616161;
+}
+
+/*Dropdown List Exp Date*/
+#review_check_form select.list-dt {
+  border: none;
+  outline: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 2px 5px 3px 5px;
+  margin: 2px;
+}
+
+#review_check_form select.list-dt:focus {
+  border-bottom: 2px solid skyblue;
+}
+
+/*The background card*/
+#review_check_form .card {
+  z-index: 0;
+  border: none;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+/*FieldSet headings*/
+#review_check_form .fs-title {
+  font-size: 25px;
+  color: #2C3E50;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/*progressbar*/
+#review_check_form #tabBar {
+  margin-bottom: 30px;
+  overflow: hidden;
+  color: lightgrey;
+  display: grid;
+  background: #fc424a;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+#review_check_form #tabBar .active {
+  color: #000000;
   background: #fff;
-  height: 850px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 8px rgba(0,0,0,.2);
+}
+#review_check_form #tabBar .active strong .bi{
+  color: #fff;
+  background: #00d25b;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+#review_check_form #tabBar li {
+  list-style-type: none;
+  font-size: 12px;
+  width: 100%;
+  float: left;
+  position: relative;
+  margin: 8px 0;
+  
+}
+#review_check_form #tabBar li strong{
+  white-space:nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#review_check_form #tabBar li strong .bi{
+  font-size: 28px;
+  line-height: 0;
 
 }
-.upgrd_heading{
-  color: #fff;
+
+
+/*ProgressBar before any progress*/
+#tabBar li:before {
+  width: 50px;
+  height: 50px;
+  line-height: 45px;
+  display: block;
+  font-size: 18px;
+  color: #ffffff;
+  background: lightgray;
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  padding: 2px;
 }
+
+/*ProgressBar connectors*/
+#review_check_form #tabBar li:after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: lightgray;
+  position: absolute;
+  left: 0;
+  top: 25px;
+  z-index: -1;
+}
+
+/*Color number of the step and the connector before it*/
+#review_check_form #tabBar li.active:before, #review_check_form #tabBar li.active:after {
+  background: skyblue;
+}
+
+/*Imaged Radio Buttons*/
+#review_check_form .radio-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+#review_check_form .radio {
+  display:inline-block;
+  width: 204;
+  height: 104;
+  border-radius: 0;
+  background: lightblue;
+  box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  cursor:pointer;
+  margin: 8px 2px; 
+}
+
+#review_check_form .radio:hover {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+#review_check_form .radio.selected {
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/*Fit image in bootstrap div*/
+#review_check_form .fit-image{
+  width: 100%;
+  object-fit: cover;
+}
+
+.emo_box_part .bi{
+  color: red;
+}
+
+@media screen and (max-width:576px) {
+  #review_check_form {
+    display: block;
+  }
+  #review_check_form #progressbar{
+    display: flex;
+  }
+}
+
+
+
 
 @media screen and (max-width:1024px) {
   .price_box .cord_pice{

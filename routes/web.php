@@ -67,6 +67,7 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::get('/get-help-faq-data/{key}/{categoryId}',[HomeController::class , 'getHelpFaqData']);
     Route::get('/order-summary',[SubscriptionController::class , 'indexOrderSummary']);
     Route::post('/coupon-request',[SubscriptionController::class , 'couponReqFun']);
+    Route::get('/user-review',[HomeController::class , 'indexuserreview']);
 });
 
 Route::get('/eight-ten-counselling',[HomeController::class , 'indexEightTenCoun']);
