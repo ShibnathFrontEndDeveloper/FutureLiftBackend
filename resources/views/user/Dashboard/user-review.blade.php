@@ -28,7 +28,7 @@
                   <fieldset>
                       <div class="form-card">
                           <h2 class="fs-title">Session Experience</h2>
-                          <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex justify-content-between align-items-center respons_input">
                             <p class="mb-0">How satisfied were you with your career counseling session today?</p>
                             <div class="d-flex valu_box">
                               <div class="form-check">
@@ -56,14 +56,14 @@
                                 </label>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                                <label class="form-check-label" for="exampleRadios4">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
+                                <label class="form-check-label" for="exampleRadios5">
                                 <i class="bi bi-emoji-laughing"></i>
                                 </label>
                               </div>
                             </div>
                           </div>
-                          <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex justify-content-between align-items-center respons_input">
                             <p class="mb-0">What did you find most helpful about the session?</p>
                             <div class="box_check d-flex">
                               <div class="form-check">
@@ -80,7 +80,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex justify-content-between align-items-center respons_input">
                             <p class="mb-0">Did the counselor adequately address your career concerns and questions?</p>
                             <div class="box_check d-flex">
                               <div class="form-check">
@@ -97,7 +97,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex justify-content-between align-items-center respons_input">
                             <p class="mb-0">If not, what specific areas could the counselor have improved on?</p>
                             <div class="box_check d-flex">
                               <div class="form-check">
@@ -121,24 +121,42 @@
                   <fieldset>
                       <div class="form-card">
                           <h2 class="fs-title">Counselor Impression</h2>
-                          <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex justify-content-between align-items-center respons_input">
                             <p class="mb-0">How knowledgeable and professional did you find your counselor?</p>
-                            <div class="box_check d-flex">
+                            <div class="d-flex valu_box">
                               <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                  Yes
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6" checked>
+                                <label class="form-check-label" for="exampleRadios6">
+                                  <i class="bi bi-emoji-angry"></i>
                                 </label>
                               </div>
-                              <div class="form-check ms-5">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  No
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios7" value="option7">
+                                <label class="form-check-label" for="exampleRadios7">
+                                <i class="bi bi-emoji-frown"></i>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios8" value="option8">
+                                <label class="form-check-label" for="exampleRadios8">
+                                  <i class="bi bi-emoji-expressionless"></i>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios9" value="option9">
+                                <label class="form-check-label" for="exampleRadios9">
+                                  <i class="bi bi-emoji-smile"></i>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios10" value="option10">
+                                <label class="form-check-label" for="exampleRadios10">
+                                <i class="bi bi-emoji-laughing"></i>
                                 </label>
                               </div>
                             </div>
                           </div>
-                          <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex justify-content-between align-items-center respons_input">
                             <p class="mb-0">Was the counselor's communication style clear and engaging?</p>
                             <div class="box_check d-flex">
                               <div class="form-check">
@@ -155,7 +173,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex justify-content-between align-items-center respons_input">
                             <p class="mb-0">Did you feel comfortable and heard throughout the session?</p>
                             <div class="box_check d-flex">
                               <div class="form-check">
@@ -179,7 +197,7 @@
                   <fieldset>
                       <div class="form-card">
                           <h2 class="fs-title">Service Delivery</h2>
-                          <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex justify-content-between align-items-center respons_input">
                             <p class="mb-0">Was the online platform easy to use and navigate for the session?</p>
                             <div class="box_check d-flex">
                               <div class="form-check">
@@ -196,7 +214,7 @@
                               </div>
                             </div>
                           </div>
-                          <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex justify-content-between align-items-center respons_input">
                             <p class="mb-0">Did you experience any technical difficulties during the session?</p>
                             <div class="box_check d-flex">
                               <div class="form-check">
@@ -213,19 +231,37 @@
                               </div>
                             </div>
                           </div>
-                          <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex justify-content-between align-items-center respons_input">
                             <p class="mb-0">How easy was it to schedule and manage your session appointment?</p>
-                            <div class="box_check d-flex">
+                            <div class="d-flex valu_box mb-3">
                               <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                  Yes
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios11" value="option11" checked>
+                                <label class="form-check-label" for="exampleRadios11">
+                                  <i class="bi bi-emoji-angry"></i>
                                 </label>
                               </div>
-                              <div class="form-check ms-5">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                <label class="form-check-label" for="flexCheckChecked">
-                                  No
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios12" value="option12">
+                                <label class="form-check-label" for="exampleRadios12">
+                                <i class="bi bi-emoji-frown"></i>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios13" value="option13">
+                                <label class="form-check-label" for="exampleRadios13">
+                                  <i class="bi bi-emoji-expressionless"></i>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios14" value="option14">
+                                <label class="form-check-label" for="exampleRadios14">
+                                  <i class="bi bi-emoji-smile"></i>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios15" value="option15">
+                                <label class="form-check-label" for="exampleRadios15">
+                                <i class="bi bi-emoji-laughing"></i>
                                 </label>
                               </div>
                             </div>
@@ -237,7 +273,7 @@
                   <fieldset>
                     <div class="form-card">
                       <h2 class="fs-title">Overall Impact</h2>
-                      <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex justify-content-between align-items-center respons_input">
                         <p class="mb-0">Do you feel your session helped you gain valuable insights and move forward in your career journey?</p>
                         <div class="box_check d-flex">
                           <div class="form-check">
@@ -254,24 +290,42 @@
                           </div>
                         </div>
                       </div>
-                      <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex justify-content-between align-items-center respons_input">
                         <p class="mb-0">How likely are you to recommend FUTURE LIFT's career counseling services to others? </p>
-                        <div class="box_check d-flex">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                              Yes
-                            </label>
-                          </div>
-                          <div class="form-check ms-5">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                            <label class="form-check-label" for="flexCheckChecked">
-                              No
-                            </label>
-                          </div>
-                        </div>
+                        <div class="d-flex valu_box mb-3">
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios16" value="option16" checked>
+                                <label class="form-check-label" for="exampleRadios16">
+                                  <i class="bi bi-emoji-angry"></i>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios17" value="option17">
+                                <label class="form-check-label" for="exampleRadios17">
+                                <i class="bi bi-emoji-frown"></i>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios18" value="option18">
+                                <label class="form-check-label" for="exampleRadios18">
+                                  <i class="bi bi-emoji-expressionless"></i>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios19" value="option19">
+                                <label class="form-check-label" for="exampleRadios19">
+                                  <i class="bi bi-emoji-smile"></i>
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios20" value="option20">
+                                <label class="form-check-label" for="exampleRadios20">
+                                <i class="bi bi-emoji-laughing"></i>
+                                </label>
+                              </div>
+                            </div>
                       </div>
-                      <div class="d-flex justify-content-between align-items-center">
+                      <div class="d-flex justify-content-between align-items-center respons_input">
                         <p class="mb-0">Would you consider purchasing another counseling session in the future?</p>
                         <div class="box_check d-flex">
                           <div class="form-check">
