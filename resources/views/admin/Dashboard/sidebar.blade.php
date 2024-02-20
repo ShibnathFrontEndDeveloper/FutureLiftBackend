@@ -128,12 +128,20 @@
             @endforeach
           @endif
           @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) == 'Counselor')
-          <li class="nav-item menu-items {{Request::is('/admin/my-profile')?'active':''}}">
+            <li class="nav-item menu-items {{Request::is('admin/my-profile')?'active':''}}">
                 <a class="nav-link" href="{{url('/admin/my-profile')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-speedometer"></i>
                 </span>
                 <span class="menu-title">My Profile</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items {{Request::is('admin/my-holiday/list')?'active':''}}">
+                <a class="nav-link" href="{{url('/admin/my-holiday/list')}}">
+                <span class="menu-icon">
+                    <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">My Holiday</span>
                 </a>
             </li>
           @endif

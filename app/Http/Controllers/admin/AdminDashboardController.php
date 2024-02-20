@@ -9,6 +9,7 @@ use App\Models\Book_sessions;
 use App\Models\SessionHistory;
 use Carbon\Carbon;
 use App\Models\UserSubscriptionModel;
+use Illuminate\Support\Facades\Auth;
 
 class AdminDashboardController extends Controller
 {
@@ -35,6 +36,11 @@ class AdminDashboardController extends Controller
 
         $currentMonthTotal449Subscription = UserSubscriptionModel::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         ->where('package_id',3)->get()->count();
+
+
+        $totalPendingSessionForCounselor = SessionHistory::where('package_status','active')->where('status','Pending')->where('assign_user',Auth::guard('admin')->user()->id)->get()->count();
+        $totalCompleteSessionForCounselor = SessionHistory::where('package_status','active')->where('status','Completed')->where('assign_user',Auth::guard('admin')->user()->id)->get()->count();
+        $totalProcessingSessionForCounselor = SessionHistory::where('package_status','active')->where('status','Processing')->where('assign_user',Auth::guard('admin')->user()->id)->get()->count();
 
         ////////// search data for chart ///////////////
 
@@ -79,6 +85,21 @@ class AdminDashboardController extends Controller
             $monthlyData[$iM]['count'] = $totalUserMonthWise;
             $monthlyData[$iM]['color'] = ($iM % 2 == 0)?'b87333':'gold';
         }
-        return view('admin.Dashboard.dashboard',compact(['totalUser','totalSessionBook','totalPendingSession','totalCompleteSession','totalProcessingSession','currentMonthTotal249SessionBook','currentMonthTotal499SessionBook','currentMonthTotalFreeSessionBook','currentMonthTotal13449Subscription','currentMonthTotal6449Subscription','currentMonthTotal449Subscription','monthlyData']));
+        return view('admin.Dashboard.dashboard',compact(['totalUser',
+        'totalSessionBook',
+        'totalPendingSession',
+        'totalCompleteSession',
+        'totalProcessingSession',
+        'currentMonthTotal249SessionBook',
+        'currentMonthTotal499SessionBook',
+        'currentMonthTotalFreeSessionBook',
+        'currentMonthTotal13449Subscription',
+        'currentMonthTotal6449Subscription',
+        'currentMonthTotal449Subscription',
+        'monthlyData',
+        'totalPendingSessionForCounselor',
+        'totalCompleteSessionForCounselor',
+        'totalProcessingSessionForCounselor'
+        ]));
     }
 }

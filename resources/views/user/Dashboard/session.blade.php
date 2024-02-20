@@ -44,6 +44,9 @@
                                     </div>
                                     <h5>Completed on <span>25/12/2030</span></h5>
                                     <p>The action plan for this session will be shrtly</p>
+                                    @if ($value->counselor_query == 'Reject')
+                                    <p class="text-danger">We regret to inform you that your session has been rejected. Please reschedule at your earliest convenience to secure a new time slot. If you need assistance, contact our support team.Thank you for your understanding.</p>
+                                    @endif
                                 </div>
                                 <div class="session_triger_box">
                                     @if ($value->status == 'Active')
@@ -52,9 +55,14 @@
                                     <button type="button" class="btn border scdle_btn disabled">Schedule</button>
                                     @elseif ($value->status == 'Processing')
                                     <button type="button" class="btn border scdle_btn disabled btn-warning">Session Processing</button>
-                                    @if (App\Helpers::twoDateTimeHoursCalculate($value->session_date_time,$today) > 24)
+                                    @if ($value->counselor_query == '')
+                                        @if (App\Helpers::twoDateTimeHoursCalculate($value->session_date_time,$today) > 24)
+                                            <button type="button" class="btn border scdle_btn btn-success ms-2" data-bs-toggle="modal" data-bs-target="#sessionReBookPopup{{$key}}">Re-Schedule</button>
+                                        @endif
+                                    @elseif ($value->counselor_query == 'Reject')
                                         <button type="button" class="btn border scdle_btn btn-success ms-2" data-bs-toggle="modal" data-bs-target="#sessionReBookPopup{{$key}}">Re-Schedule</button>
                                     @endif
+
                                     @elseif ($value->status == 'Completed')
                                     <button type="button" class="btn border scdle_btn disabled btn-success">Session Completed</button>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewReportModal{{$key}}">Session Report</button>
@@ -63,7 +71,7 @@
                                 <div class="revw_btn_box mt-3">
                                     <a class="btn btn-primary" href="{{url('/user-review')}}" class="btn btn-primary">Review</a>
                                 </div>
-                                
+
 
                             </div>
                         </div>

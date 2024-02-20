@@ -22,6 +22,8 @@ use App\Models\Role;
 use App\Models\UserRole;
 use App\Models\HelpFaqCategory;
 use App\Models\CouncelorDetails;
+use App\Models\CouncelorSessionLog;
+use App\Models\CouncelorHoliday;
 
 class MainController extends Controller
 {
@@ -113,6 +115,10 @@ class MainController extends Controller
         $update = SessionHistory::find($request->id);
         $update->assign_user = $request->assign_user;
         $update->save();
+
+        $query = SessionHistory::where('userId',$update->userId)->where('package_id',$update->package_id)->where('package_status','active')->where('status','Pending')->update([
+            'assign_user' => $request->assign_user
+        ]);
 
         Toastr::success('Counselling session assign successfully','success');
         return Redirect('/admin/counselling-session/list');
@@ -334,5 +340,113 @@ class MainController extends Controller
         }
         Toastr::success('Profile updated successfully','success');
         return Redirect('/admin/my-profile');
+    }
+    public function counselorSessionAcceptFun(Request $request){
+        $query = $request->query('type');
+        $queryid = $request->query('id');
+        $history = SessionHistory::find($queryid);
+        $history->counselor_query = $query;
+        $history->save();
+
+        $getUserDetails = Helpers::getUserDetails($history->userId);
+
+        $sessionLog = new CouncelorSessionLog();
+        $sessionLog->userId = $history->userId;
+        $sessionLog->sessionId = $queryid;
+        $sessionLog->counselor_id = Auth::guard('admin')->user()->id;
+        $sessionLog->type = $query;
+        $sessionLog->save();
+
+
+        if($query == 'Reject'){
+            $notificationContent = "We regret to inform you that your scheduled session has been rejected due to unforeseen circumstances. Please accept our apologies for any inconvenience caused";
+            Helpers::addUserNotification($history->userId,'career_session_booked_reject','Counselling Session Rejected','career_session_booked_reject',$notificationContent);
+
+
+            $html = '';
+            $html .= Helpers::sessionRejectedEmailContent($getUserDetails->name,date('l jS F Y h:i A',strtotime($history->session_date_time)));
+            $subject = 'Important: Session Rejection - Please Reschedule';
+            $mailSend = Helpers::phpMailerMailSend($getUserDetails->email,$getUserDetails->name,$subject,$html);
+        }else{
+            $notificationContent = "We are pleased to inform you that your session has been successfully accepted. Thank you for choosing our service!";
+            Helpers::addUserNotification($history->userId,'career_session_booked_approve','Counselling Session Accepted','career_session_booked_approve',$notificationContent);
+        }
+
+        Toastr::success('Session '.$query.' successfully','success');
+        return Redirect('/admin/counselling-session/list');
+    }
+    public function indexMyHoliday($show){
+        if($show == "list"){
+            $list = CouncelorHoliday::orderBy('id','DESC')->get();
+            return view('admin.Dashboard.counselor-holiday',compact(['list']));
+        }else if($show == "add"){
+            return view('admin.Dashboard.counselor-holiday');
+        }
+        else{
+            return view('admin.Dashboard.404');
+        }
+    }
+    public function couselorHolidayAddFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'description' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error($value[0],'error');
+        	}
+        	return back()->withInput();
+        }
+
+        $insert = new CouncelorHoliday();
+        $insert->userId = Auth::guard('admin')->user()->id;
+        $insert->start_date = date('Y-m-d',strtotime($request->start_date));
+        $insert->end_date = date('Y-m-d',strtotime($request->end_date));
+        $insert->description = $request->description;
+        $insert->save();
+
+        Toastr::success('Holiday added successfully','success');
+        return Redirect('/admin/my-holiday/list');
+    }
+    public function indexMyHolidayEdit($show,$id){
+        if($show == "edit"){
+            $data = CouncelorHoliday::find($id);
+            return view('admin.Dashboard.counselor-holiday',compact(['data']));
+        }
+        else{
+            return view('admin.Dashboard.404');
+        }
+    }
+    public function couselorHolidayEditFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'description' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+        	$allerror = Helpers::error_processor($validator);
+        	foreach ($validator->errors()->getMessages() as $key => $value) {
+        		Toastr::error($value[0],'error');
+        	}
+        	return back()->withInput();
+        }
+
+        $insert = CouncelorHoliday::find($request->editId);
+        $insert->start_date = date('Y-m-d',strtotime($request->start_date));
+        $insert->end_date = date('Y-m-d',strtotime($request->end_date));
+        $insert->description = $request->description;
+        $insert->save();
+
+        Toastr::success('Holiday updated successfully','success');
+        return Redirect('/admin/my-holiday/list');
+    }
+    public function myHolidayDeleteFun($id){
+        $query = CouncelorHoliday::where('id',$id)->delete();
+        Toastr::success('Holiday deleted successfully','success');
+        return Redirect('/admin/my-holiday/list');
     }
 }

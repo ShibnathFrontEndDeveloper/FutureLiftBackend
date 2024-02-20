@@ -21,7 +21,10 @@ use App\Models\UserNotification;
 use App\Models\User_information;
 use App\Models\CareerLibraryDetails;
 use App\Models\CareerLibraryVote;
+use App\Models\CouncelorHoliday;
 use Illuminate\Support\Facades\Request;
+use DateTime;
+use DateInterval;
 
 class Helpers
 {
@@ -641,6 +644,12 @@ class Helpers
             case 'registration':
                 return '<i class="mdi mdi-human-greeting"></i>';
                 break;
+            case 'career_session_booked_reject':
+                return '<i class="mdi mdi-alert"></i>';
+                break;
+            case 'career_session_booked_approve':
+                return '<i class="mdi mdi-account-check"></i>';
+                break;
 
             default:
                 # code...
@@ -935,6 +944,16 @@ class Helpers
 
         return $html;
     }
+    public static function sessionRejectedEmailContent($name,$date_time){
+        $html = '';
+        $html .= '<p>Dear '.$name.',</p>
+
+        <p>We regret to inform you that your session, scheduled for '.$date_time.', has been rejected due to unforeseen circumstances. We apologize for any inconvenience this may cause.</p>
+
+        <p>To proceed, kindly Re-schedule your session.</p>';
+
+        return $html;
+    }
     public static function anyArrayFieldNullChecking($array){
         $flag = false;
         foreach ($array as $key => $value) {
@@ -980,6 +999,51 @@ class Helpers
         $dateDiff = intval((strtotime($date1)-strtotime($date2))/60);
         $hours = intval($dateDiff/60);
         return $hours;
+    }
+    public static function findMiddleDates($start_date, $end_date) {
+        $start = new \DateTime($start_date);
+        $end = new \DateTime($end_date);
+
+        // Calculate the interval between the dates
+        $interval = $start->diff($end);
+
+        // Calculate the total number of days between start and end dates
+        $total_days = $interval->days;
+
+        // Determine the number of middle dates (excluding start and end dates)
+        $middle_dates_count = $total_days + 2;
+
+        // Initialize an array to store the middle dates
+        $middle_dates = array();
+
+        // Calculate the middle dates
+        for ($i = 1; $i <= $middle_dates_count; $i++) {
+            // Calculate the interval for each middle date
+            $interval_days = round($total_days / ($middle_dates_count + 1) * $i);
+            // Clone the start date and add the interval
+            $middle_date = clone $start;
+            $middle_date->add(new \DateInterval('P' . $interval_days . 'D'));
+            // Add the middle date to the array
+            $middle_dates[] = $middle_date->format('Y-m-d');
+        }
+
+        return $middle_dates;
+    }
+    public static function getCounselorHolidayHas($id,$date) {
+        $date = date('Y-m-d',strtotime($date));
+        $query = CouncelorHoliday::where('userId',$id)->get();
+        $flag = false;
+        $middleDates = [];
+        if($query->count() > 0){
+            foreach ($query as $key => $value) {
+              $middleDates =  Helpers::findMiddleDates($value->start_date,$value->end_date);
+              if(in_array($date,$middleDates)){
+                $flag = true;
+                break;
+              }
+            }
+        }
+        return $flag;
     }
 
 }

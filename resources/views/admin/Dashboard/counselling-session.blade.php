@@ -21,10 +21,14 @@
                         <tr>
                             <th>Schedule Date & Time</th>
                             <th>User Name</th>
+                            @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
                             <th>User Email</th>
                             <th>User Phone</th>
+                            @endif
                             <th>Session Type</th>
+                            @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
                             <th>Assign Counselor</th>
+                            @endif
                             <th>Created Date</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -45,13 +49,21 @@
                                 <tr>
                             @endif
                                 <td>{{($value->session_date_time)?date('l jS F Y h:i A',strtotime($value->session_date_time)):'N/A'}}</td>
+                                @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
                                 <td class="txt-hef"><a href="{{url('admin/user-details/details/'.$value->userId)}}" target="_blank">{{$getUser->name}}</a></td>
+                                @else
+                                <td>{{$getUser->name}}</td>
+                                @endif
+                                @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
                                 <td>{{$getUser->email}}</td>
                                 <td>{{$getUser->phone}}</td>
+                                @endif
                                 <td>
                                     <p>{{$getSession->plan_name}}</p>
                                 </td>
+                                @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
                                 <td>{{($getCounUser)?$getCounUser->name:'N/A'}}</td>
+                                @endif
                                 <td>{{date('l jS F Y h:i A',strtotime($value->created_at))}}</td>
                                 <td>{{$value->status}}</td>
                                 <td style="width:5%;">
@@ -59,10 +71,19 @@
                                         @if ($value->assign_user == '')
                                         <button class="btn btn-sm btn-dark mb-3" data-toggle="modal" data-target="#assignCounselorModal{{$key}}">Assign Counselor</button>
                                         @endif
-                                        @if (date('Y-m-d H:i:s') > $value->session_date_time)
-                                            <!-- <button class="btn btn-sm btn-primary" onclick="markDone('{{$value->id}}','{{$value->userId}}','{{$value->package_id}}')">Mark Done</button> -->
-                                            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#markdoneModal{{$key}}">Mark Done</button>
+                                        @if ($value->counselor_query != '')
+                                            @if ($value->counselor_query == 'Accept')
+                                                @if (date('Y-m-d H:i:s') > $value->session_date_time)
+                                                    <!-- <button class="btn btn-sm btn-primary" onclick="markDone('{{$value->id}}','{{$value->userId}}','{{$value->package_id}}')">Mark Done</button> -->
+                                                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#markdoneModal{{$key}}">Mark Done</button>
+                                                @endif
+                                            @else
+                                                <h3 class="text-danger"><b>Rejected</b></h3>
                                             @endif
+                                        @else
+                                            <button class="btn btn-lg btn-success" onclick="counselorQuery('Accept','{{$value->id}}')">Accept</button>
+                                            <button class="btn btn-lg btn-danger mt-2" onclick="counselorQuery('Reject','{{$value->id}}')">Reject</button>
+                                        @endif
                                     @elseif ($value->status == 'Completed')
                                         <!-- <p class="text-success"><b>Session Completed</b></p> -->
                                         <img src="{{asset('assets/images/done.png')}}" style="width:100%;">
@@ -135,7 +156,7 @@
                                                         <select name="assign_user" id="assign_user" class="form-control js-example-basic-single">
                                                             <option value="">Select Counselor</option>
                                                             @foreach ($counselorList as $counselorListKey => $counselorListValue)
-                                                                <option value="{{$counselorListValue->id}}">{{$counselorListValue->name}}</option>
+                                                                <option value="{{$counselorListValue->id}}" {{(App\Helpers::getCounselorHolidayHas($counselorListValue->id,$value->session_date_time))?'disabled':''}}>{{$counselorListValue->name}}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -157,10 +178,14 @@
                         <tr>
                             <th>Schedule Date & Time</th>
                             <th>User Name</th>
+                            @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
                             <th>User Email</th>
                             <th>User Phone</th>
+                            @endif
                             <th>Session Type</th>
+                            @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
                             <th>Assign Counselor</th>
+                            @endif
                             <th>Created Date</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -189,6 +214,20 @@
         if(confirm("Do you want to mark done this session?")){
             window.location.href = "{{url('admin/mark-done/')}}/"+id+"/"+userId+"/"+package_id;
         }
+    }
+
+    function counselorQuery(type,id){
+        const url = "<?=url('admin/counselor-session-accept')?>?type="+type+"&id="+id;
+        swal({
+            title: 'Are you sure?',
+            text: type+' this session?',
+            icon: 'warning',
+            buttons: ["Cancel", type],
+            }).then(function(value) {
+            if (value) {
+            window.location.href = url;
+            }
+        });
     }
 
 </script>

@@ -184,7 +184,12 @@ Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::get('/couponDelete/{id}',[CouponController::class , 'couponDeleteFun'])->name('couponDelete')->middleware('adminUrlCheck');
     Route::get('/my-profile',[MainController::class , 'myProfileIndex']);
     Route::post('/adminUpdateProfile',[MainController::class , 'adminUpdateProfileFun']);
-
+    Route::get('/counselor-session-accept',[MainController::class , 'counselorSessionAcceptFun']);
+    Route::get('/my-holiday/{show}',[MainController::class , 'indexMyHoliday']);
+    Route::post('/couselorHolidayAdd',[MainController::class , 'couselorHolidayAddFun']);
+    Route::get('/my-holiday/{show}/{id}',[MainController::class , 'indexMyHolidayEdit']);
+    Route::post('/couselorHolidayEdit',[MainController::class , 'couselorHolidayEditFun']);
+    Route::get('/myHolidayDelete/{id}',[MainController::class , 'myHolidayDeleteFun']);
 });
 
 
