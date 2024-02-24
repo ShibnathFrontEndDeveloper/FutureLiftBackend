@@ -35,6 +35,7 @@
 
                             <div class="card-body text-center das_card_body">
                                 <div class="session_end">
+                                    @if ($value->status == 'Completed')
                                     <div class="fa_box">
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -42,8 +43,13 @@
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star"></i>
                                     </div>
-                                    <h5>Completed on <span>25/12/2030</span></h5>
-                                    <p>The action plan for this session will be shrtly</p>
+                                    @endif
+                                    @if ($value->status == 'Completed')
+                                    <h5>Completed on <span>{{date('d/m/Y',strtotime($value->session_completed_date))}}</span></h5>
+                                    @endif
+                                    @if ($value->status == 'Processing')
+                                    <p>The action plan for this session will be shortly</p>
+                                    @endif
                                     @if ($value->counselor_query == 'Reject')
                                     <p class="text-danger">We regret to inform you that your session has been rejected. Please reschedule at your earliest convenience to secure a new time slot. If you need assistance, contact our support team.Thank you for your understanding.</p>
                                     @endif
@@ -65,13 +71,14 @@
 
                                     @elseif ($value->status == 'Completed')
                                     <button type="button" class="btn border scdle_btn disabled btn-success">Session Completed</button>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewReportModal{{$key}}">Session Report</button>
+                                    <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#viewReportModal{{$key}}">Session Report</button>
                                     @endif
                                 </div>
+                                @if ($value->status == 'Completed')
                                 <div class="revw_btn_box mt-3">
                                     <a class="btn btn-primary" href="{{url('/user-review')}}" class="btn btn-primary">Review</a>
                                 </div>
-
+                                @endif
 
                             </div>
                         </div>
@@ -85,7 +92,14 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <div class="modal-body">
-                                {!!$value->counselling_report!!}
+                                    <div class="col-md-12 form-group">
+                                        {!!$value->counselling_report!!}
+                                    </div>
+                                    <div class="col-md-12 form-group">
+                                        @if ($value->counselling_report_document)
+                                            <embed src="{{asset('/assets/support_documents/'.$value->counselling_report_document)}}" width="100%" height="400" alt="pdf">
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>

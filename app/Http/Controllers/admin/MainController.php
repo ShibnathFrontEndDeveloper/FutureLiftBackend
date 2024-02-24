@@ -78,9 +78,19 @@ class MainController extends Controller
         }
 
 
+        if($request->has('supporting_document')){
+            $imageName = time().'_'.rand(999,9999).'.'.$request->supporting_document->extension();
+            $request->supporting_document->move(public_path('assets/support_documents'), $imageName);
+        }else{
+            $imageName = NULL;
+        }
+
+
         $update = SessionHistory::find($id);
         $update->status = "Completed";
+        $update->session_completed_date = date('Y-m-d H:i:s');
         $update->counselling_report = $request->counselling_report;
+        $update->counselling_report_document = $imageName;
         $update->save();
 
         if($update){

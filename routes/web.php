@@ -68,6 +68,7 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::get('/order-summary',[SubscriptionController::class , 'indexOrderSummary']);
     Route::post('/coupon-request',[SubscriptionController::class , 'couponReqFun']);
     Route::get('/user-review',[HomeController::class , 'indexuserreview']);
+    Route::get('/action-plan',[HomeController::class , 'indexUserActionPlan']);
 });
 
 Route::get('/eight-ten-counselling',[HomeController::class , 'indexEightTenCoun']);
@@ -124,7 +125,7 @@ Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::post('/mark-done',[MainController::class , 'markDoneCounselling']);
     Route::post('/assign-counselor-session',[MainController::class , 'assignCounselorSession']);
     Route::post('/session-complete',[MainController::class , 'sessionCompleteFun']);
-    Route::get('/user-details/{show}/{id}',[MainController::class , 'indexUserDetails'])->name('userDetails')->middleware('adminUrlCheck');
+    Route::get('/user-details/{show}/{id}',[MainController::class , 'indexUserDetails']);
     Route::get('/faq/{show}',[FaqController::class , 'indexFaq'])->name('faqAddList')->middleware('adminUrlCheck');
     Route::post('/faqAdd',[FaqController::class , 'faqAddFun']);
     Route::get('/faq/{show}/{id}',[FaqController::class , 'indexFaqEdit'])->name('faqEdit')->middleware('adminUrlCheck');

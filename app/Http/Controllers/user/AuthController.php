@@ -139,7 +139,7 @@ class AuthController extends Controller
             return Redirect('/user-dashboard');
     	}else{
             Toastr::error('User email and password mismatch','Please try again');
-    		return redirect()->back();
+    		return back()->withInput();
     	}
     }
     public function logoutFunction(Request $request){

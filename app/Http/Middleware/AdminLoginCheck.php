@@ -20,7 +20,7 @@ class AdminLoginCheck
         if(!Auth::guard('admin')->check()){
             return $next($request);
         }else{
-            return redirect()->back();
+            return Redirect('/admin/admin-dashboard');
         }
     }
 }

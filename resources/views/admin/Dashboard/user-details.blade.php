@@ -14,6 +14,7 @@
             </nav>
         </div>
         <div class="row">
+            @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
             <div class="col-md-6 form-group">
                 @if ($user->profile_image)
                     <img src="{{asset('assets/user_images/'.$user->profile_image)}}" style="width:120px;">
@@ -21,6 +22,7 @@
                     <img src="{{asset('/assets/images/no-user.png')}}" style="width:120px;">
                 @endif
             </div>
+            @endif
             <div class="col-md-6 form-group">
                 @if ($userSubscriptionCount > 0)
                     @php
@@ -50,6 +52,7 @@
                 }
 
             @endphp
+            @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
             <div class="col-md-12 form-group">
                 <div class="row">
                     <div class="col-md-12 form-group bg-secondary">
@@ -90,6 +93,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             <div class="col-md-12 form-group">
                 <div class="row">
                     <div class="col-md-12 form-group bg-secondary">
@@ -234,7 +238,14 @@
                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                {!!$userSessionHistoryDataValue->counselling_report!!}
+                                                    <div class="col-md-12 form-group">
+                                                    {!!$userSessionHistoryDataValue->counselling_report!!}
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        @if ($userSessionHistoryDataValue->counselling_report_document)
+                                                            <embed src="{{asset('/assets/support_documents/'.$userSessionHistoryDataValue->counselling_report_document)}}" width="100%" height="400" alt="pdf">
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

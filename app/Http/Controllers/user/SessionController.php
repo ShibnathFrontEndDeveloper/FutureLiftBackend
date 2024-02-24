@@ -75,6 +75,7 @@ class SessionController extends Controller
 
         SessionHistory::where('id',$request->sessionId)->update([
             "session_date_time" => $dateFormat.' '.$timeFormat,
+            "counselor_query" => NULL,
         ]);
 
         $notificationContent = "Session Update: Reschedule Request We understand plans change. If you need to reschedule your upcoming session, click here to find a time that works better for you. We're here to accommodate and support your needs. Thank you for your flexibility!";

@@ -237,12 +237,14 @@ let show_input =document.querySelector('.show_input')
     // Check if the file is a PDF file.
     if (file.type !== "application/pdf") {
         toastr.error('Please select a PDF file.', 'error');
+        fileInput.value = "";
       return;
     }
 
     // Check if the file size is less than 2MB.
     if (file.size > 2 * 1024 * 1024) {
         toastr.error('The file size cannot be more than 2MB.', 'error');
+        fileInput.value = "";
       return;
     }
 

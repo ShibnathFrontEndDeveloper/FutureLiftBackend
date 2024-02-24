@@ -73,6 +73,7 @@
                                         @endif
                                         @if ($value->counselor_query != '')
                                             @if ($value->counselor_query == 'Accept')
+                                                <a href="{{url('admin/user-details/details/'.$value->userId)}}" class="btn btn-light mt-2" target="_blank"><i class="mdi mdi-eye"></i> View Details</a>
                                                 @if (date('Y-m-d H:i:s') > $value->session_date_time)
                                                     <!-- <button class="btn btn-sm btn-primary" onclick="markDone('{{$value->id}}','{{$value->userId}}','{{$value->package_id}}')">Mark Done</button> -->
                                                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#markdoneModal{{$key}}">Mark Done</button>
@@ -86,8 +87,9 @@
                                         @endif
                                     @elseif ($value->status == 'Completed')
                                         <!-- <p class="text-success"><b>Session Completed</b></p> -->
-                                        <img src="{{asset('assets/images/done.png')}}" style="width:100%;">
+                                        <img src="{{asset('assets/images/done.png')}}" style="width:60%;">
                                         <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#viewReportModal{{$key}}">View Report</button>
+                                        <a href="{{url('admin/user-details/details/'.$value->userId)}}" class="btn btn-light mt-2" target="_blank"><i class="mdi mdi-eye"></i> View Details</a>
                                     @endif
 
                                 </td>
@@ -102,7 +104,7 @@
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{url('admin/mark-done')}}" method="post">
+                                            <form action="{{url('admin/mark-done')}}" method="post" enctype="multipart/form-data">
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{$value->id}}">
                                                 <input type="hidden" name="userId" value="{{$value->userId}}">
@@ -113,6 +115,11 @@
                                                         <script>
                                                             CKEDITOR.replace( 'counselling_report{{$key}}');
                                                         </script>
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        <label for="">Upload Supporting Document <small class="text-danger">(Upload only pdf file)</small></label>
+                                                        <input type="file" onchange="validateFileUpload(this)" class="form-control" name="supporting_document" id="supporting_document">
+                                                        <small class="text-danger">(file size should be less than 2mb)</small>
                                                     </div>
                                                     <div class="col-md-12 form-group">
                                                         <button class="btn btn-primary float-right" type="submit">Submit</button>
@@ -132,7 +139,17 @@
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         </div>
                                         <div class="modal-body">
-                                        {!!$value->counselling_report!!}
+                                            <div class="row">
+                                                <div class="col-md-12 form-group">
+                                                {!!$value->counselling_report!!}
+                                                </div>
+                                                <div class="col-md-12 form-group">
+                                                    @if ($value->counselling_report_document)
+                                                        <embed src="{{asset('/assets/support_documents/'.$value->counselling_report_document)}}" width="100%" height="400" alt="pdf" id="marksheetEm">
+                                                    @endif
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +215,7 @@
 @endif
 @endsection
 @section('scripts')
-
+<script src="{{asset('js/educationform.js')}}"></script>
 <script>
     $(document).ready(function() {
         $('.js-example-basic-single').select2();

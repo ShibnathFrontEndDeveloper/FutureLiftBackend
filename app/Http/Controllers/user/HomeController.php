@@ -628,5 +628,8 @@ class HomeController extends Controller
     public function indexuserreview(){
         return view('user.Dashboard.user-review');
     }
+    public function indexUserActionPlan(){
+        return view('user.Dashboard.action-plan');
+    }
 }
 
