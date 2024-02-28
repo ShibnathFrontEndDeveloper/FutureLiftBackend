@@ -21543,7 +21543,9 @@ fieldset h1{
   font-size: 25px;
   padding-bottom: 20px;
 }
+
 /* session */
+
 .session_card_header{
   background: #ededed;
   border-top: 3px solid #b7b7b7;
@@ -21596,6 +21598,71 @@ fieldset h1{
   font-size: 14px;
   margin-top: 8px;
 }
+/* session end */
+
+/* Action Plan */
+.navTabWrapper{
+  color: #000;
+  height: 400px;
+  padding: 0;
+
+}
+.navTabWrapper .navTab {
+  position: relative;
+  padding-left: 0;
+}
+.navTabWrapper .navTab li{
+  display: block;
+  float: left;
+}
+.navTabWrapper .navTab input[type="radio"]{
+  display: none;
+}
+.navTabWrapper .navTab label{
+  background: #d61e5d;
+  display: inline-block;
+  padding: 15px 30px;
+  color: #fff;
+  cursor: pointer;
+}
+.navTabWrapper .session_content{
+  background: #fff;
+  padding: 20px;
+  border-radius: 0 5px 5px 5px;
+  position: absolute;
+  left: 0;
+  top: 90px;
+  width: 100%;
+  display: none;
+}
+.navTabWrapper .session_content .session_content_paraBox{
+  height: 210px;
+  overflow: auto;
+}
+.navTab [id^="session"]:checked + label{
+  background: #fff;
+  transition: .8s all ease-in-out;
+  color: #d61e5d;
+  border-top: 2px solid #d61e5d;
+}
+.navTab [id^="session"]:checked~.session_content{
+  display: block;
+  background: #fff;
+}
+.navTab .lebel_box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lebel_box span{
+  font-size: 20px;
+  margin-left: 10px;
+}
+.lebel_box .bi{
+  font-size: 20px;
+}
+
+/* Action Plane end */
 
 .refer_card{
   padding: 0 !important;

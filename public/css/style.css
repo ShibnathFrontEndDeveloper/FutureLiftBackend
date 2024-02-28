@@ -3920,8 +3920,8 @@ policy  /////////////////////////////////////
     padding: 10px 0;
 }
 .feature_box .textBoxHeading h5{
-    font-size: 14px;
-    color: darkgrey;
+    font-size: 20px;
+    color: rgb(52, 52, 52);
 
 }
 .feature_box a{
@@ -3929,14 +3929,34 @@ policy  /////////////////////////////////////
 }
 
 .features_pannel .featureTabBox .nav{
-    /* width: 900px; */
-    /* position: absolute;
-    z-index: 100;
-    top: 35%; */
+    width: 207px;
+   
 }
-.sticky{
+/* .sticky{
   position: fixed;
   top: 0;
+} */
+/* .featureTabBox .elimeni_box{
+  position: sticky;
+  top: 50px;
+} */
+.featureTabBox .elimeni_box.newClass{
+  position: fixed;
+  top: 80px;
+  width: 222px;
+  height: 95vh;
+  overflow: hidden;
+  overflow-y: auto;
+  /* height: 100vh;
+  overflow: hidden;
+  overflow-y: auto; */
+}
+.featureTabBox .elimeni_box.newClass::-webkit-scrollbar{
+  width: 0;
+}
+
+.featureTabBox{
+  display: flex;
 }
 .featureTabBox .nav-link{
     padding: 3px 0;
@@ -3953,12 +3973,13 @@ policy  /////////////////////////////////////
 background-color: #dc357c;
 border-radius: 0;
 }
-.bestForYou{
-    width: 222px;
+.featureTabBox .elimeni_box .bestForYou{
+    width: 207px;
     border: 1px solid #989898 ;
     border-radius: 3px;
     padding: 8px;
     margin-top: 20px;
+    margin-bottom: 120px;
 }
 .bestForYou h5{
     color: #d71c6d;
@@ -4008,12 +4029,15 @@ border-radius: 0;
   padding-left: 0;
 
 }
-.newClass{
+/* .newClass{
   position: fixed;
   top: 15%;
+} */
+.feature_box.newTab{
+  margin-left: 221px;
 }
-.newTab{
-  margin-left: 281px;
+.tabRight.newTab{
+  margin-left: 280px;
 }
 
 /* .position_box{
@@ -4022,7 +4046,7 @@ border-radius: 0;
 .position_box.newClassTab{
   position: fixed;
   top: 12%;
-  width: 282px;
+  width: 286px;
   height: 95%;
   overflow: hidden;
   overflow-y: auto;
@@ -4325,10 +4349,17 @@ border-radius: 0;
     .voteForm{
       top: -23px;
     }
+    .featureTabBox .elimeni_box.newClass{
+      position: unset;
+      width: 100%;
+    }
     .newClass{
       position: unset;
     }
-    .newTab{
+    .tabRight.newTab{
+      margin-left: 0;
+    }
+    .feature_box.newTab{
       margin-left: 0;
     }
     .library_home{

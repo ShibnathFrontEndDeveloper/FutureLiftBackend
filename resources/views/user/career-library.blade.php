@@ -35,27 +35,31 @@
             <div class="container">
                 <div class="features_pannel">
                   
-                    <div class="d-flex align-items-start featureTabBox">
+                    <div class="featureTabBox">
                         <i class="bi bi-list" id="careerMenuList"></i>
-                        <div class="nav flex-column nav-pills me-3 p elimeni_box" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <button class="nav-link active" id="tab-key-all-career-data" data-bs-toggle="pill" data-bs-target="#tab-key-all-career-data" type="button" role="tab" aria-controls="tab-key-all-career-data" aria-selected="true" onclick="getData('all-career-data',0)">All Careers</button>
-                            @foreach ($category as $categoryKey => $categoryValue)
-                                <button class="nav-link" id="tab-key-{{$categoryKey}}" data-bs-toggle="pill" data-bs-target="#tab-key-{{$categoryKey}}" type="button" role="tab" aria-controls="tab-key-{{$categoryKey}}" aria-selected="false" onclick="getData('{{$categoryKey}}','{{$categoryValue->id}}')">{{$categoryValue->name}}</button>
-                            @endforeach
-                            <div class="bestForYou d-none d-lg-block">
-                                <h5>Know what is best for you!</h5>
-                                <p>Take world class Assessment test</p>
-                                <form action="">
-                                    <input type="text" placeholder="Your mail address" class="form-control">
-                                    <button type="submit">Take a free demo</button>
-                                </form>
-                            </div>
+                        <div class="elimeni_box">
+                          <div class="nav flex-column nav-pills me-3 p" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                              <button class="nav-link active" id="tab-key-all-career-data" data-bs-toggle="pill" data-bs-target="#tab-key-all-career-data" type="button" role="tab" aria-controls="tab-key-all-career-data" aria-selected="true" onclick="getData('all-career-data',0)">All Careers</button>
+                              @foreach ($category as $categoryKey => $categoryValue)
+                                  <button class="nav-link" id="tab-key-{{$categoryKey}}" data-bs-toggle="pill" data-bs-target="#tab-key-{{$categoryKey}}" type="button" role="tab" aria-controls="tab-key-{{$categoryKey}}" aria-selected="false" onclick="getData('{{$categoryKey}}','{{$categoryValue->id}}')">{{$categoryValue->name}}</button>
+                              @endforeach
+                          </div>
+                          
+                          <div class="bestForYou d-none d-lg-block">
+                              <h5>Know what is best for you!</h5>
+                              <p>Take world class Assessment test</p>
+                              <form action="">
+                                  <input type="text" placeholder="Your mail address" class="form-control">
+                                  <button type="submit">Take a free demo</button>
+                              </form>
+                          </div>
                         </div>
                         <div class="tab-content" id="v-pills-tabContent">
 
                         </div>
+                        <div id="blankdiv" class="m-5"></div>
                     </div>
-                    <div class="bestForYou d-lg-none d-sm-block">
+                    <div class="bestForYou d-lg-none d-sm-block p-3 border">
                         <h5>Know what is best for you!</h5>
                         <p>Take world class Assessment test</p>
                         <form action="">
@@ -202,16 +206,29 @@
         //     tabNav.classList.remove('sticky');
         //   }
         // }
-
-        $(window). scroll(function(){
-            if ($(this).scrollTop() > 200) {
-                $('#v-pills-tab').addClass('newClass');
-                $('.feature_box').addClass('newTab');
+        var scrollPosition = $('#blankdiv').offset().top;
+         $(window). scroll(function(){
+          console.log(scrollPosition);
+          console.log($(this).scrollTop());
+             if ($(this).scrollTop() > 200 && $(this).scrollTop() > scrollPosition) {
+                 $('.elimeni_box').addClass('newClass');
+                 $('.feature_box').addClass('newTab');
             }else{
-                $('#v-pills-tab').removeClass('newClass');
-                $('.feature_box').removeClass('newTab');
-            }
-          });
+               $('.elimeni_box').removeClass('newClass');
+                 $('.feature_box').removeClass('newTab');
+           }
+        });
+
+        // $(window).scroll(function(){
+        //     if ($(this).scrollTop() > 150 && $(this).scrollTop() < scrollPosition) {
+        //         $('.elimeni_box').addClass('newClass');
+        //         $('.feature_box').addClass('newTab');
+        //     }else{
+        //           $('.elimeni_box').removeClass('newClass');
+        //           $('.feature_box').removeClass('newTab');
+
+        //     }
+        // });
     </script>
 
 

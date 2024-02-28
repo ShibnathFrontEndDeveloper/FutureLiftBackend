@@ -142,6 +142,7 @@
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/session')}}"> Sessions</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/action-plan')}}"> Action Plan</a></li>
               </ul>
             </div>
           </li>

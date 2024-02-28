@@ -23,7 +23,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-3 position_box">
-              <i class="bi bi-list" id="listMenuCareerLibrary"></i>
+                <i class="bi bi-list" id="listMenuCareerLibrary"></i>
                 <ul class="career_list" id="careerListElement">
                   <li class="career_list_links"><a href="#Summary" class="active">Summary</a></li>
                   <li class="career_list_links"><a href="#Opportunities">Opportunities</a></li>
@@ -266,7 +266,7 @@
                     
                     @if(Auth::guard('user')->check())
                     <embed src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" width="100%" height="400" alt="pdf" id="marksheetEm">
-                    <div id="blankdiv" class="mb-5"></div>
+                    <div id="blankdiv" class="m-5"></div>
                     @else
                     <embed src="{{asset('media/sample.pdf')}}" width="100%" height="400" alt="pdf" id="marksheetEm" style="filter: blur(6px);">
                     <a href="javascript:void(0)" onclick="logInform()" class="btn btn-primary position-relative book_btn">View PDF</a>
