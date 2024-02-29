@@ -297,7 +297,9 @@
               </div>
             </div>
           </div>
-          @if (App\Helpers::canLike($data->id))
+        </section>
+        
+        @if (App\Helpers::canLike($data->id))
           <div class="help_box_part">
             <div class="container">
               <div class="col-md-6">
@@ -316,8 +318,6 @@
               </div>
             </div>
           </div>
-
-        </section>
       <div id="footer">
       @include('user.includes.footer')
 

@@ -4062,11 +4062,10 @@ border-radius: 0;
   display: none;
 }
 .help_box_part{
-
-  border-bottom: 1px solid #bfbfbf;
-  border-top: 1px solid #bfbfbf;
   padding: 50px 0;
-  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  background: #fff;
 }
 .help_yn_box{
   display: flex;
@@ -4397,6 +4396,16 @@ border-radius: 0;
     }
     #listMenuCareerLibrary{
       display: block;
+    }
+    .left_bestForYou{
+      display: none;
+    }
+    .career_content_boxDtls .dFlex img{
+      width: 100%;
+      height: auto;
+    }
+    .featureTabBox{
+      margin-bottom: -115px;
     }
   }
 
