@@ -64,13 +64,15 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::post('/user/updatePassword',[AuthController::class , 'updatePasswordFun']);
     Route::get('/notification',[HomeController::class , 'indexUserNotification']);
     Route::get('/test',[HomeController::class , 'indextest']);
-    Route::get('/get-help-faq-data/{key}/{categoryId}',[HomeController::class , 'getHelpFaqData']);
     Route::get('/order-summary',[SubscriptionController::class , 'indexOrderSummary']);
     Route::post('/coupon-request',[SubscriptionController::class , 'couponReqFun']);
-    Route::get('/user-review',[HomeController::class , 'indexuserreview']);
+    Route::get('/user-review/{id}',[HomeController::class , 'indexuserreview']);
     Route::get('/action-plan',[HomeController::class , 'indexUserActionPlan']);
+    Route::post('/submit-user-session-review',[HomeController::class , 'submitUserSessionReviewFun']);
 });
-
+//// coumon route admin / user
+Route::get('/get-help-faq-data/{key}/{categoryId}',[HomeController::class , 'getHelpFaqData']);
+//////////////////////////////////
 Route::get('/eight-ten-counselling',[HomeController::class , 'indexEightTenCoun']);
 Route::get('/ten-twelve-counselling',[HomeController::class , 'indexTenTwelveCoun']);
 Route::get('/college-graduate-counselling',[HomeController::class , 'indexCollegeGraduateCoun']);
@@ -191,6 +193,10 @@ Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::get('/my-holiday/{show}/{id}',[MainController::class , 'indexMyHolidayEdit']);
     Route::post('/couselorHolidayEdit',[MainController::class , 'couselorHolidayEditFun']);
     Route::get('/myHolidayDelete/{id}',[MainController::class , 'myHolidayDeleteFun']);
+    Route::get('/my-earning-history',[MainController::class , 'indexEarningHistory']);
+    Route::get('/user-review-details/{userId}/{sessionId}/{key}',[MainController::class , 'indexUserReviewDetails']);
+    Route::get('/admin-help',[MainController::class , 'indexAdminHelp']);
+    Route::get('/get-help-category-section-data/{section}',[MainController::class , 'getHelpCategorySectionDataFun']);
 });
 
 

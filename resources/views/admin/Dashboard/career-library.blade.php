@@ -360,7 +360,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-md-12 form-group">
                             <h3>Work Description</h3>
                         </div>
@@ -368,11 +368,11 @@
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <label for="">Work Description Content</label>
-                                    <textarea name="work_description_content" required class="form-control" id="content5" cols="30" rows="10">{{old('work_description_content')}}</textarea>
+                                    <textarea name="work_description_content" class="form-control" id="content5" cols="30" rows="10">{{old('work_description_content')}}</textarea>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <h3>Pros & Cons of a Career</h3>
@@ -681,7 +681,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-md-12 form-group">
                             <h3>Work Description</h3>
                         </div>
@@ -689,11 +689,11 @@
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <label for="">Work Description Content</label>
-                                    <textarea name="work_description_content" required class="form-control" id="content5" cols="30" rows="10">{{$data->work_description_content}}</textarea>
+                                    <textarea name="work_description_content"  class="form-control" id="content5" cols="30" rows="10">{{$data->work_description_content}}</textarea>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <h3>Pros & Cons of a Career</h3>

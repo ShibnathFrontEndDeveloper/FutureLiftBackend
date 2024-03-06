@@ -144,6 +144,22 @@
                 <span class="menu-title">My Holiday</span>
                 </a>
             </li>
+            <li class="nav-item menu-items {{Request::is('admin/my-earning-history')?'active':''}}">
+                <a class="nav-link" href="{{url('/admin/my-earning-history')}}">
+                <span class="menu-icon">
+                    <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">My Earning History</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items {{Request::is('admin/admin-help')?'active':''}}">
+                <a class="nav-link" href="{{url('/admin/admin-help')}}">
+                <span class="menu-icon">
+                    <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">Help</span>
+                </a>
+            </li>
           @endif
           <!-- <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">

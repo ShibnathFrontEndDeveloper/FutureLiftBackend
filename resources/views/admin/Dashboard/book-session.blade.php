@@ -18,10 +18,9 @@
                 <table id="example" class="display table-striped" style="width:100%">
                     <thead>
                         <tr>
+                            <th>Sl No</th>
                             <th>Schedule Date & Time</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th>User Details</th>
                             <th>City</th>
                             <th>Type</th>
                             <th>Payment Status</th>
@@ -37,10 +36,13 @@
                                 $getSession = App\Helpers::getSessionData($value->options);
                             @endphp
                             <tr class="{{($value->status == 'Complete')?'table-success':''}}">
+                                <td>{{$key + 1}}</td>
                                 <td>{{date('l jS F Y h:i A',strtotime($value->schedule_date_time))}}</td>
-                                <td>{{$value->candidate_name}}</td>
-                                <td>{{$value->candidate_email}}</td>
-                                <td>{{$value->candidate_phone}}</td>
+                                <td>
+                                   <p>Name : <b>{{$value->candidate_name}}</b></p>
+                                   <p>Email : <b>{{$value->candidate_email}}</b></p>
+                                   <p>Phone : <b>{{$value->candidate_phone}}</b></p>
+                                </td>
                                 <td>{{$value->candidate_city}}</td>
                                 <td>
                                     <p>{{$getSession->content}}</p>
@@ -97,10 +99,9 @@
                     </tbody>
                     <tfoot>
                         <tr>
+                            <th>Sl No</th>
                             <th>Schedule Date & Time</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th>User Details</th>
                             <th>City</th>
                             <th>Type</th>
                             <th>Payment Status</th>
@@ -119,7 +120,7 @@
 @section('scripts')
 <script>
     new DataTable('#example',{
-        order: [[9, 'desc']],
+        order: [[0, 'asc']],
         responsive: true
     });
     function markDone(id){

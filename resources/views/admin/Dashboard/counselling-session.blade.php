@@ -19,16 +19,18 @@
                 <table id="example" class="display table-striped" style="width:100%">
                     <thead>
                         <tr>
+                            <th>Sl No</th>
                             <th>Schedule Date & Time</th>
                             <th>User Name</th>
                             @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
-                            <th>User Email</th>
-                            <th>User Phone</th>
+                            <th>User Contacts</th>
                             @endif
                             <th>Session Type</th>
+                            <th>Language</th>
                             @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
                             <th>Assign Counselor</th>
                             @endif
+                            <th>Short Ans</th>
                             <th>Created Date</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -48,6 +50,7 @@
                             @else
                                 <tr>
                             @endif
+                                <td>{{$key + 1}}</td>
                                 <td>{{($value->session_date_time)?date('l jS F Y h:i A',strtotime($value->session_date_time)):'N/A'}}</td>
                                 @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
                                 <td class="txt-hef"><a href="{{url('admin/user-details/details/'.$value->userId)}}" target="_blank">{{$getUser->name}}</a></td>
@@ -55,15 +58,25 @@
                                 <td>{{$getUser->name}}</td>
                                 @endif
                                 @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
-                                <td>{{$getUser->email}}</td>
-                                <td>{{$getUser->phone}}</td>
+                                <td>
+                                    Email : {{$getUser->email}}
+                                    Phone : {{$getUser->phone}}
+                                </td>
                                 @endif
                                 <td>
                                     <p>{{$getSession->plan_name}}</p>
                                 </td>
+                                <td>
+                                    <p>{{App\Helpers::getIdByLanguageName($value->session_language)}}</p>
+                                </td>
                                 @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
                                 <td>{{($getCounUser)?$getCounUser->name:'N/A'}}</td>
                                 @endif
+                                <td>
+                                    @if ($value->short_question !='')
+                                    <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#viewShortQModal{{$key}}">View</button>
+                                    @endif
+                                </td>
                                 <td>{{date('l jS F Y h:i A',strtotime($value->created_at))}}</td>
                                 <td>{{$value->status}}</td>
                                 <td style="width:5%;">
@@ -76,7 +89,7 @@
                                                 <a href="{{url('admin/user-details/details/'.$value->userId)}}" class="btn btn-light mt-2" target="_blank"><i class="mdi mdi-eye"></i> View Details</a>
                                                 @if (date('Y-m-d H:i:s') > $value->session_date_time)
                                                     <!-- <button class="btn btn-sm btn-primary" onclick="markDone('{{$value->id}}','{{$value->userId}}','{{$value->package_id}}')">Mark Done</button> -->
-                                                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#markdoneModal{{$key}}">Mark Done</button>
+                                                    <button class="btn btn-sm btn-primary mt-2" data-toggle="modal" data-target="#markdoneModal{{$key}}">Mark Done</button>
                                                 @endif
                                             @else
                                                 <h3 class="text-danger"><b>Rejected</b></h3>
@@ -189,20 +202,42 @@
 
 
 
+                            <div class="modal" id="viewShortQModal{{$key}}">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content" style="background-color:#ffffff;">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-12 form-group">
+                                                {{$value->short_question}}
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                         @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
+                            <th>Sl No</th>
                             <th>Schedule Date & Time</th>
                             <th>User Name</th>
                             @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
-                            <th>User Email</th>
-                            <th>User Phone</th>
+                            <th>User Contacts</th>
                             @endif
                             <th>Session Type</th>
+                            <th>Language</th>
                             @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
                             <th>Assign Counselor</th>
                             @endif
+                            <th>Short Ans</th>
                             <th>Created Date</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -220,12 +255,16 @@
     $(document).ready(function() {
         $('.js-example-basic-single').select2();
             new DataTable('#example',{
-                order: [[7, 'desc']],
+                order: [[0, 'asc']],
                 responsive: true
             });
         // CKEDITOR.replace( 'counselling_report');
 
     });
+</script>
+
+<script>
+
 
     function markDone(id,userId,package_id){
         if(confirm("Do you want to mark done this session?")){

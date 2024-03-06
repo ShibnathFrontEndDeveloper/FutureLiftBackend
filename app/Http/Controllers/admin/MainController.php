@@ -24,12 +24,16 @@ use App\Models\HelpFaqCategory;
 use App\Models\CouncelorDetails;
 use App\Models\CouncelorSessionLog;
 use App\Models\CouncelorHoliday;
+use App\Models\CouncelorEarningHistory;
+use DB;
+use App\Models\UserSessionReview;
+use App\Models\Faq;
 
 class MainController extends Controller
 {
     public function indexBookSession($show){
         if($show == "list"){
-            $sessionList = Book_sessions::orderBy('schedule_date_time','DESC')->get();
+            $sessionList = Book_sessions::orderByRaw("FIELD(status , 'Pending', 'Complete') ASC")->orderBy('schedule_date_time','DESC')->get();
             return view('admin.Dashboard.book-session',compact(['sessionList']));
         }else{
             return view('admin.Dashboard.404');
@@ -39,12 +43,10 @@ class MainController extends Controller
         if($show == "list"){
             $roleName = Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id);
             if($roleName == 'Admin' || $roleName == 'Super Admin'){
-                $sessionList = SessionHistory::where('package_status','active')->orderByRaw("FIELD(status , 'Pending','Active','Completed','Processing') DESC")->get();
+                $sessionList = SessionHistory::where('package_status','active')->orderByRaw("FIELD(status , 'Processing','Completed','Active','Pending') ASC")->orderBy('session_date_time','DESC')->get();
             }else{
-                $sessionList = SessionHistory::where('package_status','active')->where('assign_user',Auth::guard('admin')->user()->id)->orderByRaw("FIELD(status , 'Pending','Active','Completed','Processing') DESC")->get();
+                $sessionList = SessionHistory::where('package_status','active')->where('assign_user',Auth::guard('admin')->user()->id)->orderByRaw("FIELD(status , 'Processing','Completed','Active','Pending') ASC")->orderBy('session_date_time','DESC')->get();
             }
-
-
             $role = Role::where('name','Counselor')->first();
             $counselorList = [];
             if($role){
@@ -85,6 +87,7 @@ class MainController extends Controller
             $imageName = NULL;
         }
 
+        $getSetting = Helpers::getAdminSetting();
 
         $update = SessionHistory::find($id);
         $update->status = "Completed";
@@ -92,6 +95,15 @@ class MainController extends Controller
         $update->counselling_report = $request->counselling_report;
         $update->counselling_report_document = $imageName;
         $update->save();
+
+        $insert = new CouncelorEarningHistory();
+        $insert->counselor_id = $update->assign_user;
+        $insert->userId = $update->userId;
+        $insert->amount = $getSetting->counselor_per_session_earning_amount;
+        $insert->package_id = $update->package_id;
+        $insert->session_history_table_id = $id;
+        $insert->status = 'Complete';
+        $insert->save();
 
         if($update){
             $nextId = $this->getNextCounsellingId($userId,$package_id);
@@ -241,7 +253,8 @@ class MainController extends Controller
     }
     public function helpFaqCategoryAddFun(Request $request){
         $validator = Validator::make($request->all(), [
-            'name' => 'required'
+            'name' => 'required',
+            'section' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -260,6 +273,7 @@ class MainController extends Controller
 
         $category = new HelpFaqCategory();
         $category->name = $request->name;
+        $category->section = $request->section;
         $category->save();
         Toastr::success('Category added successfully','success');
         return Redirect('/admin/help-faq-category/list');
@@ -275,7 +289,8 @@ class MainController extends Controller
     }
     public function helpFaqCategoryEditFun(Request $request){
         $validator = Validator::make($request->all(), [
-            'name' => 'required'
+            'name' => 'required',
+            'section' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -293,6 +308,7 @@ class MainController extends Controller
 
         $category = HelpFaqCategory::find($request->editId);
         $category->name = $request->name;
+        $category->section = $request->section;
         $category->save();
         Toastr::success('Category updated successfully','success');
         return Redirect('/admin/help-faq-category/list');
@@ -324,9 +340,10 @@ class MainController extends Controller
 
 
         $qualification = [];
-        if(count($request->qualification_type) > 0 && !Helpers::anyArrayFieldNullChecking($request->qualification_type)){
+        if(count($request->qualification_type) > 0 && !Helpers::anyArrayFieldNullChecking($request->qualification_type) && !Helpers::anyArrayFieldNullChecking($request->institute)){
             foreach ($request->qualification_type as $qualification_typekey => $qualification_typevalue) {
                 $qualification[$qualification_typekey]['qualification_type'] = $qualification_typevalue;
+                $qualification[$qualification_typekey]['institute'] = (isset($request->institute[$qualification_typekey]))?$request->institute[$qualification_typekey]:'';
                 $qualification[$qualification_typekey]['passed_year'] = (isset($request->passed_year[$qualification_typekey]))?$request->passed_year[$qualification_typekey]:'';
             }
         }
@@ -458,5 +475,51 @@ class MainController extends Controller
         $query = CouncelorHoliday::where('id',$id)->delete();
         Toastr::success('Holiday deleted successfully','success');
         return Redirect('/admin/my-holiday/list');
+    }
+    public function indexEarningHistory(){
+        $list = DB::table('counselor_earning_history')
+        ->select('counselor_earning_history.*',
+        'session_history.session_date_time',
+        'session_history.counselling_report',
+        'session_history.counselling_report_document',
+        'session_history.session_completed_date',
+        'session_history.session_date_time')
+        ->leftJoin('session_history', 'counselor_earning_history.session_history_table_id', '=', 'session_history.id')
+        ->where('counselor_earning_history.counselor_id',Auth::guard('admin')->user()->id)->orderBy('counselor_earning_history.created_at','DESC')->get();
+        return view('admin.Dashboard.earning-history',compact(['list']));
+    }
+    public function indexUserReviewDetails($userId,$sessionId,$key){
+        $key = $key + 1;
+        $data = UserSessionReview::where('userId',$userId)->where('session_history_table_id',$sessionId)->first();
+        $getUserDetails = Helpers::getUserDetails($userId);
+        return view('admin.Dashboard.user-review-details',compact(['data','key','getUserDetails']));
+    }
+    public function indexAdminHelp(){
+        $faq = Faq::where('type','help')->get();
+        $category = HelpFaqCategory::where('section','admin')->orderBy('id','DESC')->get();
+        $categoryFirstData = HelpFaqCategory::where('section','admin')->orderBy('id','DESC')->first();
+        return view('admin.Dashboard.admin-help',compact(['faq','category','categoryFirstData']));
+    }
+    public function getHelpCategorySectionDataFun($section){
+        $category = HelpFaqCategory::where('section',$section)->orderBy('id','DESC')->get();
+        if($category){
+            ?>
+                <label for="">Select Category</label>
+                <select name="category" id="category" class="form-control" required>
+                    <option value="">Select</option>
+                    <?php foreach ($category as $key => $value){ ?>
+                        <option value="<?=$value->id?>"><?=$value->name?></option>
+                    <?php } ?>
+                </select>
+            <?php
+
+        }else{
+            ?>
+                <label for="">Select Category</label>
+                <select name="category" id="category" class="form-control" required>
+                    <option value="">No Data Found</option>
+                </select>
+            <?php
+        }
     }
 }

@@ -10,6 +10,7 @@ use App\Models\SessionHistory;
 use Carbon\Carbon;
 use App\Models\UserSubscriptionModel;
 use Illuminate\Support\Facades\Auth;
+use App\Models\CouncelorEarningHistory;
 
 class AdminDashboardController extends Controller
 {
@@ -19,6 +20,7 @@ class AdminDashboardController extends Controller
         $totalPendingSession = SessionHistory::where('package_status','active')->where('status','Pending')->get()->count();
         $totalCompleteSession = SessionHistory::where('package_status','active')->where('status','Completed')->get()->count();
         $totalProcessingSession = SessionHistory::where('package_status','active')->where('status','Processing')->get()->count();
+        $totalRejectSession = SessionHistory::where('package_status','active')->where('counselor_query','Reject')->get()->count();
 
         $currentMonthTotal249SessionBook = Book_sessions::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         ->where('options','1')->get()->count();
@@ -41,6 +43,8 @@ class AdminDashboardController extends Controller
         $totalPendingSessionForCounselor = SessionHistory::where('package_status','active')->where('status','Pending')->where('assign_user',Auth::guard('admin')->user()->id)->get()->count();
         $totalCompleteSessionForCounselor = SessionHistory::where('package_status','active')->where('status','Completed')->where('assign_user',Auth::guard('admin')->user()->id)->get()->count();
         $totalProcessingSessionForCounselor = SessionHistory::where('package_status','active')->where('status','Processing')->where('assign_user',Auth::guard('admin')->user()->id)->get()->count();
+        $totalEarningCounselor = CouncelorEarningHistory::select('amount')->where('counselor_id',Auth::guard('admin')->user()->id)->where('status','Complete')->sum('amount');
+        $totalRatingForCounselor = SessionHistory::where('status','Completed')->where('is_review','yes')->where('assign_user',Auth::guard('admin')->user()->id)->get()->count();
 
         ////////// search data for chart ///////////////
 
@@ -99,7 +103,10 @@ class AdminDashboardController extends Controller
         'monthlyData',
         'totalPendingSessionForCounselor',
         'totalCompleteSessionForCounselor',
-        'totalProcessingSessionForCounselor'
+        'totalProcessingSessionForCounselor',
+        'totalEarningCounselor',
+        'totalRatingForCounselor',
+        'totalRejectSession'
         ]));
     }
 }

@@ -36,18 +36,23 @@
                             <div class="card-body text-center das_card_body">
                                 <div class="session_end">
                                     @if ($value->status == 'Completed')
-                                    <div class="fa_box">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
+                                        <div class="fa_box">
+                                            @if(App\Helpers::getUserSessionOwnReviewCount(Auth::guard('user')->user()->id,$value->id) > 0)
+                                                @for ($rate=1; $rate <= 5; $rate++)
+                                                    @if(App\Helpers::getUserSessionOwnReviewCount(Auth::guard('user')->user()->id,$value->id) >= $rate)
+                                                        <i class="bi bi-star-fill"></i>
+                                                    @else
+                                                        <i class="bi bi-star"></i>
+                                                    @endif
+                                                @endfor
+                                            @endif
+                                        </div>
                                     @endif
                                     @if ($value->status == 'Completed')
                                     <h5>Completed on <span>{{date('d/m/Y',strtotime($value->session_completed_date))}}</span></h5>
                                     @endif
                                     @if ($value->status == 'Processing')
+                                    <p class="bg-dark bg-gradient text-white p-1">Session scheduled on {{date('d/m/Y',strtotime($value->session_date_time))}} at {{date('h:i A',strtotime($value->session_date_time))}}</p>
                                     <p>The action plan for this session will be shortly</p>
                                     @endif
                                     @if ($value->counselor_query == 'Reject')
@@ -56,7 +61,11 @@
                                 </div>
                                 <div class="session_triger_box">
                                     @if ($value->status == 'Active')
-                                    <button type="button" class="btn border scdle_btn" data-bs-toggle="modal" data-bs-target="#sessionBookPopup{{$key}}">Schedule</button>
+                                        @if(App\Helpers::getPerviousCounsellingIsReview($value->userId,$value->package_id))
+                                            <button type="button" class="btn border scdle_btn" data-bs-toggle="modal" data-bs-target="#sessionBookPopup{{$key}}">Schedule</button>
+                                        @else
+                                            <button type="button" class="btn border scdle_btn" onclick="reviewAlert();">Schedule</button>
+                                        @endif
                                     @elseif ($value->status == 'Pending')
                                     <button type="button" class="btn border scdle_btn disabled">Schedule</button>
                                     @elseif ($value->status == 'Processing')
@@ -74,9 +83,9 @@
                                     <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#viewReportModal{{$key}}">Session Report</button>
                                     @endif
                                 </div>
-                                @if ($value->status == 'Completed')
+                                @if ($value->status == 'Completed' && App\Helpers::getUserSessionOwnReviewCount(Auth::guard('user')->user()->id,$value->id) == 0)
                                 <div class="revw_btn_box mt-3">
-                                    <a class="btn btn-primary" href="{{url('/user-review')}}" class="btn btn-primary">Review</a>
+                                    <a class="btn btn-primary" href="{{url('/user-review/'.App\Helpers::base64url_encode($value->id))}}" class="btn btn-primary">Review</a>
                                 </div>
                                 @endif
 
@@ -119,7 +128,7 @@
                                     <input type="hidden" name="sessionId" value="{{$value->id}}">
                                     <div class="modal-body">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group modal-Input">
                                                     <i class="fa-regular fa-calendar-days"></i>
                                                     <input
@@ -133,7 +142,7 @@
                                                         />
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group modal-Input">
                                                     <i class="fa-regular fa-calendar-days"></i>
                                                     <input
@@ -145,6 +154,22 @@
                                                         autocomplete="off"
                                                         name="schedule_time"
                                                         />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group modal-Input">
+                                                    <select name="session_language" class="form-control" required>
+                                                        <option value="">Select Language</option>
+                                                        @foreach ($language as $languageKey => $languageValue)
+                                                            <option value="{{$languageValue->id}}">{{$languageValue->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group modal-Input">
+                                                    <label for="">Short question</label>
+                                                    <textarea name="short_question" placeholder="Enter type your answer...." id="short_question" class="form-control" required cols="30" rows="10"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -405,6 +430,13 @@
     function popupModalClose(){
         $("#sesionPopUp").modal().hide();
         $(".modal-backdrop").addClass('d-none');
+    }
+
+    function reviewAlert(){
+        swal({
+            text: "Please submit your review of the previous session, and then you can schedule your time!",
+            icon: "warning"
+        });
     }
 </script>
 @endsection

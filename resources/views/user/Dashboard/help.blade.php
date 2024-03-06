@@ -83,6 +83,7 @@
                 })
         }
     $(document).ready(function () {
+        $("#ftco-loader").show();
         getData(0,'<?=($categoryFirstData->id)?$categoryFirstData->id:0?>');
     });
 </script>

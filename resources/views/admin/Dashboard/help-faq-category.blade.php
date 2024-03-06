@@ -67,8 +67,14 @@
                 <form action="{{url('admin/helpFaqCategoryAdd')}}" method="post">
                     @csrf
                     <div class="row">
-
-                        <div class="col-md-12 form-group">
+                        <div class="col-md-6 form-group">
+                            <label for="">Section</label>
+                            <select name="section" id="section" class="form-control" required>
+                                <option value="user">User Section</option>
+                                <option value="admin">Admin Section</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
                             <label for="">Category Name</label>
                             <input name="name" type="text" class="form-control" required value="{{old('name')}}">
                         </div>
@@ -99,7 +105,14 @@
                     @csrf
                     <input type="hidden" name="editId" value="{{$data->id}}">
                     <div class="row">
-                        <div class="col-md-12 form-group">
+                        <div class="col-md-6 form-group">
+                            <label for="">Section</label>
+                            <select name="section" id="section" class="form-control" required>
+                                <option value="user" {{($data->section == 'user')?'selected':''}}>User Section</option>
+                                <option value="admin" {{($data->section == 'admin')?'selected':''}}>Admin Section</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
                             <label for="">Category Name</label>
                             <input name="name" type="text" class="form-control" required value="{{$data->name}}">
                         </div>
