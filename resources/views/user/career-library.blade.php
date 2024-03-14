@@ -34,7 +34,7 @@
             </div>
             <div class="container">
                 <div class="features_pannel">
-                  
+
                     <div class="featureTabBox">
                         <i class="bi bi-list" id="careerMenuList"></i>
                         <div class="elimeni_box">
@@ -43,8 +43,9 @@
                               @foreach ($category as $categoryKey => $categoryValue)
                                   <button class="nav-link" id="tab-key-{{$categoryKey}}" data-bs-toggle="pill" data-bs-target="#tab-key-{{$categoryKey}}" type="button" role="tab" aria-controls="tab-key-{{$categoryKey}}" aria-selected="false" onclick="getData('{{$categoryKey}}','{{$categoryValue->id}}')">{{$categoryValue->name}}</button>
                               @endforeach
+
                           </div>
-                          
+                          <div id="blankdiv"></div>
                           <div class="bestForYou d-none d-lg-block">
                               <h5>Know what is best for you!</h5>
                               <p>Take world class Assessment test</p>
@@ -53,12 +54,14 @@
                                   <button type="submit">Take a free demo</button>
                               </form>
                           </div>
+
                         </div>
+
                         <div class="tab-content" id="v-pills-tabContent">
 
                         </div>
-                        <div id="blankdiv" class="m-5"></div>
                     </div>
+
                     <div class="bestForYou d-lg-none d-sm-block p-3 border">
                         <h5>Know what is best for you!</h5>
                         <p>Take world class Assessment test</p>
@@ -167,11 +170,9 @@
                     type : 'GET',
                     url: "<?=url('/get-library-data')?>/"+key+"/"+categoryId,
                     success : function(data){
-                        console.log(data);
                         $("#v-pills-tabContent").html(data);
                         $("#ftco-loader").hide();
                     },error: function(data){
-                        console.log(data);
                         $("#ftco-loader").hide();
                     },
                 })
@@ -208,9 +209,7 @@
         // }
         var scrollPosition = $('#blankdiv').offset().top;
          $(window). scroll(function(){
-          console.log(scrollPosition);
-          console.log($(this).scrollTop());
-             if ($(this).scrollTop() > 200 && $(this).scrollTop() > scrollPosition) {
+             if ($(this).scrollTop() > 200 && $(this).scrollTop() < scrollPosition) {
                  $('.elimeni_box').addClass('newClass');
                  $('.feature_box').addClass('newTab');
             }else{

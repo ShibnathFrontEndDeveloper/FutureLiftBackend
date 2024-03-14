@@ -49,15 +49,17 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Quailification Type</th>
+                                                        <th>Institute</th>
                                                         <th>Passed Year</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                @if ($details->qualification)
+                                                @if (isset($details->qualification))
                                                     @foreach (json_decode($details->qualification,true) as $qualificationKey => $qualificationValue)
                                                         <tr>
                                                             <td><input type="text" name="qualification_type[]" value="{{$qualificationValue['qualification_type']}}" class="form-control" /></td>
+                                                            <td><input type="text" name="institute[]" value="{{$qualificationValue['institute']}}" class="form-control" /></td>
                                                             <td><input type="text" name="passed_year[]" value="{{$qualificationValue['passed_year']}}" class="form-control" /></td>
                                                             <td><button type="button" class="removeRow btn btn-danger" {{($qualificationKey == 0)?'disabled':''}}>X</button></td>
                                                         </tr>
@@ -65,6 +67,7 @@
                                                 @else
                                                     <tr>
                                                         <td><input type="text" name="qualification_type[]" class="form-control" /></td>
+                                                        <td><input type="text" name="institute[]" class="form-control" /></td>
                                                         <td><input type="text" name="passed_year[]" class="form-control" /></td>
                                                         <td><button type="button" class="removeRow btn btn-danger" disabled>X</button></td>
                                                     </tr>
@@ -100,7 +103,7 @@
 
     $("#addRow_career_op").on("click", function() {
         var newRow = $("<tr>");
-        var columns = ["qualification_type", "passed_year"];
+        var columns = ["qualification_type","institute", "passed_year"];
         for (var i = 0; i < columns.length; i++) {
             var inputName = columns[i] + "[]";
             var newCell = $("<td>").append(`<input type="text" name="${inputName}" class="form-control" />`);

@@ -25,6 +25,8 @@ use App\Models\CouncelorHoliday;
 use Illuminate\Support\Facades\Request;
 use DateTime;
 use DateInterval;
+use App\Models\UserSessionReview;
+use App\Models\LanguageModel;
 
 class Helpers
 {
@@ -1044,6 +1046,44 @@ class Helpers
             }
         }
         return $flag;
+    }
+    public static function getAdminSetting() {
+        $data = [
+            "counselor_per_session_earning_amount" => 700
+        ];
+        $dataEncode = json_encode($data);
+        return json_decode($dataEncode);
+    }
+    public static function getUserSessionOwnReviewCount($userId,$sessionId){
+        $count = 0;
+        $data = UserSessionReview::select('overall_Impact')->where('userId',$userId)->where('session_history_table_id',$sessionId);
+        if($data->get()->count() > 0){
+            $data = $data->first();
+            $overall_Impact = json_decode($data->overall_Impact);
+            $count = (int)$overall_Impact->overall_impact_rating;
+        }
+        return $count;
+    }
+    public static function getPerviousCounsellingIsReview($userId,$package_id){
+        $flag = true;
+        $session = SessionHistory::where('package_status','active')->where('userId',$userId)->where('package_id',$package_id)->where('status','Completed')->get();
+        if($session->count() > 0){
+            foreach ($session as $key => $value) {
+                if($value->is_review == 'no'){
+                    $flag = false;
+                    break;
+                }
+            }
+        }
+        return $flag;
+    }
+    public static function getIdByLanguageName($id){
+        $name = "";
+        $data = LanguageModel::find($id);
+        if($data){
+            $name = $data->name;
+        }
+        return $name;
     }
 
 }

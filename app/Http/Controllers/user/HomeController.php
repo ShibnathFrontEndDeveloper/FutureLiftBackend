@@ -34,6 +34,9 @@ use App\Models\CareerLibraryCategory;
 use App\Models\CareerLibraryDetails;
 use App\Models\CareerLibraryVote;
 use App\Models\HelpFaqCategory;
+use App\Models\UserSessionReview;
+use DB;
+use App\Models\SessionHistory;
 
 class HomeController extends Controller
 {
@@ -139,8 +142,8 @@ class HomeController extends Controller
     }
     public function indexHelp(){
         $faq = Faq::where('type','help')->get();
-        $category = HelpFaqCategory::orderBy('id','DESC')->get();
-        $categoryFirstData = HelpFaqCategory::orderBy('id','DESC')->first();
+        $category = HelpFaqCategory::where('section','user')->orderBy('id','DESC')->get();
+        $categoryFirstData = HelpFaqCategory::where('section','user')->orderBy('id','DESC')->first();
         return view('user.Dashboard.help',compact(['faq','category','categoryFirstData']));
     }
     public function indexEightTenCoun(){
@@ -625,11 +628,85 @@ class HomeController extends Controller
             return view('user.instant-book',compact(['data']));
         }
     }
-    public function indexuserreview(){
-        return view('user.Dashboard.user-review');
+    public function indexuserreview($id){
+        $id = Helpers::base64url_decode($id);
+        return view('user.Dashboard.user-review',compact(['id']));
     }
     public function indexUserActionPlan(){
-        return view('user.Dashboard.action-plan');
+        $userSessionHistory = SessionHistory::where('userId',Auth::guard('user')->user()->id)->where('package_status','active');
+        $userSessionHistoryCount = $userSessionHistory->get()->count();
+        $userSessionHistoryData = $userSessionHistory->get();
+        return view('user.Dashboard.action-plan',compact(['userSessionHistoryCount','userSessionHistoryData']));
+    }
+    public function submitUserSessionReviewFun(Request $request){
+        $validator = Validator::make($request->all(), [
+            'session_experience_rating' => 'required',
+            'session_experience_helpful_about_the_session' => 'required',
+            'session_experience_your_career_concerns_and_questions' => 'required',
+            'session_experience_could_the_counselor_have_improved_on' => 'required',
+            'counselor_impression_rating' => 'required',
+            'counselor_impression_communication_style_clear_and_engaging' => 'required',
+            'counselor_impression_comfortable_and_heard_throughout_the_session' => 'required',
+            'service_delivery_navigate_for_the_session' => 'required',
+            'service_delivery_difficulties_during_the_session' => 'required',
+            'service_delivery_rating' => 'required',
+            'overall_impact_move_forward_in_your_career_journey' => 'required',
+            'overall_impact_rating' => 'required',
+            'overall_impact_counseling_session_in_the_future' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+        	$response = [
+                "status" => false,
+                "message" => "Please fillup all answsers!"
+            ];
+            return json_encode($response);
+        }
+
+        $session_experience =  [
+            "session_experience_rating" => $request->session_experience_rating,
+            "session_experience_helpful_about_the_session" => $request->session_experience_helpful_about_the_session,
+            "session_experience_your_career_concerns_and_questions" => $request->session_experience_your_career_concerns_and_questions,
+            "session_experience_could_the_counselor_have_improved_on" => $request->session_experience_could_the_counselor_have_improved_on,
+        ];
+        $counselor_impression = [
+            "counselor_impression_rating" => $request->counselor_impression_rating,
+            "counselor_impression_communication_style_clear_and_engaging" => $request->counselor_impression_communication_style_clear_and_engaging,
+            "counselor_impression_comfortable_and_heard_throughout_the_session" => $request->counselor_impression_comfortable_and_heard_throughout_the_session,
+        ];
+        $service_delivery = [
+            "service_delivery_navigate_for_the_session" => $request->service_delivery_navigate_for_the_session,
+            "service_delivery_difficulties_during_the_session" => $request->service_delivery_difficulties_during_the_session,
+            "service_delivery_rating" => $request->service_delivery_rating,
+        ];
+        $overall_Impact = [
+            "overall_impact_move_forward_in_your_career_journey" => $request->overall_impact_move_forward_in_your_career_journey,
+            "overall_impact_rating" => $request->overall_impact_rating,
+            "overall_impact_counseling_session_in_the_future" => $request->overall_impact_counseling_session_in_the_future,
+        ];
+
+
+        $insert = new UserSessionReview();
+        $insert->userId = Auth::guard('user')->user()->id;
+        $insert->session_history_table_id = $request->sessionId;
+        $insert->session_experience = json_encode($session_experience);
+        $insert->counselor_impression = json_encode($counselor_impression);
+        $insert->service_delivery = json_encode($service_delivery);
+        $insert->overall_Impact = json_encode($overall_Impact);
+        $insert->additional_feedback = $request->additional_feedback;
+        $insert->save();
+
+        $update = SessionHistory::find($request->sessionId);
+        $update->is_review = 'yes';
+        $update->save();
+
+
+        $response = [
+            "status" => true,
+            "message" => "Review submited successfully"
+        ];
+
+        return json_encode($response);
     }
 }
 

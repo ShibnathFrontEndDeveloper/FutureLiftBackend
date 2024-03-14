@@ -52,6 +52,7 @@ class FaqController extends Controller
         $faq->type = $request->type;
         if($request->type == 'help'){
             $faq->help_faq_categoryId = $request->category;
+            $faq->help_section = $request->help_section;
         }
         $faq->save();
         Toastr::success('Faq added successfully','success');
@@ -60,7 +61,7 @@ class FaqController extends Controller
     public function indexFaqEdit($show,$id){
         if($show == "edit"){
             $faq = Faq::find($id);
-            $category = HelpFaqCategory::orderBy('id','DESC')->get();
+            $category = HelpFaqCategory::where('section',$faq->help_section)->orderBy('id','DESC')->get();
             return view('admin.Dashboard.faq',compact(['faq','category']));
         }
         else{
@@ -94,6 +95,7 @@ class FaqController extends Controller
         $faq->type = $request->type;
         if($request->type == 'help'){
             $faq->help_faq_categoryId = $request->category;
+            $faq->help_section = $request->help_section;
         }
         $faq->save();
         Toastr::success('Faq updated successfully','success');

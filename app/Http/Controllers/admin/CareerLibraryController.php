@@ -106,7 +106,7 @@ class CareerLibraryController extends Controller
             // 'entrance_exam_image' => 'required',
             'industry_trends_content' => 'required',
             'industry_trends_image' => 'required',
-            'work_description_content' => 'required',
+            // 'work_description_content' => 'required',
             'pros_and_cons_content' => 'required',
         ]);
 
@@ -288,7 +288,7 @@ class CareerLibraryController extends Controller
             'occupational_content' => 'required',
             // 'entrance_exam_content' => 'required',
             'industry_trends_content' => 'required',
-            'work_description_content' => 'required',
+            // 'work_description_content' => 'required',
             'pros_and_cons_content' => 'required',
         ]);
 

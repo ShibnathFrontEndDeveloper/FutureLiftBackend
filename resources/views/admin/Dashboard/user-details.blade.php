@@ -1,15 +1,15 @@
 @extends('admin.Dashboard.sidebar')
-@section('title') User Details Section @endsection
+@section('title') User Details of {{$user->name}} @endsection
 @section('content')
 @if(request()->route('show') == 'details')
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> User Details</h3>
+            <h3 class="page-title"> User Details of {{$user->name}}</h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('/admin/admin-dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">User Details</li>
+                    <li class="breadcrumb-item active" aria-current="page">User Details of {{$user->name}}</li>
                 </ol>
             </nav>
         </div>
@@ -208,6 +208,7 @@
                                 <th>Session Name</th>
                                 <th>Session Date</th>
                                 <th>Status</th>
+                                <th>Review</th>
                             </thead>
                             <tbody>
                                 @if ($userSessionHistoryCount > 0)
@@ -223,9 +224,34 @@
                                         <td>{{($userSessionHistoryDataValue->session_date_time)?date('l jS F Y h:i A',strtotime($userSessionHistoryDataValue->session_date_time)):'N/A'}}</td>
                                         <td>
                                             {{$userSessionHistoryDataValue->status}}
-
+                                            <br>
                                             @if ($userSessionHistoryDataValue->status == 'Completed')
-                                                <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#viewReportModal{{$userSessionHistoryDataKey}}">View Report</button>
+                                                <button class="btn btn-sm btn-primary mt-2" data-toggle="modal" data-target="#viewReportModal{{$userSessionHistoryDataKey}}">View Report</button>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($userSessionHistoryDataValue->status == 'Completed')
+                                                @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) == 'Counselor')
+                                                    <div class="fa_box">
+                                                        @if(App\Helpers::getUserSessionOwnReviewCount($userSessionHistoryDataValue->userId,$userSessionHistoryDataValue->id) > 0)
+                                                            @for ($rate=1; $rate <= 5; $rate++)
+                                                                @if(App\Helpers::getUserSessionOwnReviewCount($userSessionHistoryDataValue->userId,$userSessionHistoryDataValue->id) >= $rate)
+                                                                    <i class="bi bi-star-fill"></i>
+                                                                @else
+                                                                    <i class="bi bi-star"></i>
+                                                                @endif
+                                                            @endfor
+                                                        @else
+                                                            <p>N/A</p>
+                                                        @endif
+                                                    </div>
+                                                @else
+                                                    @if(App\Helpers::getUserSessionOwnReviewCount($userSessionHistoryDataValue->userId,$userSessionHistoryDataValue->id) > 0)
+                                                        <a class="btn btn-sm btn-primary mt-2" href="{{url('/admin/user-review-details/'.$userSessionHistoryDataValue->userId.'/'.$userSessionHistoryDataValue->id.'/'.$userSessionHistoryDataKey)}}" target="_blank">View Review</a>
+                                                    @else
+                                                        <p>N/A</p>
+                                                    @endif
+                                                @endif
                                             @endif
                                         </td>
                                     </tr>

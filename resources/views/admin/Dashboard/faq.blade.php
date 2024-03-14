@@ -85,14 +85,15 @@
                                 <option value="instant_advice">Instant Advice</option>
                             </select>
                         </div>
-                        <div class="col-md-12 form-group d-none" id="categoryDiv">
-                            <label for="">Select Category</label>
-                            <select name="category" id="category" class="form-control">
-                                <option value="">Select</option>
-                                @foreach ($category as $key => $value)
-                                    <option value="{{$value->id}}">{{$value->name}}</option>
-                                @endforeach
+                        <div class="col-md-12 form-group d-none" id="sectionDiv">
+                            <label for="">Select Section</label>
+                            <select name="help_section" id="help_section" class="form-control" onchange="sectionChange(this.value);">
+                                <option value="user">User Section</option>
+                                <option value="admin">Admin Section</option>
                             </select>
+                        </div>
+                        <div class="col-md-12 form-group d-none" id="categoryDiv">
+
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="">Question</label>
@@ -144,6 +145,13 @@
                                 <option value="instant_advice" {{($faq->type == 'instant_advice')?'selected':''}}>Instant Advice</option>
                             </select>
                         </div>
+                        <div class="col-md-12 form-group {{($faq->type == 'help')?'':'d-none'}}" id="sectionDiv">
+                            <label for="">Select Section</label>
+                            <select name="help_section" id="help_section" class="form-control" onchange="sectionChange(this.value);">
+                                <option value="user" {{($faq->help_section == 'user')?'selected':''}}>User Section</option>
+                                <option value="admin" {{($faq->help_section == 'admin')?'selected':''}}>Admin Section</option>
+                            </select>
+                        </div>
                         <div class="col-md-12 form-group {{($faq->type == 'help')?'':'d-none'}}" id="categoryDiv">
                             <label for="">Select Category</label>
                             <select name="category" id="category" {{($faq->type == 'help')?'required':''}} class="form-control">
@@ -174,6 +182,7 @@
 @section('scripts')
 <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 <script>
+    let sectionData = "<?=isset($faq->help_section)?$faq->help_section:'user'?>";
     new DataTable('#example',{
         responsive: true
     });
@@ -185,13 +194,45 @@
     CKEDITOR.replace( 'answer');
     function typeChange(value){
         if(value == 'help'){
-            $("#categoryDiv").removeClass('d-none');
-            $("#category").attr('required',true);
-
+            $("#sectionDiv").removeClass('d-none');
+            $("#help_section").attr('required',true);
+            sectionChange(sectionData);
         }else{
+            $("#sectionDiv").addClass('d-none');
+            $("#help_section").attr('required',false);
+            $("#help_section").val('user');
             $("#categoryDiv").addClass('d-none');
             $("#category").attr('required',false);
         }
+    }
+    function sectionChange(value){
+
+        $("#ftco-loader").show();
+            $.ajax({
+                type : 'GET',
+                url: "<?=url('/admin/get-help-category-section-data')?>/"+value,
+                success : function(data){
+                    console.log(data);
+
+                    $("#ftco-loader").hide();
+                    $("#categoryDiv").removeClass('d-none');
+                    $("#categoryDiv").html(data);
+                    $("#category").attr('required',true);
+                },error: function(data){
+                    console.log(data);
+                    $("#ftco-loader").hide();
+                },
+            })
+
+
+        // if(value == 'help'){
+        //     $("#categoryDiv").removeClass('d-none');
+        //     $("#category").attr('required',true);
+
+        // }else{
+        //     $("#categoryDiv").addClass('d-none');
+        //     $("#category").attr('required',false);
+        // }
     }
 </script>
 @endsection

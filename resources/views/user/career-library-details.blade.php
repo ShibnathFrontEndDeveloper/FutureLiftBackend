@@ -34,7 +34,7 @@
                   <li class="career_list_links"><a href="#AbroadInstitute">Abroad Institute</a></li>
                   <li class="career_list_links"><a href="#Entrance">Entrance Exam</a></li>
                   <li class="career_list_links"><a href="#Industry">Industry Trends</a></li>
-                  <li class="career_list_links"><a href="#WorkDescription">Work Description</a></li>
+                  <!-- <li class="career_list_links"><a href="#WorkDescription">Work Description</a></li> -->
                   <li class="career_list_links"><a href="#ProsCons">Pros & Cons of a Career</a></li>
                 </ul>
                 <div class=" left_bestForYou" id="addBoxTop">
@@ -69,7 +69,7 @@
                 </div>
                 <div class="career_content_box" id="Opportunities">
                   <div class="career_content_boxDtls">
-                    <h1><img src="{{asset('assets/images/oppertunityIcon.png')}}" alt="" class="img-fluid">Career Opportunities in Artificial Intelligence and Machine Learning</h1>
+                    <h1><img src="{{asset('assets/images/oppertunityIcon.png')}}" alt="" class="img-fluid">Career Opportunities</h1>
                     <div class="accordian_box">
                       <div class="accordion accordion-flush" id="accordionFlushExample">
                       @foreach (json_decode($data->career_opportunities,true) as $career_opportunitiesKey => $career_opportunitiesValue)
@@ -91,7 +91,7 @@
                 </div>
                 <div class="career_content_box" id="CareerPathway">
                   <div class="career_content_boxDtls">
-                    <h1><img src="{{asset('assets/images/careerPath.png')}}" alt="" class="img-fluid">How to Pursue a Career in Artificial Intelligence and Machine Learning</h1>
+                    <h1><img src="{{asset('assets/images/careerPath.png')}}" alt="" class="img-fluid">How to Pursue a Career</h1>
                     <div class="careerPath_tabel">
                       <table class="career_tabel">
                         <thead>
@@ -239,15 +239,15 @@
                     </div>
                   </div>
                 </div>
-                <div class="career_content_box" id="WorkDescription">
+                <!-- <div class="career_content_box" id="WorkDescription">
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/my-icon-7.jpg')}}" alt="" class="img-fluid">Work Description</h1>
                     <div class=" justify-content-between">
-                    <p>{!!$data->work_description_content!!}</p>
+                    <p>{!!$data->work_description_content!!}</p> -->
                     <!-- <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="img-fluid"> -->
-                    </div>
+                    <!-- </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="career_content_box" id="ProsCons">
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Pros & Cons of a Career</h1>
@@ -263,7 +263,7 @@
                     <div class=" justify-content-between">
                     <p>{!!$data->industry_trends_content!!}</p>
                     <!-- <img src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" alt="" class="img-fluid"> -->
-                    
+
                     @if(Auth::guard('user')->check())
                     <embed src="{{asset('assets/career_library/'.$data->industry_trends_image)}}" width="100%" height="400" alt="pdf" id="marksheetEm">
                     <div id="blankdiv" class="m-5"></div>
@@ -298,7 +298,7 @@
             </div>
           </div>
         </section>
-        
+
         @if (App\Helpers::canLike($data->id))
           <div class="help_box_part">
             <div class="container">
@@ -469,7 +469,7 @@
     <script>
 
       let listMenuCareerLibrary = document.getElementById('listMenuCareerLibrary');
-     
+
       let career_list = document.getElementById('careerListElement');
         listMenuCareerLibrary.onclick=()=>{
             career_list.classList.toggle('openListElementBox');
