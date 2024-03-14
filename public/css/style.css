@@ -90,7 +90,8 @@ a {
 }
 .fa-bars {
   color: black;
-  font-size: 2.5rem;
+  font-size: 18px;
+  padding-top: 20px;
 }
 .rotateIcon {
   color: black !important;
@@ -3813,10 +3814,11 @@ policy  /////////////////////////////////////
 */
 
 .animi_policy{
-    height: 406px;
+    height: 288px;
   }
   .policy_part{
     background: linear-gradient(45deg, #9C27B0,#3F51B5);
+    margin-top: 80px;
   }
   .policy_heading{
     margin-bottom: 20px;
@@ -3827,6 +3829,9 @@ policy  /////////////////////////////////////
   .top_head_box h1{
     color: #fff;
     text-align: center;
+    margin-bottom: 0px;
+  }
+  .top_head_box p{
     margin-bottom: 30px;
   }
   .nav_box {
@@ -3952,11 +3957,11 @@ policy  /////////////////////////////////////
   overflow-y: auto; */
 }
 .featureTabBox .elimeni_box.newClass::-webkit-scrollbar{
-  width: 0;
+    width: 0;
 }
 
 .featureTabBox{
-  display: flex;
+    display: flex;
 }
 .featureTabBox .nav-link{
     padding: 3px 0;
@@ -3970,8 +3975,8 @@ policy  /////////////////////////////////////
     margin: 0;
 }
 .featureTabBox .nav-link.active{
-background-color: #dc357c;
-border-radius: 0;
+    background-color: #dc357c;
+    border-radius: 0;
 }
 .featureTabBox .elimeni_box .bestForYou{
     width: 207px;
@@ -4126,6 +4131,7 @@ border-radius: 0;
   font-size: 22px;
   font-weight: 500;
   color: #d71c6d;
+  padding-top: 62px;
 }
 .career_content_boxDtls h1 img{
   width: 40px;
@@ -4248,6 +4254,40 @@ border-radius: 0;
 
 #listMenuCareerLibrary{
   display: none;
+}
+
+@media screen and (max-width:1920px) {
+  .position_box.newClassTab{
+    top: 7%;
+    width: 332px;
+  }
+  .tabRight.newTab {
+    margin-left: 330px;
+}
+}
+
+@media screen and (max-width:1680px) {
+  .position_box.newClassTab{
+    top:8%;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .position_box.newClassTab{
+    top:9%;
+  }
+}
+
+@media screen and (max-width:1366px) {
+  .position_box.newClassTab{
+    top:11%;
+  }
+  .position_box.newClassTab{
+    width: 285px;
+  }
+  .tabRight.newTab {
+    margin-left: 285px;
+}
 }
 
 
@@ -4468,17 +4508,22 @@ About Futurelift ////////////////////////////////////////
     padding-bottom: 50px;
   }
   .whoWeAre_box_text{
-    padding: 80px 0;
-    background-position: center center !important;
-    background-size: cover !important;
+    padding: 30px 0;
   }
-  .whoWeAre_box_text p{
-    font-size: 16px;
-    background: linear-gradient(45deg, #fefefe79, #b0bbfc53);
+  
+  .terms_content_box{
     padding: 50px;
     backdrop-filter: blur(6px);
     border-radius: 10px;
     box-shadow: 1px 3px 8px rgba(0,0,0,.2);
+  }
+  .terms_content_box p{
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  .terms_content_box h6{
+    font-size: 25px;
+    margin-top: 30px;
   }
   .about_other_text{
     text-align: center;
