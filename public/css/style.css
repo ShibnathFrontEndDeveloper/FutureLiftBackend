@@ -3935,7 +3935,7 @@ policy  /////////////////////////////////////
 
 .features_pannel .featureTabBox .nav{
     width: 207px;
-   
+
 }
 /* .sticky{
   position: fixed;
@@ -4258,7 +4258,7 @@ policy  /////////////////////////////////////
 
 @media screen and (max-width:1920px) {
   .position_box.newClassTab{
-    top: 7%;
+    top: 13.5% !important;
     width: 332px;
   }
   .tabRight.newTab {
@@ -4510,7 +4510,7 @@ About Futurelift ////////////////////////////////////////
   .whoWeAre_box_text{
     padding: 30px 0;
   }
-  
+
   .terms_content_box{
     padding: 50px;
     backdrop-filter: blur(6px);
