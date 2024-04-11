@@ -11419,10 +11419,7 @@ background: #F0FFFF !important;  }
   .card > .list-group + .card-footer {
     border-top: 0; }
 
-.card-body {
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 1.25rem; }
+
 
 .card-title {
   margin-bottom: 0.75rem; }
@@ -16718,10 +16715,8 @@ code {
 /* Cards */
 .card {
   border-radius: 0.25rem; }
-  .card .card-body {
-    padding: 1.75rem 1.5625rem; }
-    .card .card-body + .card-body {
-      padding-top: 1rem; }
+  
+    
   .card .card-title {
     color: #ffffff;
     margin-bottom: 1.125rem;
@@ -22198,23 +22193,61 @@ fieldset h1{
   }
 
 }
+@media screen and (max-width:576px) {
+  .price_box .cord_pice{
+    overflow: visible;
+  }
+
+}
 .pirce_btn_box .btn{
-  background: #0090e7 ;
+  background: #dc3545 ;
 }
 .upgrt_price_box .price_body{
   padding: 0;
+  background: #F0FFFF;
 }
 .price_box .cord_pice .card-body{
-  padding: 20px;
+  padding-top: 40px;
+  border:double #d8326b;
+  background: #fff;
+  border-radius: 5px;
+  height: 950px;
+  transition: .5s ease-in-out;
+}
+.price_box .cord_pice .card-body:hover{
+  border-width: 5px;
+  box-shadow: 2px 5px 10px #d8326b;
+}
+.price_save_box .offer_tag{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.price_save_box .offer_tag span{
+  color:#12151e;
+  text-decoration: line-through;
+}
+.price_save_box .offer_tag h5{
+  color:#E91E63;
+  background: #f9c1d5;
+  padding:10px;
+  border-radius:20px;
+  margin-left: 15px;
 }
 .price_box .cord_pice .rate_box{
   margin-block: 20px;
-  background: #0050e3;
+  background: #d8326b;
   padding: 8px;
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.rate_box.inactive{
+  background: #f9c1d5  !important;
+}
+.rate_box.inactive p{
+  color:#000;
 }
 .price_box .cord_pice .rate_box h3{
   color: #fff;
@@ -22227,26 +22260,51 @@ fieldset h1{
 }
 .price_box .price_heading{
   font-size: 18px;
-  color: #13151b;
+  color: #d8326b;
   font-weight: 700;
-  color: #00d25b;
   text-align: center;
 }
 .feature_dtls_box{
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 .feature_dtls_box h3{
-  color: #ff0044;
+  color: #000;
   font-size: 13px;
+  margin-bottom: 0;
+  font-weight: 600;
 
 }
-.feature_dtls_box.disabled h3, .feature_dtls_box.disabled p,.feature_dtls_box.disabled h3 .bi,.feature_dtls_box.disabled h3{
-  color: grey !important;
+
+.feature_dtls_box h3 span{
+  font-weight: lighter;
 }
+
 .feature_dtls_box .mdi{
   font-size: 20px;
-  color: #000000;
+  color: #0aa110;
 }
+.feature_dtls_box .mdi-close{
+  color: #a01a1f;
+}
+.feature_dtls_box .mdi-lock{
+  color: #a01a1f;
+ float: right;
+}
+.ds_non .mdi-lock{
+  display: none;
+}
+/* .feature_dtls_box .mdi-lock{
+  margin-left: 150px;
+
+} */
+.feature_dtls_box.disabled>*{
+  color: #9e9e9e !important;
+}
+.feature_dtls_box.disabled>*>h3{
+  color: #9e9e9e !important;
+}
+
+
 .feature_dtls_box h3 .bi{
   font-size: 16px;
   margin-right: 5px;
@@ -22256,6 +22314,60 @@ fieldset h1{
   color: #16181b;
   font-size: 13px;
 }
+
+/* price populer start */
+.popoler_pricebox{
+  position: relative;
+}
+.popoler_pricebox .tag_part{
+  position: absolute;
+  width: 169px;
+  height: 44px;
+  background: #E91E63;
+  top:-20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 20px;
+
+}
+.popoler_pricebox .tag_part h3{
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 14px;
+}
+.foutcoems{
+  margin-top: 98px;
+}
+.outComes_box .price_body{
+  height: 280px;
+  background: #fff;
+  border: double #d8326b;
+  border-radius: 5px;
+}
+
+.outComes_box .card{
+  background: #fff;
+  border: double #d8326b;
+  padding: 12px;
+  height: 280px;
+}
+.outcomes_para p{
+  margin-bottom: 0;
+  padding: 10px 0;
+}
+.outcomeText span{
+  font-size: 30px;
+}
+
+.outcomeText span::before{
+  font-weight: 600;
+  color: #e91e63;
+}
+
+
+
+
 /* Session */
 .popup_box{
   position: fixed;
@@ -22527,7 +22639,7 @@ fieldset h1{
     /* margin-left: 600px; */
 }
 .package-header{
-    background:linear-gradient(45deg, #6610f2, #eb6fb4);
+    background:linear-gradient(45deg, #E91E63, #F44336);
     padding: 7px;
     font-weight: 500;
     border-radius: 5px;

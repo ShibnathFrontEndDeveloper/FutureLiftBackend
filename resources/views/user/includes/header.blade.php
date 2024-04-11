@@ -25,7 +25,7 @@
       </div>
       @endif
     </div>
-      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas offcanvas-start home_canvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <a href="{{url('/')}}" class="logo"><img src="{{asset('assets/images/new_blak_logo.webp')}}" alt="" class="img-fluid"></a>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
@@ -35,56 +35,56 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1">
             <li class="nav-item">
-              <a class="nav-link active px-2" aria-current="page" href="{{url('/')}}"><p>HOME</p></a>
+              <a class="nav-link active px-2" aria-current="page" href="{{url('/')}}"><p>Home</p></a>
             </li>
             <li class="nav-item dropdown sidemenu-a">
               <a class="nav-link dropdown-toggle d-flex align-items-center px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <p class="heading">EXPLORE SOMETHING DIFFERENT</p>
+                <p class="heading">Explore</p>
                 <i class="fa-solid fa-angle-right mx-1 mb-1 rotateIcon"></i>
               </a>
               <ul class="dropdown-menu show">
                 <li class="px-0 d-flex align-items-center px-1">
-                  <a class="dropdown-item px-0" href="{{url('/personality-test')}}">PERSONALITY TEST</a>
-                  <i class="fa fa-angle-right mx-1 mt-1"></i>
+                  <a class="dropdown-item px-0" href="{{url('/personality-test')}}">Personality Test</a>
+                  <i class="bi bi-arrow-up-short"></i>
                 </li>
-                <hr class="subheading-border">
+                <!-- <hr class="subheading-border"> -->
                 <li class="px-0 d-flex align-items-center px-1">
-                  <a class="dropdown-item px-0" href="{{url('/interest-test')}}">INTEREST TEST</a>
-                  <i class="fa fa-angle-right mx-1 mt-1"></i>
+                  <a class="dropdown-item px-0" href="{{url('/interest-test')}}">Interest Test</a>
+                  <i class="bi bi-arrow-up-short"></i>
                 </li>
-                <hr class="subheading-border">
+                <!-- <hr class="subheading-border"> -->
                 <li class="px-0 d-flex align-items-center px-1">
-                  <a class="dropdown-item px-0" href="{{url('/iq-test')}}">IQ TEST</a>
-                  <i class="fa fa-angle-right mx-1 mt-1"></i>
+                  <a class="dropdown-item px-0" href="{{url('/iq-test')}}">Iq Test</a>
+                  <i class="bi bi-arrow-up-short"></i>
                 </li>
-                <hr class="subheading-border">
+                <!-- <hr class="subheading-border"> -->
                 <li class="px-0 d-flex align-items-center px-1">
-                  <a class="dropdown-item px-0" href="{{url('/aptitude-test')}}">APTITUDE TEST</a>
-                  <i class="fa fa-angle-right mx-1 mt-1"></i>
+                  <a class="dropdown-item px-0" href="{{url('/aptitude-test')}}">Aptitude Test</a>
+                  <i class="bi bi-arrow-up-short"></i>
                 </li>
               </ul>
             </li>
             <li class="nav-item dropdown sidemenu-a">
               <a class="nav-link dropdown-toggle d-flex align-items-center px-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <p class="heading">CAREER COUNSELING</p>
+                <p class="heading">Career Counseling</p>
                 <i class="fa-solid fa-angle-right mx-1 mb-1 rotateIcon"></i>
               </a>
               <ul class="dropdown-menu">
                 <li class="px-0 d-flex align-items-center px-1">
                   <a class="dropdown-item px-0" href="{{url('/eight-ten-counselling')}}">For 8th or 10th Class</a>
-                  <i class="fa fa-angle-right mx-1 mt-1"></i>
+                  <i class="bi bi-arrow-up-short"></i>
                 </li>
-                <hr class="subheading-border">
+                <!-- <hr class="subheading-border"> -->
                 <li class="px-0 d-flex align-items-center px-1">
                   <a class="dropdown-item px-0" href="{{url('/ten-twelve-counselling')}}">For 11th or 12th Class</a>
-                  <i class="fa fa-angle-right mx-1 mt-1"></i>
+                  <i class="bi bi-arrow-up-short"></i>
                 </li>
-                <hr class="subheading-border">
+                <!-- <hr class="subheading-border"> -->
                 <li class="px-0 d-flex align-items-center px-1">
                   <a class="dropdown-item px-0" href="{{url('/college-graduate-counselling')}}">For Graduate</a>
-                  <i class="fa fa-angle-right mx-1 mt-1"></i>
+                  <i class="bi bi-arrow-up-short"></i>
                 </li>
-                <hr class="subheading-border">
+                <!-- <hr class="subheading-border"> -->
                 <!-- <li class="px-0 d-flex align-items-center px-1">
                   <a class="dropdown-item px-0" href="#">For Working Professional</a>
                   <i class="fa fa-angle-right mx-1 mt-1"></i>
@@ -131,17 +131,17 @@
               </ul>
             </li> -->
             <li class="nav-item">
-              <a class="nav-link active px-2" aria-current="page" href="{{url('/blog')}}"><p>BLOG</p></a>
+              <a class="nav-link active px-2" aria-current="page" href="{{url('/blog')}}"><p>Blog</p></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active px-2" aria-current="page" href="{{url('/career-library')}}"><p>CAREER LIBRARY</p></a>
+              <a class="nav-link active px-2" aria-current="page" href="{{url('/career-library')}}"><p>Career Library</p></a>
             </li>
             <!-- <li class="px-2 py-1 d-flex align-items-center justify-content-between">
               <p style="color: green; font-weight: 600">REFER AND EARN</p>
               <img src="{{asset('assets/images/newBadge.png')}}" alt="" style="max-width: 40px">
             </li> -->
-            <li class="my-2 sidemenu-social p-2">
-              <p style="color: white">CONNECT WITH US</p>
+            <li class="mt-2 sidemenu-social p-2">
+              <p style="color: white">Contact With Us</p>
               <div class="sidemenu-social-icon">
                 <a href="https://www.facebook.com/Future-Lift-Education-PVT-LTD-112127913993548/"><i class="fab fa-facebook-square pe-1 py-1"></i></a>
                 <a href="https://www.instagram.com/invites/contact/?i=2nxyq2sxhhyi&amp;utm_content=7k4l34c"><i class="fab fa-instagram-square pe-1 py-1"></i></a>

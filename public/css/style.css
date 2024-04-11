@@ -94,7 +94,7 @@ a {
   padding-top: 20px;
 }
 .rotateIcon {
-  color: black !important;
+  color: #fff!important;
 }
 .openDrop {
   transform: rotate(90deg) !important;
@@ -126,13 +126,14 @@ a {
 }
 .offcanvas {
   padding: 0;
-  max-width: 75%;
+  max-width: 25%;
 }
 .offcanvas-body {
   padding: 0;
+  background: #000;
 }
 .nav-item {
-  border-bottom: 2px solid rgb(252, 89, 116);
+  /* border-bottom: 2px solid rgb(252, 89, 116); */
 }
 .dropdown-menu {
   border: 0;
@@ -142,11 +143,12 @@ a {
   color: black;
 }
 .nav-link p {
-  font-weight: 600;
+  /* font-weight: 600; */
   font-size: 1.2rem;
   width: 90%;
   white-space: break-spaces;
   margin-bottom: 0;
+  color:#fff;
 }
 .dropdown-toggle::after {
   display: none;
@@ -194,9 +196,10 @@ a {
 }
 .fa-angle-right {
   color: gray;
+  font-size: 14px;
 }
 .dropdown-menu {
-  background-color: rgb(235, 241, 249);
+  background-color: #000;
   border-radius: 0;
 }
 .dropdown-item {
@@ -207,11 +210,20 @@ a {
   background-color: transparent;
 }
 .dropdown-menu li {
-  margin-left: 1rem;
+  margin-left: 5px;
 }
 .dropdown-menu li a {
   font-size: 1.2rem;
   padding: 1rem 0;
+  color: #cecece;
+}
+.dropdown-menu li a:hover{
+  color: #fff;
+}
+
+.dropdown-menu li .bi{
+  transform: rotate(45deg);
+  color: #fff;
 }
 .header-signup {
   border: 3px solid crimson;
@@ -219,8 +231,9 @@ a {
   background-color: transparent;
 }
 .fa-xmark {
-  color: rgb(252, 89, 116);
-  font-size: 2.5rem;
+  color: rgb(0, 0, 0);
+  font-size: 23px;
+  margin-top: 20px;
 }
 .header-signup p {
   color: crimson;
@@ -575,6 +588,16 @@ input::-webkit-calendar-picker-indicator {
   margin-top: 50px;
 
 }
+
+
+@media screen and (max-width:768px) {
+  .offcanvas{
+    max-width: 75%;
+  }
+}
+
+
+
 @media screen and (max-width:560px) {
   .home_part_heading{
     margin-bottom: 30px;
@@ -582,6 +605,7 @@ input::-webkit-calendar-picker-indicator {
   .home_part_heading .hone_heading{
    text-align: center;
   }
+  
 }
 .home_swiper{
   width: 100%;
@@ -991,12 +1015,12 @@ backdrop-filter: blur(6px);
   margin-top: 8px;
 }
 .topContent a {
-  color: rgb(184, 2, 184);
+  color: #dc3545;
   font-weight: 600;
 }
 .topText1 {
   font-weight: 600;
-  color: rgb(184, 2, 184);
+  color: #dc3545;
   margin-bottom: 0.3rem;
 }
 .topText2 {
@@ -1037,10 +1061,10 @@ backdrop-filter: blur(6px);
   font-weight: bold;
 }
 .swiper-button-next::after {
-  font-size: 2rem !important;
+  font-size: 18px !important;
 }
 .swiper-button-prev::after {
-  font-size: 2rem !important;
+  font-size: 18px !important;
 }
 .swiper-button-next,
 .swiper-button-prev {
@@ -1052,7 +1076,7 @@ backdrop-filter: blur(6px);
   padding: 1rem !important;
   background: white;
   box-shadow: 0px 0px 10px gray;
-  color: black !important;
+  color: #dc3545 !important;
 }
 
 /* Subscribe section styling */
@@ -1151,7 +1175,7 @@ backdrop-filter: blur(6px);
   left: 0;
   width: 10px;
   height: 100%;
-  background: linear-gradient(to top, rgb(47, 137, 220),rgb(17, 5, 186));
+  background: linear-gradient(to top, #dc3545,#dc3545);
 }
 .rating_star{
   padding-left: 5px;
@@ -1205,7 +1229,7 @@ backdrop-filter: blur(6px);
   box-shadow: 0px 0px 5px gray;
 }
 .session {
-  background-color: rgb(184, 20, 184);
+  background-color: #dc3545;
   padding: 1rem 2rem;
   margin-bottom: 2rem;
 }
@@ -1223,7 +1247,7 @@ backdrop-filter: blur(6px);
 /* Career Subscribe Section */
 .careerSubscribeSection {
   display: flex;
-  border: double green;
+  border: double #dc3545;
   width: 100%;
   padding: 2rem;
 }
@@ -1243,7 +1267,7 @@ backdrop-filter: blur(6px);
   border: 0;
   font-size: 18px;
   color: white;
-  background-color: rgb(23, 128, 23);
+  background-color: #dc3545;
   padding: 8px 15px;
   border-radius: 5px;
   width: 200px;
@@ -1336,6 +1360,10 @@ backdrop-filter: blur(6px);
   background-color: crimson;
   position: relative;
   bottom: 0;
+  width: 50%;
+  padding: 5px 20px;
+  font-size: 16px;
+  border-radius: 8px;
 }
 .successSection8th-cardbtn:hover{
     color:#fff;
@@ -1778,7 +1806,8 @@ transform: translate(-5px, 5px) rotate(-45deg)
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: lightcyan;
+  background-color: rgb(255, 238, 242);
+  margin-top: 80px;
 }
 .personalityBannerImg {
   display: flex;
@@ -3434,7 +3463,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
     margin-top: 20px;
   }
   .blog_single_text .text-left a{
-    background: #084298;
+    background: #d81159;
     font-size: 22px;
     padding: 8px 15px;
     border-radius: 5px;
@@ -3685,8 +3714,8 @@ transform: translate(-5px, 5px) rotate(-45deg)
   background: linear-gradient(45deg, #6d7fff, #9540ad);
 }
 .blog_btn_send{
-  background: linear-gradient(to left,#007bff ,#3fff00 );
-  color: #000;
+  background: linear-gradient(to left,#ff5252 ,#e73333 );
+  color: #fff;
   border: none;
 }
 .stick_box{
@@ -4138,9 +4167,11 @@ policy  /////////////////////////////////////
   margin-right: 10px;
 }
 .career_content_boxDtls .dFlex img{
-  width: 150px;
+  width: 200px;
   height: 150px;
+  margin-left: 20px;
 }
+
 .accordian_box .accordion-item{
   margin-bottom: 3px;
 }
@@ -4770,14 +4801,14 @@ About Futurelift ////////////////////////////////////////
       padding: 50px 0;
     }
     .instaAdd_card .btn{
-      background: #063f6b;
+      background: #dc3545;
       color: #fff;
       width: 100%;
       margin-bottom: 20px;
       font-size: 20px;
     }
     .instaAdd_card .btn:hover{
-      background: #063f6b;
+      background: #bd2222;
       color: #fff;
     }
     .instaAdd_card{
@@ -4794,7 +4825,7 @@ About Futurelift ////////////////////////////////////////
       font-size: 30px;
     }
     .instaAdd_card .instaHeadPart .pricePart h2{
-      color: #12df22;
+      color: #dc3545;
       font-weight: 800;
       font-size: 40px;
     }
@@ -4831,7 +4862,7 @@ About Futurelift ////////////////////////////////////////
       border-top: 1px solid #000;
     }
     .instaAdd_card .card-footer .adviceBtn{
-      background: #12df22;
+      background: #dc3545;
       padding: 5px 15px;
       border-radius: 5px;
       outline: none;

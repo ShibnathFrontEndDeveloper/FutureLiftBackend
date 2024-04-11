@@ -49,7 +49,7 @@
                 <div class="col-12 top_head_box">
                     <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_ZygRYHjKiC.json"  background="transparent"  speed="1" loop  autoplay class="animi_policy"></lottie-player>
                     <h1 class="policy_heading">terms and <span>conditions</span></h1>
-                    <p class="text-light text-center">Welcome to www.futurelift.in!</p>
+                    <p class="text-light text-center">Welcome to Future Lift</p>
                 </div>
             </div>
           </div>
@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="container mt-5">
-            <p class="mb-5">These terms and conditions outline the rules and regulations for the use of Future Lift's Website, located at https;//futurelift.in/.
+            <p class="mb-5">These terms and conditions outline the rules and regulations for the use of Future Lift's Website, located at <a href="futurelift.in"> futurelift.in</a>.
                 By accessing this website we assume you accept these terms and conditions. Do not continue to use www.futurelift.in if you do not agree to take all of the terms and conditions stated on this page.
                 The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company's terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client's needs in respect of provision of the Company's stated services, in accordance with and subject to, prevailing law of in. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.
             </p>

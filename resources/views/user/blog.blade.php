@@ -118,7 +118,7 @@
 
                 </div>
                 <div class="col-lg-12 text-center mt-5">
-                  <button type="button" class="btn btn-primary" id="loadMoreData" onclick="loadMoreData();">Load More</button>
+                  <button type="button" class="btn btn-danger" id="loadMoreData" onclick="loadMoreData();">Load More</button>
                   <p class="" style="display:none;" id="notFoundData">No more data found </p>
                 </div>
 

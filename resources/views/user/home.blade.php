@@ -180,7 +180,7 @@
                   <div class="whyCard-career-1-content" id="whyContent1-career-1">
                     <p class="whyCard-career-1-text1">10,000+ Happy Students</p>
                     <p class="whyCard-career-1-text2 d-none d-sm-block">
-                      We have served our service to more than 1 lakh students.
+                      We have served our service to more than 10 thousand students.
                     </p>
                   </div>
                 </div>

@@ -61,9 +61,9 @@
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Summery</h1>
                     <div class="d-flex justify-content-between dFlex">
-                    <p>{!!$data->summery_content!!}</p>
+                      <p>{!!$data->summery_content!!}</p>
 
-                    <img src="{{asset('assets/career_library/'.$data->summery_image)}}" alt="" class="img-fluid">
+                      <img src="{{asset('assets/career_library/'.$data->summery_image)}}" alt="" class="img-fluid">
                     </div>
                   </div>
                 </div>
@@ -142,7 +142,7 @@
                 </div>
                 <div class="career_content_box" id="LeadingInstitute">
                   <div class="career_content_boxDtls">
-                    <h1><img src="{{asset('assets/images/instituteIcon.png')}}" alt="" class="img-fluid">Landing Indtitute</h1>
+                    <h1><img src="{{asset('assets/images/instituteIcon.png')}}" alt="" class="img-fluid">Leading Institute</h1>
                     <p>Top Artificial Intelligence and Machine Learning Institutes in India</p>
 
                     <div class="careerPath_tabel">
