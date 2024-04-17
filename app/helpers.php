@@ -1085,6 +1085,28 @@ class Helpers
         }
         return $name;
     }
+    public static function userRegistrationFreeSubscription($userId){
+        $counseli = CounsellingPrice::select('id')->where('session_count',0)->first();
+        $subId = $counseli->id;
+        $user_subcription = new UserSubscriptionModel();
+        $user_subcription->userId = $userId;
+        $user_subcription->package_id = $subId;
+        $user_subcription->save();
+
+        $getCoun = CounsellingPrice::find($subId);
+
+        if($getCoun->session_count > 0){
+            for ($i=0; $i < $getCoun->session_count; $i++){
+                $sesion_history = new SessionHistory();
+                $sesion_history->userId = $userId;
+                $sesion_history->package_id = $subId;
+                $sesion_history->status = ($i==0)?'Active':'Pending';
+                $sesion_history->save();
+            }
+
+        }
+        return true;
+    }
 
 }
 ?>

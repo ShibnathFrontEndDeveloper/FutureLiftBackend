@@ -77,6 +77,8 @@ class AuthController extends Controller
         $user_information->userId = $user->id;
         $user_information->save();
 
+        Helpers::userRegistrationFreeSubscription($user->id);
+
 
         if($request->refer_code != ''){
             $referId = User::where('code',$request->refer_code)->where('role','user')->first();
@@ -256,6 +258,8 @@ class AuthController extends Controller
             $user_information = new User_information();
             $user_information->userId = $user->id;
             $user_information->save();
+
+            Helpers::userRegistrationFreeSubscription($user->id);
 
             $notificationContent = "Welcome to FutureLift!  We're thrilled to have you join us. Explore, discover, and make the most of your journey here. If you have any questions or need assistance, don't hesitate to ask. Happy browsing!";
             Helpers::addUserNotification($user->id,'user_registration','Welcome to FutureLift','registration',$notificationContent);

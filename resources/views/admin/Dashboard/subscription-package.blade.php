@@ -77,7 +77,15 @@
                             <input type="text" name="plan_name" id="" required class="form-control" value="{{old('plan_name')}}">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="">Session Price</label>
+                            <label for="">Discount Percentage (%)</label>
+                            <input type="number" name="discount_percentage" id="" min="0" required class="form-control" value="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">Before Discount Session Price</label>
+                            <input type="number" name="before_discount_amount" id="" min="0" required class="form-control" value="">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">After Discount Session Price</label>
                             <input type="number" name="plan_price" id="" min="0" required class="form-control" value="">
                         </div>
                         <div class="col-md-6 form-group">
@@ -85,7 +93,23 @@
                             <input type="number" name="session_count" id="" min="0" max="6" required class="form-control" value="0">
                         </div>
                         <div class="col-md-12 form-group">
-                            <h3>Package Facility</h3>
+                            <label for="">Description</label>
+                            <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{old('description')}}</textarea>
+
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>Career Library Content</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " type="checkbox" name="career_library_details_lock" role="switch" id="career_library_details_lock">
+                                        <label class="form-check-label" for="career_library_details_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-12 form-group lib-admin-design">
                             <div class="row">
@@ -94,12 +118,19 @@
                                         <thead>
                                             <tr>
                                                 <th>Content</th>
+                                                <th>Lock</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" name="facility_content[]" class="form-control" /></td>
+                                                <td><input type="text" name="career_library_details_content[]" class="form-control" /></td>
+                                                <td>
+                                                    <select class="form-control" name="career_library_details_content_lock[]">
+                                                        <option value="yes">Yes</option>
+                                                        <option value="no">No</option>
+                                                    </select>
+                                                </td>
                                                 <td><button type="button" class="removeRow btn btn-danger">X</button></td>
                                             </tr>
                                         </tbody>
@@ -109,8 +140,92 @@
                             </div>
                         </div>
                         <div class="col-md-12 form-group">
-                            <label for="">Description</label>
-                            <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{old('description')}}</textarea>
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>Face-to-Face Sessions</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " type="checkbox" name="face_to_face_details_lock" role="switch" id="face_to_face_details_lock">
+                                        <label class="form-check-label" for="face_to_face_details_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group lib-admin-design">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <table id="face_to_face_detailsTable" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Content</th>
+                                                <th>Lock</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="text" name="face_to_face_details_content[]" class="form-control" /></td>
+                                                <td>
+                                                    <select class="form-control" name="face_to_face_details_content_lock[]">
+                                                        <option value="yes" >Yes</option>
+                                                        <option value="no" >No</option>
+                                                    </select>
+                                                </td>
+                                                <td><button type="button" class="removeRow btn btn-danger">X</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-dark mt-2" id="addRowface_to_face_details">Add More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>30 Pages Report card</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " type="checkbox" name="page_report_details_lock" role="switch" id="page_report_details_lock">
+                                        <label class="form-check-label" for="page_report_details_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group lib-admin-design">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <table id="page_report_detailsTable" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Content</th>
+                                                <th>Lock</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="text" name="page_report_details_content[]" class="form-control" /></td>
+                                                <td>
+                                                    <select class="form-control" name="page_report_details_content_lock[]">
+                                                        <option value="yes" >Yes</option>
+                                                        <option value="no" >No</option>
+                                                    </select>
+                                                </td>
+                                                <td><button type="button" class="removeRow btn btn-danger">X</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-dark mt-2" id="addRowpage_report_details">Add More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="">OutComes</label>
+                            <textarea name="outcome" id="outcome" cols="30" rows="10" class="form-control">{{old('outcome')}}</textarea>
 
                         </div>
                         <div class="col-md-12 form-group">
@@ -145,12 +260,38 @@
                             <input type="text" name="plan_name" id="" required class="form-control" value="{{$package->plan_name}}">
                         </div>
                         <div class="col-md-6 form-group">
-                            <label for="">Session Price</label>
+                            <label for="">Discount Percentage (%)</label>
+                            <input type="number" name="discount_percentage" id="" min="0" required class="form-control" value="{{$package->discount_percentage}}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">Before Discount Session Price</label>
+                            <input type="number" name="before_discount_amount" id="" min="0" required class="form-control" value="{{$package->before_discount_amount}}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">After Discount Session Price</label>
                             <input type="number" name="plan_price" id="" min="0" required class="form-control" value="{{$package->plan_price}}">
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="">Session Count</label>
                             <input type="number" name="session_count" id="" min="0" max="6" required class="form-control" value="{{$package->session_count}}">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="">Description</label>
+                            <textarea name="description" id="description" cols="30" rows="10" required class="form-control">{{$package->description}}</textarea>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>Career Library Content</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " type="checkbox" {{($package->career_library_details_lock == 'no')?'checked':''}} name="career_library_details_lock" role="switch" id="career_library_details_lock">
+                                        <label class="form-check-label" for="career_library_details_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-12 form-group lib-admin-design">
                             <div class="row">
@@ -159,36 +300,132 @@
                                         <thead>
                                             <tr>
                                                 <th>Content</th>
+                                                <th>Lock</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if ($package->facility)
+                                            @foreach (json_decode($package->career_library_details,true) as $career_library_detailsKey => $career_library_detailsValue)
+                                            <tr>
+                                                <td><input type="text" name="career_library_details_content[]" value="{{$career_library_detailsValue['career_library_details_content']}}" class="form-control" /></td>
+                                                <td>
+                                                    <select class="form-control" name="career_library_details_content_lock[]">
+                                                        <option value="yes" {{($career_library_detailsValue['career_library_details_content_lock'] == 'yes')?'selected':''}}>Yes</option>
+                                                        <option value="no" {{($career_library_detailsValue['career_library_details_content_lock'] == 'no')?'selected':''}}>No</option>
+                                                    </select>
 
-
-                                                @foreach (json_decode($package->facility,true) as $facilityKey => $facilityValue)
-                                                    <tr>
-                                                        <td><input type="text" name="facility_content[]" class="form-control" value="{{$facilityValue}}" /></td>
-                                                        <td><button type="button" class="removeRow btn btn-danger">X</button></td>
-                                                    </tr>
-                                                @endforeach
-                                                @else
-                                                    <tr>
-                                                        <td><input type="text" name="facility_content[]" class="form-control" /></td>
-                                                        <td><button type="button" class="removeRow btn btn-danger">X</button></td>
-                                                    </tr>
-                                            @endif
+                                                </td>
+                                                <td><button type="button" class="removeRow btn btn-danger">X</button></td>
+                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                     <button type="button" class="btn btn-dark mt-2" id="addRow">Add More</button>
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="col-md-12 form-group">
-                            <label for="">Description</label>
-                            <textarea name="description" id="description" cols="30" rows="10" required class="form-control">{{$package->description}}</textarea>
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>Face-to-Face Sessions</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " {{($package->face_to_face_details_lock == 'no')?'checked':''}} type="checkbox" name="face_to_face_details_lock" role="switch" id="face_to_face_details_lock">
+                                        <label class="form-check-label" for="face_to_face_details_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group lib-admin-design">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <table id="face_to_face_detailsTable" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Content</th>
+                                                <th>Lock</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (json_decode($package->face_to_face_details,true) as $face_to_face_detailsKey => $face_to_face_detailsValue)
+                                            <tr>
+                                                <td><input type="text" name="face_to_face_details_content[]" value="{{$face_to_face_detailsValue['face_to_face_details_content']}}" class="form-control" /></td>
+                                                <td>
+                                                    <select class="form-control" name="face_to_face_details_content_lock[]">
+                                                        <option value="yes" {{($face_to_face_detailsValue['face_to_face_details_content_lock'] == 'yes')?'selected':''}}>Yes</option>
+                                                        <option value="no" {{($face_to_face_detailsValue['face_to_face_details_content_lock'] == 'no')?'selected':''}}>No</option>
+                                                    </select>
+
+
+                                                </td>
+                                                <td><button type="button" class="removeRow btn btn-danger">X</button></td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-dark mt-2" id="addRowface_to_face_details">Add More</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12 form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>30 Pages Report card</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " {{($package->page_report_details_lock == 'no')?'checked':''}} type="checkbox" name="page_report_details_lock" role="switch" id="page_report_details_lock">
+                                        <label class="form-check-label" for="page_report_details_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group lib-admin-design">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <table id="page_report_detailsTable" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Content</th>
+                                                <th>Lock</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (json_decode($package->page_report_details,true) as $page_report_detailsKey => $page_report_detailsValue)
+                                            <tr>
+                                                <td><input type="text" name="page_report_details_content[]" class="form-control" value="{{$page_report_detailsValue['page_report_details_content']}}" /></td>
+                                                <td>
+                                                    <select class="form-control" name="page_report_details_content_lock[]">
+                                                        <option value="yes" {{($page_report_detailsValue['page_report_details_content_lock'] == 'yes')?'selected':''}}>Yes</option>
+                                                        <option value="no" {{($page_report_detailsValue['page_report_details_content_lock'] == 'no')?'selected':''}}>No</option>
+                                                    </select>
+
+                                                </td>
+                                                <td><button type="button" class="removeRow btn btn-danger">X</button></td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-dark mt-2" id="addRowpage_report_details">Add More</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <label for="">OutComes</label>
+                            <textarea name="outcome" id="outcome" cols="30" rows="10" class="form-control">{{$package->outcome}}</textarea>
 
                         </div>
+
                         <div class="col-md-12 form-group">
                             <input type="submit" value="Submit" class="btn btn-primary">
                         </div>
@@ -200,7 +437,7 @@
 @endif
 @endsection
 @section('scripts')
-<script src="https://cdn.tiny.cloud/1/bbje5d1lcfvwc328of9zjf8fqjxk3g5v538i7tiru2g4ojtu/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 <script>
     new DataTable('#example',{
         responsive: true
@@ -210,29 +447,19 @@
             window.location.href="{{url('/admin/testimonialDelete')}}/"+id;
         }
     }
-
-    tinymce.init({
-        selector: 'textarea#description',
-        height: 500,
-        valid_elements : '*[*]',
-        plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-        tinycomments_mode: 'embedded',
-        tinycomments_author: 'Author name',
-        mergetags_list: [
-        { value: 'First.Name', title: 'First Name' },
-        { value: 'Email', title: 'Email' },
-        ],
-        ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
-    });
+    CKEDITOR.replace( 'outcome');
 
 
     $("#addRow").on("click", function() {
         var newRow = $("<tr>");
-        var columns = ["facility_content"];
+        var columns = ["career_library_details_content","career_library_details_content_lock"];
         for (var i = 0; i < columns.length; i++) {
             var inputName = columns[i] + "[]";
-            var newCell = $("<td>").append(`<input type="text" name="${inputName}" class="form-control" />`);
+            console.log(columns[i]);
+
+
+
+            var newCell = (columns[i] == 'career_library_details_content_lock')?$("<td>").append(`<select class="form-control" name="${inputName}"><option value="yes">Yes</option><option value="no">No</option></select>`):$("<td>").append(`<input type="text" name="${inputName}" class="form-control" />`);
             newRow.append(newCell);
         }
 
@@ -243,6 +470,59 @@
     });
 
     $("#facilityTable").on("click", ".removeRow", function() {
+        $(this).closest("tr").remove();
+    });
+
+
+    $("#addRowface_to_face_details").on("click", function() {
+        var newRow = $("<tr>");
+        var columns = ["face_to_face_details_content","face_to_face_details_content_lock"];
+        for (var i = 0; i < columns.length; i++) {
+            var inputName = columns[i] + "[]";
+            console.log(columns[i]);
+
+            var newCell = (columns[i] == 'face_to_face_details_content_lock')?$("<td>").append(`<select class="form-control" name="${inputName}"><option value="yes">Yes</option><option value="no">No</option></select>`):$("<td>").append(`<input type="text" name="${inputName}" class="form-control" />`);
+
+
+
+
+
+            newRow.append(newCell);
+        }
+
+        var removeButtonCell = $("<td>").append('<button type="button" class="removeRow btn btn-danger">X</button>');
+        newRow.append(removeButtonCell);
+
+        $("#face_to_face_detailsTable tbody").append(newRow);
+    });
+
+    $("#face_to_face_detailsTable").on("click", ".removeRow", function() {
+        $(this).closest("tr").remove();
+    });
+
+
+    $("#addRowpage_report_details").on("click", function() {
+        var newRow = $("<tr>");
+        var columns = ["page_report_details_content","page_report_details_content_lock"];
+        for (var i = 0; i < columns.length; i++) {
+            var inputName = columns[i] + "[]";
+            console.log(columns[i]);
+
+            var newCell = (columns[i] == 'page_report_details_content_lock')?$("<td>").append(`<select class="form-control" name="${inputName}"><option value="yes">Yes</option><option value="no">No</option></select>`):$("<td>").append(`<input type="text" name="${inputName}" class="form-control" />`);
+
+
+
+
+            newRow.append(newCell);
+        }
+
+        var removeButtonCell = $("<td>").append('<button type="button" class="removeRow btn btn-danger">X</button>');
+        newRow.append(removeButtonCell);
+
+        $("#page_report_detailsTable tbody").append(newRow);
+    });
+
+    $("#page_report_detailsTable").on("click", ".removeRow", function() {
         $(this).closest("tr").remove();
     });
 </script>

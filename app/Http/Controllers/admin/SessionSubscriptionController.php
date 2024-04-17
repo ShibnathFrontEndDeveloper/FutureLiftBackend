@@ -24,6 +24,10 @@ class SessionSubscriptionController extends Controller
         }
     }
     public function subscriptionPackageAddFun(Request $request){
+        // echo "<pre>";
+        // print_r($request->all());
+        // die();
+
         $validator = Validator::make($request->all(), [
             'plan_name' => 'required',
             'plan_price' => 'required',
@@ -39,17 +43,48 @@ class SessionSubscriptionController extends Controller
         	return back()->withInput();
         }
 
-        if(count($request->facility_content) == 0){
-            Toastr::error('Please add facility content!','error');
-            return back()->withInput();
+        // if(count($request->facility_content) == 0){
+        //     Toastr::error('Please add facility content!','error');
+        //     return back()->withInput();
+        // }
+
+
+        $career_library_details = [];
+        foreach ($request->career_library_details_content as $career_library_details_contentkey => $career_library_details_contentvalue) {
+            $career_library_details[$career_library_details_contentkey]['career_library_details_content'] = $career_library_details_contentvalue;
+            $career_library_details[$career_library_details_contentkey]['career_library_details_content_lock'] = ($request->career_library_details_content_lock[$career_library_details_contentkey] == 'yes')?'yes':'no';
         }
+
+
+        $face_to_face_details = [];
+        foreach ($request->face_to_face_details_content as $face_to_face_details_contentkey => $face_to_face_details_contentvalue) {
+            $face_to_face_details[$face_to_face_details_contentkey]['face_to_face_details_content'] = $face_to_face_details_contentvalue;
+            $face_to_face_details[$face_to_face_details_contentkey]['face_to_face_details_content_lock'] = ($request->face_to_face_details_content_lock[$face_to_face_details_contentkey] == 'yes')?'yes':'no';
+        }
+
+
+        $page_report_details = [];
+        foreach ($request->page_report_details_content as $page_report_details_contentkey => $page_report_details_contentvalue) {
+            $page_report_details[$page_report_details_contentkey]['page_report_details_content'] = $page_report_details_contentvalue;
+            $page_report_details[$page_report_details_contentkey]['page_report_details_content_lock'] = ($request->page_report_details_content_lock[$page_report_details_contentkey] == 'yes')?'yes':'no';
+        }
+
+
 
         $subscription = new CounsellingPrice();
         $subscription->plan_name = $request->plan_name;
         $subscription->plan_price = $request->plan_price;
         $subscription->session_count = $request->session_count;
         $subscription->description = $request->description;
-        $subscription->facility = json_encode($request->facility_content);
+        $subscription->discount_percentage = $request->discount_percentage;
+        $subscription->before_discount_amount = $request->before_discount_amount;
+        $subscription->career_library_details = json_encode($career_library_details);
+        $subscription->face_to_face_details = json_encode($face_to_face_details);
+        $subscription->page_report_details = json_encode($page_report_details);
+        $subscription->outcome = $request->outcome;
+        $subscription->career_library_details_lock = (isset($request->career_library_details_lock))?'no':'yes';
+        $subscription->face_to_face_details_lock = (isset($request->face_to_face_details_lock))?'no':'yes';
+        $subscription->page_report_details_lock = (isset($request->page_report_details_lock))?'no':'yes';
         $subscription->session_has = ($request->session_count > 0)?'yes':'no';
         $subscription->save();
 
@@ -66,6 +101,9 @@ class SessionSubscriptionController extends Controller
         }
     }
     public function subscriptionPackageEditFun(Request $request){
+        // echo "<pre>";
+        // print_r($request->all());
+        // die();
         $validator = Validator::make($request->all(), [
             'plan_name' => 'required',
             'plan_price' => 'required',
@@ -81,17 +119,49 @@ class SessionSubscriptionController extends Controller
         	return back()->withInput();
         }
 
-        if(count($request->facility_content) == 0){
-            Toastr::error('Please add facility content!','error');
-            return back()->withInput();
+        // if(count($request->facility_content) == 0){
+        //     Toastr::error('Please add facility content!','error');
+        //     return back()->withInput();
+        // }
+
+
+        $career_library_details = [];
+        foreach ($request->career_library_details_content as $career_library_details_contentkey => $career_library_details_contentvalue) {
+            $career_library_details[$career_library_details_contentkey]['career_library_details_content'] = $career_library_details_contentvalue;
+            $career_library_details[$career_library_details_contentkey]['career_library_details_content_lock'] = ($request->career_library_details_content_lock[$career_library_details_contentkey] == 'yes')?'yes':'no';
         }
+
+
+        $face_to_face_details = [];
+        foreach ($request->face_to_face_details_content as $face_to_face_details_contentkey => $face_to_face_details_contentvalue) {
+            $face_to_face_details[$face_to_face_details_contentkey]['face_to_face_details_content'] = $face_to_face_details_contentvalue;
+            $face_to_face_details[$face_to_face_details_contentkey]['face_to_face_details_content_lock'] = ($request->face_to_face_details_content_lock[$face_to_face_details_contentkey] == 'yes')?'yes':'no';
+        }
+
+
+        $page_report_details = [];
+        foreach ($request->page_report_details_content as $page_report_details_contentkey => $page_report_details_contentvalue) {
+            $page_report_details[$page_report_details_contentkey]['page_report_details_content'] = $page_report_details_contentvalue;
+            $page_report_details[$page_report_details_contentkey]['page_report_details_content_lock'] = ($request->page_report_details_content_lock[$page_report_details_contentkey] == 'yes')?'yes':'no';
+        }
+
+
+
 
         $subscription = CounsellingPrice::find($request->editId);
         $subscription->plan_name = $request->plan_name;
         $subscription->plan_price = $request->plan_price;
         $subscription->session_count = $request->session_count;
         $subscription->description = $request->description;
-        $subscription->facility = json_encode($request->facility_content);
+        $subscription->discount_percentage = $request->discount_percentage;
+        $subscription->before_discount_amount = $request->before_discount_amount;
+        $subscription->career_library_details = json_encode($career_library_details);
+        $subscription->face_to_face_details = json_encode($face_to_face_details);
+        $subscription->page_report_details = json_encode($page_report_details);
+        $subscription->outcome = $request->outcome;
+        $subscription->career_library_details_lock = (isset($request->career_library_details_lock))?'no':'yes';
+        $subscription->face_to_face_details_lock = (isset($request->face_to_face_details_lock))?'no':'yes';
+        $subscription->page_report_details_lock = (isset($request->page_report_details_lock))?'no':'yes';
         $subscription->session_has = ($request->session_count > 0)?'yes':'no';
         $subscription->save();
 
