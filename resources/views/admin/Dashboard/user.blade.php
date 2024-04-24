@@ -44,6 +44,9 @@
                                         @if (App\Helpers::userIdWiseRoleName($value->id) != 'Super Admin')
                                             <a href="{{url('admin/user/edit/'.$value->id)}}"><i style="font-size:30px;" class="mdi mdi-pencil-box-outline"></i></a>
                                         @endif
+                                        @if (App\Helpers::userIdWiseRoleName($value->id) == 'Counselor')
+                                            <a href="{{url('admin/counselor-details/details/'.$value->id)}}" class="btn btn-sm btn-primary" >View Details</a>
+                                        @endif
                                     @else
                                         <a href="{{url('admin/user-details/details/'.$value->id)}}" class="btn btn-sm btn-primary" >View Details</a>
                                     @endif

@@ -168,8 +168,8 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group modal-Input">
-                                                    <label for="">Short question</label>
-                                                    <textarea name="short_question" placeholder="Enter type your answer...." id="short_question" class="form-control" required cols="30" rows="10"></textarea>
+                                                    <label for="">Your Expectation from this Session?</label>
+                                                    <textarea name="short_question" placeholder="Choosing the right career and course, and getting advice that may help in career growth." id="short_question" class="form-control" required cols="30" rows="10"></textarea>
                                                 </div>
                                             </div>
                                         </div>

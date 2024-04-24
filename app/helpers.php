@@ -131,13 +131,22 @@ class Helpers
         return $data;
     }
     public static function getEmailConfig(){
+        // $array = [
+        //     "smtp"=>"tls",
+        //     "host"=>"smtp.gmail.com",
+        //     "username"=>"rajdeeproychowdhuryb@gmail.com",
+        //     "mailform"=>"rajdeeproychowdhuryb@gmail.com",
+        //     "password"=>"uxrijlygawdnwecr",
+        //     "port"=>587,
+        //     "fromname"=>"FutureLift"
+        // ];
         $array = [
-            "smtp"=>"tls",
-            "host"=>"smtp.gmail.com",
-            "username"=>"rajdeeproychowdhuryb@gmail.com",
-            "mailform"=>"rajdeeproychowdhuryb@gmail.com",
-            "password"=>"uxrijlygawdnwecr",
-            "port"=>587,
+            "smtp"=>"ssl",
+            "host"=>"smtp.hostinger.com",
+            "username"=>"info@futurelift.in",
+            "mailform"=>"info@futurelift.in",
+            "password"=>"info@Futurelift2024",
+            "port"=>465,
             "fromname"=>"FutureLift"
         ];
         return json_encode($array);
@@ -1106,6 +1115,82 @@ class Helpers
 
         }
         return true;
+    }
+    /*
+    * @param1 : Plain String
+    * @param2 : Working key provided by CCAvenue
+    * @return : Decrypted String
+    */
+    public static function encrypt($plainText,$key)
+    {
+        $key = Helpers::hextobin(md5($key));
+        $initVector = pack("C*", 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f);
+        $openMode = openssl_encrypt($plainText, 'AES-128-CBC', $key, OPENSSL_RAW_DATA, $initVector);
+        $encryptedText = bin2hex($openMode);
+        return $encryptedText;
+    }
+    /*
+    * @param1 : Encrypted String
+    * @param2 : Working key provided by CCAvenue
+    * @return : Plain String
+    */
+    public static function decrypt($encryptedText,$key)
+    {
+        $key = Helpers::hextobin(md5($key));
+        $initVector = pack("C*", 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f);
+        $encryptedText = Helpers::hextobin($encryptedText);
+        $decryptedText = openssl_decrypt($encryptedText, 'AES-128-CBC', $key, OPENSSL_RAW_DATA, $initVector);
+        return $decryptedText;
+    }
+
+    public static function hextobin($hexString)
+    {
+        $length = strlen($hexString);
+        $binString="";
+        $count=0;
+        while($count<$length)
+        {
+            $subString =substr($hexString,$count,2);
+            $packedString = pack("H*",$subString);
+            if ($count==0)
+            {
+                $binString=$packedString;
+            }
+
+            else
+            {
+                $binString.=$packedString;
+            }
+
+            $count+=2;
+        }
+            return $binString;
+    }
+    public static function ccAvenuePaymentConfig(){
+        $data = [
+            "WORKING_KEY" => "0B6CF09892781A68E4438F4927AC8B5C",
+            "ACCESS_CODE" => "AVJP69LC68AW89PJWA",
+            "MERCHANT_ID" => "3370960"
+        ];
+        return json_encode($data);
+    }
+    public static function ccAvenuePaymentFunction($data){
+        $payment_config = json_decode(Helpers::ccAvenuePaymentConfig());
+        $working_key=$payment_config->WORKING_KEY;//Shared by CCAVENUES
+	    $access_code=$payment_config->ACCESS_CODE;//Shared by CCAVENUES
+	    $merchant_data='';
+        foreach ($data as $key => $value){
+            $merchant_data='';
+            $merchant_data.=$key.'='.$value.'&';
+        }
+        $encrypted_data=Helpers::encrypt($merchant_data,$working_key);
+        ?>
+
+        <!-- <iframe src="https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction&encRequest=<?=$encrypted_data?>&access_code=<?=$access_code?>" id="paymentFrame" width="100%" height="800"  frameborder="0" scrolling="yes" ></iframe> -->
+        <script>
+                window.location.href="https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction&encRequest=<?=$encrypted_data?>&access_code=<?=$access_code?>";
+        </script>
+        <?php
     }
 
 }

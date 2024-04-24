@@ -62,6 +62,26 @@ class MainController extends Controller
             return view('admin.Dashboard.404');
         }
     }
+    public function indexCounselorDetails($show,$id){
+        if($show == "details"){
+            $userInfo = CouncelorDetails::where('userId',$id)->first();
+            $user = User::find($id);
+            $holiday = CouncelorHoliday::where('userId',$id)->orderBy('id','DESC')->get();
+            $earning = DB::table('counselor_earning_history')
+            ->select('counselor_earning_history.*',
+            'session_history.session_date_time',
+            'session_history.counselling_report',
+            'session_history.counselling_report_document',
+            'session_history.session_completed_date',
+            'session_history.session_date_time')
+            ->leftJoin('session_history', 'counselor_earning_history.session_history_table_id', '=', 'session_history.id')
+            ->where('counselor_earning_history.counselor_id',$id)->orderBy('counselor_earning_history.created_at','DESC')->get();
+
+            return view('admin.Dashboard.counselor-details',compact(['userInfo','user','holiday','earning']));
+        }else{
+            return view('admin.Dashboard.404');
+        }
+    }
     public function markDoneCounselling(Request $request){
         $id = $request->id;
         $userId = $request->userId;
@@ -404,7 +424,7 @@ class MainController extends Controller
     }
     public function indexMyHoliday($show){
         if($show == "list"){
-            $list = CouncelorHoliday::orderBy('id','DESC')->get();
+            $list = CouncelorHoliday::where('userId',Auth::guard('admin')->user()->id)->orderBy('id','DESC')->get();
             return view('admin.Dashboard.counselor-holiday',compact(['list']));
         }else if($show == "add"){
             return view('admin.Dashboard.counselor-holiday');

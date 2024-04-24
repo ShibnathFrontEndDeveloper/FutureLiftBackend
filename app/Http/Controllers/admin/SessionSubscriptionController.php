@@ -69,6 +69,24 @@ class SessionSubscriptionController extends Controller
             $page_report_details[$page_report_details_contentkey]['page_report_details_content_lock'] = ($request->page_report_details_content_lock[$page_report_details_contentkey] == 'yes')?'yes':'no';
         }
 
+        $chat_with_expert_details = [];
+        foreach ($request->chat_with_expert_content as $chat_with_expert_contentkey => $chat_with_expert_contentvalue) {
+            $chat_with_expert_details[$chat_with_expert_contentkey]['chat_with_expert_content'] = $chat_with_expert_contentvalue;
+            $chat_with_expert_details[$chat_with_expert_contentkey]['chat_with_expert_content_lock'] = ($request->chat_with_expert_content_lock[$chat_with_expert_contentkey] == 'yes')?'yes':'no';
+        }
+
+        $career_classes_details = [];
+        foreach ($request->career_classes_content as $career_classes_contentkey => $career_classes_contentvalue) {
+            $career_classes_details[$career_classes_contentkey]['career_classes_content'] = $career_classes_contentvalue;
+            $career_classes_details[$career_classes_contentkey]['career_classes_content_lock'] = ($request->career_classes_content_lock[$career_classes_contentkey] == 'yes')?'yes':'no';
+        }
+
+        $admission_application_details = [];
+        foreach ($request->admission_application_content as $admission_application_contentkey => $admission_application_contentvalue) {
+            $admission_application_details[$admission_application_contentkey]['admission_application_content'] = $admission_application_contentvalue;
+            $admission_application_details[$admission_application_contentkey]['admission_application_content_lock'] = ($request->admission_application_content_lock[$admission_application_contentkey] == 'yes')?'yes':'no';
+        }
+
 
 
         $subscription = new CounsellingPrice();
@@ -81,11 +99,18 @@ class SessionSubscriptionController extends Controller
         $subscription->career_library_details = json_encode($career_library_details);
         $subscription->face_to_face_details = json_encode($face_to_face_details);
         $subscription->page_report_details = json_encode($page_report_details);
+        $subscription->chat_with_expert_details = json_encode($chat_with_expert_details);
+        $subscription->career_classes_details = json_encode($career_classes_details);
+        $subscription->admission_application_details = json_encode($admission_application_details);
         $subscription->outcome = $request->outcome;
         $subscription->career_library_details_lock = (isset($request->career_library_details_lock))?'no':'yes';
         $subscription->face_to_face_details_lock = (isset($request->face_to_face_details_lock))?'no':'yes';
         $subscription->page_report_details_lock = (isset($request->page_report_details_lock))?'no':'yes';
+        $subscription->chat_with_expert_lock = (isset($request->chat_with_expert_lock))?'no':'yes';
+        $subscription->career_classes_lock = (isset($request->career_classes_lock))?'no':'yes';
+        $subscription->admission_application_lock = (isset($request->admission_application_lock))?'no':'yes';
         $subscription->session_has = ($request->session_count > 0)?'yes':'no';
+        $subscription->isMostPopuler = $request->isMostPopuler;
         $subscription->save();
 
         Toastr::success('Subscription Package added successfully','success');
@@ -145,6 +170,24 @@ class SessionSubscriptionController extends Controller
             $page_report_details[$page_report_details_contentkey]['page_report_details_content_lock'] = ($request->page_report_details_content_lock[$page_report_details_contentkey] == 'yes')?'yes':'no';
         }
 
+        $chat_with_expert_details = [];
+        foreach ($request->chat_with_expert_content as $chat_with_expert_contentkey => $chat_with_expert_contentvalue) {
+            $chat_with_expert_details[$chat_with_expert_contentkey]['chat_with_expert_content'] = $chat_with_expert_contentvalue;
+            $chat_with_expert_details[$chat_with_expert_contentkey]['chat_with_expert_content_lock'] = ($request->chat_with_expert_content_lock[$chat_with_expert_contentkey] == 'yes')?'yes':'no';
+        }
+
+        $career_classes_details = [];
+        foreach ($request->career_classes_content as $career_classes_contentkey => $career_classes_contentvalue) {
+            $career_classes_details[$career_classes_contentkey]['career_classes_content'] = $career_classes_contentvalue;
+            $career_classes_details[$career_classes_contentkey]['career_classes_content_lock'] = ($request->career_classes_content_lock[$career_classes_contentkey] == 'yes')?'yes':'no';
+        }
+
+        $admission_application_details = [];
+        foreach ($request->admission_application_content as $admission_application_contentkey => $admission_application_contentvalue) {
+            $admission_application_details[$admission_application_contentkey]['admission_application_content'] = $admission_application_contentvalue;
+            $admission_application_details[$admission_application_contentkey]['admission_application_content_lock'] = ($request->admission_application_content_lock[$admission_application_contentkey] == 'yes')?'yes':'no';
+        }
+
 
 
 
@@ -158,11 +201,18 @@ class SessionSubscriptionController extends Controller
         $subscription->career_library_details = json_encode($career_library_details);
         $subscription->face_to_face_details = json_encode($face_to_face_details);
         $subscription->page_report_details = json_encode($page_report_details);
+        $subscription->chat_with_expert_details = json_encode($chat_with_expert_details);
+        $subscription->career_classes_details = json_encode($career_classes_details);
+        $subscription->admission_application_details = json_encode($admission_application_details);
         $subscription->outcome = $request->outcome;
         $subscription->career_library_details_lock = (isset($request->career_library_details_lock))?'no':'yes';
         $subscription->face_to_face_details_lock = (isset($request->face_to_face_details_lock))?'no':'yes';
         $subscription->page_report_details_lock = (isset($request->page_report_details_lock))?'no':'yes';
+        $subscription->chat_with_expert_lock = (isset($request->chat_with_expert_lock))?'no':'yes';
+        $subscription->career_classes_lock = (isset($request->career_classes_lock))?'no':'yes';
+        $subscription->admission_application_lock = (isset($request->admission_application_lock))?'no':'yes';
         $subscription->session_has = ($request->session_count > 0)?'yes':'no';
+        $subscription->isMostPopuler = $request->isMostPopuler;
         $subscription->save();
 
         Toastr::success('Subscription Package updated successfully','success');

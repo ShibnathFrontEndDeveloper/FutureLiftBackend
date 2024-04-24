@@ -70,7 +70,9 @@
                                     <p>{{App\Helpers::getIdByLanguageName($value->session_language)}}</p>
                                 </td>
                                 @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
-                                <td>{{($getCounUser)?$getCounUser->name:'N/A'}}</td>
+                                <td>{{($getCounUser)?$getCounUser->name:'N/A'}}
+                                    <span class="d-none">{{($getCounUser)?$getCounUser->email:'N/A'}}</span>
+                                </td>
                                 @endif
                                 <td>
                                     @if ($value->short_question !='')
@@ -254,14 +256,35 @@
 <script>
     $(document).ready(function() {
         $('.js-example-basic-single').select2();
-            new DataTable('#example',{
-                order: [[0, 'asc']],
-                responsive: true
-            });
+            // new DataTable('#example',{
+            //     order: [[0, 'asc']],
+            //     responsive: true,
+            //     // search: {
+            //     //     "search": "parbirdas@yopmail.com"
+            //     // }
+            // });
         // CKEDITOR.replace( 'counselling_report');
 
     });
 </script>
+@if (request()->get('email') && request()->get('email') !='')
+    <script>
+        new DataTable('#example',{
+                order: [[0, 'asc']],
+                responsive: true,
+                search: {
+                    "search": "<?=request()->get('email')?>"
+                }
+            });
+    </script>
+@else
+    <script>
+        new DataTable('#example',{
+                order: [[0, 'asc']],
+                responsive: true,
+            });
+    </script>
+@endif
 
 <script>
 

@@ -90,6 +90,7 @@ class HomeController extends Controller
         }
 
         try {
+            $payment_config = json_decode(Helpers::ccAvenuePaymentConfig());
             $sessionPrice = Helpers::getSessionPrice($request->options);
             Session::put('session_book_data',$request->all());
             if($sessionPrice == 0){
@@ -113,16 +114,26 @@ class HomeController extends Controller
                 return back();
             }else{
 
-                $payment = PaytmWallet::with('receive');
-                $payment->prepare([
-                'order' => rand(),
-                'user' => rand(10,1000),
-                'mobile_number' => $request->candidate_phone,
-                'email' => $request->candidate_email,
-                'amount' => $sessionPrice,
-                'callback_url' => url('/payment-callback'),
-                ]);
-                return $payment->receive();
+                $fieldData = [
+                    "tid" => $request->options.time().uniqid(mt_rand(999,9999)),
+                    "merchant_id" => $payment_config->MERCHANT_ID,
+                    "order_id" => 'IN_AV'.$request->options.date('ymdhi').mt_rand(1000,9999),
+                    "amount" => sprintf('%0.2f', $sessionPrice),
+                    "currency" => "INR",
+                    "redirect_url" => url('/user/booksession-success'),
+                    "cancel_url" => url('/user/booksession-failed'),
+                    "language" => "EN",
+                    "billing_name" => $request->candidate_name,
+                    "billing_address" => $request->candidate_city,
+                    "billing_city" => $request->candidate_city,
+                    "billing_state" => "",
+                    "billing_country" => "India",
+                    "billing_tel" => $request->candidate_phone,
+                    "billing_email" => $request->candidate_email,
+                ];
+
+
+                Helpers::ccAvenuePaymentFunction($fieldData);
 
             }
 
@@ -132,6 +143,14 @@ class HomeController extends Controller
         	return back()->withInput();
         }
 
+    }
+    public function booksessionSuccess(Request $request){
+        echo "<pre>";
+        print_r($request->all());
+    }
+    public function booksessionFailed(Request $request){
+        echo "<pre>";
+        print_r($request->all());
     }
     public function paymentCallbackFunction(Request $request){
         $transaction = PaytmWallet::with('receive');

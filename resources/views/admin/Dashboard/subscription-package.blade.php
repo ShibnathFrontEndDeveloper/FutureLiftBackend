@@ -92,6 +92,13 @@
                             <label for="">Session Count</label>
                             <input type="number" name="session_count" id="" min="0" max="6" required class="form-control" value="0">
                         </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">Is Most Populer</label>
+                            <select name="isMostPopuler" id="isMostPopuler" class="form-control">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                        </div>
                         <div class="col-md-12 form-group">
                             <label for="">Description</label>
                             <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{old('description')}}</textarea>
@@ -224,6 +231,132 @@
                             </div>
                         </div>
                         <div class="col-md-12 form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>Chat with an expert</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " type="checkbox" name="chat_with_expert_lock" role="switch" id="chat_with_expert_lock">
+                                        <label class="form-check-label" for="chat_with_expert_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group lib-admin-design">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <table id="chat_with_expertTable" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Content</th>
+                                                <th>Lock</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="text" name="chat_with_expert_content[]" class="form-control" /></td>
+                                                <td>
+                                                    <select class="form-control" name="chat_with_expert_content_lock[]">
+                                                        <option value="yes" >Yes</option>
+                                                        <option value="no" >No</option>
+                                                    </select>
+                                                </td>
+                                                <td><button type="button" class="removeRow btn btn-danger">X</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-dark mt-2" id="addRowchat_with_expert">Add More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>Live Career Class</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " type="checkbox" name="career_classes_lock" role="switch" id="career_classes_lock">
+                                        <label class="form-check-label" for="career_classes_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group lib-admin-design">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <table id="career_classesTable" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Content</th>
+                                                <th>Lock</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="text" name="career_classes_content[]" class="form-control" /></td>
+                                                <td>
+                                                    <select class="form-control" name="career_classes_content_lock[]">
+                                                        <option value="yes" >Yes</option>
+                                                        <option value="no" >No</option>
+                                                    </select>
+                                                </td>
+                                                <td><button type="button" class="removeRow btn btn-danger">X</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-dark mt-2" id="addRowcareer_classes">Add More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>Admission Application Assistance</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " type="checkbox" name="admission_application_lock" role="switch" id="admission_application_lock">
+                                        <label class="form-check-label" for="admission_application_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group lib-admin-design">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <table id="admission_applicationTable" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Content</th>
+                                                <th>Lock</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="text" name="admission_application_content[]" class="form-control" /></td>
+                                                <td>
+                                                    <select class="form-control" name="admission_application_content_lock[]">
+                                                        <option value="yes" >Yes</option>
+                                                        <option value="no" >No</option>
+                                                    </select>
+                                                </td>
+                                                <td><button type="button" class="removeRow btn btn-danger">X</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-dark mt-2" id="addRowadmission_application">Add More</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
                             <label for="">OutComes</label>
                             <textarea name="outcome" id="outcome" cols="30" rows="10" class="form-control">{{old('outcome')}}</textarea>
 
@@ -274,6 +407,13 @@
                         <div class="col-md-6 form-group">
                             <label for="">Session Count</label>
                             <input type="number" name="session_count" id="" min="0" max="6" required class="form-control" value="{{$package->session_count}}">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">Is Most Populer</label>
+                            <select name="isMostPopuler" id="isMostPopuler" class="form-control">
+                                <option value="no" {{($package->isMostPopuler == 'no')?'selected':''}}>No</option>
+                                <option value="yes" {{($package->isMostPopuler == 'yes')?'selected':''}}>Yes</option>
+                            </select>
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="">Description</label>
@@ -420,6 +560,146 @@
                             </div>
                         </div>
 
+
+                        <div class="col-md-12 form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>Chat with an expert</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " type="checkbox" {{($package->chat_with_expert_lock == 'no')?'checked':''}} name="chat_with_expert_lock" role="switch" id="chat_with_expert_lock">
+                                        <label class="form-check-label" for="chat_with_expert_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group lib-admin-design">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <table id="chat_with_expertTable" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Content</th>
+                                                <th>Lock</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach (json_decode($package->chat_with_expert_details,true) as $chat_with_expert_detailsKey => $chat_with_expert_detailsValue)
+                                            <tr>
+                                                <td><input type="text" name="chat_with_expert_content[]" value="{{$chat_with_expert_detailsValue['chat_with_expert_content']}}" class="form-control" /></td>
+                                                <td>
+                                                    <select class="form-control" name="chat_with_expert_content_lock[]">
+                                                        <option value="yes" {{($chat_with_expert_detailsValue['chat_with_expert_content_lock'] == 'yes')?'selected':''}}>Yes</option>
+                                                        <option value="no" {{($chat_with_expert_detailsValue['chat_with_expert_content_lock'] == 'no')?'selected':''}}>No</option>
+                                                    </select>
+                                                </td>
+                                                <td><button type="button" class="removeRow btn btn-danger">X</button></td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-dark mt-2" id="addRowchat_with_expert">Add More</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12 form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>Live Career Class</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " type="checkbox" name="career_classes_lock" {{($package->career_classes_lock == 'no')?'checked':''}} role="switch" id="career_classes_lock">
+                                        <label class="form-check-label" for="career_classes_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group lib-admin-design">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <table id="career_classesTable" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Content</th>
+                                                <th>Lock</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (json_decode($package->career_classes_details,true) as $career_classes_detailsKey => $career_classes_detailsValue)
+
+                                            <tr>
+                                                <td><input type="text" name="career_classes_content[]" value="{{$career_classes_detailsValue['career_classes_content']}}" class="form-control" /></td>
+                                                <td>
+                                                    <select class="form-control" name="career_classes_content_lock[]">
+                                                        <option value="yes" {{($career_classes_detailsValue['career_classes_content_lock'] == 'yes')?'selected':''}}>Yes</option>
+                                                        <option value="no" {{($career_classes_detailsValue['career_classes_content_lock'] == 'no')?'selected':''}}>No</option>
+                                                    </select>
+                                                </td>
+                                                <td><button type="button" class="removeRow btn btn-danger">X</button></td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-dark mt-2" id="addRowcareer_classes">Add More</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12 form-group">
+                            <div class="row">
+                                <div class="col-md-3 form-group mt-3">
+                                    <h3>Admission Application Assistance</h3>
+
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="form-check form-switch ">
+                                        <input class="form-check-input " type="checkbox" name="admission_application_lock" {{($package->admission_application_lock == 'no')?'checked':''}} role="switch" id="admission_application_lock">
+                                        <label class="form-check-label" for="admission_application_lock"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group lib-admin-design">
+                            <div class="row">
+                                <div class="col-md-12 form-group">
+                                    <table id="admission_applicationTable" style="width:100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Content</th>
+                                                <th>Lock</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (json_decode($package->admission_application_details,true) as $admission_application_detailsKey => $admission_application_detailsValue)
+                                            <tr>
+                                                <td><input type="text" name="admission_application_content[]" value="{{$admission_application_detailsValue['admission_application_content']}}" class="form-control" /></td>
+                                                <td>
+                                                    <select class="form-control" name="admission_application_content_lock[]">
+                                                        <option value="yes" {{($admission_application_detailsValue['admission_application_content_lock'] == 'yes')?'selected':''}}>Yes</option>
+                                                        <option value="no" {{($admission_application_detailsValue['admission_application_content_lock'] == 'no')?'selected':''}}>No</option>
+                                                    </select>
+                                                </td>
+                                                <td><button type="button" class="removeRow btn btn-danger">X</button></td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <button type="button" class="btn btn-dark mt-2" id="addRowadmission_application">Add More</button>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class="col-md-12 form-group">
                             <label for="">OutComes</label>
                             <textarea name="outcome" id="outcome" cols="30" rows="10" class="form-control">{{$package->outcome}}</textarea>
@@ -523,6 +803,81 @@
     });
 
     $("#page_report_detailsTable").on("click", ".removeRow", function() {
+        $(this).closest("tr").remove();
+    });
+
+    $("#addRowchat_with_expert").on("click", function() {
+        var newRow = $("<tr>");
+        var columns = ["chat_with_expert_content","chat_with_expert_content_lock"];
+        for (var i = 0; i < columns.length; i++) {
+            var inputName = columns[i] + "[]";
+            console.log(columns[i]);
+
+            var newCell = (columns[i] == 'chat_with_expert_content_lock')?$("<td>").append(`<select class="form-control" name="${inputName}"><option value="yes">Yes</option><option value="no">No</option></select>`):$("<td>").append(`<input type="text" name="${inputName}" class="form-control" />`);
+
+
+
+
+            newRow.append(newCell);
+        }
+
+        var removeButtonCell = $("<td>").append('<button type="button" class="removeRow btn btn-danger">X</button>');
+        newRow.append(removeButtonCell);
+
+        $("#chat_with_expertTable tbody").append(newRow);
+    });
+
+    $("#chat_with_expertTable").on("click", ".removeRow", function() {
+        $(this).closest("tr").remove();
+    });
+
+    $("#addRowcareer_classes").on("click", function() {
+        var newRow = $("<tr>");
+        var columns = ["career_classes_content","career_classes_content_lock"];
+        for (var i = 0; i < columns.length; i++) {
+            var inputName = columns[i] + "[]";
+            console.log(columns[i]);
+
+            var newCell = (columns[i] == 'career_classes_content_lock')?$("<td>").append(`<select class="form-control" name="${inputName}"><option value="yes">Yes</option><option value="no">No</option></select>`):$("<td>").append(`<input type="text" name="${inputName}" class="form-control" />`);
+
+
+
+
+            newRow.append(newCell);
+        }
+
+        var removeButtonCell = $("<td>").append('<button type="button" class="removeRow btn btn-danger">X</button>');
+        newRow.append(removeButtonCell);
+
+        $("#career_classesTable tbody").append(newRow);
+    });
+
+    $("#career_classesTable").on("click", ".removeRow", function() {
+        $(this).closest("tr").remove();
+    });
+
+    $("#addRowadmission_application").on("click", function() {
+        var newRow = $("<tr>");
+        var columns = ["admission_application_content","admission_application_content_lock"];
+        for (var i = 0; i < columns.length; i++) {
+            var inputName = columns[i] + "[]";
+            console.log(columns[i]);
+
+            var newCell = (columns[i] == 'admission_application_content_lock')?$("<td>").append(`<select class="form-control" name="${inputName}"><option value="yes">Yes</option><option value="no">No</option></select>`):$("<td>").append(`<input type="text" name="${inputName}" class="form-control" />`);
+
+
+
+
+            newRow.append(newCell);
+        }
+
+        var removeButtonCell = $("<td>").append('<button type="button" class="removeRow btn btn-danger">X</button>');
+        newRow.append(removeButtonCell);
+
+        $("#admission_applicationTable tbody").append(newRow);
+    });
+
+    $("#admission_applicationTable").on("click", ".removeRow", function() {
         $(this).closest("tr").remove();
     });
 </script>

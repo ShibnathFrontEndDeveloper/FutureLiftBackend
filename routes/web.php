@@ -41,6 +41,8 @@ Route::get('/password-set/{id}/{link}/{linkT}',[HomeController::class , 'passwor
 Route::post('/setResetPassword',[HomeController::class , 'setResetPasswordFun']);
 Route::post('/user/demo-registration',[HomeController::class , 'demoRegistration'])->middleware('userLoginCheck');
 Route::post('/user/booksession',[HomeController::class , 'booksessionFunction']);
+Route::post('/user/booksession-success',[HomeController::class , 'booksessionSuccess']);
+Route::post('/user/booksession-failed',[HomeController::class , 'booksessionFailed']);
 Route::get('/instant-book',[HomeController::class , 'instantBookIndex']);
 Route::group(['middleware' => 'userAuth'], function () {
     Route::get('/user/logout',[AuthController::class , 'logoutFunction']);
@@ -55,6 +57,8 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::post('/user/step-three-submit',[ProfileController::class , 'stepThreeSubmitFunction']);
     Route::get('/price',[PriceController::class , 'indexPrice']);
     Route::get('/user/subscription-submit',[SubscriptionController::class , 'subscriptionSubmitFunction']);
+    Route::post('/user/subscription-success',[SubscriptionController::class , 'subscriptionSuccessFunction']);
+    Route::post('/user/subscription-failed',[SubscriptionController::class , 'subscriptionFailedFunction']);
     Route::get('/session',[SessionController::class , 'indexSession']);
     Route::post('/user/bookCareerSession',[SessionController::class , 'bookCareerSessionFun']);
     Route::post('/user/updatebookCareerSession',[SessionController::class , 'updatebookCareerSessionFun']);
@@ -128,6 +132,7 @@ Route::group(['prefix' => 'admin','middleware' => 'adminAuth'], function () {
     Route::post('/assign-counselor-session',[MainController::class , 'assignCounselorSession']);
     Route::post('/session-complete',[MainController::class , 'sessionCompleteFun']);
     Route::get('/user-details/{show}/{id}',[MainController::class , 'indexUserDetails']);
+    Route::get('/counselor-details/{show}/{id}',[MainController::class , 'indexCounselorDetails']);
     Route::get('/faq/{show}',[FaqController::class , 'indexFaq'])->name('faqAddList')->middleware('adminUrlCheck');
     Route::post('/faqAdd',[FaqController::class , 'faqAddFun']);
     Route::get('/faq/{show}/{id}',[FaqController::class , 'indexFaqEdit'])->name('faqEdit')->middleware('adminUrlCheck');

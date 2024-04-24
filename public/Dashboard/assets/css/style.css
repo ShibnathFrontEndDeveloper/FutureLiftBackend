@@ -16715,8 +16715,8 @@ code {
 /* Cards */
 .card {
   border-radius: 0.25rem; }
-  
-    
+
+
   .card .card-title {
     color: #ffffff;
     margin-bottom: 1.125rem;
@@ -21063,7 +21063,7 @@ position: fixed;}
               margin: 0; }
       .sidebar .nav .nav-item.nav-category {
         padding: 0.5rem 1.188rem;
-        line-height: 1; 
+        line-height: 1;
       }
       .sidebar .nav .nav-item.nav-category:hover .nav-link{
         background: transparent !important;
@@ -21093,11 +21093,11 @@ position: fixed;}
       margin-bottom: 0;
       margin-top: 0;
       padding: 0 0 0 3.25rem;
-      list-style: none; 
+      list-style: none;
       height: 60px;
       overflow: auto;
       overflow-y: hidden;
-    
+
     }
       .sidebar .nav.sub-menu .nav-item {
         padding: 0; }
@@ -21187,7 +21187,7 @@ position: fixed;}
       overflow: visible; }
       .sidebar-icon-only .sidebar .nav .nav-item {
         position: relative;
-        padding: 0; 
+        padding: 0;
         overflow: hidden;
       }
         .sidebar-icon-only .sidebar .nav .nav-item .profile-name {
@@ -22078,7 +22078,7 @@ fieldset h1{
   float: left;
   position: relative;
   margin: 8px 0;
-  
+
 }
 #review_check_form #tabBar li strong{
   white-space:nowrap;
@@ -22139,7 +22139,7 @@ fieldset h1{
   box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   cursor:pointer;
-  margin: 8px 2px; 
+  margin: 8px 2px;
 }
 
 #review_check_form .radio:hover {
@@ -22211,7 +22211,7 @@ fieldset h1{
   border:double #d8326b;
   background: #fff;
   border-radius: 5px;
-  height: 950px;
+  height: 1104px;
   transition: .5s ease-in-out;
 }
 .price_box .cord_pice .card-body:hover{
@@ -22652,7 +22652,7 @@ fieldset h1{
   .package-header{
     display: none;
   }
-  
+
 }
 .txt-hef a{
     color: black;
