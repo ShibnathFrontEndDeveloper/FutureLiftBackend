@@ -2790,7 +2790,7 @@
                             <div class="timeline-content">
                                 <h3 class="title">Financial Aid and Scholarships</h3>
                                 <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
+                                  Maximize opportunities with guidance on securing scholarships and financial aid.By understanding the differences between these resources and actively seeking out opportunities, you can take significant strides toward financing your college education and achieving your academic goals.
                                 </p>
                             </div>
                         </a>
@@ -3078,9 +3078,7 @@
                             </div>
                             <div class="timeline-content">
                                 <h3 class="title">Test Preparation Guidance</h3>
-                                <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
-                                </p>
+                                <p class="description">Excel in entrance exams with a strategic and effective test preparation guide.Start by familiarizing yourself with the format of the exam you'll be taking. Understand the types of questions, the structure of each section, and the time limits.</p>
                             </div>
                         </a>
                         <a href="#" class="timeline">
@@ -3475,9 +3473,7 @@
                             </div>
                             <div class="timeline-content">
                                 <h3 class="title">Interview Preparation</h3>
-                                <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
-                                </p>
+                                <p class="description">Ace interviews with tailored preparation strategies and boost your confidence.By following these interview preparation steps, you can approach your interview with confidence and make a memorable impression on the interviewer.</p>
                             </div>
                         </a>
                         <a href="#" class="timeline">
@@ -3714,9 +3710,7 @@
                             </div>
                             <div class="timeline-content">
                                 <h3 class="title">Clarification of Goals</h3>
-                                <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
-                                </p>
+                                <p class="description">Gain clarity on your academic and career goals for a focused and purposeful journey. With determination, persistence, and a clear sense of purpose, you can achieve anything you set your mind to.</p>
                             </div>
                         </a>
                         <a href="#" class="timeline">
@@ -3959,9 +3953,7 @@
                             </div>
                             <div class="timeline-content">
                                 <h3 class="title">Networking Strategy</h3>
-                                <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum.
-                                </p>
+                                <p class="description">Develop a strategic networking plan to enhance your professional connections and opportunities.With persistence, patience, and a proactive mindset, you can cultivate a robust network that supports your career growth and success.</p>
                             </div>
                         </a>
                     </div>

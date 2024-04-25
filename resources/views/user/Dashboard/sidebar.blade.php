@@ -108,6 +108,22 @@
               <span class="menu-title">My Profile</span>
             </a>
           </li>
+          
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">My Session</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{url('/session')}}"> Sessions</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/action-plan')}}"> Action Plan</a></li>
+              </ul>
+            </div>
+          </li>
           <li class="nav-item menu-items">
             <a class="nav-link" href="#">
               <span class="menu-icon">
@@ -128,21 +144,6 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/blog')}}">Blog Career</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{url('/career-library')}}"> Career Library</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <span class="menu-icon">
-                <i class="mdi mdi-security"></i>
-              </span>
-              <span class="menu-title">My Session</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('/session')}}"> Sessions</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('/action-plan')}}"> Action Plan</a></li>
               </ul>
             </div>
           </li>

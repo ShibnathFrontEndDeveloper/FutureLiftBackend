@@ -246,7 +246,7 @@
                         <div class="col-lg-6 col-md-6 mb-3 careerWhyCardContent">
                           <img src="{{asset('assets/images/techCounseling-02.webp')}}" alt="" class="imgfuid"/>
                           <p>Tech-Empowered Counselling </p>
-                          <p class="last_para">It helps to same your time and money. It gives you
+                          <p class="last_para">It helps to save your time and money. It gives you
                             personalized quality service.</p>
                         </div>
                         <div class="col-lg-6 col-md-6 mb-3 careerWhyCardContent">
