@@ -22351,6 +22351,7 @@ fieldset h1{
   border: double #d8326b;
   padding: 12px;
   height: 280px;
+  overflow: auto;
 }
 .outcomes_para p{
   margin-bottom: 0;
