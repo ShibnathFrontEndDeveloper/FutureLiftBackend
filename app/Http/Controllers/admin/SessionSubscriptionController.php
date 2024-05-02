@@ -87,6 +87,12 @@ class SessionSubscriptionController extends Controller
             $admission_application_details[$admission_application_contentkey]['admission_application_content_lock'] = ($request->admission_application_content_lock[$admission_application_contentkey] == 'yes')?'yes':'no';
         }
 
+        if($request->isMostPopuler == 'yes'){
+            $subUpdate = CounsellingPrice::where('plan_name','!=','')->update([
+                "isMostPopuler" => 'no'
+            ]);
+        }
+
 
 
         $subscription = new CounsellingPrice();
@@ -188,7 +194,11 @@ class SessionSubscriptionController extends Controller
             $admission_application_details[$admission_application_contentkey]['admission_application_content_lock'] = ($request->admission_application_content_lock[$admission_application_contentkey] == 'yes')?'yes':'no';
         }
 
-
+        if($request->isMostPopuler == 'yes'){
+            $subUpdate = CounsellingPrice::where('plan_name','!=','')->update([
+                "isMostPopuler" => 'no'
+            ]);
+        }
 
 
         $subscription = CounsellingPrice::find($request->editId);

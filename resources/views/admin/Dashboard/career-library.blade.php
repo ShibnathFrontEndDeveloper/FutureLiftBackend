@@ -175,7 +175,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <h3>Career in Artificial Intelligence</h3>
+                            <h3>How to Pursue a Career</h3>
                         </div>
                         <div class="col-md-12 form-group lib-admin-design">
                             <div class="row">
@@ -241,7 +241,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <h3>Landing Indtitute</h3>
+                            <h3>Leading Institute</h3>
                         </div>
                         <div class="col-md-12 form-group lib-admin-design">
                             <div class="row">
@@ -271,7 +271,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <h3>Abroad Indtitute</h3>
+                            <h3>Abroad Institute</h3>
                         </div>
                         <div class="col-md-12 form-group lib-admin-design">
                             <div class="row">
@@ -483,7 +483,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <h3>Career in Artificial Intelligence</h3>
+                            <h3>How to Pursue a Career</h3>
                         </div>
                         <div class="col-md-12 form-group lib-admin-design">
                             <div class="row">
@@ -553,7 +553,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <h3>Landing Indtitute</h3>
+                            <h3>Leading Institute</h3>
                         </div>
                         <div class="col-md-12 form-group lib-admin-design">
                             <div class="row">
@@ -585,7 +585,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <h3>Abroad Indtitute</h3>
+                            <h3>Abroad Institute</h3>
                         </div>
                         <div class="col-md-12 form-group lib-admin-design">
                             <div class="row">

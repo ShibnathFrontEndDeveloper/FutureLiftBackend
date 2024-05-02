@@ -112,6 +112,15 @@
                                 </div>
                                 @endforeach
                               </div>
+                              <div class="feature_dtls_box mb-3 {{($value->admission_application_lock == 'yes')?'disabled':''}}">
+                                <h4 class="text-dark">Admission Application Assistance <span class="{{($value->admission_application_lock == 'yes')?'mdi mdi-lock':''}}"></span></h4>
+                                @foreach (json_decode($value->admission_application_details,true) as $admission_application_detailsKey => $admission_application_detailsValue)
+                                <div class=" d-flex align-items-center">
+                                    <span class="mdi {{($admission_application_detailsValue['admission_application_content_lock'] == 'yes')?'mdi-close':'mdi-check'}}"></span>
+                                    <h3>{{$admission_application_detailsValue['admission_application_content']}} </h3>
+                                </div>
+                                @endforeach
+                              </div>
                           </div>
                           <div class="foutcoems">
                           <h3 class="text-dark text-center outcomeText  d-sm-block">Outcomes <span class="mdi mdi-checkbox-marked-circle-outline"></span></h3>
