@@ -21,7 +21,7 @@ use App\Models\CounsellingPrice;
 class PriceController extends Controller
 {
     public function indexPrice(){
-        $allPrice = CounsellingPrice::get();
+        $allPrice = CounsellingPrice::orderBy('plan_price','ASC')->get();
         return view('user.Dashboard.price',compact(['allPrice']));
     }
 }

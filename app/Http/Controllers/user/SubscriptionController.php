@@ -167,31 +167,40 @@ class SubscriptionController extends Controller
             ->get()->count();
             if($expire > 0){
                 $couponHistory = CouponHistory::where('couponId',$coupon->id)->get()->count();
-                if($couponHistory < (int)$coupon->total_no_of_user){
-                    $discountAmount = 0;
-                    $totalAmount = 0;
-                    $coupon_amount = (int)$coupon->coupon_amount;
-                    if($coupon->type == "percentage"){
-                        $discountAmount = ($coupon_amount / 100) * (int)$request->productPrice;
-                        $totalAmount = (int)$request->productPrice - $discountAmount;
+                $couponUserCheck = CouponHistory::where('couponId',$coupon->id)->where('userId',Auth::guard('user')->user()->id)->get()->count();
+                if($couponUserCheck == 0){
+                    if($couponHistory < (int)$coupon->total_no_of_user){
+                        $discountAmount = 0;
+                        $totalAmount = 0;
+                        $coupon_amount = (int)$coupon->coupon_amount;
+                        if($coupon->type == "percentage"){
+                            $discountAmount = ($coupon_amount / 100) * (int)$request->productPrice;
+                            $totalAmount = (int)$request->productPrice - $discountAmount;
+                        }else{
+                            $discountAmount = $coupon_amount;
+                            $totalAmount = (int)$request->productPrice - $discountAmount;
+                        }
+                        $data = [
+                            "status" => true,
+                            "message" => $coupon->description,
+                            "data" => [
+                                "discountAmount" => round($discountAmount,2),
+                                "totalAmount" => round($totalAmount,2),
+                                "couponId" => $coupon->id
+                            ],
+                        ];
+                        return json_encode($data);
                     }else{
-                        $discountAmount = $coupon_amount;
-                        $totalAmount = (int)$request->productPrice - $discountAmount;
+                        $data = [
+                            "status" => false,
+                            "message" => "Coupon has been expired!"
+                        ];
+                        return json_encode($data);
                     }
-                    $data = [
-                        "status" => true,
-                        "message" => $coupon->description,
-                        "data" => [
-                            "discountAmount" => round($discountAmount,2),
-                            "totalAmount" => round($totalAmount,2),
-                            "couponId" => $coupon->id
-                        ],
-                    ];
-                    return json_encode($data);
                 }else{
                     $data = [
                         "status" => false,
-                        "message" => "Coupon has been expired!"
+                        "message" => "Coupon allready used!"
                     ];
                     return json_encode($data);
                 }
