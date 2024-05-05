@@ -39,7 +39,7 @@
                         <p>Joined : <b>{{date('l jS F Y h:i A',strtotime($user->created_at))}}</b></p>
                     </div>
                     <div class="col-md-12 form-group">
-                        <p>Brief Professional Biography : <b>{{$userInfo->bio}}</b></p>
+                        <p>Brief Professional Biography : <b>{{(isset($userInfo->bio)?$userInfo->bio:'N/A')}}</b></p>
                     </div>
                 </div>
             </div>

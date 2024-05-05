@@ -23,22 +23,6 @@
           <div class="card-body price_body">
             <div class="row">
               <h3 class="text-dark text-center mb-5">Pick your perfect plan</h3>
-              <!-- @foreach ($allPrice as $key => $value)
-                  <div class="col-lg-4 col-md-6 price_box mb-5">
-                      <div class="cord_pice">
-                          <div class="card-body">
-                              <h1 class="price_heading">{{$value->plan_name}}</h1>
-                              <div class="rate_box">
-                              <h3><i class="bi bi-currency-rupee"></i>{{number_format($value->plan_price)}}</h3>
-                              </div>
-                              {!! $value->description !!}
-                              <div class=" pirce_btn_box text-center mt-4">
-                              <button class="btn" onclick="subscription_purchase('{{$value->id}}','{{$value->plan_price}}','{{$currenSessionPrice}}','<?=App\Helpers::base64url_encode($value->id)?>')"><?=($currenSession !='')?($value->plan_name == $currenSession)?'Buy Now <i class="mdi mdi-checkbox-marked-circle text-success"></i>':'Buy Now':'Buy Now'?></button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              @endforeach -->
 
               <!-- First box -->
                 @foreach ($allPrice as $key => $value)
