@@ -20,6 +20,7 @@ use App\Models\SessionHistory;
 use App\Models\Coupon;
 use App\Models\CouponHistory;
 use App\Models\PaymentLogs;
+use App\Models\TempReq;
 
 
 class SubscriptionController extends Controller
@@ -38,11 +39,12 @@ class SubscriptionController extends Controller
             Session::put('paymentReqDetails',$request->all());
             $getCoun = CounsellingPrice::find($subId);
             $userDetails = User_information::where('userId',Auth::guard('user')->user()->id)->first();
+            $order_id = 'SUB_'.$subId.date('ymdhi').mt_rand(1000,9999);
             $fieldData = [
                 "tid" => $subId.time().uniqid(mt_rand(999,9999)),
                 "merchant_id" => $payment_config->MERCHANT_ID,
-                "order_id" => 'SUB_'.$subId.date('ymdhi').mt_rand(1000,9999),
-                "amount" => sprintf('%0.2f', $getCoun->plan_price),
+                "order_id" => $order_id,
+                "amount" => sprintf('%0.2f', $request->productAllTotalPrice),
                 "currency" => "INR",
                 "redirect_url" => url('/user/subscription-success'),
                 "cancel_url" => url('/user/subscription-failed'),
@@ -56,6 +58,12 @@ class SubscriptionController extends Controller
                 "billing_email" => Auth::guard('user')->user()->email,
             ];
 
+            $tempReq = new TempReq();
+            $tempReq->order_id = $order_id;
+            $tempReq->paymentReqDetails = json_encode($request->all());
+            $tempReq->amount = $request->productAllTotalPrice;
+            $tempReq->user = Auth::guard('user')->user();
+            $tempReq->save();
 
             Helpers::ccAvenuePaymentFunction($fieldData);
 
@@ -64,8 +72,6 @@ class SubscriptionController extends Controller
 
     }
     public function subscriptionSuccessFunction(Request $request){
-        echo "<pre>";
-        print_r($request->all());
 
         $requestData = $request->encResp;
         $payment_config = json_decode(Helpers::ccAvenuePaymentConfig());
@@ -78,23 +84,25 @@ class SubscriptionController extends Controller
         $order_status = str_replace('order_status=','',$explode[3]);
         $payment_mode = str_replace('payment_mode=','',$explode[5]);
         $amount = str_replace('amount=','',$explode[9]);
-        $payment_session = Session::get('paymentReqDetails');
+        $payment_session_data = TempReq::where('order_id',$order_id)->first();
+        $payment_session = json_decode($payment_session_data->paymentReqDetails,true);
+        $payment_user = json_decode($payment_session_data->user);
 
         $paymentLog = new PaymentLogs();
         $paymentLog->order_id = $order_id;
         $paymentLog->tracking_id = $tracking_id;
         $paymentLog->order_status = 'Success';
         $paymentLog->payment_mode = $payment_mode;
-        $paymentLog->amount = $amount;
-        $paymentLog->sessionId = Session::get('paymentReqDetails')['subId'];
+        $paymentLog->amount = $payment_session_data->amount;
+        $paymentLog->sessionId = $payment_session['subId'];
         $paymentLog->response_encypt_data = $requestData;
         $paymentLog->section = 'session';
-        $paymentLog->userId = Auth::guard('user')->user()->id;
+        $paymentLog->userId = $payment_user->id;
         $paymentLog->save();
 
-        $subId = Session::get('paymentReqDetails')['subId'];
+        $subId = $payment_session['subId'];
 
-        $userExitsPackage = UserSubscriptionModel::where('userId', Auth::guard('user')->user()->id)->where('status','active');
+        $userExitsPackage = UserSubscriptionModel::where('userId', $payment_user->id)->where('status','active');
         if($userExitsPackage->get()->count() > 0){
             $subData = $userExitsPackage->first();
             if($subData->package_id == $subId){
@@ -107,16 +115,16 @@ class SubscriptionController extends Controller
             $user_subcription_update->save();
 
             $user_subcription = new UserSubscriptionModel();
-            $user_subcription->userId = Auth::guard('user')->user()->id;
+            $user_subcription->userId = $payment_user->id;
             $user_subcription->package_id = $subId;
             $user_subcription->save();
 
             $getCoun = CounsellingPrice::find($subId);
 
-            $userSessionHas = SessionHistory::where('userId', Auth::guard('user')->user()->id)->where('package_id',$subData->package_id)->where('package_status','active');
+            $userSessionHas = SessionHistory::where('userId', $payment_user->id)->where('package_id',$subData->package_id)->where('package_status','active');
 
             if($userSessionHas->get()->count() > 0){
-                $sesion_history_update = SessionHistory::where('userId', Auth::guard('user')->user()->id)->where('package_id',$subData->package_id)->where('package_status','active')->update([
+                $sesion_history_update = SessionHistory::where('userId', $payment_user->id)->where('package_id',$subData->package_id)->where('package_status','active')->update([
                     "package_status" => 'inactive'
                 ]);
             }
@@ -124,7 +132,7 @@ class SubscriptionController extends Controller
             if($getCoun->session_count > 0){
                 for ($i=0; $i < $getCoun->session_count; $i++){
                     $sesion_history = new SessionHistory();
-                    $sesion_history->userId = Auth::guard('user')->user()->id;
+                    $sesion_history->userId = $payment_user->id;
                     $sesion_history->package_id = $subId;
                     $sesion_history->status = ($i==0)?'Active':'Pending';
                     $sesion_history->save();
@@ -134,7 +142,7 @@ class SubscriptionController extends Controller
 
         }else{
             $user_subcription = new UserSubscriptionModel();
-            $user_subcription->userId = Auth::guard('user')->user()->id;
+            $user_subcription->userId = $payment_user->id;
             $user_subcription->package_id = $subId;
             $user_subcription->save();
 
@@ -143,7 +151,7 @@ class SubscriptionController extends Controller
             if($getCoun->session_count > 0){
                 for ($i=0; $i < $getCoun->session_count; $i++){
                     $sesion_history = new SessionHistory();
-                    $sesion_history->userId = Auth::guard('user')->user()->id;
+                    $sesion_history->userId = $payment_user->id;
                     $sesion_history->package_id = $subId;
                     $sesion_history->status = ($i==0)?'Active':'Pending';
                     $sesion_history->save();
@@ -154,7 +162,7 @@ class SubscriptionController extends Controller
         if($payment_session['couponId'] !=''){
             $couponHistory = new CouponHistory();
             $couponHistory->couponId = $payment_session['couponId'];
-            $couponHistory->userId = Auth::guard('user')->user()->id;
+            $couponHistory->userId = $payment_user->id;
             $couponHistory->productId = $subId;
             $couponHistory->save();
         }
@@ -162,9 +170,10 @@ class SubscriptionController extends Controller
 
 
         $notificationContent = "Welcome to Your Journey of Growth! You're now subscribed to our counseling sessions. Get ready to embark on a path of self-discovery and empowerment. We're here to support you every step of the way. Your transformation begins now!";
-        Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_counselling_session','Subscribe Counselling Session','session',$notificationContent);
+        Helpers::addUserNotification($payment_user->id,'book_counselling_session','Subscribe Counselling Session','session',$notificationContent);
 
         Session::forget('paymentReqDetails');
+        $deleteData = TempReq::where('order_id',$order_id)->delete();
         Toastr::success('Subscription updated successfully','success');
         return Redirect('/user-dashboard');
 
@@ -247,8 +256,6 @@ class SubscriptionController extends Controller
 
     // }
     public function subscriptionFailedFunction(Request $request){
-        echo "<pre>";
-        print_r($request->all());
         $requestData = $request->encResp;
         $payment_config = json_decode(Helpers::ccAvenuePaymentConfig());
         $working_key=$payment_config->WORKING_KEY;
@@ -260,19 +267,23 @@ class SubscriptionController extends Controller
         $order_status = str_replace('order_status=','',$explode[3]);
         $payment_mode = str_replace('payment_mode=','',$explode[5]);
         $amount = str_replace('amount=','',$explode[9]);
-        $payment_session = Session::get('paymentReqDetails');
+        $payment_session_data = TempReq::where('order_id',$order_id)->first();
+        $payment_session = json_decode($payment_session_data->paymentReqDetails,true);
+        $payment_user = json_decode($payment_session_data->user);
 
         $paymentLog = new PaymentLogs();
         $paymentLog->order_id = $order_id;
         $paymentLog->tracking_id = $tracking_id;
         $paymentLog->order_status = 'Failure';
         $paymentLog->payment_mode = $payment_mode;
-        $paymentLog->amount = $amount;
-        $paymentLog->sessionId = Session::get('paymentReqDetails')['subId'];
+        $paymentLog->amount = $payment_session_data->amount;
+        $paymentLog->sessionId = $payment_session['subId'];
         $paymentLog->response_encypt_data = $requestData;
         $paymentLog->section = 'session';
-        $paymentLog->userId = Auth::guard('user')->user()->id;
+        $paymentLog->userId = $payment_user->id;
         $paymentLog->save();
+
+        $deleteData = TempReq::where('order_id',$order_id)->delete();
 
         Toastr::error('Subscription payment failed','Payment Failed');
         return Redirect('/price');

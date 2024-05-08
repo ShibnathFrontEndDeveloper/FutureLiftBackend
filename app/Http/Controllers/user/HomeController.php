@@ -37,6 +37,8 @@ use App\Models\HelpFaqCategory;
 use App\Models\UserSessionReview;
 use DB;
 use App\Models\SessionHistory;
+use App\Models\TempReq;
+use App\Models\PaymentLogs;
 
 class HomeController extends Controller
 {
@@ -114,11 +116,11 @@ class HomeController extends Controller
                 Toastr::success('Book session Successfully','success');
                 return back();
             }else{
-
+                $order_id = 'INT_ADV'.$request->options.date('ymdhi').mt_rand(1000,9999);
                 $fieldData = [
                     "tid" => $request->options.time().uniqid(mt_rand(999,9999)),
                     "merchant_id" => $payment_config->MERCHANT_ID,
-                    "order_id" => 'INT_ADV'.$request->options.date('ymdhi').mt_rand(1000,9999),
+                    "order_id" => $order_id,
                     "amount" => sprintf('%0.2f', $sessionPrice),
                     "currency" => "INR",
                     "redirect_url" => url('/user/booksession-success'),
@@ -133,6 +135,12 @@ class HomeController extends Controller
                     "billing_email" => $request->candidate_email,
                 ];
 
+                $tempReq = new TempReq();
+                $tempReq->order_id = $order_id;
+                $tempReq->paymentReqDetails = json_encode($request->all());
+                $tempReq->amount = $sessionPrice;
+                $tempReq->save();
+
 
                 Helpers::ccAvenuePaymentFunction($fieldData);
 
@@ -146,8 +154,6 @@ class HomeController extends Controller
 
     }
     public function booksessionSuccess(Request $request){
-        echo "<pre>";
-        print_r($request->all());
         $requestData = $request->encResp;
         $payment_config = json_decode(Helpers::ccAvenuePaymentConfig());
         $working_key=$payment_config->WORKING_KEY;
@@ -159,14 +165,15 @@ class HomeController extends Controller
         $order_status = str_replace('order_status=','',$explode[3]);
         $payment_mode = str_replace('payment_mode=','',$explode[5]);
         $amount = str_replace('amount=','',$explode[9]);
-        $payment_session = Session::get('session_book_data');
+        $payment_session_data = TempReq::where('order_id',$order_id)->first();
+        $payment_session = json_decode($payment_session_data->paymentReqDetails,true);
 
         $paymentLog = new PaymentLogs();
         $paymentLog->order_id = $order_id;
         $paymentLog->tracking_id = $tracking_id;
         $paymentLog->order_status = 'Success';
         $paymentLog->payment_mode = $payment_mode;
-        $paymentLog->amount = $amount;
+        $paymentLog->amount = $payment_session_data->amount;
         $paymentLog->adviceSessionId = $payment_session['options'];
         $paymentLog->response_encypt_data = $requestData;
         $paymentLog->book_session_all_data = json_encode($payment_session);
@@ -183,22 +190,23 @@ class HomeController extends Controller
         $book->candidate_phone = $payment_session['candidate_phone'];
         $book->candidate_city = $payment_session['candidate_city'];
         $book->options = $payment_session['options'];
+        $book->payment_status = 'Success';
         $book->schedule_date_time = $dateFormat.' '.$timeFormat;
         $book->save();
 
 
-        if(Auth::guard('user')->check()){
-            $notificationContent = "Session Confirmed! Your booking is all set. Get ready for an insightful and engaging session. We're excited to connect with you and provide valuable insights. See you soon!";
-            Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_session','Book Session','session',$notificationContent);
-        }
+        // if(Auth::guard('user')->check()){
+        //     $notificationContent = "Session Confirmed! Your booking is all set. Get ready for an insightful and engaging session. We're excited to connect with you and provide valuable insights. See you soon!";
+        //     Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_session','Book Session','session',$notificationContent);
+        // }
+        $deleteData = TempReq::where('order_id',$order_id)->delete();
         Session::forget('session_book_data');
         Toastr::success('Book session Successfully','success');
-        return back();
+        return Redirect('/');
 
     }
     public function booksessionFailed(Request $request){
-        echo "<pre>";
-        print_r($request->all());
+
         $requestData = $request->encResp;
         $payment_config = json_decode(Helpers::ccAvenuePaymentConfig());
         $working_key=$payment_config->WORKING_KEY;
@@ -210,19 +218,22 @@ class HomeController extends Controller
         $order_status = str_replace('order_status=','',$explode[3]);
         $payment_mode = str_replace('payment_mode=','',$explode[5]);
         $amount = str_replace('amount=','',$explode[9]);
-        $payment_session = Session::get('session_book_data');
+        $payment_session_data = TempReq::where('order_id',$order_id)->first();
+        $payment_session = json_decode($payment_session_data->paymentReqDetails,true);
 
         $paymentLog = new PaymentLogs();
         $paymentLog->order_id = $order_id;
         $paymentLog->tracking_id = $tracking_id;
         $paymentLog->order_status = 'Failure';
         $paymentLog->payment_mode = $payment_mode;
-        $paymentLog->amount = $amount;
+        $paymentLog->amount = $payment_session_data->amount;
         $paymentLog->adviceSessionId = $payment_session['options'];
         $paymentLog->response_encypt_data = $requestData;
         $paymentLog->book_session_all_data = json_encode($payment_session);
         $paymentLog->section = 'instant_advice';
         $paymentLog->save();
+
+        $deleteData = TempReq::where('order_id',$order_id)->delete();
 
         Toastr::error('Instant Advice payment failed','Payment Failed');
         return Redirect('/');
