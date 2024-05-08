@@ -43,6 +43,8 @@ Route::post('/user/demo-registration',[HomeController::class , 'demoRegistration
 Route::post('/user/booksession',[HomeController::class , 'booksessionFunction']);
 Route::post('/user/booksession-success',[HomeController::class , 'booksessionSuccess']);
 Route::post('/user/booksession-failed',[HomeController::class , 'booksessionFailed']);
+Route::post('/user/subscription-success',[SubscriptionController::class , 'subscriptionSuccessFunction']);
+Route::post('/user/subscription-failed',[SubscriptionController::class , 'subscriptionFailedFunction']);
 Route::get('/instant-book',[HomeController::class , 'instantBookIndex']);
 Route::group(['middleware' => 'userAuth'], function () {
     Route::get('/user/logout',[AuthController::class , 'logoutFunction']);
@@ -57,8 +59,6 @@ Route::group(['middleware' => 'userAuth'], function () {
     Route::post('/user/step-three-submit',[ProfileController::class , 'stepThreeSubmitFunction']);
     Route::get('/price',[PriceController::class , 'indexPrice']);
     Route::get('/user/subscription-submit',[SubscriptionController::class , 'subscriptionSubmitFunction']);
-    Route::post('/user/subscription-success',[SubscriptionController::class , 'subscriptionSuccessFunction']);
-    Route::post('/user/subscription-failed',[SubscriptionController::class , 'subscriptionFailedFunction']);
     Route::get('/session',[SessionController::class , 'indexSession']);
     Route::post('/user/bookCareerSession',[SessionController::class , 'bookCareerSessionFun']);
     Route::post('/user/updatebookCareerSession',[SessionController::class , 'updatebookCareerSessionFun']);

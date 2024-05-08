@@ -15,5 +15,9 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
         'payment-callback',
+        'user/subscription-success',
+        'user/subscription-failed',
+        'user/booksession-success',
+        'user/booksession-failed'
     ];
 }

@@ -1180,7 +1180,6 @@ class Helpers
 	    $access_code=$payment_config->ACCESS_CODE;//Shared by CCAVENUES
 	    $merchant_data='';
         foreach ($data as $key => $value){
-            $merchant_data='';
             $merchant_data.=$key.'='.$value.'&';
         }
         $encrypted_data=Helpers::encrypt($merchant_data,$working_key);

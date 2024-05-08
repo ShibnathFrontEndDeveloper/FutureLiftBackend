@@ -19,6 +19,7 @@ use App\Models\UserSubscriptionModel;
 use App\Models\SessionHistory;
 use App\Models\Coupon;
 use App\Models\CouponHistory;
+use App\Models\PaymentLogs;
 
 
 class SubscriptionController extends Controller
@@ -65,6 +66,107 @@ class SubscriptionController extends Controller
     public function subscriptionSuccessFunction(Request $request){
         echo "<pre>";
         print_r($request->all());
+
+        $requestData = $request->encResp;
+        $payment_config = json_decode(Helpers::ccAvenuePaymentConfig());
+        $working_key=$payment_config->WORKING_KEY;
+        $decode_data=Helpers::decrypt($requestData,$working_key);
+        $explode = explode('&',$decode_data);
+        //////////////// filtering data from response ///////////////////
+        $order_id = str_replace('order_id=','',$explode[0]);
+        $tracking_id = str_replace('tracking_id=','',$explode[1]);
+        $order_status = str_replace('order_status=','',$explode[3]);
+        $payment_mode = str_replace('payment_mode=','',$explode[5]);
+        $amount = str_replace('amount=','',$explode[9]);
+        $payment_session = Session::get('paymentReqDetails');
+
+        $paymentLog = new PaymentLogs();
+        $paymentLog->order_id = $order_id;
+        $paymentLog->tracking_id = $tracking_id;
+        $paymentLog->order_status = 'Success';
+        $paymentLog->payment_mode = $payment_mode;
+        $paymentLog->amount = $amount;
+        $paymentLog->sessionId = Session::get('paymentReqDetails')['subId'];
+        $paymentLog->response_encypt_data = $requestData;
+        $paymentLog->section = 'session';
+        $paymentLog->userId = Auth::guard('user')->user()->id;
+        $paymentLog->save();
+
+        $subId = Session::get('paymentReqDetails')['subId'];
+
+        $userExitsPackage = UserSubscriptionModel::where('userId', Auth::guard('user')->user()->id)->where('status','active');
+        if($userExitsPackage->get()->count() > 0){
+            $subData = $userExitsPackage->first();
+            if($subData->package_id == $subId){
+                Toastr::warning('You are already subscribe in this plan','warning');
+                return back();
+            }
+
+            $user_subcription_update = UserSubscriptionModel::find($subData->id);
+            $user_subcription_update->status = 'inactive';
+            $user_subcription_update->save();
+
+            $user_subcription = new UserSubscriptionModel();
+            $user_subcription->userId = Auth::guard('user')->user()->id;
+            $user_subcription->package_id = $subId;
+            $user_subcription->save();
+
+            $getCoun = CounsellingPrice::find($subId);
+
+            $userSessionHas = SessionHistory::where('userId', Auth::guard('user')->user()->id)->where('package_id',$subData->package_id)->where('package_status','active');
+
+            if($userSessionHas->get()->count() > 0){
+                $sesion_history_update = SessionHistory::where('userId', Auth::guard('user')->user()->id)->where('package_id',$subData->package_id)->where('package_status','active')->update([
+                    "package_status" => 'inactive'
+                ]);
+            }
+
+            if($getCoun->session_count > 0){
+                for ($i=0; $i < $getCoun->session_count; $i++){
+                    $sesion_history = new SessionHistory();
+                    $sesion_history->userId = Auth::guard('user')->user()->id;
+                    $sesion_history->package_id = $subId;
+                    $sesion_history->status = ($i==0)?'Active':'Pending';
+                    $sesion_history->save();
+                }
+
+            }
+
+        }else{
+            $user_subcription = new UserSubscriptionModel();
+            $user_subcription->userId = Auth::guard('user')->user()->id;
+            $user_subcription->package_id = $subId;
+            $user_subcription->save();
+
+            $getCoun = CounsellingPrice::find($subId);
+
+            if($getCoun->session_count > 0){
+                for ($i=0; $i < $getCoun->session_count; $i++){
+                    $sesion_history = new SessionHistory();
+                    $sesion_history->userId = Auth::guard('user')->user()->id;
+                    $sesion_history->package_id = $subId;
+                    $sesion_history->status = ($i==0)?'Active':'Pending';
+                    $sesion_history->save();
+                }
+
+            }
+        }
+        if($payment_session['couponId'] !=''){
+            $couponHistory = new CouponHistory();
+            $couponHistory->couponId = $payment_session['couponId'];
+            $couponHistory->userId = Auth::guard('user')->user()->id;
+            $couponHistory->productId = $subId;
+            $couponHistory->save();
+        }
+
+
+
+        $notificationContent = "Welcome to Your Journey of Growth! You're now subscribed to our counseling sessions. Get ready to embark on a path of self-discovery and empowerment. We're here to support you every step of the way. Your transformation begins now!";
+        Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_counselling_session','Subscribe Counselling Session','session',$notificationContent);
+
+        Session::forget('paymentReqDetails');
+        Toastr::success('Subscription updated successfully','success');
+        return Redirect('/user-dashboard');
 
     }
     // public function subscriptionSuccessFunction(Request $request){
@@ -147,6 +249,34 @@ class SubscriptionController extends Controller
     public function subscriptionFailedFunction(Request $request){
         echo "<pre>";
         print_r($request->all());
+        $requestData = $request->encResp;
+        $payment_config = json_decode(Helpers::ccAvenuePaymentConfig());
+        $working_key=$payment_config->WORKING_KEY;
+        $decode_data=Helpers::decrypt($requestData,$working_key);
+        $explode = explode('&',$decode_data);
+        //////////////// filtering data from response ///////////////////
+        $order_id = str_replace('order_id=','',$explode[0]);
+        $tracking_id = str_replace('tracking_id=','',$explode[1]);
+        $order_status = str_replace('order_status=','',$explode[3]);
+        $payment_mode = str_replace('payment_mode=','',$explode[5]);
+        $amount = str_replace('amount=','',$explode[9]);
+        $payment_session = Session::get('paymentReqDetails');
+
+        $paymentLog = new PaymentLogs();
+        $paymentLog->order_id = $order_id;
+        $paymentLog->tracking_id = $tracking_id;
+        $paymentLog->order_status = 'Failure';
+        $paymentLog->payment_mode = $payment_mode;
+        $paymentLog->amount = $amount;
+        $paymentLog->sessionId = Session::get('paymentReqDetails')['subId'];
+        $paymentLog->response_encypt_data = $requestData;
+        $paymentLog->section = 'session';
+        $paymentLog->userId = Auth::guard('user')->user()->id;
+        $paymentLog->save();
+
+        Toastr::error('Subscription payment failed','Payment Failed');
+        return Redirect('/price');
+
     }
     public function indexOrderSummary(Request $request){
         $id = $request->query('product');

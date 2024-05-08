@@ -110,6 +110,7 @@ class HomeController extends Controller
                     $notificationContent = "Session Confirmed! Your booking is all set. Get ready for an insightful and engaging session. We're excited to connect with you and provide valuable insights. See you soon!";
                     Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_session','Book Session','session',$notificationContent);
                 }
+                Session::forget('session_book_data');
                 Toastr::success('Book session Successfully','success');
                 return back();
             }else{
@@ -117,7 +118,7 @@ class HomeController extends Controller
                 $fieldData = [
                     "tid" => $request->options.time().uniqid(mt_rand(999,9999)),
                     "merchant_id" => $payment_config->MERCHANT_ID,
-                    "order_id" => 'IN_AV'.$request->options.date('ymdhi').mt_rand(1000,9999),
+                    "order_id" => 'INT_ADV'.$request->options.date('ymdhi').mt_rand(1000,9999),
                     "amount" => sprintf('%0.2f', $sessionPrice),
                     "currency" => "INR",
                     "redirect_url" => url('/user/booksession-success'),
@@ -147,10 +148,84 @@ class HomeController extends Controller
     public function booksessionSuccess(Request $request){
         echo "<pre>";
         print_r($request->all());
+        $requestData = $request->encResp;
+        $payment_config = json_decode(Helpers::ccAvenuePaymentConfig());
+        $working_key=$payment_config->WORKING_KEY;
+        $decode_data=Helpers::decrypt($requestData,$working_key);
+        $explode = explode('&',$decode_data);
+        //////////////// filtering data from response ///////////////////
+        $order_id = str_replace('order_id=','',$explode[0]);
+        $tracking_id = str_replace('tracking_id=','',$explode[1]);
+        $order_status = str_replace('order_status=','',$explode[3]);
+        $payment_mode = str_replace('payment_mode=','',$explode[5]);
+        $amount = str_replace('amount=','',$explode[9]);
+        $payment_session = Session::get('session_book_data');
+
+        $paymentLog = new PaymentLogs();
+        $paymentLog->order_id = $order_id;
+        $paymentLog->tracking_id = $tracking_id;
+        $paymentLog->order_status = 'Success';
+        $paymentLog->payment_mode = $payment_mode;
+        $paymentLog->amount = $amount;
+        $paymentLog->adviceSessionId = $payment_session['options'];
+        $paymentLog->response_encypt_data = $requestData;
+        $paymentLog->book_session_all_data = json_encode($payment_session);
+        $paymentLog->section = 'instant_advice';
+        $paymentLog->save();
+
+
+        $timeFormat = date('H:i:s',strtotime($payment_session['schedule_time']));
+        $dateFormat = date('Y-m-d',strtotime($payment_session['schedule_date']));
+
+        $book = new Book_sessions();
+        $book->candidate_name = $payment_session['candidate_name'];
+        $book->candidate_email = $payment_session['candidate_email'];
+        $book->candidate_phone = $payment_session['candidate_phone'];
+        $book->candidate_city = $payment_session['candidate_city'];
+        $book->options = $payment_session['options'];
+        $book->schedule_date_time = $dateFormat.' '.$timeFormat;
+        $book->save();
+
+
+        if(Auth::guard('user')->check()){
+            $notificationContent = "Session Confirmed! Your booking is all set. Get ready for an insightful and engaging session. We're excited to connect with you and provide valuable insights. See you soon!";
+            Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_session','Book Session','session',$notificationContent);
+        }
+        Session::forget('session_book_data');
+        Toastr::success('Book session Successfully','success');
+        return back();
+
     }
     public function booksessionFailed(Request $request){
         echo "<pre>";
         print_r($request->all());
+        $requestData = $request->encResp;
+        $payment_config = json_decode(Helpers::ccAvenuePaymentConfig());
+        $working_key=$payment_config->WORKING_KEY;
+        $decode_data=Helpers::decrypt($requestData,$working_key);
+        $explode = explode('&',$decode_data);
+        //////////////// filtering data from response ///////////////////
+        $order_id = str_replace('order_id=','',$explode[0]);
+        $tracking_id = str_replace('tracking_id=','',$explode[1]);
+        $order_status = str_replace('order_status=','',$explode[3]);
+        $payment_mode = str_replace('payment_mode=','',$explode[5]);
+        $amount = str_replace('amount=','',$explode[9]);
+        $payment_session = Session::get('session_book_data');
+
+        $paymentLog = new PaymentLogs();
+        $paymentLog->order_id = $order_id;
+        $paymentLog->tracking_id = $tracking_id;
+        $paymentLog->order_status = 'Failure';
+        $paymentLog->payment_mode = $payment_mode;
+        $paymentLog->amount = $amount;
+        $paymentLog->adviceSessionId = $payment_session['options'];
+        $paymentLog->response_encypt_data = $requestData;
+        $paymentLog->book_session_all_data = json_encode($payment_session);
+        $paymentLog->section = 'instant_advice';
+        $paymentLog->save();
+
+        Toastr::error('Instant Advice payment failed','Payment Failed');
+        return Redirect('/');
     }
     public function paymentCallbackFunction(Request $request){
         $transaction = PaytmWallet::with('receive');
