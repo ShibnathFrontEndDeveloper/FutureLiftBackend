@@ -22217,6 +22217,7 @@ fieldset h1{
   border-radius: 5px;
   height: 1290px;
   transition: .5s ease-in-out;
+  overflow: auto;
 }
 .price_box .cord_pice .card-body:hover{
   border-width: 5px;
@@ -22341,7 +22342,7 @@ fieldset h1{
   margin-top: 14px;
 }
 .foutcoems{
-  margin-top: 98px;
+  margin-top: 40px;
 }
 .outComes_box .price_body{
   height: 280px;
