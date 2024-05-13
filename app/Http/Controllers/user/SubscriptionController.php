@@ -167,6 +167,16 @@ class SubscriptionController extends Controller
             $couponHistory->save();
         }
 
+        $userFind = User::find($payment_user->id);
+
+
+        $html = '';
+        $html .= Helpers::sessionPaymentSuccessEmailContent($userFind->name,$payment_session_data->amount,$getCoun->plan_name,$order_id,$tracking_id);
+        $subject = "Subscription Payment Successfully!";
+
+        $mailSend = Helpers::phpMailerMailSend($userFind->email,$userFind->name,$subject,$html);
+
+
 
 
         $notificationContent = "Welcome to Your Journey of Growth! You're now subscribed to our counseling sessions. Get ready to embark on a path of self-discovery and empowerment. We're here to support you every step of the way. Your transformation begins now!";

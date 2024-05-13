@@ -39,49 +39,97 @@ class Helpers
         }
         return $err_keeper;
     }
+    // public static function mailHeader_backup(){
+    // 	$html = '';
+    // 	$html .= '<table width="100%">';
+    // 	$html .= 	'<tr>';
+    // 	$html .= 		'<td style="padding: 55px;text-align:center"><img style="width:158px;" src="'.asset('/assets/images/new_blak_logo.png').'"></td>';
+    // 	$html .= 	'</tr>';
+    // 	$html .= '</table>';
+    //     $html .= '<table width="100%">';
+    //     $html .= 	'<tr>';
+    //     $html .= 		'<td>';
+
+    // 	return $html;
+    // }
     public static function mailHeader(){
     	$html = '';
-    	$html .= '<table width="100%">';
-    	$html .= 	'<tr>';
-    	$html .= 		'<td style="padding: 55px;text-align:center"><img style="width:158px;" src="'.asset('/assets/images/new_blak_logo.png').'"></td>';
-    	$html .= 	'</tr>';
-    	$html .= '</table>';
-        $html .= '<table width="100%">';
-        $html .= 	'<tr>';
-        $html .= 		'<td>';
+    	$html .= '<div style="display: flex; justify-content:center; align-items:center;">
+        <div style="width: 100%; display:flex; justify-content:center; align-items:center; max-width:950px; border:1px solid #c5c5c5; border-radius:5px; flex-direction:column;">
+            <nav style="display:flex; justify-content:space-between; width:100%;">
+                <div style="margin-left: 20px;"><img src="'.asset('assets/images/logo1.png').'" alt="" width="150px"></div>
+                <div style="display: flex; align-items:center; margin-right:20px;"><a href="'.url('/login-signup').'" style="text-decoration: none; background:#5426fa; color:#fff; padding:8px 20px; border-radius:5px; font-size:16px;">Login</a></div>
+            </nav>';
 
     	return $html;
     }
+    // public static function mailFooter_backup(){
+    // 	$html = '';
+    // 	$html .= 		'</td>';
+    //     $html .= 	'</tr>';
+    //     $html .= '</table>';
+    // 	$html .= 	'<table  style="width:100%;">';
+    // 	$html .= 		'<tr>';
+    // 	$html .= 			'<td style="float:left;"><p>Thank you for choosing FUTURE LIFT for your career counseling needs. We are here to assist you on your journey to success, and we are committed to ensuring your account security</p></td>';
+    // 	$html .= 		'</tr>';
+    // 	$html .= 		'<tr>';
+    // 	$html .= 			'<td style="float:left;"><p>Warm regards,</p>';
+    //     $html .= 		        '<p>Mr. Rahul Dubey</p>';
+    //     $html .= 		        '<p>Founder, Future Lift</p>';
+    //     $html .= 		    '</td>';
+    // 	$html .= 		'</tr>';
+    //     $html .= 	'</table>';
+    //     $html .= 	'<table  style="width:100%;">';
+    // 	$html .= 		'<tr>';
+    // 	$html .= 			'<td style="text-align:center;"><h3><b>Follow us yet?</b></h3></td>';
+    // 	$html .= 		'</tr>';
+    // 	$html .= 		'<tr>';
+    // 	$html .= 			'<td style="text-align:center;padding-top: 20px;">';
+    //     $html .= 		        '<a href="https://www.facebook.com/Future-Lift-Education-PVT-LTD-112127913993548/"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/facebook.png').'"></a>';
+    //     $html .= 		        '<a href="https://www.instagram.com/invites/contact/?i=2nxyq2sxhhyi&utm_content=7k4l34c"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/insta.png').'"></a>';
+    //     $html .= 		        '<a href="https://twitter.com/Futurelift_edu?s=09"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/tweeter.png').'"></a>';
+    //     $html .= 		        '<a href="https://youtube.com/channel/UCvY_1Aon-HqSHzqWwvIU2zQ"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/youtube.png').'"></a>';
+    //     $html .= 		        '<a href="https://www.linkedin.com/company/futurelift-duication"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/linkedin.png').'"></a>';
+    //     $html .= 		    '</td>';
+    // 	$html .= 		'</tr>';
+    // 	$html .= 	'</table>';
+
+    // 	return $html;
+    // }
     public static function mailFooter(){
     	$html = '';
-    	$html .= 		'</td>';
-        $html .= 	'</tr>';
-        $html .= '</table>';
-    	$html .= 	'<table  style="width:100%;">';
-    	$html .= 		'<tr>';
-    	$html .= 			'<td style="float:left;"><p>Thank you for choosing FUTURE LIFT for your career counseling needs. We are here to assist you on your journey to success, and we are committed to ensuring your account security</p></td>';
-    	$html .= 		'</tr>';
-    	$html .= 		'<tr>';
-    	$html .= 			'<td style="float:left;"><p>Warm regards,</p>';
-        $html .= 		        '<p>Mr. Rahul Dubey</p>';
-        $html .= 		        '<p>Founder, Future Lift</p>';
-        $html .= 		    '</td>';
-    	$html .= 		'</tr>';
-        $html .= 	'</table>';
-        $html .= 	'<table  style="width:100%;">';
-    	$html .= 		'<tr>';
-    	$html .= 			'<td style="text-align:center;"><h3><b>Follow us yet?</b></h3></td>';
-    	$html .= 		'</tr>';
-    	$html .= 		'<tr>';
-    	$html .= 			'<td style="text-align:center;padding-top: 20px;">';
-        $html .= 		        '<a href="https://www.facebook.com/Future-Lift-Education-PVT-LTD-112127913993548/"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/facebook.png').'"></a>';
-        $html .= 		        '<a href="https://www.instagram.com/invites/contact/?i=2nxyq2sxhhyi&utm_content=7k4l34c"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/insta.png').'"></a>';
-        $html .= 		        '<a href="https://twitter.com/Futurelift_edu?s=09"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/tweeter.png').'"></a>';
-        $html .= 		        '<a href="https://youtube.com/channel/UCvY_1Aon-HqSHzqWwvIU2zQ"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/youtube.png').'"></a>';
-        $html .= 		        '<a href="https://www.linkedin.com/company/futurelift-duication"><img style="width:32px;padding-right: 20px;" src="'.asset('assets/images/linkedin.png').'"></a>';
-        $html .= 		    '</td>';
-    	$html .= 		'</tr>';
-    	$html .= 	'</table>';
+    	$html .= '<div style="padding:10px 60px; display:flex; justify-content:center; align-items:center;flex-direction:column;">
+                <h1 style="text-align: center;">FAQ?</h1>
+                <p style="font-size: 20px;">Your Quick Guide to Navigate the Future Lift Platform with Confidence!</p>
+                <img src="'.asset('assets/images/down-arrow.png').'" alt="">
+                <a href="'.url('/').'" style="margin-top: 20px; background:#1fe287; padding:8px 20px;color:#fff; font-size:20px;text-decoration:none;border-radius:5px;">Click Here</a>
+            </div>
+            <footer>
+                <img src="'.asset('assets/images/city1.png').'" alt="" style="width:100%;">
+                <div style="background: #000; margin-top:-20px;">
+                    <div style="display: flex; justify-content:center; padding-top:30px;">
+                        <a href=""><img src="'.asset('assets/images/instagram.png').'" alt="" style="width: 30px;"></a>
+                        <a href=""><img src="'.asset('assets/images/facebook.png').'" alt="" style="width: 30px; margin:0 10px;"></a>
+                        <a href=""><img src="'.asset('assets/images/youtube.png').'" alt="" style="width: 30px;"></a>
+                        <a href=""><img src="'.asset('assets/images/linkedin.png').'" alt="" style="width: 30px; margin:0 10px;"></a>
+                    </div>
+                    <h2 style="color:#fff;margin:0; text-align:center;margin-top:20px;">About Us</h2>
+                    <p style="color:#fff; text-align:center;padding:0 50px;">At Future Lift, we are not just building a platform; we are crafting an experience.Your expertise and passion for career counseling align perfectly with our mission to empower individuals on their career journeys.
+                        Visit for More Information <a href="'.url('/').'" style="color: #D61E5C; text-decoration:none;">futurelift.in</a>
+                    </p>
+                    <div style="display: flex; justify-content:center;">
+                        <a href="'.url('/about').'" style="color:#c5c5c5; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:12px; text-decoration:none;">About Us</a>
+                        <a href="'.url('/terms-condition').'" style="margin: 0px 8px;color:#c5c5c5; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:12px; text-decoration:none;">| Terms & Conditions |</a>
+                        <a href="'.url('/policy').'" style="color:#c5c5c5; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:12px; text-decoration:none;">Privacy Policy</a>
+                    </div>
+                    <div style="text-align: center; padding-bottom:30px;"><p style="color:#ec1818; font-family:Verdana, Geneva, Tahoma, sans-serif; padding:0 30px;">@2024 Copyrights reserve by FUTURE LIFT</p></div>
+                </div>
+            </footer>
+
+        </div>
+
+        </div>';
+
 
     	return $html;
     }
@@ -819,50 +867,41 @@ class Helpers
     }
     public static function welcomeEmailContent($name){
         $html = '';
-        $html .= '<p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong>Dear '.$name.',</strong></span></span></p>
-
-        <p>&nbsp;</p>
-
-        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif">We are thrilled to welcome you to Future Lift, your trusted partner on your journey towards a successful and fulfilling career. We understand that choosing the right path can be a significant step, and we are here to guide and support you every step of the way.</span></span></p>
-
-        <p>&nbsp;</p>
-
-        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif">At Future Lift, we believe that each student is unique, with their own aspirations, strengths, and dreams. Our mission is to empower you to make informed decisions about your future, discover your passions, and chart a course that leads to success and happiness.</span></span></p>
-
-        <p>&nbsp;</p>
-
-        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong><span dir="ltr" lang="EN" style="color:#c00000">Here&#39;s what you can expect from us:</span></strong></span></span></p>
-
-        <p>&nbsp;</p>
-
-        <ul style="list-style-type:circle">
-            <li><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong>Expert Guidance:</strong> Our team of experienced career counselors and advisors are here to provide you with personalized guidance tailored to your goals. Whether you&#39;re exploring career options, seeking internship opportunities, or planning for further education, we have you covered.</span></span></li>
-        </ul>
-
-        <p>&nbsp;</p>
-
-        <ul style="list-style-type:circle">
-            <li><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong>Comprehensive Resources:</strong> Access a wealth of resources, including articles, webinars, and assessments designed to help you gain insights into various career paths and industries.</span></span></li>
-        </ul>
-
-        <p>&nbsp;</p>
-
-        <ul style="list-style-type:circle">
-            <li><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong>Career Development Workshops:</strong> Join our interactive workshops and seminars to enhance your skills, from resume building and interview preparation to networking strategies.</span></span></li>
-        </ul>
-
-        <p>&nbsp;</p>
-
-        <ul style="list-style-type:circle">
-            <li><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong>Job and Internship Opportunities:</strong> Stay informed about the latest job and internship openings in your field through our job board and exclusive partnerships with leading companies.</span></span></li>
-        </ul>
-
-        <p>&nbsp;</p>
-
-        <p>&nbsp;</p>
-
-        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif">Once again, welcome to Future Lift. Together, we will make your dreams a reality!</span></span></p>
-        ';
+        $html .= '<div style="width: 100%; background:#D61E5C;text-align:center; padding-bottom:30px;">
+                <div style="display:flex; justify-content:center;align-items:center;">
+                    <img src="'.asset('assets/images/image1.png').'" alt="" style="width: 300px;">
+                </div>
+                <h2 style="text-align: center; color:#fff;">Hey '.$name.',Welcome!</h2>
+                <p style="text-align: center; color:#fff;padding:20px 100px;">We are more than a platform; we are a community passionate about transforming lives. Your presence adds another dynamic layer to our Future Lift family.</p>
+                <a href="'.url('/user-dashboard').'" style="background: #1fe2e2; padding:8px 20px;color:#fff;text-decoration:none; border-radius:5px;">GET STARTED</a>
+            </div>
+            <div style="text-align: center; margin-top:30px;"><h2 style="font-size: 30px; font-family:Georgia,  Times, serif; margin:0px;">What Next ?</h2></div>
+            <div style="display: flex; flex-wrap:wrap; align-items:center; justify-content:center; width:100%">
+                <div ><img src="'.asset('assets/images/image3.png').'" alt="" style="width: 200px;"></div>
+                <div style="display: flex; flex-direction:column;">
+                    <h2 style="margin: 0; margin-bottom:15px; font-size:25px; font-weight:700; font-family: Times, serif; color:#D61E5C; text-align:left;">Connect with Us</h2>
+                    <p style="font-size:20px; margin: 0;">Have questions, ideas, or just want to say hi?</p>
+                    <p style="font-size:20px; margin: 0;"> Reach out to us</p>
+                    <p style="font-size: 20px;">at <a href="tel:+91 8617373674" style="text-decoration: none; color:#D61E5C;font-family:Arial, Helvetica, sans-serif; font-weight:600; font-size:16px;"> +91 8617373674</a> or <a href="mailto:myfuturelift@gmail.com" style="text-decoration: none; color:#D61E5C; font-family:Arial, Helvetica, sans-serif; font-weight:600; font-size:16px;" >myfuturelift@gmail.com</a></p>
+                </div>
+            </div>
+            <div style="display: flex; flex-wrap:wrap; align-items:center; justify-content:center;">
+                <div ><img src="'.asset('assets/images/image4.png').'" alt="" style="width: 200px;"></div>
+                <div style="display: flex; flex-direction:column;">
+                    <h2 style="margin: 0; margin-bottom:15px; font-size:25px; font-weight:700; font-family: Times, serif; color:#D61E5C; text-align:left;">Tech Savvy?</h2>
+                    <p style="font-size:20px; margin: 0;">Dive into our advanced technology and tools,</p>
+                    <p style="font-size:20px; margin: 0;"> and let the magic of Future Lift unfold.</p>
+                </div>
+            </div>
+            <div style="display: flex; flex-wrap:wrap; align-items:center; justify-content:center; padding: 0px 50px;">
+                <div ><img src="'.asset('assets/images/image2.png').'" alt="" style="width: 200px;"></div>
+                <div style="display: flex; flex-direction:column;">
+                    <h2 style="margin: 0; margin-bottom:15px; font-size:25px; font-weight:700; font-family: Times, serif; color:#D61E5C; text-align:left;">Be Yourself</h2>
+                    <p style="font-size:20px; margin: 0;">Embrace the freedom to be your authentic,</p>
+                    <p style="font-size:20px; margin: 0;"> counseling-extraordinaire self. We value you </p>
+                    <p style="font-size:20px; margin: 0;">for you!</p>
+                </div>
+            </div>';
 
         return $html;
     }
@@ -964,6 +1003,108 @@ class Helpers
         <p>To proceed, kindly Re-schedule your session.</p>';
 
         return $html;
+    }
+    public static function sessionCreateEmailContent($name,$session_count,$session_date,$session_time,$session_link='https://meet.google.com/aad-ntwy-tjc',$duration='60 mins'){
+        $html = '';
+        $html .= '<div style="width: 100%; background:#D61E5C;text-align:center; padding-bottom:30px;">
+            <h2 style="text-align: center; color:#fff; font-size:30px; padding-bottom:100px;">Hey '.$name.'!</h2>
+            </div>
+            <div style=" background:#fff;  padding:20px 20px 50px; margin-top:-120px;  text-align:center; max-width:80%;">
+                <p style="text-align: center; color:#fff; color:#000;padding-bottom:40px; font-size:22px;">We hope this message finds you well. Thank you for choosing Future Lift for your career counseling needs. We are thrilled to assist you on your journey to asuccessful and fulfilling career.</p>
+                <a href="" style="background: #1fe2e2; padding:8px 20px;color:#fff;text-decoration:none; border-radius:5px; text-transform:uppercase;">learn more</a>
+            </div>
+            <div>
+                <div style="overflow: hidden;">
+                    <h1 style="text-align: center; font-size:30px; color:#D61E5C;">Session Scheduled!</h1>
+                    <p style="text-align: center; font-size:22px;">Thank You for booking <span style="color:#D61E5C;">'.Helpers::ordinal($session_count).' Session</span></p>
+                    <h1 style="text-align: center;">Session Details</h1>
+                    <table style="width: 100%; text-align:center; font-family: arial, sans-serif; border-collapse: collapse;">
+                        <tr>
+                            <td style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px;margin:0px;">Date:</p></td>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px; margin:0px;">'.$session_date.'</p></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px;margin:0px;">Time:</p></td>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px; margin:0px;">'.$session_time.'</p></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px;margin:0px;">Duration:</p></td>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px; margin:0px;">'.$duration.'</p></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px;margin:0px;">Session Link:</p></td>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px; margin:0px;"><a href="'.$session_link.'">'.$session_link.'</a></p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top:30px;">
+                <h2 style="font-size: 25px; background:#D61E5C; color:#fff; font-family:Georgia, Times, serif; margin:0px;padding:10px 20px; border-radius:20px;">Instruction for the Session</h2>
+            </div>
+            <div style="display: flex; flex-wrap:wrap; align-items:center; justify-content:center; width:100%">
+                <div ><img src="'.asset('assets/images/Inst.png').'" alt="" style="width: 100%;"></div>
+            </div>
+
+            <div style="display: flex; justify-content:center; text-align:center; ">
+                <div style=" padding:15px 50px; width:100%; background: #ECF0F1; border-radius:8px;">
+                    <p style="font-size:20px; margin: 0; font-size:30px; padding-bottom:20px;">Any queries about the Payment?</p>
+                    <a href="#" style="text-decoration: none; font-size:22px; font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight:700">Chat with us.</a>
+                </div>
+            </div>';
+
+        return $html;
+    }
+    public static function sessionPaymentSuccessEmailContent($name,$amount,$package_name,$order_id,$txn_id){
+        $html = '';
+        $html .= '<div style="width: 100%; background:#D61E5C;text-align:center; padding-bottom:30px;">
+                <h2 style="text-align: center; color:#fff; font-size:30px; padding-bottom:100px;">Hey '.$name.'!</h2>
+            </div>
+            <div style=" background:#fff;  padding:20px 20px 50px; margin-top:-120px;  text-align:center; max-width:80%;">
+                <p style="text-align: center; color:#fff; color:#000;padding-bottom:40px; font-size:22px;">Thank you for choosing Future Lift for your online career counseling needs! We are thrilled to have you on board and look forward to assisting you on your a successful and fulfilling career.</p>
+                <a href="" style="background: #1fe2e2; padding:8px 20px;color:#fff;text-decoration:none; border-radius:5px; text-transform:uppercase;">learn more</a>
+            </div>
+            <div>
+                <div style="overflow: hidden;">
+                    <h1 style="text-align: center; font-size:30px; color:#42a10b;">Payment Completed!</h1>
+                    <div style="display: flex; justify-content:center; align-items:center;"><img src="'.asset('assets/images/check-icon.png').'" alt="" style="width:30px"><h3 style="margin-left: 20px; font-size:25px;"> ₹'.$amount.'</h3></div>
+                    <h1 style="text-align: center;">Transaction Details</h1>
+                    <table style="width: 100%; text-align:center; font-family: arial, sans-serif; border-collapse: collapse;">
+                        <tr>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px;margin:0px;">Subscription Package:</p></td>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px; margin:0px;">'.$package_name.'</p></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px;margin:0px;">Order ID:</p></td>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px; margin:0px;">'.$order_id.'</p></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px;margin:0px;">Transaction ID:</p></td>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px; margin:0px;">'.$txn_id.'</p></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px;margin:0px;">Payment Date:</p></td>
+                            <td style="border: 1px solid #dddddd; text-align: left;  padding: 8px;"><p style="font-size: 18px; margin:0px;">'.date('l jS F Y h:i A').'</p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div style="display: flex; justify-content:center; text-align:center;margin-top:30px; ">
+                <div style=" padding:15px 50px; width:100%; background: #ECF0F1; border-radius:8px;">
+                    <p style="font-size:20px; margin: 0; font-size:30px; padding-bottom:20px;">Any queries about the Payment?</p>
+                    <a href="" style="text-decoration: none; font-size:22px; font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight:700">Chat with us.</a>
+                </div>
+            </div>';
+
+        return $html;
+    }
+    public static function ordinal($number) {
+        $ends = array('th','st','nd','rd','th','th','th','th','th','th');
+        if ((($number % 100) >= 11) && (($number%100) <= 13))
+            return $number. 'th';
+        else
+            return $number. $ends[$number % 10];
     }
     public static function anyArrayFieldNullChecking($array){
         $flag = false;

@@ -117,6 +117,7 @@
           @endphp
           @if (count($roleMenu) > 0)
             @foreach ($roleMenu as $roleMenuKey => $roleMenuValue)
+            @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) != 'Counselor')
             <li class="nav-item menu-items {{Request::is($roleMenuValue->url)?'active':''}}">
                 <a class="nav-link" href="{{url($roleMenuValue->url)}}">
                 <span class="menu-icon">
@@ -125,15 +126,40 @@
                 <span class="menu-title">{{$roleMenuValue->name}}</span>
                 </a>
             </li>
+            @endif
             @endforeach
           @endif
           @if(App\Helpers::userIdWiseRoleName(Auth::guard('admin')->user()->id) == 'Counselor')
+            <li class="nav-item menu-items {{Request::is('admin/admin-dashboard')?'active':''}}">
+                <a class="nav-link" href="{{url('/admin/admin-dashboard')}}">
+                <span class="menu-icon">
+                    <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">Dashboard</span>
+                </a>
+            </li>
             <li class="nav-item menu-items {{Request::is('admin/my-profile')?'active':''}}">
                 <a class="nav-link" href="{{url('/admin/my-profile')}}">
                 <span class="menu-icon">
                     <i class="mdi mdi-speedometer"></i>
                 </span>
                 <span class="menu-title">My Profile</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items {{Request::is('admin/counselling-session/list')?'active':''}}">
+                <a class="nav-link" href="{{url('/admin/counselling-session/list')}}">
+                <span class="menu-icon">
+                <svg width="148" height="127" viewBox="0 0 148 127" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M116.332 92.4069C116.07 92.3807 115.755 92.3807 115.466 92.4069C109.22 92.197 104.26 87.0793 104.26 80.7806C104.26 74.3506 109.456 69.1279 115.912 69.1279C122.342 69.1279 127.565 74.3506 127.565 80.7806C127.539 87.0793 122.579 92.197 116.332 92.4069Z" stroke="#D71D5C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M103.21 102.091C96.8585 106.343 96.8585 113.272 103.21 117.497C110.427 122.326 122.263 122.326 129.481 117.497C135.832 113.245 135.832 106.317 129.481 102.091C122.29 97.2886 110.453 97.2886 103.21 102.091Z" stroke="#D71D5C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.0156 84.0207L35.2091 88.2141L47.7894 75.6338" stroke="#D71D5C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M64.5068 84.0205H93.8609" stroke="#D71D5C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M31.0156 44.881L35.2091 49.0745L47.7894 36.4941" stroke="#D71D5C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M64.5068 44.8809H93.8609" stroke="#D71D5C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M95.02 0H30C13.4315 0 0 13.4315 0 30V95.02C0 111.589 13.4315 125.02 30 125.02H94V120.02H30C16.1929 120.02 5 108.827 5 95.02V30C5 16.1929 16.1929 5 30 5H95.02C108.827 5 120.02 16.1929 120.02 30V63H125.02V30C125.02 13.4315 111.589 0 95.02 0Z" fill="#D71D5C"/>
+                </svg>
+                </span>
+                <span class="menu-title">Counselling Session</span>
                 </a>
             </li>
             <li class="nav-item menu-items {{Request::is('admin/my-holiday/list')?'active':''}}">

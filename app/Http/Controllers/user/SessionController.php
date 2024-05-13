@@ -59,6 +59,15 @@ class SessionController extends Controller
             "short_question" => $request->short_question
         ]);
 
+        $userFind = User::find(Auth::guard('user')->user()->id);
+
+
+        $html = '';
+        $html .= Helpers::sessionCreateEmailContent($userFind->name,$request->sessionCount,date('d/m/Y',strtotime($dateFormat)),date('h:i A',strtotime($timeFormat)));
+        $subject = "Career Counseling Session Scheduled";
+
+        $mailSend = Helpers::phpMailerMailSend($userFind->email,$userFind->name,$subject,$html);
+
         $notificationContent = "Career Counseling Session Scheduled! Your session has been successfully booked. We're excited to assist you on your career journey. Get ready to gain valuable insights and clarity. We look forward to our upcoming session!";
         Helpers::addUserNotification(Auth::guard('user')->user()->id,'book_counselling_career_session','Schedule Counselling Career Session','career_session_booked',$notificationContent);
 

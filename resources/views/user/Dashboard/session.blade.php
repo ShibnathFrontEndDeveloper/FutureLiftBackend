@@ -125,6 +125,7 @@
                                 </div>
                                 <form action="{{url('/user/bookCareerSession')}}" class="callUsForm" method="post">
                                     @csrf
+                                    <input type="hidden" name="sessionCount" value="{{$key + 1}}">
                                     <input type="hidden" name="sessionId" value="{{$value->id}}">
                                     <div class="modal-body">
                                         <div class="row">

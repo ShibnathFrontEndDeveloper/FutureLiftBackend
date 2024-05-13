@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Trust Future Lift to navigate you towards a successful career. Find out how to achieve your career goals with our proven expertise and strategies.">
     @include('user.includes.favicon')
 
     <title>Future Lift</title>
@@ -644,7 +645,7 @@
                 </form>
               </div>
               <button class="careerSubscribebtn" data-bs-toggle="collapse" data-bs-target="#Subscribe_mail_box">Subscribe with Gmail</button>
-              
+
             </div>
             <div class="careerSubscribeImg">
               <img
