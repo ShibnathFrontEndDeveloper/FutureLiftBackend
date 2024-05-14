@@ -54,7 +54,7 @@ class Helpers
     // }
     public static function mailHeader(){
     	$html = '';
-    	$html .= '<div style="display: flex; justify-content:center; align-items:center;">
+    	$html .= '<div style="display: flex; justify-content:center; align-items:center;flex-direction:column;">
         <div style="width: 100%; display:flex; justify-content:center; align-items:center; max-width:950px; border:1px solid #c5c5c5; border-radius:5px; flex-direction:column;">
             <nav style="display:flex; justify-content:space-between; width:100%;">
                 <div style="margin-left: 20px;"><img src="'.asset('assets/images/logo1.png').'" alt="" style="width:150px;"></div>
@@ -903,7 +903,7 @@ class Helpers
                     <span style="display: block; margin-top:-10px; background:#ececec; font-size:18px; font-family:Verdana, Geneva, Tahoma, sans-serif; color:#D61E5C;">Forgot</span>
                     <span style="display: block; margin-bottom:-10px; background:#ececec; font-size:22px; font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight:700; padding:10px; color:#D61E5C;">Your Password</span>
                 </div>
-                <img src="'.asset('assets/images/Customer feedback-1.png').'" alt="" style="width: 320px;">
+                <img src="'.asset('assets/images/Customer_feedback-1.png').'" alt="" style="width: 320px;">
             </div>
             <div style="width:90%;">
                 <h4 style=" text-align:left; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:22px">Dear '.$name.',</h4>
