@@ -57,7 +57,7 @@ class Helpers
     	$html .= '<div style="display: flex; justify-content:center; align-items:center;">
         <div style="width: 100%; display:flex; justify-content:center; align-items:center; max-width:950px; border:1px solid #c5c5c5; border-radius:5px; flex-direction:column;">
             <nav style="display:flex; justify-content:space-between; width:100%;">
-                <div style="margin-left: 20px;"><img src="'.asset('assets/images/logo1.png').'" alt="" width="150px"></div>
+                <div style="margin-left: 20px;"><img src="'.asset('assets/images/logo1.png').'" alt="" style="width:150px;"></div>
                 <div style="display: flex; align-items:center; margin-right:20px;"><a href="'.url('/login-signup').'" style="text-decoration: none; background:#5426fa; color:#fff; padding:8px 20px; border-radius:5px; font-size:16px;">Login</a></div>
             </nav>';
 
