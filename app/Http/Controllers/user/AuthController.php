@@ -46,7 +46,7 @@ class AuthController extends Controller
         $exits = User::where('email',$request->email)->where('role','user')->get()->count();
 
         if($exits > 0){
-            Toastr::error('User already exists','error');
+            Toastr::error('User email already exists','error');
             return back()->withInput();
         }
 
