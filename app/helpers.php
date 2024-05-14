@@ -108,10 +108,10 @@ class Helpers
                 <img src="'.asset('assets/images/city1.png').'" alt="" style="width:100%;">
                 <div style="background: #000; margin-top:-20px;">
                     <div style="display: flex; justify-content:center; padding-top:30px;">
-                        <a href=""><img src="'.asset('assets/images/instagram.png').'" alt="" style="width: 30px;"></a>
-                        <a href=""><img src="'.asset('assets/images/facebook.png').'" alt="" style="width: 30px; margin:0 10px;"></a>
-                        <a href=""><img src="'.asset('assets/images/youtube.png').'" alt="" style="width: 30px;"></a>
-                        <a href=""><img src="'.asset('assets/images/linkedin.png').'" alt="" style="width: 30px; margin:0 10px;"></a>
+                        <a href="https://www.instagram.com/invites/contact/?i=2nxyq2sxhhyi&utm_content=7k4l34c"><img src="'.asset('assets/images/instagram.png').'" alt="" style="width: 30px;"></a>
+                        <a href="https://www.facebook.com/Future-Lift-Education-PVT-LTD-112127913993548/"><img src="'.asset('assets/images/facebook.png').'" alt="" style="width: 30px; margin:0 10px;"></a>
+                        <a href="https://youtube.com/channel/UCvY_1Aon-HqSHzqWwvIU2zQ"><img src="'.asset('assets/images/youtube.png').'" alt="" style="width: 30px;"></a>
+                        <a href="https://www.linkedin.com/company/futurelift-duication"><img src="'.asset('assets/images/linkedin.png').'" alt="" style="width: 30px; margin:0 10px;"></a>
                     </div>
                     <h2 style="color:#fff;margin:0; text-align:center;margin-top:20px;">About Us</h2>
                     <p style="color:#fff; text-align:center;padding:0 50px;">At Future Lift, we are not just building a platform; we are crafting an experience.Your expertise and passion for career counseling align perfectly with our mission to empower individuals on their career journeys.
@@ -179,15 +179,6 @@ class Helpers
         return $data;
     }
     public static function getEmailConfig(){
-        // $array = [
-        //     "smtp"=>"tls",
-        //     "host"=>"smtp.gmail.com",
-        //     "username"=>"rajdeeproychowdhuryb@gmail.com",
-        //     "mailform"=>"rajdeeproychowdhuryb@gmail.com",
-        //     "password"=>"uxrijlygawdnwecr",
-        //     "port"=>587,
-        //     "fromname"=>"FutureLift"
-        // ];
         $array = [
             "smtp"=>"ssl",
             "host"=>"smtp.hostinger.com",
