@@ -898,28 +898,31 @@ class Helpers
     }
     public static function forgotPasswordEmailContent($name,$link){
         $html = '';
-        $html .= '<p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">Dear '.$name.',</span></span></span></p>
-
-        <p>&nbsp;</p>
-
-        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">We hope this message finds you well. It appears that you&#39;ve forgotten your password for your FUTURE LIFT account. Not to worry, we&#39;re here to help you regain access to your account.</span></span></span></p>
-
-        <p>&nbsp;</p>
-
-        <p style="text-align:center"><a href="'.$link.'"><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><strong><span dir="ltr" lang="EN" style="font-size:14.0pt"><span style="background-color:darkblue"><span style="font-family:&quot;Calibri&quot;,sans-serif"><span style="color:white">Reset Password</span></span></span></span></strong></span></span></a></p>
-
-        <p style="text-align:center">&nbsp;</p>
-
-        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">* Must be at least 8 characters long.</span></span></span></p>
-
-        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">* Should include a mix of upper and lower-case letters.</span></span></span></p>
-
-        <p><span style="font-size:11pt"><span style="font-family:Arial,sans-serif"><span dir="ltr" lang="EN" style="font-family:&quot;Calibri&quot;,sans-serif">* Should contain at least one number and one special character (e.g., !, @, #, $, etc.).</span></span></span></p>
-
-        <p>&nbsp;</p>
-
-        <p><span dir="ltr" lang="EN" style="font-size:11.0pt"><span style="font-family:&quot;Calibri&quot;,sans-serif">If you did not initiate this password reset or believe this request was made in error, please contact our support team immediately at myfuturelift@gmail.com or +91 8617373674 for further assistance.</span></span></p>
-        ';
+        $html .= '<div style="display: flex; justify-content:center; align-items:center; flex-direction:column; margin-top:30px; background:#ececec; padding:20px 0px; width:90%">
+                <div style="border:#D61E5C solid 3px; text-align:center; padding:0 15px;">
+                    <span style="display: block; margin-top:-10px; background:#ececec; font-size:18px; font-family:Verdana, Geneva, Tahoma, sans-serif; color:#D61E5C;">Forgot</span>
+                    <span style="display: block; margin-bottom:-10px; background:#ececec; font-size:22px; font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight:700; padding:10px; color:#D61E5C;">Your Password</span>
+                </div>
+                <img src="'.asset('assets/images/Customer feedback-1.png').'" alt="" style="width: 320px;">
+            </div>
+            <div style="width:90%;">
+                <h4 style=" text-align:left; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:22px">Dear '.$name.',</h4>
+                <p style=" text-align:left; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:16px;">Greetings from <span style="color:#D61E5C;"> FUTURE LIFT.</span></p>
+                <p style=" text-align:left; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:16px; line-height:1.7;">Oops! It happens to the best of us - forgetting
+                    passwords, that is. But fret not! We have got your back.
+                    Click the button below to set a shiny new password
+                    and get back to what you were doing: <span>Reset you password: <a href="'.$link.'" style="color:#D61E5C; font-weight:700;">Click Here</a></span>
+                </p>
+                <p style=" text-align:left; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:16px; line-height:1.7;">Remember, your security is our priority. If you did not
+                    request this, no worries. Just ignore this email and
+                    your account will stay safe and sound.
+                </p>
+                <p style=" text-align:left; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:16px; line-height:1.7;">
+                    Thank You,
+                </p>
+                <p style=" text-align:left; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:16px; line-height:1.7;margin:0px;"> Technical Team </p>
+                <p style=" text-align:left; font-family:Verdana, Geneva, Tahoma, sans-serif; font-size:16px; line-height:1.7; color:#D61E5C; font-weight:700;margin:0px;"> FUTURE LIFT</p>
+            </div>';
 
         return $html;
     }
