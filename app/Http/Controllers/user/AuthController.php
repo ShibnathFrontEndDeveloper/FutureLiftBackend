@@ -99,6 +99,14 @@ class AuthController extends Controller
         $subject = "Welcome to FUTURE LIFT - Your Partner in Career Success!";
         $mailSend = Helpers::phpMailerMailSend($request->email,$request->name,$subject,$html);
 
+
+        $referLink = url('refer-user/'.$my_referral_code);
+
+        $html_refer = '';
+        $html_refer .= Helpers::ownReferMailContent($request->name,$referLink,$my_referral_code);
+        $subject_refer = "Introducing our Refer & Earn! FUTURE LIFT";
+        $mailSend_refer = Helpers::phpMailerMailSend($request->email,$request->name,$subject_refer,$html_refer);
+
         /////////// SSO login ///////////////
 
         $remember = true;
@@ -268,6 +276,14 @@ class AuthController extends Controller
             $html .= Helpers::welcomeEmailContent($userData->name);
             $subject = "Welcome to FUTURE LIFT - Your Partner in Career Success!";
             $mailSend = Helpers::phpMailerMailSend($userData->email,$userData->name,$subject,$html);
+
+
+            $referLink = url('refer-user/'.$my_referral_code);
+
+            $html_refer = '';
+            $html_refer .= Helpers::ownReferMailContent($request->name,$referLink,$my_referral_code);
+            $subject_refer = "Introducing our Refer & Earn! FUTURE LIFT";
+            $mailSend_refer = Helpers::phpMailerMailSend($request->email,$request->name,$subject_refer,$html_refer);
 
             $remember = true;
             if(Auth::guard('user')->attempt(['email' => $user->email, 'password' => $pass , 'role' => 'user'],$remember)){

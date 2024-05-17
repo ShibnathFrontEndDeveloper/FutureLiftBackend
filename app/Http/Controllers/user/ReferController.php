@@ -81,7 +81,7 @@ class ReferController extends Controller
         $referMail->save();
 
         $html = '';
-        $html .= Helpers::referMailContent($request->mailer_name,$referLink);
+        $html .= Helpers::referMailContent($request->mailer_name,$referLink,Auth::guard('user')->user()->code);
         $mailSend = Helpers::phpMailerMailSend($request->mailer_mail,$request->mailer_name,$subject,$html);
 
         Toastr::success('Mail sent successfully','success');
