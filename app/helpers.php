@@ -1152,18 +1152,18 @@ class Helpers
                 <td></td>
             </tr>
             <tr>
-                <td style="text-align: right;"><h4 style="font-size: 18px; font-family:Verdana, Geneva, Tahoma, sans-serif;">As promised, here your exclusive Referral Code:</h4></td>
-                <td style="text-align: left;">'.$code.'</td>
+                <td colspan="2" style="text-align: center;"><h4 style="font-size: 18px; font-family:Verdana, Geneva, Tahoma, sans-serif; margin:0px;padding:8px; border-top:1px solid #fc3175;">As promised, here your exclusive Referral Code:</h4></td>
+                <td style="text-align: left;"></td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align: center; font-size: 18px; font-family:Verdana, Geneva, Tahoma, sans-serif;">'.$code.'</td>
+                <td colspan="2" style="text-align: center; font-size: 18px; font-family:Verdana, Geneva, Tahoma, sans-serif; border-top:1px solid #fc3175; padding:8px;">'.$code.'</td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align: center;"><h4 style="font-size: 18px; font-family:Verdana, Geneva, Tahoma, sans-serif;"> <b>Referral Link:</b></h4></td>
+                <td colspan="2" style="text-align: center; border-top:1px solid #fc3175;"><h4 style="font-size: 18px; font-family:Verdana, Geneva, Tahoma, sans-serif; margin:0px; padding:8px;"> Referral Link:</h4></td>
                 <td></td>
             </tr>
             <tr>
-                <td colspan="2" style="text-align: center;"><a href="" style="font-size: 18px; font-family:Verdana, Geneva, Tahoma, sans-serif;"><a href="'.$link.'">'.$link.'</a></a></td>
+                <td colspan="2" style="text-align: center; border-top:1px solid #fc3175;"><a href="" style="font-size: 18px; font-family:Verdana, Geneva, Tahoma, sans-serif; display:block; width:100%;padding:8px 0px;"><a href="'.$link.'">'.$link.'</a></a></td>
             </tr>
             <tr>
                 <td colspan="2" style="background: #D61E5C;">
