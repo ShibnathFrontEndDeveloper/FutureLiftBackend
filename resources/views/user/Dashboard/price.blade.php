@@ -30,7 +30,7 @@
                         <div class="cord_pice {{($value->isMostPopuler == 'yes')?'popoler_pricebox':''}}">
                             @if ($value->isMostPopuler == 'yes')
                             <div class="tag_part">
-                                <h3>Most Populer</h3>
+                                <h3>Most Popular</h3>
                             </div>
                             @endif
                             <div class="card-body">
