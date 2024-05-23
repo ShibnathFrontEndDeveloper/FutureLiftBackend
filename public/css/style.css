@@ -3429,6 +3429,9 @@ transform: translate(-5px, 5px) rotate(-45deg)
 .blog_banner_img .mobile_img{
   display: none;
 }
+.blogDtls_row{
+  margin-top: 130px;
+}
 .blog_page_heading{
     font-size: 25px;
     font-weight: 600;

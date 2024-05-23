@@ -21,7 +21,7 @@
 
       <div class="container">
 
-      <div class="row mt-5">
+      <div class="row blogDtls_row">
                 <div class="col-lg-9 col-md-9 handpicked_blog_box">
                     <div class="first_blog mb-5">
                         <h3 class="blog_page_heading">{{$blog->title}}</h3>

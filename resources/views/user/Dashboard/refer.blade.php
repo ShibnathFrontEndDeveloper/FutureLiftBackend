@@ -6,11 +6,11 @@
           <div class="content-wrapper">
           @include('user.Dashboard.update-pro')
             <div class="page-header">
-              <h3 class="page-title"> Refar and Earn</h3>
+              <h3 class="page-title"> Refer and Earn</h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="{{url('/user-dashboard')}}">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Refar and earn</li>
+                  <li class="breadcrumb-item active" aria-current="page">Refer and earn</li>
                 </ol>
               </nav>
             </div>

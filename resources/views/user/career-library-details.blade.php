@@ -59,7 +59,7 @@
                 <h1 class="career_haeding">{{$data->title}}</h1>
                 <div class="career_content_box" id="Summary">
                   <div class="career_content_boxDtls">
-                    <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Summery</h1>
+                    <h1><img src="{{asset('assets/images/summeryIcon.png')}}" alt="" class="img-fluid">Summary</h1>
                     <div class="d-flex justify-content-between dFlex">
                       <p>{!!$data->summery_content!!}</p>
 
