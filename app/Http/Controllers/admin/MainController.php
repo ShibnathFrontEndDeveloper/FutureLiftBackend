@@ -410,17 +410,41 @@ class MainController extends Controller
             Helpers::addUserNotification($history->userId,'career_session_booked_reject','Counselling Session Rejected','career_session_booked_reject',$notificationContent);
 
 
-            $html = '';
-            $html .= Helpers::sessionRejectedEmailContent($getUserDetails->name,date('l jS F Y h:i A',strtotime($history->session_date_time)));
+            // $html = '';
+            // $html .= Helpers::sessionRejectedEmailContent($getUserDetails->name,date('l jS F Y h:i A',strtotime($history->session_date_time)));
             $subject = 'Important: Session Rejection - Please Reschedule';
-            $mailSend = Helpers::phpMailerMailSend($getUserDetails->email,$getUserDetails->name,$subject,$html);
+            // $mailSend = Helpers::phpMailerMailSend($getUserDetails->email,$getUserDetails->name,$subject,$html);
+
+            Helpers::sessionRejectedEmailContent($getUserDetails->name,date('l jS F Y h:i A',strtotime($history->session_date_time)),$getUserDetails->email,$subject);
         }else{
             $notificationContent = "We are pleased to inform you that your session has been successfully accepted. Thank you for choosing our service!";
             Helpers::addUserNotification($history->userId,'career_session_booked_approve','Counselling Session Accepted','career_session_booked_approve',$notificationContent);
+
+
+
+            // $html = '';
+            // $html .= Helpers::sessionCreateEmailContent($getUserDetails->name,$this->getSessionCount($history->userId,$queryid),date('d/m/Y',strtotime($history->session_date_time)),date('h:i A',strtotime($history->session_date_time)),Auth::guard('admin')->user()->metting_link);
+            $subject = "Career Counseling Session Scheduled";
+
+            // $mailSend = Helpers::phpMailerMailSend($getUserDetails->email,$getUserDetails->name,$subject,$html);
+
+            Helpers::sessionCreateEmailContent($getUserDetails->name,$this->getSessionCount($history->userId,$queryid),date('d/m/Y',strtotime($history->session_date_time)),date('h:i A',strtotime($history->session_date_time)),Auth::guard('admin')->user()->metting_link,$getUserDetails->email,$subject);
+
         }
 
         Toastr::success('Session '.$query.' successfully','success');
         return Redirect('/admin/counselling-session/list');
+    }
+    public function getSessionCount($userId,$id){
+        $history = SessionHistory::where('userId',$userId)->where('package_status','active')->get();
+        $count = 1;
+        foreach ($history as $key => $value) {
+            if($value->id == $id){
+                break;
+            }
+            $count++;
+        }
+        return $count;
     }
     public function indexMyHoliday($show){
         if($show == "list"){

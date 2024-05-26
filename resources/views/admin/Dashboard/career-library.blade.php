@@ -130,16 +130,16 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <h3>Summery</h3>
+                            <h3>Summary</h3>
                         </div>
                         <div class="col-md-12 form-group lib-admin-design">
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                    <label for="">Summery Content</label>
+                                    <label for="">Summary Content</label>
                                     <textarea name="summery_content" required class="form-control" id="content" cols="30" rows="10">{{old('summery_content')}}</textarea>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for="">Summery Image</label>
+                                    <label for="">Summary Image</label>
                                     <input type="file" class="form-control" name="summery_image" id="summery_image" required>
                                 </div>
                             </div>
@@ -435,16 +435,16 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 form-group">
-                            <h3>Summery</h3>
+                            <h3>Summary</h3>
                         </div>
                         <div class="col-md-12 form-group lib-admin-design">
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                    <label for="">Summery Content</label>
+                                    <label for="">Summary Content</label>
                                     <textarea name="summery_content" required class="form-control" id="content" cols="30" rows="10">{{$data->summery_content}}</textarea>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for="">Summery Image</label>
+                                    <label for="">Summary Image</label>
                                     <input type="file" class="form-control" name="summery_image" id="summery_image">
                                     <img src="{{asset('assets/career_library/'.$data->summery_image)}}" alt="" class="mt-2" width="200">
                                 </div>

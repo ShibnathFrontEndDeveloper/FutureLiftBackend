@@ -31,7 +31,8 @@ class UserController extends Controller
             'email' => 'required',
             'phone' => 'required',
             'role' => 'required',
-            'password' => 'required'
+            'password' => 'required',
+            'metting_link' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -52,6 +53,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
+        $user->metting_link = $request->metting_link;
         $user->role = 'admin';
         $user->password = Hash::make($request->password);
         $user->save();
@@ -81,7 +83,8 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'phone' => 'required',
-            'role' => 'required'
+            'role' => 'required',
+            'metting_link' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -96,6 +99,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->status = $request->status;
+        $user->metting_link = $request->metting_link;
         $user->save();
 
         UserRole::where('userId',$request->editId)->update([

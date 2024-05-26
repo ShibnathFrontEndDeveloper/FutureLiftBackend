@@ -112,6 +112,10 @@
                             <label for="">Password</label>
                             <input type="password" name="password" id="" required class="form-control">
                         </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">Google Meet Link</label>
+                            <input type="text" name="metting_link" id="" required class="form-control">
+                        </div>
                         <div class="col-md-12 form-group">
                             <input type="submit" value="Submit" class="btn btn-primary">
                         </div>
@@ -166,6 +170,10 @@
                                 <option value="active" {{($user->status == 'active')?'selected':''}}>Active</option>
                                 <option value="inactive" {{($user->status == 'inactive')?'selected':''}}>Inactive</option>
                             </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="">Google Meet Link</label>
+                            <input type="text" name="metting_link" id="" required value="{{$user->metting_link}}" class="form-control">
                         </div>
                         <!-- <div class="col-md-6 form-group">
                             <label for="">Password</label>

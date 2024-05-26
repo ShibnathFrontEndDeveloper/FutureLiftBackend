@@ -170,11 +170,13 @@ class SubscriptionController extends Controller
         $userFind = User::find($payment_user->id);
 
 
-        $html = '';
-        $html .= Helpers::sessionPaymentSuccessEmailContent($userFind->name,$payment_session_data->amount,$getCoun->plan_name,$order_id,$tracking_id);
+        // $html = '';
+        // $html .= Helpers::sessionPaymentSuccessEmailContent($userFind->name,$payment_session_data->amount,$getCoun->plan_name,$order_id,$tracking_id);
         $subject = "Subscription Payment Successfully!";
 
-        $mailSend = Helpers::phpMailerMailSend($userFind->email,$userFind->name,$subject,$html);
+        // $mailSend = Helpers::phpMailerMailSend($userFind->email,$userFind->name,$subject,$html);
+
+        Helpers::sessionPaymentSuccessEmailContent($userFind->name,$payment_session_data->amount,$getCoun->plan_name,$order_id,$tracking_id,$userFind->email,$subject);
 
 
 

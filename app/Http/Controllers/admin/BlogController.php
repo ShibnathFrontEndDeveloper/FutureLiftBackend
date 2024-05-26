@@ -178,10 +178,12 @@ class BlogController extends Controller
         $subsEmail = SubscribeEmail::get();
         if($subsEmail->count() > 0){
             foreach ($subsEmail as $subsEmailkey => $subsEmailvalue) {
-                $html = '';
-                $html .= Helpers::blogMailContent($blogDetails->title,asset('/assets/blog_images/'.$blogDetails->image),url('/blog-details/'.$blogDetails->slug),Str::words(strip_tags($blogDetails->content), 70, ' ...'));
+                // $html = '';
+                // $html .= Helpers::blogMailContent($blogDetails->title,asset('/assets/blog_images/'.$blogDetails->image),url('/blog-details/'.$blogDetails->slug),Str::words(strip_tags($blogDetails->content), 70, ' ...'));
                 $subject = $blogDetails->title;
-                $mailSend = Helpers::phpMailerMailSend($subsEmailvalue->email,'Subscriber',$subject,$html);
+                // $mailSend = Helpers::phpMailerMailSend($subsEmailvalue->email,'Subscriber',$subject,$html);
+
+                Helpers::blogMailContent($blogDetails->title,asset('/assets/blog_images/'.$blogDetails->image),url('/blog-details/'.$blogDetails->slug),Str::words(strip_tags($blogDetails->content), 70, ' ...'),$subsEmailvalue->email,$subject);
             }
         }
 

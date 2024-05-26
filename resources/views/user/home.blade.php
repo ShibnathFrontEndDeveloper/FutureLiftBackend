@@ -35,7 +35,7 @@
                     type="email"
                     name="reg_email"
                     class="testInput"
-                    placeholder="Enter Email I'd"
+                    placeholder="Enter Email Id"
                     required
                     value="{{old('reg_email')}}"
                   />
@@ -192,7 +192,7 @@
                   <div class="whyCard-career-1-content" id="whyContent2-career-1">
                     <p class="whyCard-career-1-text1">120+ Experienced Partners</p>
                     <p class="whyCard-career-1-text2 d-none d-sm-block">
-                      We have experienced certified Counselor throughout India.
+                    We have experienced, certified Counselors from across India
                     </p>
                   </div>
                 </div>
@@ -203,8 +203,7 @@
                   <div class="whyCard-career-1-content" id="whyContent3-career-1">
                     <p class="whyCard-career-1-text1">250+ Institution Partners</p>
                     <p class="whyCard-career-1-text2 d-none d-sm-block">
-                      Many of institutions in India are joining with us to seize
-                      this oppurtunity service.
+                    Institutions across India are joining us to seize this opportunity for their students.
                     </p>
                   </div>
                 </div>
@@ -231,7 +230,7 @@
                         <div class="col-lg-6 col-md-6 mb-3 careerWhyCardContent">
                           <img src="{{asset('assets/images/career_assessment.webp')}}" alt="" class="imgfuid"/>
                           <p>Career Assessment</p>
-                          <p class="last_para">Helps plan & prepare for the best suitable career for you.</p>
+                          <p class="last_para">Discover, plan & prepare for your ideal career path with our tailored tests.</p>
                         </div>
                         <!-- <div class="col-lg-4 careerWhyCardContent">
                           <img src="{{asset('assets/images/sowt analysis.png')}}" alt="" class="imgfuid"/>
@@ -241,20 +240,17 @@
                         <div class="col-lg-6 col-md-6 mb-3 careerWhyCardContent">
                           <img src="{{asset('assets/images/Value_added_aervice.webp')}}" alt="" class="imgfuid"/>
                           <p>Value Added Service</p>
-                          <p class="last_para">Provides tools to conquer obstacles in the desert carrier
-                            path.</p>
+                          <p class="last_para">Access tools to conquer obstacles on your academic and career journey.</p>
                         </div>
                         <div class="col-lg-6 col-md-6 mb-3 careerWhyCardContent">
                           <img src="{{asset('assets/images/techCounseling-02.webp')}}" alt="" class="imgfuid"/>
-                          <p>Tech-Empowered Counselling </p>
-                          <p class="last_para">It helps to save your time and money. It gives you
-                            personalized quality service.</p>
+                          <p>Tech-Enhanced Counseling </p>
+                          <p class="last_para">Save time and money with our innovative approach and receive personalized guidance.</p>
                         </div>
                         <div class="col-lg-6 col-md-6 mb-3 careerWhyCardContent">
                           <img src="{{asset('assets/images/Knowledge_repositories.webp')}}" alt="" class="imgfuid" />
-                          <p>Knowledge Repository</p>
-                          <p class="last_para">It helps to understand the demand of occupation provides
-                            educational grooming.</p>
+                          <p>Rich Knowledge Base</p>
+                          <p class="last_para">Explore career insights, know what is in demand, and get groomed for your educational and professional growth.</p>
                         </div>
                       </div>
                     </div>
@@ -353,8 +349,7 @@
                     Personality begins where comparison ends...
                   </p>
                   <p class="homepageCard-text2">
-                    Know which type of personality you have and do the best you
-                    can.
+                  Discover your unique personality type and unlock your full potential.
                   </p>
                 </div>
                 <a href="{{url('/personality-test')}}"
@@ -370,9 +365,9 @@
               <div class="content col-lg-6 col-md-6">
                 <div class="cardText">
                   <p class="homepageCard-text1">
-                    Find & learn to manage your talent...
+                  Learn to identify and nurture your talents...
                   </p>
-                  <p class="homepageCard-text2"> Measure your interest lets you accurately match your preference.</p>
+                  <p class="homepageCard-text2"> Assessing your interests helps pinpoint your preferences accurately.</p>
                 </div>
                 <a href="{{url('/interest-test')}}"
                   ><button class="cardbtn">Know More</button></a
@@ -395,12 +390,12 @@
               <div class="content col-lg-6 col-md-6">
                 <div class="cardText">
                   <p class="homepageCard-text1">
-                    Aptitude improves chances of success...
+                  Aptitude enhances your success potential..
                   </p>
                   <ul class="homepageCard-text2">
-                    <li>Understand the area of interest and strengths better.</li>
+                    <li>Understand your areas of interests and strengths better.</li>
                     <li>
-                      improve you're analytical thinking and observation power.
+                    Improve your analytical thinking and observational skills.
                     </li>
                   </ul>
                 </div>
@@ -450,8 +445,7 @@
           <div class="sessionContent">
             <p>InstantAdvice Career Session...</p>
             <p>
-              Are you know about your specific career options and career
-              opportunities?Like:
+            Are you familiar with your specific career options and opportunities? Explore:
             </p>
             <ul class="row mb-5">
               <li class="col-6">Career Threats</li>
@@ -524,8 +518,7 @@
           <div class="d-flex align-items-center flex-column px-3">
             <h1 class="sd_text">Why Everyone Love Future Lift!</h1>
             <p class="sd_txt_para">
-              Our users get value from our services, here they share their
-              experience and thoughts about us.
+            Discover why our users value our services. Read their shared experiences and thoughts about us below.
             </p>
           </div>
           <div class="tab-Section container-fluid d-flex flex-column px-2">
@@ -633,7 +626,7 @@
           <div class="container-fluid careerSubscribeSection">
             <div class="careerSubscribeContent">
               <p>
-                Subscribe to get access of our Education Library and News...
+              Access all our premium Education Library & News in 1 Step!
               </p>
               <div class="collapse" id="Subscribe_mail_box">
                 <form action="{{url('/subscribeSubmit')}}" method="post">

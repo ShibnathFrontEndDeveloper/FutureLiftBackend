@@ -94,18 +94,22 @@ class AuthController extends Controller
         Helpers::addUserNotification($user->id,'user_registration','Welcome to FutureLift','registration',$notificationContent);
 
 
-        $html = '';
-        $html .= Helpers::welcomeEmailContent($request->name);
+        // $html = '';
+        // $html .= Helpers::welcomeEmailContent($request->name);
         $subject = "Welcome to FUTURE LIFT - Your Partner in Career Success!";
-        $mailSend = Helpers::phpMailerMailSend($request->email,$request->name,$subject,$html);
+        // $mailSend = Helpers::phpMailerMailSend($request->email,$request->name,$subject,$html);
+
+        Helpers::welcomeEmailContent($request->name,$request->email,$subject);
 
 
         $referLink = url('refer-user/'.$my_referral_code);
 
-        $html_refer = '';
-        $html_refer .= Helpers::ownReferMailContent($request->name,$referLink,$my_referral_code);
+        // $html_refer = '';
+        // $html_refer .= Helpers::ownReferMailContent($request->name,$referLink,$my_referral_code);
         $subject_refer = "Introducing our Refer & Earn! FUTURE LIFT";
-        $mailSend_refer = Helpers::phpMailerMailSend($request->email,$request->name,$subject_refer,$html_refer);
+        // $mailSend_refer = Helpers::phpMailerMailSend($request->email,$request->name,$subject_refer,$html_refer);
+
+        Helpers::ownReferMailContent($request->name,$referLink,$my_referral_code,$request->email,$subject_refer);
 
         /////////// SSO login ///////////////
 
@@ -230,7 +234,7 @@ class AuthController extends Controller
     }
     public function handleGoogleCallback()
     {
-        $userData = Socialite::driver('google')->user();
+        $userData = Socialite::driver('google')->stateless()->user();
         $exits = User::where('email',$userData->email)->where('role','user');
         if($exits->get()->count() > 0){
             $exitData = $exits->first();
@@ -239,6 +243,9 @@ class AuthController extends Controller
             ///// static password generate for login
 
             $pass = "bkqmk2u50psss";
+            User::where('email',$userData->email)->update([
+                "password" => Hash::make($pass)
+            ]);
             if(Auth::guard('user')->attempt(['email' => $exitData->email, 'password' => $pass , 'role' => 'user'],$remember)){
                 Toastr::success('Login Successfully','success');
                 return Redirect('/user-dashboard');
@@ -272,18 +279,22 @@ class AuthController extends Controller
             $notificationContent = "Welcome to FutureLift!  We're thrilled to have you join us. Explore, discover, and make the most of your journey here. If you have any questions or need assistance, don't hesitate to ask. Happy browsing!";
             Helpers::addUserNotification($user->id,'user_registration','Welcome to FutureLift','registration',$notificationContent);
 
-            $html = '';
-            $html .= Helpers::welcomeEmailContent($userData->name);
+            // $html = '';
+            // $html .= Helpers::welcomeEmailContent($userData->name);
             $subject = "Welcome to FUTURE LIFT - Your Partner in Career Success!";
-            $mailSend = Helpers::phpMailerMailSend($userData->email,$userData->name,$subject,$html);
+            //$mailSend = Helpers::phpMailerMailSend($userData->email,$userData->name,$subject,$html);
+
+            Helpers::welcomeEmailContent($userData->name,$userData->email,$subject);
 
 
             $referLink = url('refer-user/'.$my_referral_code);
 
-            $html_refer = '';
-            $html_refer .= Helpers::ownReferMailContent($request->name,$referLink,$my_referral_code);
+            // $html_refer = '';
+            // $html_refer .= Helpers::ownReferMailContent($userData->name,$referLink,$my_referral_code);
             $subject_refer = "Introducing our Refer & Earn! FUTURE LIFT";
-            $mailSend_refer = Helpers::phpMailerMailSend($request->email,$request->name,$subject_refer,$html_refer);
+            // $mailSend_refer = Helpers::phpMailerMailSend($userData->email,$userData->name,$subject_refer,$html_refer);
+
+            Helpers::ownReferMailContent($userData->name,$referLink,$my_referral_code,$userData->email,$subject_refer);
 
             $remember = true;
             if(Auth::guard('user')->attempt(['email' => $user->email, 'password' => $pass , 'role' => 'user'],$remember)){

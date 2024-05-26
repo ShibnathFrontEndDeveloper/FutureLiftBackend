@@ -80,9 +80,11 @@ class ReferController extends Controller
         $referMail->userId = Auth::guard('user')->user()->id;
         $referMail->save();
 
-        $html = '';
-        $html .= Helpers::referMailContent($request->mailer_name,$referLink,Auth::guard('user')->user()->code);
-        $mailSend = Helpers::phpMailerMailSend($request->mailer_mail,$request->mailer_name,$subject,$html);
+        // $html = '';
+        // $html .= Helpers::referMailContent($request->mailer_name,$referLink,Auth::guard('user')->user()->code);
+        // $mailSend = Helpers::phpMailerMailSend($request->mailer_mail,$request->mailer_name,$subject,$html);
+
+        Helpers::referMailContent($request->mailer_name,$referLink,Auth::guard('user')->user()->code,$request->mailer_mail,$subject);
 
         Toastr::success('Mail sent successfully','success');
         return Redirect('/refer-and-earn');
