@@ -280,11 +280,15 @@
 
         <div class="modal popup_box" id="missingPhonePopup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content ref_mdal_box">
-                    <div class="modal-header">
-                        <h1 class="modal-title season_header" id="exampleModalLabel">HI {{strtoupper(Auth::guard('user')->user()->name)}}! </br>Just one last step.</h1>
+                <div class="modal-content ref_mdal_box session_popup">
+                    <div class="modal-header flex-column">
+                      <div class="d-flex justify-content-center w-100 session_img_bg">
+                        <img src="{{asset('assets/images/logo1.png')}}" alt="" width="118px" class="img-fluid">
+                      </div>
+                        <h1 class="modal-title season_header text-center w-100 pt-4" id="exampleModalLabel">HI {{strtoupper(Auth::guard('user')->user()->name)}}! </h1>
+                        <span class="text-center w-100 modal_subtitle">Submit Your Initial details</span>
                     </div>
-                    <form action="{{url('/updatePhoneNumber')}}" method="post">
+                    <form action="{{url('/updatePhoneNumber')}}" method="post" class="session_form m-2 ">
                         @csrf
                         <div class="modal-body">
                             <div class="row g-5">
@@ -292,9 +296,9 @@
                                     <label for="">Enter Your Phone Number</label>
                                     <input type="number" required name="phoneNumber" pattern="^[6789]\d{9,9}$" id="" class="form-control">
                                 </div>
-                                <div class="col-lg-12 ">
+                                <div class="col-lg-12 mt-2">
                                     <label for="">Enter Your State</label>
-                                    <select id="Select State" class="form-control" name="state" required>
+                                    <select id="Select State" class="form-select" name="state" required>
                                         <option value="">Select State</option>
                                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                                         <option value="Andaman and Nicobar Islands">
@@ -338,14 +342,14 @@
                                         <option value="West Bengal">West Bengal</option>
                                     </select>
                                 </div>
-                                <div class="col-lg-12 ">
+                                <div class="col-lg-12 mt-2">
                                     <label for="">Enter Your Password</label>
                                     <input type="password" required name="password" id="" class="form-control">
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary upgrade_btn">Go to My Dashboard</button>
+                        <div class="modal-footer ">
+                            <button type="submit" class="btn btn-primary session_btn">Submit</button>
                         </div>
                     </form>
                 </div>

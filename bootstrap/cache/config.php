@@ -484,11 +484,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.gmail.com',
-        'port' => '25',
-        'encryption' => 'TLS',
-        'username' => 'rajdeeproychowdhuryb@gmail.com',
-        'password' => 'uxrijlygawdnwecr',
+        'host' => 'smtp.hostinger.com',
+        'port' => '465',
+        'encryption' => 'ssl',
+        'username' => 'info@futurelift.in',
+        'password' => 'info@Futurelift2024',
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -521,8 +521,8 @@
     ),
     'from' => 
     array (
-      'address' => 'rajdeeproychowdhuryb@gmail.com',
-      'name' => 'Laravel',
+      'address' => 'info@futurelift.in',
+      'name' => 'FutureLift',
     ),
     'markdown' => 
     array (

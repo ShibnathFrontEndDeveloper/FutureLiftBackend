@@ -22470,6 +22470,22 @@ fieldset h1{
   border-bottom: none;
   border-top: none;
 }
+.session_popup .modal-header{
+  background: #d71d5c;
+}
+.session_popup .session_img_bg{
+  background: #fff;
+}
+.session_popup .modal-title{
+  color: #fff;
+}
+.session_popup .modal_subtitle{
+  color: #fff;
+}
+.session_btn{
+  background: #d71d5c !important;
+  border: none;
+}
 .ref_mdal_box .modal-footer{
   justify-content: center;
 }
