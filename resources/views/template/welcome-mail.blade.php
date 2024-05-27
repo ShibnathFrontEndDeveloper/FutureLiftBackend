@@ -197,7 +197,7 @@
                                                         <table border="0" cellpadding="0" cellspacing="0" class="heading_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
                                                             <tr>
                                                                 <td class="pad" style="padding-top:10px;text-align:center;width:100%;">
-                                                                    <h1 style="margin: 0; color: #ffffff; direction: ltr; font-family: 'Bitter', Georgia, Times, 'Times New Roman', serif; font-size: 30px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0; mso-line-height-alt: 36px;"><span class="tinyMce-placeholder">Hey Rahul,Welcome!</span></h1>
+                                                                    <h1 style="margin: 0; color: #ffffff; direction: ltr; font-family: 'Bitter', Georgia, Times, 'Times New Roman', serif; font-size: 30px; font-weight: 700; letter-spacing: normal; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0; mso-line-height-alt: 36px;"><span class="tinyMce-placeholder">Hey {{$data['name']}},Welcome!</span></h1>
                                                                 </td>
                                                             </tr>
                                                         </table>
