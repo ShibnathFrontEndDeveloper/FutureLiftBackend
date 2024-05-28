@@ -101,10 +101,10 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="">Role</label>
-                            <select name="role" id="" class="form-control" required>
+                            <select name="role" id="" onchange="roleChange(this)" class="form-control" required>
                                 <option value="">Select Role</option>
                                 @foreach ($role as $roleKey => $roleValue )
-                                    <option value="{{$roleValue->id}}">{{$roleValue->name}}</option>
+                                    <option data-id="{{$roleValue->name}}" value="{{$roleValue->id}}">{{$roleValue->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -112,9 +112,9 @@
                             <label for="">Password</label>
                             <input type="password" name="password" id="" required class="form-control">
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 form-group d-none" id="linkDiv">
                             <label for="">Google Meet Link</label>
-                            <input type="text" name="metting_link" id="" required class="form-control">
+                            <input type="text" name="metting_link" id="metting_link" class="form-control">
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="submit" value="Submit" class="btn btn-primary">
@@ -157,10 +157,10 @@
                         </div>
                         <div class="col-md-6 form-group">
                             <label for="">Role</label>
-                            <select name="role" id="" class="form-control" required>
+                            <select name="role" id="" onchange="roleChange(this)" class="form-control" required>
                                 <option value="">Select Role</option>
                                 @foreach ($role as $roleKey => $roleValue )
-                                    <option value="{{$roleValue->id}}" <?=($currentRole->roleId == $roleValue->id)?'selected':''?>>{{$roleValue->name}}</option>
+                                    <option data-id="{{$roleValue->name}}" value="{{$roleValue->id}}" <?=($currentRole->roleId == $roleValue->id)?'selected':''?>>{{$roleValue->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -171,9 +171,9 @@
                                 <option value="inactive" {{($user->status == 'inactive')?'selected':''}}>Inactive</option>
                             </select>
                         </div>
-                        <div class="col-md-6 form-group">
+                        <div class="col-md-6 form-group {{(App\Helpers::userIdWiseRoleName($user->id) == 'Counselor')?'':'d-none'}}" id="linkDiv">
                             <label for="">Google Meet Link</label>
-                            <input type="text" name="metting_link" id="" required value="{{$user->metting_link}}" class="form-control">
+                            <input type="text" name="metting_link" {{(App\Helpers::userIdWiseRoleName($user->id) == 'Counselor')?'required':''}} id="metting_link" value="{{$user->metting_link}}" class="form-control">
                         </div>
                         <!-- <div class="col-md-6 form-group">
                             <label for="">Password</label>
@@ -195,5 +195,15 @@
         order: [[0, 'asc']],
         responsive: true
     });
+    function roleChange(role){
+        let roleName = $(role).find(':selected').attr('data-id');
+        if(roleName === 'Counselor'){
+            $("#linkDiv").removeClass('d-none');
+            $("#metting_link").attr('required',true);
+        }else{
+            $("#linkDiv").addClass('d-none');
+            $('#metting_link').attr('required',false);
+        }
+    }
 </script>
 @endsection

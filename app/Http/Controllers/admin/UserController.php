@@ -32,7 +32,7 @@ class UserController extends Controller
             'phone' => 'required',
             'role' => 'required',
             'password' => 'required',
-            'metting_link' => 'required'
+            // 'metting_link' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -84,7 +84,7 @@ class UserController extends Controller
             'name' => 'required',
             'phone' => 'required',
             'role' => 'required',
-            'metting_link' => 'required'
+            // 'metting_link' => 'required'
         ]);
 
         if ($validator->fails()) {
