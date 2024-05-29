@@ -20,7 +20,7 @@
 
 
       <div class="container-fluid">
-        <div class="banner container-fluid">
+        <div class="banner container-fluid mt-5">
           <img src="{{asset('assets/images/Banner1-01.png')}}" alt=""  class="img-fluid"/>
           <div class="Counselling8th-bannerContent col-6">
             <p>Welcome to 8th-10th Class</p>
@@ -37,8 +37,8 @@
           id="serviceSection"
         >
           <div class="serviceVideoContent">
-            <p>Why you Choose Future Lift</p>
-            <p>For 8th to 10th class Counselling</p>
+            <h2 class="heading">Why you Choose Future Lift</h2>
+            <p class="suheading">For 8th to 10th class Counselling</p>
           </div>
           <iframe
             class="serviceVideo"
@@ -50,10 +50,10 @@
 
         <!-- Success section start -->
         <div
-          class="successSection8th my-5 container-fluid d-flex align-items-center flex-column"
+          class="successSection8th mt-5  container-fluid d-flex align-items-center flex-column"
           data-aos="zoom-in-up"
         >
-          <p class="successSection8th-heading">Success is just 3 steps away</p>
+          <h1 class="heading">Success is just 3 steps away</h1>
           <div
             class="successSection8th-cards justify-content-center py-4 row col-12"
           >

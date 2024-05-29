@@ -37,8 +37,8 @@
           id="serviceSection"
         >
           <div class="serviceVideoContent">
-            <p>Why you Choose Future Lift</p>
-            <p>For 10th to 12th class Counselling</p>
+          <h2 class="heading">Why you Choose Future Lift</h2>
+            <p class="suheading">For 10th to 12th class Counselling</p>
           </div>
           <iframe
             class="serviceVideo"
@@ -53,7 +53,7 @@
           class="successSection8th my-5 container-fluid d-flex align-items-center flex-column"
           data-aos="zoom-in-up"
         >
-          <p class="successSection8th-heading">Success is just 4 steps away</p>
+        <h1 class="heading">Success is just 4 steps away</h1>
           <div
             class="successSection8th-cards justify-content-center py-4 row col-12"
           >

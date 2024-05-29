@@ -22,7 +22,7 @@
       <div class="container">
 
       <div class="row blogDtls_row">
-                <div class="col-lg-9 col-md-9 handpicked_blog_box">
+                <div class="col-lg-9 col-md-7 handpicked_blog_box">
                     <div class="first_blog mb-5">
                         <h3 class="blog_page_heading">{{$blog->title}}</h3>
                         @php
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 main_blog">
+                <div class="col-lg-3 col-md-5 main_blog">
                     <h2 class="blog_heading blog_subHeading">search</h2>
                     <form class="blog_search" action="{{url('/blog-search')}}">
                         <fieldset>

@@ -804,7 +804,7 @@ input::-webkit-calendar-picker-indicator {
   align-items: center;
   width: 100%;
   padding: 2rem;
-  height: 15rem;
+  /* height: 15rem; */
 }
 .serviceVideoContent {
   width: 50%;
@@ -813,17 +813,19 @@ input::-webkit-calendar-picker-indicator {
   justify-content: center;
   align-items: center;
 }
-.serviceVideoContent :nth-child(1) {
-  font-size: 2rem;
-  font-weight: 600;
+.serviceVideoContent .heading{
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
-.serviceVideoContent :nth-child(2) {
-  font-size: 1.5rem;
+.serviceVideoContent .suheading{
+  font-size: 20px;
 }
+
 .serviceVideo {
-  width: 50%;
-  height: 15rem;
-  padding: 0 10rem;
+  width: 400px;
+  height: 250px;
+  /* padding: 0 10rem; */
 }
 /* Homepage display cards styling */
 .cardbtn {
@@ -940,9 +942,11 @@ input::-webkit-calendar-picker-indicator {
 .whyCard-career-1-content {
   padding: 2rem 1rem 0.2rem 1rem;
   border-radius: 15px;
-margin-top: -30px;
-background: rgba(255, 255, 255, 0.671);
-backdrop-filter: blur(6px);
+  margin-top: -30px;
+  background: rgba(255, 255, 255, 0.671);
+  backdrop-filter: blur(6px);
+  height: 150px;
+  overflow: auto;
 }
 #whyContent1-career-1 {
   box-shadow: -10px 0px 0px -2px rgb(0, 119, 188), 0px 8px 8px grey;
@@ -967,7 +971,7 @@ backdrop-filter: blur(6px);
   font-size: 3.5rem;
 }
 .whyCard-career-1-text1 {
-  font-size: 1.4rem;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -1093,7 +1097,7 @@ backdrop-filter: blur(6px);
   height: 20rem;
 }
 #Subscribe_mail_box{
-  border: 1px solid #0a58ca;
+  border: 1px solid #bd2222;
   margin-bottom: 15px;
   border-radius: 8px;
 }
@@ -1102,6 +1106,11 @@ backdrop-filter: blur(6px);
 }
 #Subscribe_mail_box .form-control:focus{
   box-shadow: none;
+}
+#Subscribe_mail_box .btn{
+  background: #bd2222;
+  color: #fff;
+  padding: 0 25px;
 }
 
 /* Tabs Section styling */
@@ -1250,6 +1259,7 @@ backdrop-filter: blur(6px);
   border: double #dc3545;
   width: 100%;
   padding: 2rem;
+  flex-wrap: wrap;
 }
 .careerSubscribeContent {
   width: 50%;
@@ -1330,16 +1340,18 @@ backdrop-filter: blur(6px);
 }
 
 /* Counselling Success Styling */
+.successSection8th h1{
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
 .successSection8th-cards {
   background-image: url("../assets/images/order_bg.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
 }
-.successSection8th-heading {
-  font-size: 2rem;
-  font-weight: 600;
-}
+
 .successSection8th-card {
   padding: 0.5rem;
 }
@@ -1358,12 +1370,11 @@ backdrop-filter: blur(6px);
   border: 0;
   color: white;
   background-color: crimson;
-  position: relative;
-  bottom: 0;
-  width: 50%;
-  padding: 5px 20px;
+  padding: 12px;
   font-size: 16px;
   border-radius: 8px;
+  display: block;
+  width: 100%;
 }
 .successSection8th-cardbtn:hover{
     color:#fff;
@@ -2051,9 +2062,9 @@ transform: translate(-5px, 5px) rotate(-45deg)
     padding: 0 1rem;
     font-size: 1.8rem;
   }
-  .serviceVideo {
+  /* .serviceVideo {
     padding: 0 3rem;
-  }
+  } */
   .successCard-heading {
     font-size: 1.2rem;
   }
@@ -2232,12 +2243,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .sessionContent {
     padding: 2rem 0;
   }
-  .careerSubscribeSection {
-    display: flex;
-    border: double green;
-    width: 100%;
-    padding: 2rem;
-  }
+  
   .careerSubscribeContent p {
     font-size: 1.5rem;
   }
@@ -2267,18 +2273,13 @@ transform: translate(-5px, 5px) rotate(-45deg)
     padding: 0 1rem;
     font-size: 1.5rem;
   }
-  .serviceVideoContent :nth-child(1) {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-  .serviceVideoContent :nth-child(2) {
-    font-size: 1.2rem;
-  }
-  .serviceVideo {
+  
+ 
+  /* .serviceVideo {
     padding: 2rem;
-  }
+  } */
   .serviceSection8th {
-    height: 10rem;
+    /* height: 10rem; */
   }
   .successCard-heading {
     font-size: 1rem;
@@ -2392,6 +2393,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
     margin-bottom: 0;
     font-size: 0.9rem;
   }
+  
 }
 @media screen and (max-width: 770px) {
   .bannerContent {
@@ -2437,7 +2439,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
     font-size: 2rem;
   }
   .whyCard-career-1-text1 {
-    font-size: 0.95rem;
+    font-size: 14px;
   }
   .whyCard-career-1-content{
       margin-top:-15px;
@@ -2470,6 +2472,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   }
   .careerSubscribeContent {
     padding-left: 2rem;
+    width: 100%;
   }
   .careerSubscribeContent p {
     font-size: 1.2rem;
@@ -2511,16 +2514,15 @@ transform: translate(-5px, 5px) rotate(-45deg)
     padding: 0 1rem;
     font-size: 1rem;
   }
-  .serviceVideoContent :nth-child(1) {
-    font-size: 1.2rem;
-    font-weight: 600;
+
+  .serviceVideoContent{
+    width: 100%;
   }
-  .serviceVideoContent :nth-child(2) {
-    font-size: 1rem;
-  }
-  .serviceVideo {
+ 
+  
+  /* .serviceVideo {
     padding: 3rem 1rem;
-  }
+  } */
   .successCard-heading {
     font-size: 0.9rem;
   }
@@ -2569,9 +2571,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .testServiceCardText :nth-child(2) {
     font-size: 0.7rem;
   }
-  .successSection8th-heading{
-    margin-top: 120px;
-  }
+  
   .footer-area .footer-logo{
     width: 160px;
   }
@@ -2703,9 +2703,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .tabCardContent p {
     font-size: 0.6rem;
   }
-  .successSection8th-heading {
-    font-size: 1.5rem;
-  }
+  
   .faqQuestion p {
     font-size: 0.6rem;
   }
@@ -2719,13 +2717,10 @@ transform: translate(-5px, 5px) rotate(-45deg)
     padding: 0.8rem 2.5rem;
   }
 
-  .serviceVideoContent :nth-child(2) {
-    font-size: 0.8rem;
-    margin-top: -18px;
-  }
-  .serviceVideo {
+ 
+  /* .serviceVideo {
     padding: 1rem 1rem;
-  }
+  } */
   .callExpertSection8th {
     flex-direction: column;
     padding: 1rem;
@@ -2903,11 +2898,11 @@ transform: translate(-5px, 5px) rotate(-45deg)
   }
 
   .serviceSection8th {
-    height: 10rem;
+    /* height: 10rem; */
   }
-  .serviceVideo {
+  /* .serviceVideo {
     width: 100%;
-  }
+  } */
   .serviceVideoContent{
     width: 100%;
   }
@@ -3026,6 +3021,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .whyCard-career-1-content{
       padding:.5rem 0rem 0rem .5rem;
       margin-top:-11px;
+      height: unset;
   }
   .reverse_card{
       flex-direction:column-reverse;
@@ -3320,13 +3316,11 @@ transform: translate(-5px, 5px) rotate(-45deg)
   }
 
 
-  .serviceVideo {
+  /* .serviceVideo {
     height: 14rem;
     padding: 1rem;
-  }
-  .successSection8th-heading {
-    font-size: 1rem;
-  }
+  } */
+ 
   .successCard-heading {
     font-size: 0.8rem;
   }
@@ -3505,14 +3499,14 @@ transform: translate(-5px, 5px) rotate(-45deg)
 }
 .share_part{
     position: fixed;
-    left: 30px;
-    top: 100px;
+    left: 0px;
+    top: 200px;
     z-index: 100;
   }
   .share_part .social_icon_links{
     display: block;
     text-align: center;
-    padding: 10px 20px;
+    padding: 0px 10px;
   }
   .share_part .social_icon_links:hover{
     background: #007bff;

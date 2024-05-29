@@ -377,7 +377,7 @@
   <div class="container">
     <div class="d-flex flex-wrap">
       <div class="col-md-6 cpyrgt_fisrt">
-        <p class="flex-start">Copyright © 2023 future lift All Right Reserved</p>
+        <p class="flex-start">Copyright © 2024 Future Lift All Right Reserved</p>
       </div>
       <div class="col-md-6 cpyrgt_second">
         <p class="flex-end">Design and Develop by <a target="_blank" href="https://websolveinfo.com/">websolveinfo</a></p>

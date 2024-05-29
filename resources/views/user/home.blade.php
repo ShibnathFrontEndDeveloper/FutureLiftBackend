@@ -628,16 +628,16 @@
               <p>
               Access all our premium Education Library & News in 1 Step!
               </p>
-              <div class="collapse" id="Subscribe_mail_box">
+              <div class="" id="Subscribe_mail_box">
                 <form action="{{url('/subscribeSubmit')}}" method="post">
                     @csrf
                   <div class="form-group d-flex">
                     <input type="email" name="subscribe_email" class="form-control" placeholder="Email" required>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn">Submit</button>
                   </div>
                 </form>
               </div>
-              <button class="careerSubscribebtn" data-bs-toggle="collapse" data-bs-target="#Subscribe_mail_box">Subscribe with Gmail</button>
+              <!-- <button class="careerSubscribebtn" data-bs-toggle="collapse" data-bs-target="#Subscribe_mail_box">Subscribe with Gmail</button> -->
 
             </div>
             <div class="careerSubscribeImg">
