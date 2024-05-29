@@ -313,11 +313,13 @@ class HomeController extends Controller
         $linkGenerate = base64_encode($uniqueCode);
         $url = url('/password-set/'.$Iddecode.'/'.$linkGenerate.'/'.$uniqueCode2);
 
-        $html = '';
-        $html .= Helpers::forgotPasswordEmailContent($exits->name,$url);
+        // $html = '';
+        // $html .= Helpers::forgotPasswordEmailContent($exits->name,$url);
         $subject = "Reset Your FUTURE LIFT Password";
 
-        $mailSend = Helpers::phpMailerMailSend($request->email,$exits->name,$subject,$html);
+        //$mailSend = Helpers::phpMailerMailSend($request->email,$exits->name,$subject,$html);
+
+        Helpers::forgotPasswordEmailContent($exits->name,$url,$request->email,$subject);
 
         Toastr::success('We have e-mailed your password reset link','success');
         return back();

@@ -454,9 +454,12 @@
         }
     </script> -->
 
+    @if (!Auth::guard('user')->user()->phone)
         <script>
             $("#missingPhonePopup").modal({backdrop: 'static', keyboard: false});
         </script>
+    @endif
+
 
     @yield('scripts')
   </body>
