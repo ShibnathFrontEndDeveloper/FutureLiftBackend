@@ -141,7 +141,7 @@
             <li class="nav-item menu-items {{Request::is('admin/my-profile')?'active':''}}">
                 <a class="nav-link" href="{{url('/admin/my-profile')}}">
                 <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
+                    <i class="mdi mdi-account-settings"></i>
                 </span>
                 <span class="menu-title">My Profile</span>
                 </a>
@@ -165,7 +165,7 @@
             <li class="nav-item menu-items {{Request::is('admin/my-holiday/list')?'active':''}}">
                 <a class="nav-link" href="{{url('/admin/my-holiday/list')}}">
                 <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
+                    <i class="mdi mdi-format-list-checks"></i>
                 </span>
                 <span class="menu-title">My Holiday</span>
                 </a>
@@ -173,7 +173,7 @@
             <li class="nav-item menu-items {{Request::is('admin/my-earning-history')?'active':''}}">
                 <a class="nav-link" href="{{url('/admin/my-earning-history')}}">
                 <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
+                    <i class="mdi mdi-shield"></i>
                 </span>
                 <span class="menu-title">My Earning History</span>
                 </a>
@@ -181,7 +181,7 @@
             <li class="nav-item menu-items {{Request::is('admin/admin-help')?'active':''}}">
                 <a class="nav-link" href="{{url('/admin/admin-help')}}">
                 <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
+                    <i class="mdi mdi-help-circle-outline"></i>
                 </span>
                 <span class="menu-title">Help</span>
                 </a>

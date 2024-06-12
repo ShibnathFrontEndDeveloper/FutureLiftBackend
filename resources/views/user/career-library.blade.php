@@ -45,7 +45,7 @@
                               @endforeach
 
                           </div>
-                          <div id="blankdiv"></div>
+
                           <div class="bestForYou d-none d-lg-block">
                               <h5>Know what is best for you!</h5>
                               <p>Take world class Assessment test</p>
@@ -60,8 +60,9 @@
                         <div class="tab-content" id="v-pills-tabContent">
 
                         </div>
-                    </div>
 
+                    </div>
+                    <div id="blankdiv"></div>
                     <div class="bestForYou d-lg-none d-sm-block p-3 border">
                         <h5>Know what is best for you!</h5>
                         <p>Take world class Assessment test</p>
@@ -146,6 +147,7 @@
 
     <script>
         let mybutton = document.getElementById("scrollToTop");
+        var scrollPosition = 0;
 
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function() {scrollFunction()};
@@ -171,6 +173,8 @@
                     url: "<?=url('/get-library-data')?>/"+key+"/"+categoryId,
                     success : function(data){
                         $("#v-pills-tabContent").html(data);
+                        scrollPosition = $('#blankdiv').offset().top - 250;
+                        console.log(scrollPosition,'scrollPosition');
                         $("#ftco-loader").hide();
                     },error: function(data){
                         $("#ftco-loader").hide();
@@ -207,9 +211,12 @@
         //     tabNav.classList.remove('sticky');
         //   }
         // }
-        var scrollPosition = $('#blankdiv').offset().top;
+
+
          $(window). scroll(function(){
+          console.log($(this).scrollTop(),'ddd');
              if ($(this).scrollTop() > 200 && $(this).scrollTop() < scrollPosition) {
+
                  $('.elimeni_box').addClass('newClass');
                  $('.feature_box').addClass('newTab');
             }else{
