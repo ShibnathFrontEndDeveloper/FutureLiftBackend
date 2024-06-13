@@ -94,6 +94,10 @@
                             <input type="file" name="image" id="" onchange="checkImageResolution(this);" required class="form-control">
                         </div>
                         <div class="col-md-12 form-group">
+                            <label for="">Blog Banner Image </label>
+                            <input type="file" name="banner_image" id="" accept="image/*" required class="form-control">
+                        </div>
+                        <div class="col-md-12 form-group">
                             <label for="">Blog Tags</label>
                             <select class="form-control js-example-tags" name="tag[]" id="tag" required multiple="multiple">
                                 @foreach ($tag as $tagKey => $tagValue)
@@ -148,6 +152,10 @@
                         <div class="col-md-12 form-group">
                             <label for="">Blog Image <small class="text-danger">(image maximum resolution 570 x 300 and minimum resolution 370 x 260)</small></label>
                             <input type="file" name="image" id="" accept="image/*" onchange="checkImageResolution(this)" class="form-control">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="">Blog Banner Image </label>
+                            <input type="file" name="banner_image" id="" accept="image/*" class="form-control">
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="">Blog Tags</label>

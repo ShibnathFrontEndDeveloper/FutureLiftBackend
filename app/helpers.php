@@ -1391,7 +1391,7 @@ class Helpers
             $status = "success";
 
         }
-        Helpers::mailDataSave($email , $name , $subject , json_encode($data) , $status);
+        Helpers::mailDataSave($email , 'email subscriber' , $subject , json_encode($data) , $status);
     }
     // public static function sessionRejectedEmailContent($name,$date_time){
     //     $html = '';

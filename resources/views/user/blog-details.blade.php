@@ -29,7 +29,11 @@
                             $userDetailsAllBlog = App\Helpers::getUserDetails($blog->userId);
                         @endphp
                         <a href="" class="title_blog">{{$userDetailsAllBlog->name}}</a> <span class="title_blog">{{date('jS F Y',strtotime($blog->created_at))}}</span>
+                        @if($blog->banner_image)
+                        <img src="{{asset('assets/blog_images/'.$blog->banner_image)}}" alt="" class="img-fluid mt-4">
+                        @else
                         <img src="{{asset('assets/blog_images/'.$blog->image)}}" alt="" class="img-fluid mt-4">
+                        @endif
                         <div class="tag-blog-section">
                             Tags:
                             @foreach ($blogTag as $blogTagKey => $blogTagValue)

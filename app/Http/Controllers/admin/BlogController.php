@@ -118,6 +118,7 @@ class BlogController extends Controller
             'category' => 'required',
             'title' => 'required',
             'image' => 'required|image|mimes:jpeg,jpg,png,bmp,gif,svg',
+            'banner_image' => 'required|image|mimes:jpeg,jpg,png,bmp,gif,svg',
             'tag' => 'required',
             'content' => 'required'
         ]);
@@ -142,11 +143,19 @@ class BlogController extends Controller
             $imageName = NULL;
         }
 
+        if($request->has('banner_image')){
+            $bannerimageName = time().'_banner_image_'.rand(999,9999).'.'.$request->banner_image->extension();
+            $request->banner_image->move(public_path('assets/blog_images'), $bannerimageName);
+        }else{
+            $bannerimageName = NULL;
+        }
+
         $blog = new Blog();
         $blog->categoryId = $request->category;
         $blog->userId = Auth::guard('admin')->user()->id;
         $blog->title = $request->title;
         $blog->image = $imageName;
+        $blog->banner_image = $bannerimageName;
         $blog->content = $request->content;
         $blog->save();
 
@@ -209,6 +218,7 @@ class BlogController extends Controller
             'category' => 'required',
             'title' => 'required',
             'image' => 'image|mimes:jpeg,jpg,png,bmp,gif,svg',
+            'banner_image' => 'image|mimes:jpeg,jpg,png,bmp,gif,svg',
             'tag' => 'required',
             'content' => 'required'
         ]);
@@ -235,11 +245,19 @@ class BlogController extends Controller
             $imageName = $blog->image;
         }
 
+        if($request->has('banner_image')){
+            $bannerimageName = time().'_banner_image_'.rand(999,9999).'.'.$request->banner_image->extension();
+            $request->banner_image->move(public_path('assets/blog_images'), $bannerimageName);
+        }else{
+            $bannerimageName = $blog->banner_image;
+        }
+
 
         $blog = Blog::find($request->editId);
         $blog->categoryId = $request->category;
         $blog->title = $request->title;
         $blog->image = $imageName;
+        $blog->banner_image = $bannerimageName;
         $blog->content = $request->content;
         $blog->save();
 
