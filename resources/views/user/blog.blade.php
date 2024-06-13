@@ -49,7 +49,7 @@
             <h1 class="blog_heading">Popular Blog</h1>
             <div class="row g-3">
             @foreach ($populerBlog as $populerBlogKey => $populerBlogValue)
-              <div class="col-lg-4 last_blog_box">
+              <div class="col-lg-4 col-md-6 last_blog_box">
                 <div class="blg_box">
                   <a href="{{url('/blog-details/'.$populerBlogValue->slug)}}" class="populer_blog_img_link"><img src="{{asset('assets/blog_images/'.$populerBlogValue->image)}}" alt="" class="img-fluid"></a>
                   <a href="{{url('/blog-details/'.$populerBlogValue->slug)}}" class="blog_link">{{$populerBlogValue->title}}</a>

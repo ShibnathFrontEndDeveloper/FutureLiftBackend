@@ -14,8 +14,8 @@
         padding:15px !important;
     }
     .dashCard svg{
-        width: 80px;
-        height:80px;
+        width: 57px;
+        height:57px;
         border:1px solid #162187;
         border-radius:50%;
         padding:5px;

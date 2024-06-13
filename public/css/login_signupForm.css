@@ -428,4 +428,8 @@ form.sign-in-form {
     bottom: 20%;
     left: 50%;
   }
+
+  .container.sign-up-mode .right-panel{
+    margin-top: 40px;
+  }
 }
