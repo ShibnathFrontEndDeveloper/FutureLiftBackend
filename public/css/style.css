@@ -4033,6 +4033,61 @@ policy  /////////////////////////////////////
     border-radius: 3px;
 }
 
+/* Test Part */
+
+.topart_main{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px auto;
+}
+
+.middle_part{
+  flex-grow: 999;
+  flex-basis: 0;
+  margin-left: 20px;
+}
+.middle_part .middleTab_pan{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
+.middle_part .middle_box_content{
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 1px 5px 10px rgba(0,0,0,.2);
+}
+.middle_part .middle_box_content a{
+  text-decoration: none;
+}
+.middle_part .middle_box_content a img{
+  width: 100%;
+}
+.middle_part .middle_box_content a .middle_boxImg_headline h2{
+  color: #111;
+  font-size: 20px;
+}
+.middle_part .middle_box_content a .middle_boxImg_headline{
+  padding: 10px 8px;
+}
+.side_part_hhghggghjghjgj{
+  flex-grow: 1;
+  position: sticky;
+  position: -webkit-sticky !important;
+  top: 0px;
+  flex-basis: 300px;
+  height: 600px;
+  width: 150px;
+  background: #b5b5b5;
+  overflow: auto;
+}
+.side_part_hhghggghjghjgj .nav_pat{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Test Part End */
+
 /* ////////////Career Library Details//////////// */
 
 .libryDtls_sec{

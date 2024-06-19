@@ -33,6 +33,513 @@
                 </div> -->
             </div>
             <div class="container">
+        <div class="topart_main">
+            <div class="hjhggtyjjhj">
+                <div class="side_part_hhghggghjghjgj">
+                <div class="nav  nav_pat">
+                    <button class="nav-link navlist_link active">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link" >Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link" >Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                    <button class="navlist_link">Design</button>
+                </div>
+            </div>
+            </div>
+            
+            <div class="middle_part">
+                <div class="tab-content" id="Career_content_box">
+                    <div  class="tab-pane middleTab_pan fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="middle_box_content">
+                            <a href="">
+                                <div class="middle_boxImg">
+                                    <img src="images/gal1.jpg" alt="">
+                                </div>
+                                <div class="middle_boxImg_headline">
+                                    <h2>Artificial Intelligence new</h2>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            <!-- <div class="container">
                 <div class="features_pannel">
 
                     <div class="featureTabBox">
@@ -72,7 +579,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
       <div id="footer">
       @include('user.includes.footer')
@@ -166,23 +673,23 @@
           document.documentElement.scrollTop = 0;
         }
 
-        function getData(key,categoryId){
-                $("#ftco-loader").show();
-                $.ajax({
-                    type : 'GET',
-                    url: "<?=url('/get-library-data')?>/"+key+"/"+categoryId,
-                    success : function(data){
-                        $("#v-pills-tabContent").html(data);
-                        scrollPosition = $('#blankdiv').offset().top - 250;
-                        console.log(scrollPosition,'scrollPosition');
-                        $("#ftco-loader").hide();
-                    },error: function(data){
-                        $("#ftco-loader").hide();
-                    },
-                })
-        }
+        // function getData(key,categoryId){
+        //         $("#ftco-loader").show();
+        //         $.ajax({
+        //             type : 'GET',
+        //             url: "<?=url('/get-library-data')?>/"+key+"/"+categoryId,
+        //             success : function(data){
+        //                 $("#v-pills-tabContent").html(data);
+        //                 scrollPosition = $('#blankdiv').offset().top - 250;
+        //                 console.log(scrollPosition,'scrollPosition');
+        //                 $("#ftco-loader").hide();
+        //             },error: function(data){
+        //                 $("#ftco-loader").hide();
+        //             },
+        //         })
+        // }
 
-        getData('all-career-data',0);
+        // getData('all-career-data',0);
     </script>
     <script>
      // Get the navbar
