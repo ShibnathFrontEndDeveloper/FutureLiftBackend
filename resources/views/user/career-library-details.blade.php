@@ -143,7 +143,7 @@
                 <div class="career_content_box" id="LeadingInstitute">
                   <div class="career_content_boxDtls">
                     <h1><img src="{{asset('assets/images/instituteIcon.png')}}" alt="" class="img-fluid">Leading Institute</h1>
-                    <p>Top Artificial Intelligence and Machine Learning Institutes in India</p>
+                    <!-- <p>Top Artificial Intelligence and Machine Learning Institutes in India</p> -->
 
                     <div class="careerPath_tabel">
                       <table class="career_tabel institute_table">

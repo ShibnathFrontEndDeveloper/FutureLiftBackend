@@ -745,11 +745,11 @@ class Helpers
     }
     public static function getBlogCategoryIdByName($id){
         $data = BlogCategory::find($id);
-        return $data->name;
+        return (isset($data->name))?$data->name:'';
     }
     public static function getBlogCategoryIdBySlug($id){
         $data = BlogCategory::find($id);
-        return $data->slug;
+        return (isset($data->slug))?$data->slug:'';
     }
     public static function readMoreHelper($story_desc, $chars = 100,$modalId) {
         // $story_desc = substr($story_desc,0,$chars);

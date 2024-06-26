@@ -605,7 +605,7 @@ input::-webkit-calendar-picker-indicator {
   .home_part_heading .hone_heading{
    text-align: center;
   }
-  
+
 }
 .home_swiper{
   width: 100%;
@@ -2243,7 +2243,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .sessionContent {
     padding: 2rem 0;
   }
-  
+
   .careerSubscribeContent p {
     font-size: 1.5rem;
   }
@@ -2273,8 +2273,8 @@ transform: translate(-5px, 5px) rotate(-45deg)
     padding: 0 1rem;
     font-size: 1.5rem;
   }
-  
- 
+
+
   /* .serviceVideo {
     padding: 2rem;
   } */
@@ -2393,7 +2393,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
     margin-bottom: 0;
     font-size: 0.9rem;
   }
-  
+
 }
 @media screen and (max-width: 770px) {
   .bannerContent {
@@ -2518,8 +2518,8 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .serviceVideoContent{
     width: 100%;
   }
- 
-  
+
+
   /* .serviceVideo {
     padding: 3rem 1rem;
   } */
@@ -2571,7 +2571,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .testServiceCardText :nth-child(2) {
     font-size: 0.7rem;
   }
-  
+
   .footer-area .footer-logo{
     width: 160px;
   }
@@ -2703,7 +2703,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
   .tabCardContent p {
     font-size: 0.6rem;
   }
-  
+
   .faqQuestion p {
     font-size: 0.6rem;
   }
@@ -2717,7 +2717,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
     padding: 0.8rem 2.5rem;
   }
 
- 
+
   /* .serviceVideo {
     padding: 1rem 1rem;
   } */
@@ -3320,7 +3320,7 @@ transform: translate(-5px, 5px) rotate(-45deg)
     height: 14rem;
     padding: 1rem;
   } */
- 
+
   .successCard-heading {
     font-size: 0.8rem;
   }
@@ -4406,7 +4406,7 @@ policy  /////////////////////////////////////
     margin-left: 0px;
     margin-top: 30px;
   }
-  
+
 }
 @media screen and (max-width:767px) {
   .position_box.newClassTab{

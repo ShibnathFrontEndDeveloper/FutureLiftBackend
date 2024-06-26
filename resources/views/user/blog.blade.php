@@ -27,7 +27,7 @@
               <div class="col-lg-7 col-md-7">
                 <div class="blog_single_text">
                   <h1>welcome to <span class="name">future</span> <span class="title">lift</span> <span class="page_name">blog</span></h1>
-                  <p>india's largest career councelling brand</p>
+                  <p>India's largest career counselling brand</p>
                   <div class="text-left">
                     <a href="{{url('/about')}}">about us</a>
                   </div>
