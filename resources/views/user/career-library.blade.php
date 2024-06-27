@@ -244,7 +244,7 @@
           // Set a timeout to run after scrolling ends
           isScrolling = setTimeout(() => {
               checkScrollEnd();
-          }, 200);
+          }, 10);
 
         });
 
@@ -262,6 +262,7 @@
                 $('.elimeni_box').addClass('newClass');
                  $('.feature_box').addClass('newTab');
             }
+
         }
 
         // $(window).scroll(function(){
